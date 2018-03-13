@@ -1,11 +1,11 @@
 {
     "name": "@diworkfe/public-components",
-    "version": "0.1.0",
+    "version": "0.0.1",
     "description": "diwork fe public components",
     "author": "zhengxingcheng <xingcheng.zheng@gmail.com>",
     "private": true,
     "files": [
       "build"
     ],
-    "main": "./build/index.js"
+    "main": "./build"
 }
