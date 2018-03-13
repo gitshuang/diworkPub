@@ -1,0 +1,4 @@
+{
+    "name": "@diworkfe/public-components",
+    "main": "./build/index"
+}
