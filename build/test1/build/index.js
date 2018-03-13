@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _Test1 = "Success!";
+var _Test1 = "Text 1 Load Success!";
 
 var _TestHasDefault = _interopRequireDefault(_Test1);
 
