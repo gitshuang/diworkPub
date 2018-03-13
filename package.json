@@ -4,5 +4,5 @@
     "description": "diwork fe public components",
     "author": "zhengxingcheng <xingcheng.zheng@gmail.com>",
     "private": true,
-    "main": "./build/index.js"
+    "main": "./build"
 }
