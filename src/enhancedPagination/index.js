@@ -11,6 +11,26 @@ import {enhanced_pagination,data_select,page_jump,page_jump_value
 
 const EnhancedPagination = WrappedComponent => {
     return class extends Component {
+      static defaultProps = {
+        first: true,
+        last: true,
+        prev: true,
+        next: true,
+        boundaryLinks: true,
+        size: 'sm',
+        gap: true,
+        maxButtons: 7,
+        dataNumSelectActive: 1,
+        dataNumSelect: [
+          { id: 0, name: '5条/页' },
+          { id: 1, name: '10条/页' },
+          { id: 2, name: '15条/页' },
+          { id: 3, name: '20条/页' }
+        ],
+        items: 0,
+        activePage: 1,
+      }
+
       constructor(props){
         super(props);
         this.state = {
