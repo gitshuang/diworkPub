@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import 'bee-pagination/build/Pagination.css';
-import Pagination from 'bee/pagination';
+import Pagination from './bee/pagination';
 import "./style.css";
 //新增的三个
 //onDataNumSelect func 下拉选择每页展示的数据数的时候
