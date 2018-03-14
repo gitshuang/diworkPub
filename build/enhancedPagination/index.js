@@ -40,11 +40,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
-  return function (_Component) {
-    _inherits(_class2, _Component);
+  var _class, _temp;
 
-    function _class2(props) {
-      _classCallCheck(this, _class2);
+  return _temp = _class = function (_Component) {
+    _inherits(_class, _Component);
+
+    function _class(props) {
+      _classCallCheck(this, _class);
 
       var _this = _possibleConstructorReturn(this, _Component.call(this, props));
 
@@ -83,7 +85,7 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
       return _this;
     }
 
-    _class2.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+    _class.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
       // //console.log('jiude',this.state.activePage,'xinde',nextProps.activePage);
       if (this.state.activePage !== this.props.activePage) {
         this.setState({
@@ -93,7 +95,7 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
       }
     };
 
-    _class2.prototype.render = function render() {
+    _class.prototype.render = function render() {
       var _this2 = this;
 
       var newProps = {
@@ -135,8 +137,21 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
       );
     };
 
-    return _class2;
-  }(_react.Component);
+    return _class;
+  }(_react.Component), _class.defaultProps = {
+    first: true,
+    last: true,
+    prev: true,
+    next: true,
+    boundaryLinks: true,
+    size: 'sm',
+    gap: true,
+    maxButtons: 7,
+    dataNumSelectActive: 1,
+    dataNumSelect: [{ id: 0, name: '5条/页' }, { id: 1, name: '10条/页' }, { id: 2, name: '15条/页' }, { id: 3, name: '20条/页' }],
+    items: 0,
+    activePage: 1
+  }, _temp;
 };
 
 exports["default"] = EnhancedPagination(_pagination2["default"]);
