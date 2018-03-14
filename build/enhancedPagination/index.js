@@ -10,19 +10,17 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-require('bee-pagination/build/Pagination.css');
-
-var _pagination = require('bee/pagination');
+var _pagination = require('../bee/pagination');
 
 var _pagination2 = _interopRequireDefault(_pagination);
 
 require('./style.css');
 
 var _style = {
-  'enhanced_pagination': 'style__enhanced_pagination___-hash--base64--5-',
-  'data_select': 'style__data_select___-hash--base64--5-',
-  'page_jump': 'style__page_jump___-hash--base64--5-',
-  'page_jump_value': 'style__page_jump_value___-hash--base64--5-'
+  'enhanced_pagination': 'style__enhanced_pagination___3LhAI',
+  'data_select': 'style__data_select___1N0jE',
+  'page_jump': 'style__page_jump___3AeGw',
+  'page_jump_value': 'style__page_jump_value___15gy0'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -42,7 +40,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
-  console.log('EnhancedPagination');
   return function (_Component) {
     _inherits(_class2, _Component);
 

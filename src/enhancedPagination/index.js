@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import Pagination from './bee/pagination';
-import "./style.css";
+import Pagination from 'bee/pagination';
 //新增的三个
 //onDataNumSelect func 下拉选择每页展示的数据数的时候
 //dataNumSelect  array ，下拉的数据选择有哪些
@@ -11,7 +10,6 @@ import {enhanced_pagination,data_select,page_jump,page_jump_value
   } from './style.css';
 
 const EnhancedPagination = WrappedComponent => {
-    console.log('EnhancedPagination');
     return class extends Component {
       constructor(props){
         super(props);
@@ -20,7 +18,7 @@ const EnhancedPagination = WrappedComponent => {
           dataNum:this.props.dataNumSelectActive,
         }
       }
-      
+
       componentWillReceiveProps(nextProps){
         // //console.log('jiude',this.state.activePage,'xinde',nextProps.activePage);
         if(this.state.activePage !== this.props.activePage){

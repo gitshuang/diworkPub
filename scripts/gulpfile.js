@@ -11,35 +11,46 @@ var es3ify = require("gulp-es3ify");
 
 var spinner = ora('building for production...')
 
-var addBabelPrefix = function (key, values) {
-  return values.map(function (item) {
-    return require.resolve("babel-" + key + "-" + item);
+var makeAlias = function(obj) {
+  var result = [];
+  Object.keys(obj).forEach(function(key) {
+    var cell = {
+      src: key,
+      expose: obj[key]
+    };
+    result.push(cell);
   })
-}
+  return result;
+};
 
-var babelPresets = addBabelPrefix('preset', [
+var babelPresets = [
   "react",
   "es2015-ie",
   "stage-2",
-])
+]
 
-var babelPlugins = addBabelPrefix('plugin', [
+var babelPlugins = [
   "add-module-exports",
   "transform-object-rest-spread",
-])
-
-babelPlugins.push([
-  "css-modules-transform",
-  {
-    generateScopedName: '[name]__[local]___[hash: base64: 5]',
-    extractCss: {
-      dir: "./build/",
-      relativeRoot: "./src/",
-      filename: "[path]/[name].css"
+  [
+    "css-modules-transform",
+    {
+      generateScopedName: '[name]__[local]___[hash:base64:5]',
+      extractCss: {
+        dir: "./build/",
+        relativeRoot: "./src/",
+        filename: "[path]/[name].css"
+      },
+      keepImport: true
     },
-    keepImport: true
-  },
-]);
+  ],
+  [
+    "module-alias",
+    makeAlias({
+      "./src/bee": "bee",
+    })
+  ]
+];
 
 gulp.task("clean_build", function () {
   spinner.start()
