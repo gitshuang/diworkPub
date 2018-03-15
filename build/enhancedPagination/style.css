@@ -1,6 +1,6 @@
 /*  imported from style.css  */
 
-.style__enhanced_pagination___3LhAI{
+.style__enhanced_pagination___3adls{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -10,7 +10,7 @@
     -webkit-box-pack: center;
     justify-content: center;
 }
-.style__data_select___1N0jE {
+.style__data_select___3IIDe {
     outline: none;
     -webkit-appearance: none;
     height: 28px;
@@ -23,10 +23,10 @@
     font-size: 14px;
     margin: 0 6px;
 }
-.style__page_jump___3AeGw {
+.style__page_jump___2UQbq {
     font-size: 14px;
 }
-input.style__page_jump_value___15gy0 {
+input.style__page_jump_value___2gtGd {
     outline: none;
     -webkit-appearance:  none;
     background: rgba(9,30,66,.04);
