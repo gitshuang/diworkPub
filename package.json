@@ -17,7 +17,8 @@
     "bee-radio": "1.0.3",
     "prop-types": "15.6.0",
     "react": "15.6.2",
-    "react-dom": "15.6.2"
+    "react-dom": "15.6.2",
+    "redux-actions": "2.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
