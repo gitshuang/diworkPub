@@ -1,7 +1,8 @@
-import EnhancePagination from './enhancedPagination';
+import EnhancedPagination from './enhancedPagination';
+import Button from './button';
 
 const DiworkPublic = {
-  EnhancePagination,
-  
+  EnhancedPagination,
+  Button,
 }
 export default DiworkPublic;
