@@ -52,19 +52,16 @@ var babelPlugins = [
   ]
 ];
 
-gulp.task("clean", function () {
+gulp.task("clean", function (cb) {
   spinner.start()
-  var promise = new Promise(function (resolve, reject) {
-    rm(path.join(__dirname, '../build'), err => {
-      if (err) {
-        reject(err)
-      }
-      resolve()
-    })
+  rm(path.join(__dirname, '../build'), err => {
+    if (err) {
+      cb(err)
+    }
+    cb()
   })
-  return promise;
 });
-gulp.task("fonts", function () {
+gulp.task("fonts", ["clean"], function () {
   return gulp
     .src([
       './src/**/*.eot',

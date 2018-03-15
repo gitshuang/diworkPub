@@ -17,10 +17,10 @@ var _pagination2 = _interopRequireDefault(_pagination);
 require('./style.css');
 
 var _style = {
-  'enhanced_pagination': 'style__enhanced_pagination___3adls',
-  'data_select': 'style__data_select___3IIDe',
-  'page_jump': 'style__page_jump___2UQbq',
-  'page_jump_value': 'style__page_jump_value___2gtGd'
+  'enhanced_pagination': 'enhanced_pagination__style___3LhAI',
+  'data_select': 'data_select__style___1N0jE',
+  'page_jump': 'page_jump__style___3AeGw',
+  'page_jump_value': 'page_jump_value__style___15gy0'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
