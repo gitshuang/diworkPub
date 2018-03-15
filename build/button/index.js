@@ -18,19 +18,19 @@ var _button2 = _interopRequireDefault(_button);
 require('./style.css');
 
 var _style = {
-    'btn': 'style__btn___30SNS',
-    'brand_btn': 'style__brand_btn___oBMdh',
-    'default_btn': 'style__default_btn___3x4sO',
-    'default_line_btn': 'style__default_line_btn___1OFoh',
-    'default_alpha_btn': 'style__default_alpha_btn___1KAkZ',
-    'default_white_btn': 'style__default_white_btn___C1i1t',
-    'check_selected_btn': 'style__check_selected_btn___2SHDD',
-    'disabled_check_selected_btn': 'style__disabled_check_selected_btn___2wR5o',
-    'check_close_btn': 'style__check_close_btn___3mcm-',
-    'disabled_check_close_btn': 'style__disabled_check_close_btn___24bnq',
-    'danger_btn': 'style__danger_btn___2INSY',
-    'disabled_danger_btn': 'style__disabled_danger_btn___3YX1Q',
-    'warning_btn': 'style__warning_btn___2Bths'
+    'btn': 'style__btn___37bsb',
+    'brand_btn': 'style__brand_btn___2q2wL',
+    'default_btn': 'style__default_btn___ID6yW',
+    'default_line_btn': 'style__default_line_btn___bm6bw',
+    'default_alpha_btn': 'style__default_alpha_btn___LfXeC',
+    'default_white_btn': 'style__default_white_btn___3sPDO',
+    'check_selected_btn': 'style__check_selected_btn___4yC4T',
+    'disabled_check_selected_btn': 'style__disabled_check_selected_btn___9vvvC',
+    'check_close_btn': 'style__check_close_btn___IV5Sb',
+    'disabled_check_close_btn': 'style__disabled_check_close_btn___2iKOo',
+    'danger_btn': 'style__danger_btn___3JHoK',
+    'disabled_danger_btn': 'style__disabled_danger_btn___3mBiP',
+    'warning_btn': 'style__warning_btn___3xJGo'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

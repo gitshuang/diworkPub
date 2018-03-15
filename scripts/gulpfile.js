@@ -52,7 +52,7 @@ var babelPlugins = [
   ]
 ];
 
-gulp.task("clean_build", function () {
+gulp.task("clean", function () {
   spinner.start()
   var promise = new Promise(function (resolve, reject) {
     rm(path.join(__dirname, '../build'), err => {
@@ -64,17 +64,26 @@ gulp.task("clean_build", function () {
   })
   return promise;
 });
-
-gulp.task("build", ["clean_build"], function () {
+gulp.task("fonts", function () {
+  return gulp
+    .src([
+      './src/**/*.eot',
+      './src/**/*.svg',
+      './src/**/*.ttf',
+      './src/**/*.woff'
+    ])
+    .pipe(gulp.dest('build'))
+});
+gulp.task("build", ["clean", "fonts"], function () {
   return gulp
     .src([
       path.join(process.cwd(), "./src/**/*.js"),
     ])
     .pipe(
-    babel({
-      presets: babelPresets,
-      plugins: babelPlugins,
-    })
+      babel({
+        presets: babelPresets,
+        plugins: babelPlugins,
+      })
     )
     .pipe(es3ify())
     .pipe(gulp.dest("build"))

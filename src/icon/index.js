@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import './iconfont/iconfont.css'
-import './index.css'
+import types from './iconfont/iconfont.css';
+import sizes from './index.css';
 
 const propTypes = {
   type: PropTypes.string,
@@ -18,7 +18,7 @@ function Icon(props) {
   let {type, className, size, ...ret} = props;
   return (
     <i
-      className={`iconfont icon-${type} um-icon-${size} ${className}`}
+      className={`iconfont ${types[`icon-${type}`]} ${sizes[size]} ${className}`}
       {...ret}
     />
   )
