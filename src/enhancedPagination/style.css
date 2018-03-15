@@ -5,6 +5,8 @@
     flex-wrap: nowrap;
     min-width: 700px;
     overflow: auto;
+    -webkit-box-pack: center;
+    justify-content: center;
 }
 .data_select {
     outline: none;

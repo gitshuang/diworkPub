@@ -9,6 +9,10 @@
   },
   "dependencies": {
     "bee-pagination": "1.0.2",
+    "bee-rate":"1.0.1",
+    "bee-button": "1.0.2",
+    "bee-checkbox": "1.0.1",
+    "bee-icon": "1.0.4",
     "prop-types": "15.6.0",
     "react": "15.6.2",
     "react-dom": "15.6.2"
