@@ -15,6 +15,7 @@
     "bee-icon": "1.0.4",
     "bee-form-control": "1.0.4",
     "bee-radio": "1.0.3",
+    "bee-notification": "1.0.2",
     "prop-types": "15.6.0",
     "react": "15.6.2",
     "react-dom": "15.6.2",
