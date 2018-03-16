@@ -24,9 +24,10 @@ const buttonMaker = (btnType) => {
       const { className, onClick } = this.props;
       return (
         <Button
+          {...this.props}
           className={`${btn} ${btnType} ${className}`}
           onClick={(e) => { onClick(e, this) }}
-          {...this.props} />
+        />
       );
     }
   }
