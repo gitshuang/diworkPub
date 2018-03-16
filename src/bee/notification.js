@@ -1,4 +1,4 @@
-import 'bee-rate/build/Notification.css';
+import 'bee-notification/build/Notification.css';
 
 export * from 'bee-notification';
-export { default } from 'bee-Notification';
+export { default } from 'bee-notification';

@@ -16,17 +16,14 @@ Object.keys(_beeNotification).forEach(function (key) {
     }
   });
 });
-
-var _beeNotification2 = require('bee-Notification');
-
 Object.defineProperty(exports, 'default', {
   enumerable: true,
   get: function get() {
-    return _interopRequireDefault(_beeNotification2)["default"];
+    return _interopRequireDefault(_beeNotification)["default"];
   }
 });
 
-require('bee-rate/build/Notification.css');
+require('bee-notification/build/Notification.css');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
