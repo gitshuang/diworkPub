@@ -53,10 +53,9 @@ const EnhancedPagination = WrappedComponent => {
       }
 
       setPageJump = (e) =>{
-        let reg =  /^\+?[1-9][0-9]*$/;
         let value = e.target.value;
         if((value < 1 && value!=='')||value > this.props.items || (value == 0 && value !== '')){
-          alert(value+'不在页码范围');
+          return false;
         }else{
           //注意这里要将下拉的数据还原
           this.setState({activePage:value},function(){
@@ -81,12 +80,13 @@ const EnhancedPagination = WrappedComponent => {
             maxButtons:5,
             boundaryLinks:true
         }
+        const {onDataNumSelect, dataNumSelect, dataNumSelectActive, ...restProps} = this.props
         return (
             <div className={enhanced_pagination}>
-                <WrappedComponent {...this.props} {...newProps}/>
+                <WrappedComponent {...restProps} {...newProps}/>
                 <div className="data-per-select">
-                    <select  name="data-select" id="" className={data_select} defaultValue='' value={this.state.dataNum} onChange={e=>this.dataNumSelect(e)}>
-                      {this.props.dataNumSelect.length > 0 && this.props.dataNumSelect.map((item, i) => {
+                    <select  name="data-select" id="" className={data_select}  value={this.state.dataNum} onChange={e=>this.dataNumSelect(e)}>
+                      {dataNumSelect.length > 0 && dataNumSelect.map((item, i) => {
                       return <option key={i} value={item.id}>{item.name}</option>
                       })}
                     </select>
