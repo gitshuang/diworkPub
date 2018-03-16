@@ -1,64 +1,69 @@
 import React, { Component } from 'react';
 import Button from 'bee/button';
-import {btn,brand_btn,default_btn,default_line_btn,default_alpha_btn,check_selected_btn,check_close_btn,danger_btn,warning_btn,default_white_btn} from './style.css';
+import noop from '../utils';
+import {
+  btn,
+  brand_btn,
+  default_btn,
+  default_line_btn,
+  default_alpha_btn,
+  check_selected_btn,
+  check_close_btn,
+  danger_btn,
+  warning_btn,
+  default_white_btn
+} from './style.css';
+
+const buttonMaker = (btnType) => {
+  return class extends Component {
+    static defaultProps = {
+      className: '',
+      onClick: noop,
+    }
+    render() {
+      const { className, onClick } = this.props;
+      return (
+        <Button
+          className={`${btn} ${btnType} ${className}`}
+          disabled={disabled}
+          onClick={(e) => { onClick(e, ...props) }}
+          {...this.props} />
+      );
+    }
+  }
+}
 
 //品牌色
-const ButtonBrand = ({ ...props }) => {
-    const { children ,disabled, className} = props;
-  return (<Button className={`${btn} ${brand_btn} ${className ? className : ''}`} disabled={disabled} onClick={(e)=>{props.onClick(e,...props)}}>{children}</Button>);
-};
-
+const ButtonBrand = buttonMaker(brand_btn)
 //通用按钮
-const ButtonDefault = ({ ...props }) => {
-    const { children ,disabled} = props;
-    return(<Button className={`${btn} ${default_btn}`} disabled={disabled} onClick={(e)=>{props.onClick(e,...props)}}>{children}</Button>);
-};
-
+const ButtonDefault = buttonMaker(default_btn);
 //带边框
-const ButtonDefaultLine = ({ ...props }) => {
-    const { children ,disabled} = props;
-    return(<Button className={`${btn} ${default_line_btn}`} type="button" disabled={disabled} onClick={(e)=>{props.onClick(e,...props)}}>{children}</Button>);
-};
-
+const ButtonDefaultLine = buttonMaker(default_line_btn);
 //默认背景透明
-const ButtonDefaultAlpha = ({ ...props }) => {
-    const { children ,disabled} = props;
-    return(<Button className={`${btn} ${default_alpha_btn}`} disabled={disabled} onClick={(e)=>{props.onClick(e,...props)}}>{children}</Button>);
-};
-
+const ButtonDefaultAlpha = buttonMaker(default_alpha_btn);
 //默认背景透明
-const ButtonCheckSelected = ({ ...props }) => {
-    const { children ,disabled,id} = props;
-    const attribute = id?{id}:{};
-    return(<Button {...attribute} className={`${btn} ${check_selected_btn}`} disabled={disabled} onClick={(e)=>{props.onClick(e,...props)}}>{children}</Button>);
-};
+const ButtonCheckSelected = buttonMaker(check_selected_btn);
 //默认背景透明
-const ButtonCheckClose = ({ ...props }) => {
-    const { children ,disabled} = props;
-    return(<Button className={`${btn} ${check_close_btn}`} disabled={disabled} onClick={(e)=>{props.onClick(e,...props)}}>{children}</Button>);
-};
-
+const ButtonCheckClose = buttonMaker(check_close_btn);
 //默认白色背景带边框
-const ButtonDefaultWhite = ({ ...props }) => {
-    const { children ,disabled} = props;
-    return(<Button className={`${btn} ${default_white_btn}`} disabled={disabled} onClick={(e)=>{props.onClick(e,...props)}}>{children}</Button>);
-};
-
+const ButtonDefaultWhite = buttonMaker(default_white_btn);
 //危险
-const ButtonDanger = ({ ...props }) => {
-    const { children ,disabled} = props;
-    return(<Button className={`${btn} ${danger_btn}`} disabled={disabled} onClick={(e)=>{props.onClick(e,...props)}}>{children}</Button>);
-};
-
+const ButtonDanger = buttonMaker(danger_btn);
 //警告
-const ButtonWarning = ({ ...props }) => {
-    const { children ,disabled} = props;
-    return(<Button className={`${btn} ${warning_btn}`} disabled={disabled} onClick={(e)=>{props.onClick(e,...props)}}>{children}</Button>);
-};
+const ButtonWarning = buttonMaker(warning_btn);
 
 export default ButtonDefault;
-export { ButtonDanger,ButtonBrand,ButtonDefaultAlpha, ButtonDefaultLine,ButtonWarning,
-  ButtonCheckClose,ButtonCheckSelected,ButtonDefaultWhite};
+export {
+  ButtonDanger,
+  ButtonBrand,
+  ButtonDefault,
+  ButtonDefaultAlpha,
+  ButtonDefaultLine,
+  ButtonWarning,
+  ButtonCheckClose,
+  ButtonCheckSelected,
+  ButtonDefaultWhite,
+};
 
 /**
 参数
