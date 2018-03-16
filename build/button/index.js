@@ -66,12 +66,12 @@ var buttonMaker = function buttonMaker(btnType) {
           className = _props.className,
           _onClick = _props.onClick;
 
-      return _react2["default"].createElement(_button2["default"], _extends({
+      return _react2["default"].createElement(_button2["default"], _extends({}, this.props, {
         className: _style.btn + ' ' + btnType + ' ' + className,
         onClick: function onClick(e) {
           _onClick(e, _this2);
         }
-      }, this.props));
+      }));
     };
 
     return _class;
