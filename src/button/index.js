@@ -25,8 +25,7 @@ const buttonMaker = (btnType) => {
       return (
         <Button
           className={`${btn} ${btnType} ${className}`}
-          disabled={disabled}
-          onClick={(e) => { onClick(e, ...props) }}
+          onClick={(e) => { onClick(e, this) }}
           {...this.props} />
       );
     }
