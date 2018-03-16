@@ -27,6 +27,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -55,10 +57,9 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
       };
 
       _this.setPageJump = function (e) {
-        var reg = /^\+?[1-9][0-9]*$/;
         var value = e.target.value;
         if (value < 1 && value !== '' || value > _this.props.items || value == 0 && value !== '') {
-          alert(value + '不在页码范围');
+          return false;
         } else {
           //注意这里要将下拉的数据还原
           _this.setState({ activePage: value }, function () {
@@ -102,19 +103,26 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
         maxButtons: 5,
         boundaryLinks: true
       };
+
+      var _props = this.props,
+          onDataNumSelect = _props.onDataNumSelect,
+          dataNumSelect = _props.dataNumSelect,
+          dataNumSelectActive = _props.dataNumSelectActive,
+          restProps = _objectWithoutProperties(_props, ['onDataNumSelect', 'dataNumSelect', 'dataNumSelectActive']);
+
       return _react2["default"].createElement(
         'div',
         { className: _style.enhanced_pagination },
-        _react2["default"].createElement(WrappedComponent, _extends({}, this.props, newProps)),
+        _react2["default"].createElement(WrappedComponent, _extends({}, restProps, newProps)),
         _react2["default"].createElement(
           'div',
           { className: 'data-per-select' },
           _react2["default"].createElement(
             'select',
-            { name: 'data-select', id: '', className: _style.data_select, defaultValue: '', value: this.state.dataNum, onChange: function onChange(e) {
+            { name: 'data-select', id: '', className: _style.data_select, value: this.state.dataNum, onChange: function onChange(e) {
                 return _this2.dataNumSelect(e);
               } },
-            this.props.dataNumSelect.length > 0 && this.props.dataNumSelect.map(function (item, i) {
+            dataNumSelect.length > 0 && dataNumSelect.map(function (item, i) {
               return _react2["default"].createElement(
                 'option',
                 { key: i, value: item.id },
