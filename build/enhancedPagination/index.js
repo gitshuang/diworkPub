@@ -87,8 +87,7 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
     }
 
     _class.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-      // //console.log('jiude',this.state.activePage,'xinde',nextProps.activePage);
-      if (this.state.activePage !== this.props.activePage) {
+      if (this.state.activePage !== nextProps.activePage) {
         this.setState({
           activePage: nextProps.activePage,
           dataNum: this.state.dataNumSelectActive
