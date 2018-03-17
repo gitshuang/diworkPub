@@ -39,10 +39,9 @@ const EnhancedPagination = WrappedComponent => {
       }
 
       componentWillReceiveProps(nextProps){
-        // //console.log('jiude',this.state.activePage,'xinde',nextProps.activePage);
-        if(this.state.activePage !== this.props.activePage){
+        if (this.state.activePage !== nextProps.activePage){
           this.setState({
-            activePage :nextProps.activePage,
+            activePage:nextProps.activePage,
             dataNum:this.state.dataNumSelectActive,
           })
         }
