@@ -51,7 +51,10 @@ const ButtonDefaultWhite = buttonMaker(default_white_btn);
 const ButtonDanger = buttonMaker(danger_btn);
 //警告
 const ButtonWarning = buttonMaker(warning_btn);
-
+//列表展示的button，看应用管理
+const ButtonListDisplay= buttonMaker(list_li_btn);
+//搜索的button
+const ButtonSearchIcon = buttonMaker(search_icon_btn);
 export default ButtonDefault;
 export {
   ButtonDanger,
@@ -63,6 +66,10 @@ export {
   ButtonCheckClose,
   ButtonCheckSelected,
   ButtonDefaultWhite,
+  //列表展示的button
+  ButtonListDisplay,
+  //搜素的按钮
+  ButtonSearchIcon,
 };
 
 /**
