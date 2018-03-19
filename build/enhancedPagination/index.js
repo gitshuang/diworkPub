@@ -89,8 +89,7 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
     _class.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
       if (this.state.activePage !== nextProps.activePage) {
         this.setState({
-          activePage: nextProps.activePage,
-          dataNum: this.state.dataNumSelectActive
+          activePage: nextProps.activePage
         });
       }
     };
@@ -106,8 +105,7 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
       var _props = this.props,
           onDataNumSelect = _props.onDataNumSelect,
           dataNumSelect = _props.dataNumSelect,
-          dataNumSelectActive = _props.dataNumSelectActive,
-          restProps = _objectWithoutProperties(_props, ['onDataNumSelect', 'dataNumSelect', 'dataNumSelectActive']);
+          restProps = _objectWithoutProperties(_props, ['onDataNumSelect', 'dataNumSelect']);
 
       return _react2["default"].createElement(
         'div',

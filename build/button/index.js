@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ButtonDefaultWhite = exports.ButtonCheckSelected = exports.ButtonCheckClose = exports.ButtonWarning = exports.ButtonDefaultLine = exports.ButtonDefaultAlpha = exports.ButtonDefault = exports.ButtonBrand = exports.ButtonDanger = undefined;
+exports.ButtonSearchIcon = exports.ButtonDefaultWhite = exports.ButtonCheckSelected = exports.ButtonCheckClose = exports.ButtonWarning = exports.ButtonDefaultLine = exports.ButtonDefaultAlpha = exports.ButtonDefault = exports.ButtonBrand = exports.ButtonDanger = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -34,7 +34,8 @@ var _style = {
   'disabled_check_close_btn': 'disabled_check_close_btn__style___2iKOo',
   'danger_btn': 'danger_btn__style___3JHoK',
   'disabled_danger_btn': 'disabled_danger_btn__style___3mBiP',
-  'warning_btn': 'warning_btn__style___3xJGo'
+  'warning_btn': 'warning_btn__style___3xJGo',
+  'search_icon_btn': 'search_icon_btn__style___2ev0I'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -99,7 +100,8 @@ var ButtonDefaultWhite = buttonMaker(_style.default_white_btn);
 var ButtonDanger = buttonMaker(_style.danger_btn);
 //警告
 var ButtonWarning = buttonMaker(_style.warning_btn);
-
+//搜索的button
+var ButtonSearchIcon = buttonMaker(_style.search_icon_btn);
 exports["default"] = ButtonDefault;
 exports.ButtonDanger = ButtonDanger;
 exports.ButtonBrand = ButtonBrand;
@@ -110,6 +112,7 @@ exports.ButtonWarning = ButtonWarning;
 exports.ButtonCheckClose = ButtonCheckClose;
 exports.ButtonCheckSelected = ButtonCheckSelected;
 exports.ButtonDefaultWhite = ButtonDefaultWhite;
+exports.ButtonSearchIcon = ButtonSearchIcon;
 
 /**
 参数

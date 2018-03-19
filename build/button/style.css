@@ -208,3 +208,11 @@ button.warning_btn__style___3xJGo:disabled{
   background:rgba(9,44,66,0.04);
   color:rgba(165,173,186,1);
 }
+
+
+/*搜索*/
+button.search_icon_btn__style___2ev0I{
+  height: 38px;
+  border: 1px solid RGBA(78, 89, 104, 0.19);
+  background: #fff;
+}
