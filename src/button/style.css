@@ -17,7 +17,7 @@
 }
 /** 品牌红 **/
 button.brand_btn{
-  background:rgba(225,76,70,1)!important;
+  background:rgba(225,76,70,1);
   color:rgba(255,255,255,1) ;
 }
 button.brand_btn:hover{
@@ -207,25 +207,7 @@ button.warning_btn:disabled{
   color:rgba(165,173,186,1);
 }
 
-/**  列表展示的无背景 **/
-button.list_li_btn {
-  font-family:PingFangSC-Regular;
-  color:rgba(71,77,84,1);
-  background:#fff;
-}
-button.list_li_btn:active{
-  background: rgba(252,237,236,1);
-  color: #E14C46;
-}
-button.list_li_btn:hover{
-  background: rgba(252,237,236,1);
-  color: #E14C46;
-}
-button.list_li_btn:disabled{
-  background:rgba(9,44,66,0);
-  color:rgba(165,173,186,1);
-  cursor: not-allowed;
-}
+
 /*搜索*/
 button.search_icon_btn{
   height: 38px;
