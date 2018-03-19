@@ -42,7 +42,6 @@ const EnhancedPagination = WrappedComponent => {
         if (this.state.activePage !== nextProps.activePage){
           this.setState({
             activePage:nextProps.activePage,
-            dataNum:this.state.dataNumSelectActive,
           })
         }
       }
@@ -79,7 +78,7 @@ const EnhancedPagination = WrappedComponent => {
             maxButtons:5,
             boundaryLinks:true
         }
-        const {onDataNumSelect, dataNumSelect, dataNumSelectActive, ...restProps} = this.props
+        const {onDataNumSelect, dataNumSelect, ...restProps} = this.props
         return (
             <div className={enhanced_pagination}>
                 <WrappedComponent {...restProps} {...newProps}/>
