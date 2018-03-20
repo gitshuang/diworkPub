@@ -10,6 +10,7 @@
   font-size: 18px;
   color: #757F8C;
   cursor: pointer;
+  /* TODO -- remove important */
   height: 30px !important;
 }
 
@@ -27,6 +28,7 @@
 }
 
 :global(.u-modal-body) {
+  /* TODO -- remove important */
   padding-right: 40px !important;
 }
 

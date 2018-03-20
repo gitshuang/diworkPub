@@ -16,9 +16,11 @@ const defaultProps = {
 
 function Icon(props) {
   let {type, className, size, ...ret} = props;
+  const sizeClassName = sizes[size] || '';
+  const typeClassName = types[`icon-${type}`] || '';
   return (
     <i
-      className={`iconfont ${types[`icon-${type}`]} ${sizes[size]} ${className}`}
+      className={`iconfont ${typeClassName} ${sizeClassName} ${className}`}
       {...ret}
     />
   )
