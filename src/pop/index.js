@@ -56,7 +56,7 @@ class PopDialog extends Component {
 
   //此方法类型，和窗口类型保持一致，且增加其他没有的类型，后续用到哪些可自动增加。
   getButtonType = (type, da, key) => {
-    let _className = da.className ? da.className : null;
+    let _className = da.className ? da.className : '';
     switch (type) {
       case 'error':
         return <ButtonDanger key={"danger_pop_btn" + key} onClick={(e) => { this.btnClick(e, da) }} className={`${_className} ${btn} danger`} disabled={da.disable ? true : false} >{da.label}</ButtonDanger>;

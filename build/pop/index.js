@@ -97,7 +97,7 @@ var PopDialog = function (_Component) {
       }
       return "";
     }, _this.getButtonType = function (type, da, key) {
-      var _className = da.className ? da.className : null;
+      var _className = da.className ? da.className : '';
       switch (type) {
         case 'error':
           return _react2["default"].createElement(
