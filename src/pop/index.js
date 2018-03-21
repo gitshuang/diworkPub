@@ -106,7 +106,7 @@ class PopDialog extends Component {
     // }
 
     // this.props.backdrop?false:true
-    return (<Modal className={`${IS_IE ? 'ie9_pop' : ''} ${this.props.className ? this.props.className : "pop_dialog"} ${pop_type} ${this.getTypeClass(this.props.type)}`} backdrop={false} show={this.props.show} onHide={this.props.close} >
+    return (<Modal className={`${IS_IE ? 'ie9_pop' : ''} ${this.props.className ? this.props.className : "pop_dialog"} ${pop_type} ${this.getTypeClass(this.props.type)}`} backdrop={false} show={this.props.show} onHide={this.props.close} animation={false}>
       <Modal.Header>
         <Modal.Title>
           {type ? <Icon type={this.getTypeIcon(type)} /> : ""}
