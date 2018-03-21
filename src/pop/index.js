@@ -111,6 +111,7 @@ class PopDialog extends Component {
         <Modal.Title>
           {type ? <Icon type={this.getTypeIcon(type)} /> : ""}
           {this.props.title}
+          <div className={`${closeBtn} close`} onClick={this.props.close} ><Icon type="error3" /></div>
         </Modal.Title>
       </Modal.Header>
 
@@ -119,7 +120,7 @@ class PopDialog extends Component {
           {this.props.children}
         </div>
 
-        <div className={`${closeBtn} close`} onClick={this.props.close} ><Icon type="error3" /></div>
+        
       </Modal.Body>
 
       <Modal.Footer>

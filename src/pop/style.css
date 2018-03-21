@@ -5,7 +5,7 @@
 
 .closeBtn {
   position: absolute;
-  top: -52px;
+  top: 12px;
   right: 14px;
   font-size: 18px;
   color: #757F8C;
@@ -13,7 +13,6 @@
   /* TODO -- remove important */
   height: 30px !important;
 }
-
 :global(.u-modal.fade) {
   transition: none;
 }
@@ -26,7 +25,9 @@
   margin: 0px;
   color: #474D54;
 }
-
+:global(.u-modal.in .u-modal-dialog) >div{
+  box-shadow: 0px 6px 8px 0px rgba(74,81,93,0.25);
+}
 :global(.u-modal-body) {
   /* TODO -- remove important */
   padding-right: 40px !important;
@@ -86,7 +87,9 @@
 .pop_type.warning :global(.u-modal-header) {
   padding-top: 30px;
 }
-
+.pop_type.warning :global(.u-modal.in .u-modal-dialog) >div{
+  border: 1px dashed rgba(0, 0, 0, 0.4);
+}
 /* .pop_type.warning :global(.u-modal-footer .brand){
   background: #FFAB00;
   color:#474D54;
@@ -116,7 +119,9 @@
 .pop_type.danger :global(.u-modal-header) {
   padding-top: 30px;
 }
-
+.pop_type.danger :global(.u-modal.in .u-modal-dialog) >div{
+  border: 1px dashed rgba(0, 0, 0, 0.4);
+}
 /************************ success *************************/
 
 .pop_type.success :global(.u-modal-title .iconfont) {
@@ -140,4 +145,7 @@
 
 .pop_type.success :global(.u-modal-header) {
   padding-top: 30px;
+}
+.pop_type.success :global(.u-modal.in .u-modal-dialog) >div{
+  border: 1px dashed rgba(0, 0, 0, 0.4);
 }
