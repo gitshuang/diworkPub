@@ -187,7 +187,12 @@ var PopDialog = function (_Component) {
           _modal2["default"].Title,
           null,
           type ? _react2["default"].createElement(_icon2["default"], { type: this.getTypeIcon(type) }) : "",
-          this.props.title
+          this.props.title,
+          _react2["default"].createElement(
+            'div',
+            { className: _style.closeBtn + ' close', onClick: this.props.close },
+            _react2["default"].createElement(_icon2["default"], { type: 'error3' })
+          )
         )
       ),
       _react2["default"].createElement(
@@ -197,11 +202,6 @@ var PopDialog = function (_Component) {
           'div',
           null,
           this.props.children
-        ),
-        _react2["default"].createElement(
-          'div',
-          { className: _style.closeBtn + ' close', onClick: this.props.close },
-          _react2["default"].createElement(_icon2["default"], { type: 'error3' })
         )
       ),
       _react2["default"].createElement(

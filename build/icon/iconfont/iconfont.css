@@ -2,15 +2,14 @@
 
 @font-face {
   font-family: 'iconfont';
-  src:  url('iconfont.eot?7hvjnv');
-  src:  url('iconfont.eot?7hvjnv#iefix') format('embedded-opentype'),
-    url('iconfont.ttf?7hvjnv') format('truetype'),
-    url('iconfont.woff?7hvjnv') format('woff'),
-    url('iconfont.svg?7hvjnv#icomoon') format('svg');
+  src:  url('iconfont.eot?3mqe9a');
+  src:  url('iconfont.eot?3mqe9a#iefix') format('embedded-opentype'),
+    url('iconfont.ttf?3mqe9a') format('truetype'),
+    url('iconfont.woff?3mqe9a') format('woff'),
+    url('iconfont.svg?3mqe9a#iconfont') format('svg');
   font-weight: normal;
   font-style: normal;
 }
-
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'iconfont' !important;
@@ -25,477 +24,339 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
- 
-.icon-staff-solid__iconfont___2mqqM:before {
-  content: "\E9FD";
+
+.icon-classification-2__iconfont___2q-fu:before {
+  content: "\E9EF";
 }
-.icon-icon-table__iconfont___3ABjp:before {
-  content: "\E9FE";
-  color: #737373;
+.icon-classification__iconfont___1F9dV:before {
+  content: "\E9EE";
 }
-.icon-icon-pie__iconfont___2T6p6:before {
-  content: "\E9FF";
-  color: #737373;
+.icon-Face-recognition-2__iconfont___mLv5t:before {
+  content: "\E9ED";
 }
-.icon-icon-line__iconfont___2szBg:before {
-  content: "\EA00";
-  color: #737373;
+.icon-Face-recognition__iconfont___2L5I9:before {
+  content: "\E9EC";
 }
-.icon-icon-card__iconfont___1TtDj:before {
-  content: "\EA01";
-  color: #737373;
+.icon-Determine__iconfont___x0zR5:before {
+  content: "\E9EB";
 }
-.icon-icon-bar__iconfont___3iX1A:before {
-  content: "\EA02";
-  color: #737373;
+.icon-error5__iconfont___2uXmt:before {
+  content: "\E9EA";
 }
-.icon-was-service-monitoring__iconfont___399rC:before {
-  content: "\E9F0";
-  color: #36b37e;
+.icon-screen__iconfont___3BZrA:before {
+  content: "\E9E9";
 }
-.icon-screen-projection__iconfont___3XKiD:before {
-  content: "\E9F1";
-  color: #00b8d9;
+.icon-screen-2__iconfont___17y-k:before {
+  content: "\E9E8";
 }
-.icon-request-error__iconfont___zCZPP:before {
-  content: "\E9F2";
-  color: #6554c0;
+.icon-succeed__iconfont___33GAm:before {
+  content: "\E9E7";
 }
-.icon-probe-downloading__iconfont___2kcZs:before {
-  content: "\E9F3";
-  color: #36b37e;
+.icon-wind__iconfont___1Y35r:before {
+  content: "\E9E6";
+}
+.icon-typhoon__iconfont___1zVDh:before {
+  content: "\E9E5";
+}
+.icon-thunder__iconfont___1WnGM:before {
+  content: "\E9E4";
+}
+.icon-sunny__iconfont___37UnE:before {
+  content: "\E9E3";
+}
+.icon-snow__iconfont___2RpTE:before {
+  content: "\E9E2";
+}
+.icon-sleet__iconfont___3H5mW:before {
+  content: "\E9E1";
+}
+.icon-sandstorm__iconfont___4oJbE:before {
+  content: "\E9E0";
+}
+.icon-rain__iconfont___2M8CE:before {
+  content: "\E9DF";
+}
+.icon-overcast__iconfont___3-oBj:before {
+  content: "\E9DE";
+}
+.icon-night__iconfont___3CjoM:before {
+  content: "\E9DD";
+}
+.icon-haze__iconfont___3fXkc:before {
+  content: "\E9DC";
+}
+.icon-hail__iconfont___3qm9i:before {
+  content: "\E9DB";
+}
+.icon-cloudy2__iconfont___1HNdp:before {
+  content: "\E9DA";
+}
+.icon-cloudy-night__iconfont___2Cqck:before {
+  content: "\E9D9";
+}
+.icon-vacation__iconfont___2leS0:before {
+  content: "\E9D8";
+}
+.icon-train__iconfont___2MhuT:before {
+  content: "\E9D7";
+}
+.icon-social-security__iconfont____w5wZ:before {
+  content: "\E9D6";
+}
+.icon-scan__iconfont___27tuk:before {
+  content: "\E9D5";
+}
+.icon-resume__iconfont___3awBk:before {
+  content: "\E9D4";
+}
+.icon-recommendation__iconfont___2aXx7:before {
+  content: "\E9D3";
+}
+.icon-questionnaire__iconfont___ZWBzF:before {
+  content: "\E9D2";
+}
+.icon-qualifications__iconfont___2X074:before {
+  content: "\E9D1";
+}
+.icon-prove__iconfont___1V4hJ:before {
+  content: "\E9D0";
+}
+.icon-promotion__iconfont___3Z8BK:before {
+  content: "\E9CF";
+}
+.icon-performance__iconfont___2DnO9:before {
+  content: "\E9CE";
+}
+.icon-overtime__iconfont___2lfcf:before {
+  content: "\E9CD";
+}
+.icon-need__iconfont___BMHHz:before {
+  content: "\E9CC";
+}
+.icon-my-application__iconfont___1d4Wc:before {
+  content: "\E9CB";
+}
+.icon-leave__iconfont___3wzOK:before {
+  content: "\E9CA";
+}
+.icon-information2__iconfont___3iUDi:before {
+  content: "\E9C9";
+}
+.icon-increase-n-decrease__iconfont___3C8CN:before {
+  content: "\E9C8";
+}
+.icon-HR-guide__iconfont___hSHlE:before {
+  content: "\E9C7";
+}
+.icon-HR-calendar__iconfont___2wwrk:before {
+  content: "\E9C6";
+}
+.icon-firm-introduction__iconfont___oXLlq:before {
+  content: "\E9C5";
+}
+.icon-financing__iconfont___3TQG9:before {
+  content: "\E9C4";
+}
+.icon-FAQ__iconfont___3aK4K:before {
+  content: "\E9C3";
+}
+.icon-entry-map__iconfont___1kYgl:before {
+  content: "\E9C2";
+}
+.icon-employee__iconfont___3iII0:before {
+  content: "\E9C1";
+}
+.icon-cloudy__iconfont___36iBx:before {
+  content: "\E9C0";
+}
+.icon-check-social-security__iconfont___gQIVN:before {
+  content: "\E9BF";
+}
+.icon-check-salary__iconfont___3_zlY:before {
+  content: "\E9BE";
+}
+.icon-change__iconfont___3wLA_:before {
+  content: "\E9BD";
+}
+.icon-care__iconfont___3kvXI:before {
+  content: "\E9BC";
+}
+.icon-call2__iconfont___3i35w:before {
+  content: "\E9BB";
+}
+.icon-call__iconfont___yTM0K:before {
+  content: "\E9BA";
+}
+.icon-attendance-center__iconfont___3EzFh:before {
+  content: "\E9B9";
+}
+.icon-approval__iconfont___2wU8j:before {
+  content: "\E9B8";
+}
+.icon-already__iconfont___1mDeL:before {
+  content: "\E9B7";
+}
+.icon-address-book__iconfont___3Gy1N:before {
+  content: "\E9B6";
+}
+.icon-accumulation-fund__iconfont___1VeRX:before {
+  content: "\E9B5";
 }
 .icon-presentation__iconfont___1yDPn:before {
-  content: "\E9F4";
-  color: #ffab00;
-}
-.icon-page-analysis__iconfont___1SLuR:before {
-  content: "\E9F5";
+  content: "\E9B4";
   color: #36b37e;
 }
-.icon-js-error__iconfont___1orR9:before {
-  content: "\E9F6";
-  color: #00b8d9;
-}
-.icon-collapse__iconfont___1vuvE:before {
-  content: "\E9F7";
-  color: #e14c46;
-}
-.icon-business-operation-check-error__iconfont___2ezpU:before {
-  content: "\E9F8";
+.icon-master__iconfont___3fi6W:before {
+  content: "\E9B3";
   color: #6554c0;
 }
-.icon-anr__iconfont___xWy_Z:before {
-  content: "\E9F9";
+.icon-board__iconfont___2ymi8:before {
+  content: "\E9B2";
   color: #00b8d9;
 }
-.icon-apache__iconfont___1E7h9:before {
-  content: "\E9FA";
+.icon-topology__iconfont___Aiy6K:before {
+  content: "\E9B1";
+  color: #00b8d9;
+}
+.icon-target-management__iconfont___1uR5U:before {
+  content: "\E9B0";
+  color: #36b37e;
+}
+.icon-sql-analysis__iconfont___2GSki:before {
+  content: "\E9AF";
   color: #e14c46;
 }
-.icon-alarm-message__iconfont___3OxEY:before {
-  content: "\E9FB";
-  color: #e14c46;
-}
-.icon-alarm-management__iconfont___33tai:before {
-  content: "\E9FC";
+.icon-select__iconfont___1nADB:before {
+  content: "\E9AE";
   color: #6554c0;
 }
-.icon-plane__iconfont___34w6h:before {
-  content: "\E900";
+.icon-probe-management__iconfont___oXvsW:before {
+  content: "\E9AD";
+  color: #ffab00;
 }
-.icon-display__iconfont___2aasm:before {
-  content: "\E901";
+.icon-java-service__iconfont___2Y5xB:before {
+  content: "\E9AC";
+  color: #e14c46;
 }
-.icon-home__iconfont___3aDDF:before {
-  content: "\E902";
+.icon-user-management__iconfont___2yneW:before {
+  content: "\E9AB";
+  color: #f5a719;
 }
-.icon-download__iconfont___22TU5:before {
-  content: "\E903";
+.icon-user-analysis__iconfont___SwDVR:before {
+  content: "\E9AA";
+  color: #3aab7a;
 }
-.icon-uploading__iconfont___1T3Qd:before {
-  content: "\E904";
+.icon-transaction-analysis__iconfont___1EU2s:before {
+  content: "\E9A9";
+  color: #5d53a1;
 }
-.icon-yy-clud__iconfont___3wZNq:before {
-  content: "\E905";
+.icon-terminal-analysis__iconfont___2wL-3:before {
+  content: "\E9A8";
+  color: #f5a719;
 }
-.icon-add-friends__iconfont___GZHYj:before {
-  content: "\E906";
+.icon-tenant-management__iconfont___Q_7aS:before {
+  content: "\E9A7";
+  color: #3aab7a;
 }
-.icon-analyze__iconfont___3nS2Q:before {
-  content: "\E907";
+.icon-tenant-information__iconfont___36X3k:before {
+  content: "\E9A6";
+  color: #1fadcb;
 }
-.icon-application__iconfont___2l61a:before {
-  content: "\E908";
+.icon-sqlserver-analysis__iconfont___3v5Y-:before {
+  content: "\E9A5";
+  color: #d54c45;
 }
-.icon-bad__iconfont___2enJA:before {
-  content: "\E909";
+.icon-regional-analysis__iconfont___3s3Wp:before {
+  content: "\E9A4";
+  color: #3aab7a;
 }
-.icon-credit-card__iconfont___2HSV8:before {
-  content: "\E90A";
+.icon-performance-monitoring__iconfont___X8usu:before {
+  content: "\E9A3";
+  color: #5d53a1;
 }
-.icon-bill__iconfont___3QeUu:before {
-  content: "\E90B";
+.icon-parameter-management__iconfont___5QBbQ:before {
+  content: "\E9A2";
+  color: #1fadcb;
 }
-.icon-business__iconfont___1GDDC:before {
-  content: "\E90C";
+.icon-overview__iconfont___2280q:before {
+  content: "\E9A1";
+  color: #d54c45;
 }
-.icon-calendar__iconfont___3kJfE:before {
-  content: "\E90D";
+.icon-oracle-analysis__iconfont___3uxHi:before {
+  content: "\E9A0";
+  color: #d54c45;
 }
-.icon-card__iconfont___3ToZg:before {
-  content: "\E90E";
+.icon-mysql-analysis__iconfont___2mEzg:before {
+  content: "\E99F";
+  color: #1fadcb;
 }
-.icon-chat__iconfont___1QKBZ:before {
-  content: "\E90F";
+.icon-error-monitoring__iconfont___1JBfm:before {
+  content: "\E99E";
+  color: #f5a719;
 }
-.icon-check__iconfont___3tJee:before {
-  content: "\E910";
+.icon-business-operation-analysis__iconfont___3mkeE:before {
+  content: "\E99D";
+  color: #d54c45;
 }
-.icon-clock__iconfont___3Z_sc:before {
-  content: "\E911";
+.icon-availability-monitoring__iconfont___2wmX8:before {
+  content: "\E99C";
+  color: #1fadcb;
 }
-.icon-price__iconfont___3V14T:before {
-  content: "\E912";
+.icon-authority-management__iconfont___3n5fD:before {
+  content: "\E99B";
+  color: #3aab7a;
 }
-.icon-hide__iconfont___2eYX3:before {
-  content: "\E913";
+.icon-application-management4__iconfont___sNL-e:before {
+  content: "\E99A";
+  color: #5d53a1;
 }
-.icon-comment__iconfont___1psJP:before {
-  content: "\E914";
+.icon-notice__iconfont___zBlem:before {
+  content: "\E999";
 }
-.icon-computer__iconfont___2GPW6:before {
-  content: "\E915";
+.icon-help-information__iconfont___6Ka3x:before {
+  content: "\E998";
 }
-.icon-configuration__iconfont___U-NLp:before {
-  content: "\E916";
+.icon-error4__iconfont___24tiS:before {
+  content: "\E997";
 }
-.icon-conserve__iconfont___iIpzt:before {
-  content: "\E917";
+.icon-reference-customization__iconfont___2cyuJ:before {
+  content: "\E996";
 }
-.icon-delete-friend__iconfont___3TMJA:before {
-  content: "\E918";
+.icon-position__iconfont___yVtvn:before {
+  content: "\E995";
 }
-.icon-document__iconfont___p7f7N:before {
-  content: "\E919";
+.icon-material-classification__iconfont___3667o:before {
+  content: "\E994";
 }
-.icon-e-mail__iconfont___1n-Ja:before {
-  content: "\E91A";
+.icon-job-grade__iconfont___2dlqo:before {
+  content: "\E993";
 }
-.icon-expense__iconfont___3IJLc:before {
-  content: "\E91B";
+.icon-job-duty__iconfont___YVv7n:before {
+  content: "\E992";
 }
-.icon-derivation__iconfont___2tIAl:before {
-  content: "\E91C";
+.icon-exit__iconfont___1Kfa-:before {
+  content: "\E991";
 }
-.icon-brief-case__iconfont___iPvqH:before {
-  content: "\E91D";
+.icon-default__iconfont___2ckiu:before {
+  content: "\E990";
 }
-.icon-hard-disk__iconfont___3CkM2:before {
-  content: "\E91E";
+.icon-authorise__iconfont___yHI_Y:before {
+  content: "\E98F";
 }
-.icon-information__iconfont___3wqNk:before {
-  content: "\E91F";
+.icon-archive__iconfont___1Jhlb:before {
+  content: "\E98E";
 }
-.icon-instrument-2__iconfont___3bSeo:before {
-  content: "\E920";
+.icon-right__iconfont___-2Fwv:before {
+  content: "\E98D";
 }
-.icon-instrument-3__iconfont___JA4wy:before {
-  content: "\E921";
+.icon-cancel__iconfont___Yg1Fp:before {
+  content: "\E98C";
 }
-.icon-instrument__iconfont___1hvaJ:before {
-  content: "\E922";
+.icon-copy__iconfont___1UPxC:before {
+  content: "\E98B";
 }
-.icon-integral__iconfont___113fK:before {
-  content: "\E923";
-}
-.icon-favorite__iconfont___2mYPB:before {
-  content: "\E924";
-}
-.icon-chaining__iconfont___3s1J2:before {
-  content: "\E925";
-}
-.icon-location__iconfont___1L9TU:before {
-  content: "\E926";
-}
-.icon-lock__iconfont___1Ypa9:before {
-  content: "\E927";
-}
-.icon-love__iconfont___2wRP8:before {
-  content: "\E928";
-}
-.icon-message__iconfont___2mU9K:before {
-  content: "\E929";
-}
-.icon-navigation__iconfont___1uioF:before {
-  content: "\E92A";
-}
-.icon-notification__iconfont___3DTad:before {
-  content: "\E92B";
-}
-.icon-pad__iconfont___m6O7D:before {
-  content: "\E92C";
-}
-.icon-copyreader__iconfont___3iwvu:before {
-  content: "\E92D";
-}
-.icon-expression__iconfont___3UAMf:before {
-  content: "\E92E";
-}
-.icon-expression-2__iconfont___Ktqo3:before {
-  content: "\E92F";
-}
-.icon-personal-details__iconfont___3dhLS:before {
-  content: "\E930";
-}
-.icon-phone__iconfont___2e1AO:before {
-  content: "\E931";
-}
-.icon-picture__iconfont___1Gcjj:before {
-  content: "\E932";
-}
-.icon-pin-2__iconfont___hxxdB:before {
-  content: "\E933";
-}
-.icon-pin__iconfont___2r5HQ:before {
-  content: "\E934";
-}
-.icon-praise__iconfont___2u8du:before {
-  content: "\E935";
-}
-.icon-print-2__iconfont___1X2zJ:before {
-  content: "\E936";
-}
-.icon-print__iconfont___209Em:before {
-  content: "\E937";
-}
-.icon-record__iconfont___GX5Vd:before {
-  content: "\E938";
-}
-.icon-report__iconfont___dmwPu:before {
-  content: "\E939";
-}
-.icon-search__iconfont___2LlRa:before {
-  content: "\E93A";
-}
-.icon-send__iconfont___IQs2H:before {
-  content: "\E93B";
-}
-.icon-server__iconfont___1nKOi:before {
-  content: "\E93C";
-}
-.icon-service__iconfont___3WD7X:before {
-  content: "\E93D";
-}
-.icon-setting__iconfont___1wvn_:before {
-  content: "\E93E";
-}
-.icon-settle-account__iconfont___1hRAy:before {
-  content: "\E93F";
-}
-.icon-share__iconfont___2Tq31:before {
-  content: "\E940";
-}
-.icon-shrink__iconfont___1aUyf:before {
-  content: "\E941";
-}
-.icon-speediness__iconfont___3GI0x:before {
-  content: "\E942";
-}
-.icon-staff__iconfont___13Wjb:before {
-  content: "\E943";
-}
-.icon-group__iconfont___1PUoV:before {
-  content: "\E944";
-}
-.icon-toolbox__iconfont___BuUGb:before {
-  content: "\E945";
-}
-.icon-return__iconfont___247Me:before {
-  content: "\E946";
-}
-.icon-wallet__iconfont___33ZRP:before {
-  content: "\E947";
-}
-.icon-enlargement__iconfont___iv2ZS:before {
-  content: "\E948";
-}
-.icon-loan__iconfont___5H1LO:before {
-  content: "\E949";
-}
-.icon-add-files__iconfont___OZTYl:before {
-  content: "\E94A";
-}
-.icon-dustbin__iconfont___38St8:before {
-  content: "\E94B";
-}
-.icon-add__iconfont___2rz_A:before {
-  content: "\E94C";
-}
-.icon-add2__iconfont___1w-s9:before {
-  content: "\E94D";
-}
-.icon-alarm__iconfont___3rRxB:before {
-  content: "\E94E";
-}
-.icon-back__iconfont___kCgB3:before {
-  content: "\E94F";
-}
-.icon-back2__iconfont___1Rb0Q:before {
-  content: "\E950";
-}
-.icon-back3__iconfont___1nHDT:before {
-  content: "\E951";
-}
-.icon-blank-page__iconfont___2pMCP:before {
-  content: "\E952";
-}
-.icon-calculator__iconfont___13mlm:before {
-  content: "\E953";
-}
-.icon-clock-in__iconfont___2mJPL:before {
-  content: "\E954";
-}
-.icon-cloud__iconfont___FXyZ6:before {
-  content: "\E955";
-}
-.icon-correct__iconfont___3q4e6:before {
-  content: "\E956";
-}
-.icon-delete-files__iconfont___11Stv:before {
-  content: "\E957";
-}
-.icon-delete__iconfont___3tZKG:before {
-  content: "\E958";
-}
-.icon-download2__iconfont___1yFwD:before {
-  content: "\E959";
-}
-.icon-error__iconfont___1ckp4:before {
-  content: "\E95A";
-}
-.icon-error2__iconfont___39y0S:before {
-  content: "\E95B";
-}
-.icon-forward__iconfont___29Kz7:before {
-  content: "\E95C";
-}
-.icon-forward2__iconfont___2TFPw:before {
-  content: "\E95D";
-}
-.icon-Internet__iconfont___34ayt:before {
-  content: "\E95E";
-}
-.icon-Internet2__iconfont___LVQa0:before {
-  content: "\E95F";
-}
-.icon-loading__iconfont___3sFXh:before {
-  content: "\E960";
-}
-.icon-more__iconfont___vFGFT:before {
-  content: "\E961";
-}
-.icon-notification2__iconfont___1rvIQ:before {
-  content: "\E962";
-}
-.icon-personal-center__iconfont___1A_wh:before {
-  content: "\E963";
-}
-.icon-pull-down__iconfont___tTUfP:before {
-  content: "\E964";
-}
-.icon-reading__iconfont___2EgyG:before {
-  content: "\E965";
-}
-.icon-refresh__iconfont___C-e5N:before {
-  content: "\E966";
-}
-.icon-refresh2__iconfont___2yoJU:before {
-  content: "\E967";
-}
-.icon-refresh3__iconfont___33ndy:before {
-  content: "\E968";
-}
-.icon-tabulation__iconfont___3vP3o:before {
-  content: "\E969";
-}
-.icon-upward__iconfont___3xyhF:before {
-  content: "\E96A";
-}
-.icon-Yoyo-Filled__iconfont___21JQ1:before {
-  content: "\E96B";
-}
-.icon-Yoyo-Line__iconfont___1_Voo:before {
-  content: "\E96C";
-}
-.icon-airplane-mode__iconfont___1_VOS:before {
-  content: "\E96D";
-}
-.icon-target__iconfont___ULcsm:before {
-  content: "\E96E";
-}
-.icon-taxi__iconfont___2_iMG:before {
-  content: "\E96F";
-}
-.icon-charge-up__iconfont___3eosk:before {
-  content: "\E970";
-}
-.icon-currency-conversion__iconfont___1RmKo:before {
-  content: "\E971";
-}
-.icon-dynamics__iconfont___3YiwL:before {
-  content: "\E972";
-}
-.icon-error3__iconfont___2egyT:before {
-  content: "\E973";
-}
-.icon-excel__iconfont___1v-_W:before {
-  content: "\E974";
-}
-.icon-glory__iconfont___2Evfd:before {
-  content: "\E975";
-}
-.icon-pdf__iconfont___1mqzy:before {
-  content: "\E976";
-}
-.icon-application-management__iconfont___2hVzI:before {
-  content: "\E977";
-}
-.icon-ppt__iconfont___2xXpc:before {
-  content: "\E978";
-}
-.icon-vote__iconfont___1_oml:before {
-  content: "\E979";
-}
-.icon-wallet2__iconfont___3QDrY:before {
-  content: "\E97A";
-}
-.icon-word__iconfont___3_9ou:before {
-  content: "\E97B";
-}
-.icon-application-management2__iconfont___3D_KU:before {
-  content: "\E97C";
-}
-.icon-application-management3__iconfont___3K5uA:before {
-  content: "\E97D";
-}
-.icon-close__iconfont___rC35e:before {
-  content: "\E97E";
-}
-.icon-life-buoy__iconfont___36DYS:before {
-  content: "\E97F";
-}
-.icon-message-management__iconfont___1QXPt:before {
-  content: "\E980";
-}
-.icon-message-management2__iconfont___LKGBB:before {
-  content: "\E981";
-}
-.icon-role-management-2__iconfont___37cN4:before {
-  content: "\E982";
-}
-.icon-role-management__iconfont___3mstn:before {
-  content: "\E983";
+.icon-pin2__iconfont___3VGnm:before {
+  content: "\E98A";
 }
 .icon-close2__iconfont___2AWvF .path1__iconfont___1ZWxK:before {
   content: "\E984";
@@ -526,336 +387,399 @@
   margin-left: -1em;
   color: rgb(255, 255, 255);
 }
-.icon-pin2__iconfont___3VGnm:before {
-  content: "\E98A";
+.icon-role-management__iconfont___3mstn:before {
+  content: "\E983";
 }
-.icon-copy__iconfont___1UPxC:before {
-  content: "\E98B";
+.icon-role-management-2__iconfont___37cN4:before {
+  content: "\E982";
 }
-.icon-cancel__iconfont___Yg1Fp:before {
-  content: "\E98C";
+.icon-message-management2__iconfont___LKGBB:before {
+  content: "\E981";
 }
-.icon-right__iconfont___-2Fwv:before {
-  content: "\E98D";
+.icon-message-management__iconfont___1QXPt:before {
+  content: "\E980";
 }
-.icon-archive__iconfont___1Jhlb:before {
-  content: "\E98E";
+.icon-life-buoy__iconfont___36DYS:before {
+  content: "\E97F";
 }
-.icon-authorise__iconfont___yHI_Y:before {
-  content: "\E98F";
+.icon-close__iconfont___rC35e:before {
+  content: "\E97E";
 }
-.icon-default__iconfont___2ckiu:before {
-  content: "\E990";
+.icon-application-management3__iconfont___3K5uA:before {
+  content: "\E97D";
 }
-.icon-exit__iconfont___1Kfa-:before {
-  content: "\E991";
+.icon-application-management22__iconfont___2eawh:before {
+  content: "\E97C";
 }
-.icon-job-duty__iconfont___YVv7n:before {
-  content: "\E992";
+.icon-word__iconfont___3_9ou:before {
+  content: "\E97B";
 }
-.icon-job-grade__iconfont___2dlqo:before {
-  content: "\E993";
+.icon-wallet2__iconfont___3QDrY:before {
+  content: "\E97A";
 }
-.icon-material-classification__iconfont___3667o:before {
-  content: "\E994";
+.icon-vote__iconfont___1_oml:before {
+  content: "\E979";
 }
-.icon-position__iconfont___yVtvn:before {
-  content: "\E995";
+.icon-ppt__iconfont___2xXpc:before {
+  content: "\E978";
 }
-.icon-reference-customization__iconfont___2cyuJ:before {
-  content: "\E996";
+.icon-application-management2__iconfont___3D_KU:before {
+  content: "\E977";
 }
-.icon-error4__iconfont___24tiS:before {
-  content: "\E997";
+.icon-pdf__iconfont___1mqzy:before {
+  content: "\E976";
 }
-.icon-help-information__iconfont___6Ka3x:before {
-  content: "\E998";
+.icon-glory__iconfont___2Evfd:before {
+  content: "\E975";
 }
-.icon-notice__iconfont___zBlem:before {
-  content: "\E999";
+.icon-excel__iconfont___1v-_W:before {
+  content: "\E974";
 }
-.icon-application-management4__iconfont___sNL-e:before {
-  content: "\E99A";
-  color: #5d53a1;
+.icon-error3__iconfont___2egyT:before {
+  content: "\E973";
 }
-.icon-authority-management__iconfont___3n5fD:before {
-  content: "\E99B";
-  color: #3aab7a;
+.icon-dynamics__iconfont___3YiwL:before {
+  content: "\E972";
 }
-.icon-availability-monitoring__iconfont___2wmX8:before {
-  content: "\E99C";
-  color: #1fadcb;
+.icon-currency-conversion__iconfont___1RmKo:before {
+  content: "\E971";
 }
-.icon-business-operation-analysis__iconfont___3mkeE:before {
-  content: "\E99D";
-  color: #d54c45;
+.icon-charge-up__iconfont___3eosk:before {
+  content: "\E970";
 }
-.icon-error-monitoring__iconfont___1JBfm:before {
-  content: "\E99E";
-  color: #f5a719;
+.icon-taxi__iconfont___2_iMG:before {
+  content: "\E96F";
 }
-.icon-mysql-analysis__iconfont___2mEzg:before {
-  content: "\E99F";
-  color: #1fadcb;
+.icon-target__iconfont___ULcsm:before {
+  content: "\E96E";
 }
-.icon-oracle-analysis__iconfont___3uxHi:before {
-  content: "\E9A0";
-  color: #d54c45;
+.icon-airplane-mode__iconfont___1_VOS:before {
+  content: "\E96D";
 }
-.icon-overview__iconfont___2280q:before {
-  content: "\E9A1";
-  color: #d54c45;
+.icon-Yoyo-Line__iconfont___1_Voo:before {
+  content: "\E96C";
 }
-.icon-parameter-management__iconfont___5QBbQ:before {
-  content: "\E9A2";
-  color: #1fadcb;
+.icon-Yoyo-Filled__iconfont___21JQ1:before {
+  content: "\E96B";
 }
-.icon-performance-monitoring__iconfont___X8usu:before {
-  content: "\E9A3";
-  color: #5d53a1;
+.icon-upward__iconfont___3xyhF:before {
+  content: "\E96A";
 }
-.icon-regional-analysis__iconfont___3s3Wp:before {
-  content: "\E9A4";
-  color: #3aab7a;
+.icon-tabulation__iconfont___3vP3o:before {
+  content: "\E969";
 }
-.icon-sqlserver-analysis__iconfont___3v5Y-:before {
-  content: "\E9A5";
-  color: #d54c45;
+.icon-refresh3__iconfont___33ndy:before {
+  content: "\E968";
 }
-.icon-tenant-information__iconfont___36X3k:before {
-  content: "\E9A6";
-  color: #1fadcb;
+.icon-refresh2__iconfont___2yoJU:before {
+  content: "\E967";
 }
-.icon-tenant-management__iconfont___Q_7aS:before {
-  content: "\E9A7";
-  color: #3aab7a;
+.icon-refresh__iconfont___C-e5N:before {
+  content: "\E966";
 }
-.icon-terminal-analysis__iconfont___2wL-3:before {
-  content: "\E9A8";
-  color: #f5a719;
+.icon-reading__iconfont___2EgyG:before {
+  content: "\E965";
 }
-.icon-transaction-analysis__iconfont___1EU2s:before {
-  content: "\E9A9";
-  color: #5d53a1;
+.icon-pull-down__iconfont___tTUfP:before {
+  content: "\E964";
 }
-.icon-user-analysis__iconfont___SwDVR:before {
-  content: "\E9AA";
-  color: #3aab7a;
+.icon-personal-center__iconfont___1A_wh:before {
+  content: "\E963";
 }
-.icon-user-management__iconfont___2yneW:before {
-  content: "\E9AB";
-  color: #f5a719;
+.icon-notification2__iconfont___1rvIQ:before {
+  content: "\E962";
 }
-.icon-java-service__iconfont___2Y5xB:before {
-  content: "\E9AC";
-  color: #e14c46;
+.icon-more__iconfont___vFGFT:before {
+  content: "\E961";
 }
-.icon-probe-management__iconfont___oXvsW:before {
-  content: "\E9AD";
-  color: #ffab00;
+.icon-loading__iconfont___3sFXh:before {
+  content: "\E960";
 }
-.icon-select__iconfont___1nADB:before {
-  content: "\E9AE";
-  color: #6554c0;
+.icon-Internet2__iconfont___LVQa0:before {
+  content: "\E95F";
 }
-.icon-sql-analysis__iconfont___2GSki:before {
-  content: "\E9AF";
-  color: #e14c46;
+.icon-Internet__iconfont___34ayt:before {
+  content: "\E95E";
 }
-.icon-target-management__iconfont___1uR5U:before {
-  content: "\E9B0";
-  color: #36b37e;
+.icon-forward2__iconfont___2TFPw:before {
+  content: "\E95D";
 }
-.icon-topology__iconfont___Aiy6K:before {
-  content: "\E9B1";
-  color: #00b8d9;
+.icon-forward__iconfont___29Kz7:before {
+  content: "\E95C";
 }
-.icon-board__iconfont___2ymi8:before {
-  content: "\E9B2";
-  color: #00b8d9;
+.icon-error2__iconfont___39y0S:before {
+  content: "\E95B";
 }
-.icon-master__iconfont___3fi6W:before {
-  content: "\E9B3";
-  color: #6554c0;
+.icon-error__iconfont___1ckp4:before {
+  content: "\E95A";
 }
-.icon-presentation2__iconfont___2vUzA:before {
-  content: "\E9B4";
-  color: #36b37e;
+.icon-download2__iconfont___1yFwD:before {
+  content: "\E959";
 }
-.icon-accumulation-fund__iconfont___1VeRX:before {
-  content: "\E9B5";
+.icon-delete__iconfont___3tZKG:before {
+  content: "\E958";
 }
-.icon-address-book__iconfont___3Gy1N:before {
-  content: "\E9B6";
+.icon-delete-files__iconfont___11Stv:before {
+  content: "\E957";
 }
-.icon-already__iconfont___1mDeL:before {
-  content: "\E9B7";
+.icon-correct__iconfont___3q4e6:before {
+  content: "\E956";
 }
-.icon-approval__iconfont___2wU8j:before {
-  content: "\E9B8";
+.icon-cloud__iconfont___FXyZ6:before {
+  content: "\E955";
 }
-.icon-attendance-center__iconfont___3EzFh:before {
-  content: "\E9B9";
+.icon-clock-in__iconfont___2mJPL:before {
+  content: "\E954";
 }
-.icon-call__iconfont___yTM0K:before {
-  content: "\E9BA";
+.icon-calculator__iconfont___13mlm:before {
+  content: "\E953";
 }
-.icon-call2__iconfont___3i35w:before {
-  content: "\E9BB";
+.icon-blank-page__iconfont___2pMCP:before {
+  content: "\E952";
 }
-.icon-care__iconfont___3kvXI:before {
-  content: "\E9BC";
+.icon-back3__iconfont___1nHDT:before {
+  content: "\E951";
 }
-.icon-change__iconfont___3wLA_:before {
-  content: "\E9BD";
+.icon-back2__iconfont___1Rb0Q:before {
+  content: "\E950";
 }
-.icon-check-salary__iconfont___3_zlY:before {
-  content: "\E9BE";
+.icon-back__iconfont___kCgB3:before {
+  content: "\E94F";
 }
-.icon-check-social-security__iconfont___gQIVN:before {
-  content: "\E9BF";
+.icon-alarm__iconfont___3rRxB:before {
+  content: "\E94E";
 }
-.icon-cloudy__iconfont___36iBx:before {
-  content: "\E9C0";
+.icon-add2__iconfont___1w-s9:before {
+  content: "\E94D";
 }
-.icon-employee__iconfont___3iII0:before {
-  content: "\E9C1";
+.icon-add__iconfont___2rz_A:before {
+  content: "\E94C";
 }
-.icon-entry-map__iconfont___1kYgl:before {
-  content: "\E9C2";
+.icon-dustbin__iconfont___38St8:before {
+  content: "\E94B";
 }
-.icon-FAQ__iconfont___3aK4K:before {
-  content: "\E9C3";
+.icon-add-files__iconfont___OZTYl:before {
+  content: "\E94A";
 }
-.icon-financing__iconfont___3TQG9:before {
-  content: "\E9C4";
+.icon-loan__iconfont___5H1LO:before {
+  content: "\E949";
 }
-.icon-firm-introduction__iconfont___oXLlq:before {
-  content: "\E9C5";
+.icon-enlargement__iconfont___iv2ZS:before {
+  content: "\E948";
 }
-.icon-HR-calendar__iconfont___2wwrk:before {
-  content: "\E9C6";
+.icon-wallet__iconfont___33ZRP:before {
+  content: "\E947";
 }
-.icon-HR-guide__iconfont___hSHlE:before {
-  content: "\E9C7";
+.icon-return__iconfont___247Me:before {
+  content: "\E946";
 }
-.icon-increase-n-decrease__iconfont___3C8CN:before {
-  content: "\E9C8";
+.icon-toolbox__iconfont___BuUGb:before {
+  content: "\E945";
 }
-.icon-information2__iconfont___3iUDi:before {
-  content: "\E9C9";
+.icon-group__iconfont___1PUoV:before {
+  content: "\E944";
 }
-.icon-leave__iconfont___3wzOK:before {
-  content: "\E9CA";
+.icon-staff__iconfont___13Wjb:before {
+  content: "\E943";
 }
-.icon-my-application__iconfont___1d4Wc:before {
-  content: "\E9CB";
+.icon-speediness__iconfont___3GI0x:before {
+  content: "\E942";
 }
-.icon-need__iconfont___BMHHz:before {
-  content: "\E9CC";
+.icon-shrink__iconfont___1aUyf:before {
+  content: "\E941";
 }
-.icon-overtime__iconfont___2lfcf:before {
-  content: "\E9CD";
+.icon-share__iconfont___2Tq31:before {
+  content: "\E940";
 }
-.icon-performance__iconfont___2DnO9:before {
-  content: "\E9CE";
+.icon-settle-account__iconfont___1hRAy:before {
+  content: "\E93F";
 }
-.icon-promotion__iconfont___3Z8BK:before {
-  content: "\E9CF";
+.icon-setting__iconfont___1wvn_:before {
+  content: "\E93E";
 }
-.icon-prove__iconfont___1V4hJ:before {
-  content: "\E9D0";
+.icon-service__iconfont___3WD7X:before {
+  content: "\E93D";
 }
-.icon-qualifications__iconfont___2X074:before {
-  content: "\E9D1";
+.icon-server__iconfont___1nKOi:before {
+  content: "\E93C";
 }
-.icon-questionnaire__iconfont___ZWBzF:before {
-  content: "\E9D2";
+.icon-send__iconfont___IQs2H:before {
+  content: "\E93B";
 }
-.icon-recommendation__iconfont___2aXx7:before {
-  content: "\E9D3";
+.icon-search__iconfont___2LlRa:before {
+  content: "\E93A";
 }
-.icon-resume__iconfont___3awBk:before {
-  content: "\E9D4";
+.icon-report__iconfont___dmwPu:before {
+  content: "\E939";
 }
-.icon-scan__iconfont___27tuk:before {
-  content: "\E9D5";
+.icon-record__iconfont___GX5Vd:before {
+  content: "\E938";
 }
-.icon-social-security__iconfont____w5wZ:before {
-  content: "\E9D6";
+.icon-print__iconfont___209Em:before {
+  content: "\E937";
 }
-.icon-train__iconfont___2MhuT:before {
-  content: "\E9D7";
+.icon-print-2__iconfont___1X2zJ:before {
+  content: "\E936";
 }
-.icon-vacation__iconfont___2leS0:before {
-  content: "\E9D8";
+.icon-praise__iconfont___2u8du:before {
+  content: "\E935";
 }
-.icon-cloudy-night__iconfont___2Cqck:before {
-  content: "\E9D9";
+.icon-pin__iconfont___2r5HQ:before {
+  content: "\E934";
 }
-.icon-cloudy2__iconfont___1HNdp:before {
-  content: "\E9DA";
+.icon-pin-2__iconfont___hxxdB:before {
+  content: "\E933";
 }
-.icon-hail__iconfont___3qm9i:before {
-  content: "\E9DB";
+.icon-picture__iconfont___1Gcjj:before {
+  content: "\E932";
 }
-.icon-haze__iconfont___3fXkc:before {
-  content: "\E9DC";
+.icon-phone__iconfont___2e1AO:before {
+  content: "\E931";
 }
-.icon-night__iconfont___3CjoM:before {
-  content: "\E9DD";
+.icon-personal-details__iconfont___3dhLS:before {
+  content: "\E930";
 }
-.icon-overcast__iconfont___3-oBj:before {
-  content: "\E9DE";
+.icon-expression-2__iconfont___Ktqo3:before {
+  content: "\E92F";
 }
-.icon-rain__iconfont___2M8CE:before {
-  content: "\E9DF";
+.icon-expression__iconfont___3UAMf:before {
+  content: "\E92E";
 }
-.icon-sandstorm__iconfont___4oJbE:before {
-  content: "\E9E0";
+.icon-copyreader__iconfont___3iwvu:before {
+  content: "\E92D";
 }
-.icon-sleet__iconfont___3H5mW:before {
-  content: "\E9E1";
+.icon-pad__iconfont___m6O7D:before {
+  content: "\E92C";
 }
-.icon-snow__iconfont___2RpTE:before {
-  content: "\E9E2";
+.icon-notification__iconfont___3DTad:before {
+  content: "\E92B";
 }
-.icon-sunny__iconfont___37UnE:before {
-  content: "\E9E3";
+.icon-navigation__iconfont___1uioF:before {
+  content: "\E92A";
 }
-.icon-thunder__iconfont___1WnGM:before {
-  content: "\E9E4";
+.icon-message__iconfont___2mU9K:before {
+  content: "\E929";
 }
-.icon-typhoon__iconfont___1zVDh:before {
-  content: "\E9E5";
+.icon-love__iconfont___2wRP8:before {
+  content: "\E928";
 }
-.icon-wind__iconfont___1Y35r:before {
-  content: "\E9E6";
+.icon-lock__iconfont___1Ypa9:before {
+  content: "\E927";
 }
-.icon-succeed__iconfont___33GAm:before {
-  content: "\E9E7";
+.icon-location__iconfont___1L9TU:before {
+  content: "\E926";
 }
-.icon-screen-2__iconfont___17y-k:before {
-  content: "\E9E8";
+.icon-chaining__iconfont___3s1J2:before {
+  content: "\E925";
 }
-.icon-screen__iconfont___3BZrA:before {
-  content: "\E9E9";
+.icon-favorite__iconfont___2mYPB:before {
+  content: "\E924";
 }
-.icon-error5__iconfont___2uXmt:before {
-  content: "\E9EA";
+.icon-integral__iconfont___113fK:before {
+  content: "\E923";
 }
-.icon-Determine的副本__iconfont___2mADi:before {
-  content: "\E9EB";
+.icon-instrument__iconfont___1hvaJ:before {
+  content: "\E922";
 }
-.icon-Face-recognition__iconfont___2L5I9:before {
-  content: "\E9EC";
+.icon-instrument-3__iconfont___JA4wy:before {
+  content: "\E921";
 }
-.icon-Face-recognition-2__iconfont___mLv5t:before {
-  content: "\E9ED";
+.icon-instrument-2__iconfont___3bSeo:before {
+  content: "\E920";
 }
-.icon-classification__iconfont___1F9dV:before {
-  content: "\E9EE";
+.icon-information__iconfont___3wqNk:before {
+  content: "\E91F";
 }
-.icon-classification-2__iconfont___2q-fu:before {
-  content: "\E9EF";
+.icon-hard-disk__iconfont___3CkM2:before {
+  content: "\E91E";
+}
+.icon-brief-case__iconfont___iPvqH:before {
+  content: "\E91D";
+}
+.icon-derivation__iconfont___2tIAl:before {
+  content: "\E91C";
+}
+.icon-expense__iconfont___3IJLc:before {
+  content: "\E91B";
+}
+.icon-e-mail__iconfont___1n-Ja:before {
+  content: "\E91A";
+}
+.icon-document__iconfont___p7f7N:before {
+  content: "\E919";
+}
+.icon-delete-friend__iconfont___3TMJA:before {
+  content: "\E918";
+}
+.icon-conserve__iconfont___iIpzt:before {
+  content: "\E917";
+}
+.icon-configuration__iconfont___U-NLp:before {
+  content: "\E916";
+}
+.icon-computer__iconfont___2GPW6:before {
+  content: "\E915";
+}
+.icon-comment__iconfont___1psJP:before {
+  content: "\E914";
+}
+.icon-hide__iconfont___2eYX3:before {
+  content: "\E913";
+}
+.icon-price__iconfont___3V14T:before {
+  content: "\E912";
+}
+.icon-clock__iconfont___3Z_sc:before {
+  content: "\E911";
+}
+.icon-check__iconfont___3tJee:before {
+  content: "\E910";
+}
+.icon-chat__iconfont___1QKBZ:before {
+  content: "\E90F";
+}
+.icon-card__iconfont___3ToZg:before {
+  content: "\E90E";
+}
+.icon-calendar__iconfont___3kJfE:before {
+  content: "\E90D";
+}
+.icon-business__iconfont___1GDDC:before {
+  content: "\E90C";
+}
+.icon-bill__iconfont___3QeUu:before {
+  content: "\E90B";
+}
+.icon-credit-card__iconfont___2HSV8:before {
+  content: "\E90A";
+}
+.icon-bad__iconfont___2enJA:before {
+  content: "\E909";
+}
+.icon-application-management__iconfont___2hVzI:before {
+  content: "\E908";
+}
+.icon-analyze__iconfont___3nS2Q:before {
+  content: "\E907";
+}
+.icon-add-friends__iconfont___GZHYj:before {
+  content: "\E906";
+}
+.icon-yy-clud__iconfont___3wZNq:before {
+  content: "\E905";
+}
+.icon-uploading__iconfont___1T3Qd:before {
+  content: "\E904";
+}
+.icon-download__iconfont___22TU5:before {
+  content: "\E903";
+}
+.icon-home__iconfont___3aDDF:before {
+  content: "\E902";
+}
+.icon-display__iconfont___2aasm:before {
+  content: "\E901";
+}
+.icon-plane__iconfont___34w6h:before {
+  content: "\E900";
 }
