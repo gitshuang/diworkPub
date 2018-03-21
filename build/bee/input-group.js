@@ -23,9 +23,9 @@ Object.defineProperty(exports, 'default', {
   }
 });
 
-require('bee-button-group/build/InputGroup.css');
+require('bee-input-group/build/InputGroup.css');
 
-require('bee-button-group/build/InputGroupButton.css');
+require('bee-input-group/build/InputGroupButton.css');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
