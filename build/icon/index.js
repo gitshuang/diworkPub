@@ -307,8 +307,10 @@ function Icon(props) {
       size = props.size,
       ret = _objectWithoutProperties(props, ['type', 'className', 'size']);
 
+  var sizeClassName = sizes[size] || '';
+  var typeClassName = types['icon-' + type] || '';
   return _react2["default"].createElement('i', _extends({
-    className: 'iconfont ' + types['icon-' + type] + ' ' + sizes[size] + ' ' + className
+    className: 'iconfont ' + typeClassName + ' ' + sizeClassName + ' ' + className
   }, ret));
 }
 
