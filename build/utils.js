@@ -208,7 +208,8 @@ var fetchTools = {
       credentials: 'include',
       cache: 'no-cache',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        'isAjax': 1
       }
     }, _options);
   },
