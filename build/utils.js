@@ -232,9 +232,7 @@ function post(oriUrl) {
 
   var data = params(oriParams);
   var options = optionsMaker('post');
-  options.headers = {
-    'Content-Type': 'application/json;charset=UTF-8'
-  };
+  options.headers['Content-Type'] = 'application/json;charset=UTF-8';
   try {
     options.body = JSON.stringify(oriParams);
   } catch (e) {
