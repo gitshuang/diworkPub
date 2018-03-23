@@ -74,8 +74,6 @@ export const getHost = (key = 'api') => {
       development: 'https://pubapi.yonyoucloud.com/file/upload/oss/workbench-image-path-applicationIcon',
     }
   };
-  // process.env.NODE_ENV === 'production'?
-  console.log("-----",hosts[key][process.env.NODE_ENV]);
   return hosts[key][process.env.NODE_ENV];
 };
 
@@ -195,7 +193,6 @@ export function postFileCros(file){
   }
   console.log(options);
   let oriUrl = getHost('upload');
-  console.log("oriUrl",oriUrl);
   return fetch(url(oriUrl), options);
 }
 
