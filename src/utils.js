@@ -177,7 +177,7 @@ export function post(oriUrl, oriParams = {}) {
   return fetch(url(oriUrl), options);
 }
 
-export function postFileCros(file) {
+export function postFileCros(file){
   const {
     params,
     fetch,
@@ -194,7 +194,7 @@ export function postFileCros(file) {
     return Promise.reject(e);
   }
   console.log(options);
-  let oriUrl = `${getHost('upload')}`;
+  let oriUrl = getHost('upload');
   console.log("oriUrl",oriUrl);
   return fetch(url(oriUrl), options);
 }
