@@ -194,7 +194,7 @@ export function postFileCros(file) {
     return Promise.reject(e);
   }
   console.log(options);
-  let oriUrl = this.getHost("upload");
+  let oriUrl = `${getHost('upload')}`;
   console.log("oriUrl",oriUrl);
   return fetch(url(oriUrl), options);
 }

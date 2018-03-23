@@ -263,7 +263,7 @@ function postFileCros(file) {
     return Promise.reject(e);
   }
   console.log(options);
-  var oriUrl = this.getHost("upload");
+  var oriUrl = '' + getHost('upload');
   console.log("oriUrl", oriUrl);
   return fetch(url(oriUrl), options);
 }
