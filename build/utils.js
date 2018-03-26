@@ -179,7 +179,7 @@ var fetchTools = {
                 msg = _result.msg,
                 errorCode = _result.errorCode;
 
-            if (status) {
+            if (status && status !== '0') {
               return Promise.resolve(data);
             } else if (errorCode) {
               switch (errorCode) {

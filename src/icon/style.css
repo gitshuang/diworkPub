@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?i9qj4r');
-  src:  url('fonts/icomoon.eot?i9qj4r#iefix') format('embedded-opentype'),
-    /* url('fonts/icomoon.woff2?i9qj4r') format('woff2'), */
-    url('fonts/icomoon.ttf?i9qj4r') format('truetype'),
-    url('fonts/icomoon.woff?i9qj4r') format('woff'),
-    url('fonts/icomoon.svg?i9qj4r#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?txv9ru');
+  src:  url('fonts/icomoon.eot?txv9ru#iefix') format('embedded-opentype'),
+    /* url('fonts/icomoon.woff2?txv9ru') format('woff2'), */
+    url('fonts/icomoon.ttf?txv9ru') format('truetype'),
+    url('fonts/icomoon.woff?txv9ru') format('woff'),
+    url('fonts/icomoon.svg?txv9ru#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -496,34 +496,8 @@
 .icon-role-management:before {
   content: "\e983";
 }
-.icon-close2 .path1:before {
+.icon-close2:before {
   content: "\e984";
-  color: rgb(0, 0, 0);
-}
-.icon-close2 .path2:before {
-  content: "\e985";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
-}
-.icon-close2 .path3:before {
-  content: "\e986";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
-}
-.icon-close2 .path4:before {
-  content: "\e987";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
-}
-.icon-close2 .path5:before {
-  content: "\e988";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
-}
-.icon-close2 .path6:before {
-  content: "\e989";
-  margin-left: -1em;
-  color: rgb(255, 255, 255);
 }
 .icon-pin2:before {
   content: "\e98a";
