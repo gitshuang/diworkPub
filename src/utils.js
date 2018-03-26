@@ -68,10 +68,6 @@ export const getHost = (key = 'api') => {
     market: {
       production: 'https://uastest.yyuap.com/market/index#/shopping/orderlist',
       development: 'https://uastest.yyuap.com/market/index#/shopping/orderlist',
-    },
-    upload:{
-      production: 'https://pubapi.yonyoucloud.com/file/upload/oss/workbench-image-path-applicationIcon',
-      development: 'https://pubapi.yonyoucloud.com/file/upload/oss/workbench-image-path-applicationIcon',
     }
   };
   return hosts[key][process.env.NODE_ENV];

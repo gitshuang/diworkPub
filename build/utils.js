@@ -120,14 +120,8 @@ var getHost = exports.getHost = function getHost() {
     market: {
       production: 'https://uastest.yyuap.com/market/index#/shopping/orderlist',
       development: 'https://uastest.yyuap.com/market/index#/shopping/orderlist'
-    },
-    upload: {
-      production: 'https://pubapi.yonyoucloud.com/file/upload/oss/workbench-image-path-applicationIcon',
-      development: 'https://pubapi.yonyoucloud.com/file/upload/oss/workbench-image-path-applicationIcon'
     }
   };
-  // process.env.NODE_ENV === 'production'?
-  console.log("-----", hosts[key][process.env.NODE_ENV]);
   return hosts[key][process.env.NODE_ENV];
 };
 
@@ -247,7 +241,7 @@ function post(oriUrl) {
   return fetch(url(oriUrl), options);
 }
 
-function postFileCros(file) {
+function postFileCros(oriUrl, file) {
   var params = fetchTools.params,
       fetch = fetchTools.fetch,
       optionsMaker = fetchTools.options,
@@ -263,8 +257,6 @@ function postFileCros(file) {
     return Promise.reject(e);
   }
   console.log(options);
-  var oriUrl = getHost('upload');
-  console.log("oriUrl", oriUrl);
   return fetch(url(oriUrl), options);
 }
 
