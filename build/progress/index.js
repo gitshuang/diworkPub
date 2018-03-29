@@ -46,6 +46,14 @@ var Progress = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, _Component.call(this, props));
 
+        _this.componentDidMount = function () {
+            var _this$props = _this.props,
+                tenantId = _this$props.tenantId,
+                startFlag = _this$props.startFlag;
+
+            startFlag && _this.goToLoading(tenantId);
+        };
+
         _this.componentWillReceiveProps = function (nextProps) {
             var tenantId = nextProps.tenantId,
                 startFlag = nextProps.startFlag;
@@ -64,7 +72,7 @@ var Progress = function (_Component) {
             check(tenantId, _this.goToLoading, _this.goToLoadingAfter);
         };
 
-        _this.goToLoadingAfter = function (loadingInterVal) {
+        _this.goToLoadingAfter = function () {
             var tenantId = _this.props.tenantId;
 
             _beeProgressBar2["default"].done();
@@ -86,7 +94,7 @@ var Progress = function (_Component) {
         var now = this.state.processValue;
         return _react2["default"].createElement(
             'div',
-            null,
+            { className: 'progress_wrap' },
             _react2["default"].createElement(_beeProgressBar2["default"], { className: _style.process_loading, striped: false, now: now, label: now + '%' }),
             _react2["default"].createElement(_icon2["default"], { type: 'loading' }),
             _react2["default"].createElement(

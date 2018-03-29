@@ -12,6 +12,12 @@ class  Progress extends Component {
         }
     }
 
+    componentDidMount = () =>{
+        const {tenantId,startFlag} = this.props;
+        startFlag && this.goToLoading(tenantId)
+    }
+
+
     componentWillReceiveProps = (nextProps) =>{
         const {tenantId,startFlag} = nextProps;
         startFlag && this.goToLoading(tenantId)
@@ -27,7 +33,7 @@ class  Progress extends Component {
         check(tenantId,this.goToLoading,this.goToLoadingAfter);
     }
 
-    goToLoadingAfter = (loadingInterVal) =>{
+    goToLoadingAfter = () =>{
         const {tenantId}  = this.props;
         ProgressBar.done();
         this.setState({processValue:100})//直接结束
@@ -40,7 +46,7 @@ class  Progress extends Component {
         const {loadingDesc}  = this.props
         let now = this.state.processValue;
         return(
-            <div>
+            <div className="progress_wrap">
                 <ProgressBar  className={ process_loading } striped={false} now = {now} label={`${now}%`} ></ProgressBar>
                 <Icon type="loading" />
                 <span className={loading_desc}>{loadingDesc?loadingDesc:'正在配置信息…'}</span>
