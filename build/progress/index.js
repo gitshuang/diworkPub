@@ -21,8 +21,9 @@ var _icon2 = _interopRequireDefault(_icon);
 require('./style.css');
 
 var _style = {
-    'process_loading_content': 'process_loading_content__style___RRiSK',
-    'process_loading': 'process_loading__style___2Bxrt',
+    'progress_wrap': 'progress_wrap__style___3jdj3',
+    'progress_loading': 'progress_loading__style___2VLp_',
+    'progress_load_icon': 'progress_load_icon__style___2FrmF',
     'opacityShow': 'opacityShow__style___1_rJb',
     'opacityHidden': 'opacityHidden__style___2kVQY',
     'loading_desc': 'loading_desc__style___ODeVU'
@@ -94,9 +95,9 @@ var Progress = function (_Component) {
         var now = this.state.processValue;
         return _react2["default"].createElement(
             'div',
-            { className: 'progress_wrap' },
-            _react2["default"].createElement(_beeProgressBar2["default"], { className: _style.process_loading, striped: false, now: now, label: now + '%' }),
-            _react2["default"].createElement(_icon2["default"], { type: 'loading' }),
+            { className: _style.progress_wrap },
+            _react2["default"].createElement(_beeProgressBar2["default"], { className: _style.progress_loading, striped: false, now: now, label: now + '%' }),
+            _react2["default"].createElement(_icon2["default"], { className: _style.progress_load_icon, type: 'loading' }),
             _react2["default"].createElement(
                 'span',
                 { className: _style.loading_desc },

@@ -1,22 +1,12 @@
 /* imported from style.css */
 
 /*新增的requestloading*/
-.process_loading_content__style___RRiSK {
-    position: absolute;
-    top: 0;
-    left: 0;;
-    margin-left: calc(30% + 72px);
-    opacity: 0;
+  .progress_wrap__style___3jdj3{
+    position: relative;
+    width: 338px;
+    height: 32px
   }
-  .process_loading_content__style___RRiSK .iconfont{
-    position: absolute;
-    top:0;
-    right: 10px;
-    line-height: 32px;
-    color:#fff;
-    font-size: 20px;
-  }
-  .process_loading__style___2Bxrt{
+  .progress_loading__style___2VLp_{
     width: 338px;
     height: 32px;
     background-color: rgba(223,226,227,1);
@@ -24,14 +14,13 @@
     position: relative;
     box-shadow: none;
   }
-  .u-progress-bar{
-    background-color: #e14b46;
+  .progress_load_icon__style___2FrmF{
+    position: absolute;
+    top: 0;
     line-height: 32px;
-    font-size: 12px;
-  }
-  .u-progress-label{
-    float: left;
-    padding: 0 20px;
+    color: #fff;
+    font-size: 20px;
+    right: 20px;
   }
   .opacityShow__style___1_rJb{
     opacity: 1!important;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ProgressBar from 'bee-progress-bar';
 import 'bee-progress-bar/build/ProgressBar.css';
 import Icon from '../icon';
-import{ process_loading,loading_desc} from './style.css';
+import{ progress_wrap,progress_loading,progress_load_icon,loading_desc} from './style.css';
 
 class  Progress extends Component {
     constructor(props){
@@ -46,9 +46,9 @@ class  Progress extends Component {
         const {loadingDesc}  = this.props
         let now = this.state.processValue;
         return(
-            <div className="progress_wrap">
-                <ProgressBar  className={ process_loading } striped={false} now = {now} label={`${now}%`} ></ProgressBar>
-                <Icon type="loading" />
+            <div className={progress_wrap}>
+                <ProgressBar  className={ progress_loading } striped={false} now = {now} label={`${now}%`} ></ProgressBar>
+                <Icon className={progress_load_icon} type="loading" />
                 <span className={loading_desc}>{loadingDesc?loadingDesc:'正在配置信息…'}</span>
             </div>
         )
