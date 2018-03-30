@@ -149,6 +149,7 @@ const fetchTools = {
     } else if (url.indexOf('http') !== 0) {
       url = `${getHost()}${url}`;
     }
+    url+= "&tm="+new Date().getTime();
     return url;
   },
 };
