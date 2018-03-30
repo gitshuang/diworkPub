@@ -68,7 +68,11 @@ export const getHost = (key = 'api') => {
     market: {
       production: 'https://uastest.yyuap.com/market/index#/shopping/orderlist',
       development: 'https://uastest.yyuap.com/market/index#/shopping/orderlist',
-    }
+    },
+    editAvatar: {
+      production: 'https://euc.diwork.com/diuser',
+      development: 'https://idtest.yyuap.com/usercenter/user',
+    },
   };
   return hosts[key][process.env.NODE_ENV];
 };

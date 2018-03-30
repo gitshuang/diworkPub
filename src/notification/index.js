@@ -15,7 +15,7 @@ class NotificationMess extends Component {
   //   type:PropTypes.string,
   //   className:""
   // }
- 
+
   constructor(props) {
     super(props);
 
@@ -31,7 +31,7 @@ class NotificationMess extends Component {
       case "warning":
         return warning_cont;
       case "success":
-        return success_cont;  
+        return success_cont;
       case "info":
         return info_cont;
       case "error":
@@ -45,16 +45,16 @@ class NotificationMess extends Component {
       case "warning":
         return "notice";
       case "success":
-        return "succeed";  
+        return "succeed";
       case "info":
         return "help-information";
       case "error":
         return "error4";
     }
   }
-  
+
   open=(options)=>{
-    const {title,content} = this.props;
+    const { title, content, duration, closable } = this.props;
     const key = Date.now();
     this.notification.notice({
       content:(<div className={`${page}` }>
@@ -67,33 +67,28 @@ class NotificationMess extends Component {
         {/* <Button onClick={this.close(this, key)} size="sm" style={{ position: 'absolute', right: 15, bottom: 15}}>知道了</Button> */}
       </div>),
       key,
-      duration: null,
-      closable: false
+      duration: typeof duration === 'undefined' ? null : duration,
+      closable: typeof closable === 'undefined' ? false : closable,
     });
   }
-
-  close=()=>{
-  
-  }
-
-  render() {
-    return (<div >ddddd</div> );
-  }
 }
-export default NotificationMess;
 
 let _notification;
 function openMess(options){
-  _notification = new NotificationMess(options);
+  if (!_notification) {
+    _notification = new NotificationMess(options);
+  }
   _notification.open(options);
 }
+
+export default NotificationMess;
 export {
   openMess,
   close,
 };
 
 
-/** 
+/**
 组件使用方式
 import NotificationMess,{openMess} from 'components/notification';
 type 类型[warning,success,info,error]
