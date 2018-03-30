@@ -1,0 +1,37 @@
+/*新增的requestloading*/
+  .progress_wrap{
+    position: relative;
+    width: 338px;
+    height: 32px
+  }
+  .progress_loading{
+    width: 338px;
+    height: 32px;
+    background-color: rgba(223,226,227,1);
+    border-radius: 3px;
+    position: relative;
+    box-shadow: none;
+  }
+  .progress_load_icon{
+    position: absolute;
+    top: 0;
+    line-height: 32px;
+    color: #fff;
+    font-size: 20px;
+    right: 20px;
+  }
+  .opacityShow{
+    opacity: 1!important;
+  }
+  .opacityHidden{
+    opacity: 0!important;
+  }
+  .loading_desc{
+    font-size:12px;
+    font-family:MicrosoftYaHei;
+    color:rgba(110,110,119,1);
+    line-height:16px;
+    position: absolute;
+    left: 0;
+    top: 40px;
+  }
