@@ -219,6 +219,7 @@ var fetchTools = {
     } else if (_url.indexOf('http') !== 0) {
       _url = '' + getHost() + _url;
     }
+    _url += "&tm=" + new Date().getTime();
     return _url;
   }
 };
