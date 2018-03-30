@@ -219,7 +219,6 @@ var fetchTools = {
     } else if (_url.indexOf('http') !== 0) {
       _url = '' + getHost() + _url;
     }
-    _url += "&tm=" + new Date().getTime();
     return _url;
   }
 };
@@ -275,7 +274,8 @@ function get(oriUrl) {
   if (data) {
     url = url + '?' + data;
   }
-
+  var fh = url.indexOf("?") == -1 ? "?" : "&&";
+  url += fh + "tm=" + new Date().getTime();
   return fetch(url, options());
 }
 
