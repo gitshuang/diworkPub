@@ -149,7 +149,6 @@ const fetchTools = {
     } else if (url.indexOf('http') !== 0) {
       url = `${getHost()}${url}`;
     }
-    url+= "&tm="+new Date().getTime();
     return url;
   },
 };
@@ -206,7 +205,8 @@ export function get(oriUrl, oriParams = {}) {
   if (data) {
     url = `${url}?${data}`;
   }
-
+  let fh = url.indexOf("?") == -1?"?":"&&";
+  url+= fh+"tm="+new Date().getTime();
   return fetch(url, options());
 }
 
