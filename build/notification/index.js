@@ -99,7 +99,9 @@ var NotificationMess = function (_Component) {
     _this.open = function (options) {
       var _this$props = _this.props,
           title = _this$props.title,
-          content = _this$props.content;
+          content = _this$props.content,
+          duration = _this$props.duration,
+          closable = _this$props.closable;
 
       var key = Date.now();
       _this.notification.notice({
@@ -124,12 +126,10 @@ var NotificationMess = function (_Component) {
           )
         ),
         key: key,
-        duration: null,
-        closable: false
+        duration: typeof duration === 'undefined' ? null : duration,
+        closable: typeof closable === 'undefined' ? false : closable
       });
     };
-
-    _this.close = function () {};
 
     _this.notification = _notification3["default"].newInstance({
       position: 'bottomRight',
@@ -138,29 +138,22 @@ var NotificationMess = function (_Component) {
     return _this;
   }
 
-  NotificationMess.prototype.render = function render() {
-    return _react2["default"].createElement(
-      'div',
-      null,
-      'ddddd'
-    );
-  };
-
   return NotificationMess;
 }(_react.Component);
 
-exports["default"] = NotificationMess;
-
-
 var _notification = void 0;
 function openMess(options) {
-  _notification = new NotificationMess(options);
+  if (!_notification) {
+    _notification = new NotificationMess(options);
+  }
   _notification.open(options);
 }
+
+exports["default"] = NotificationMess;
 exports.openMess = openMess;
 exports.close = close;
 
-/** 
+/**
 组件使用方式
 import NotificationMess,{openMess} from 'components/notification';
 type 类型[warning,success,info,error]

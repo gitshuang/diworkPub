@@ -114,7 +114,7 @@ var getHost = exports.getHost = function getHost() {
       development: ''
     },
     euc: {
-      production: 'https://euc.yonyoucloud.com',
+      production: 'https://euc.diwork.com',
       development: 'https://idtest.yyuap.com'
     },
     market: {
