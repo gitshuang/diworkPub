@@ -23,14 +23,15 @@ class  Progress extends Component {
         startFlag && this.goToLoading()
     }
 
-    goToLoading = () =>{
-        const {check ,tenantId} = this.props;
+    goToLoading = (tenantId) =>{
+        const {check} = this.props;
+        let tenantIdVal = tenantId || this.props.tenantId;
         let self = this;
         let perValue  = (Math.floor(Math.random()*10+1));//输出1～10之间的随机整数
         if(self.state.processValue < 90 ){
             self.setState({processValue:self.state.processValue+perValue})
         }
-        check(tenantId,this.goToLoading,this.goToLoadingAfter);
+        check(tenantIdVal,this.goToLoading,this.goToLoadingAfter);
     }
 
     goToLoadingAfter = () =>{
