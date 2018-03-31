@@ -10,8 +10,10 @@
     -webkit-box-pack: center;
     justify-content: center;
 }
-.enhanced_pagination__style___3LhAI .u-pagination__style___3Kd5L{
-    font-size: 14px;
+.enhanced_pagination__style___3LhAI .u_float_pagination__style___2mZ3V{
+    float: left;
+}
+.data_per_select__style___3VIUY{
     margin: 5px;
     float: left;
 }
@@ -27,8 +29,7 @@
     text-align: center;
     font-size: 14px;
     margin: 0 6px;
-    float: left;
-    margin: 5px;
+   
 }
 .page_jump__style___3AeGw {
     font-size: 14px;

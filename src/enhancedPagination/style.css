@@ -8,8 +8,10 @@
     -webkit-box-pack: center;
     justify-content: center;
 }
-.enhanced_pagination .u-pagination{
-    font-size: 14px;
+.enhanced_pagination .u_float_pagination{
+    float: left;
+}
+.data_per_select{
     margin: 5px;
     float: left;
 }
@@ -25,8 +27,7 @@
     text-align: center;
     font-size: 14px;
     margin: 0 6px;
-    float: left;
-    margin: 5px;
+   
 }
 .page_jump {
     font-size: 14px;

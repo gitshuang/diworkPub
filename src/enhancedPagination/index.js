@@ -5,7 +5,7 @@ import Pagination from 'bee/pagination';
 //dataNumSelect  array ，下拉的数据选择有哪些
 //dataNumSelectActive number，默认选中的每页展示的数据数
 // 函数接受一个组件参数……
-import {enhanced_pagination,data_select,page_jump,page_jump_value
+import {enhanced_pagination,data_per_select,data_select,page_jump,page_jump_value,u_float_pagination
   } from './style.css';
 
 const EnhancedPagination = WrappedComponent => {
@@ -81,8 +81,8 @@ const EnhancedPagination = WrappedComponent => {
         const {onDataNumSelect, dataNumSelect, ...restProps} = this.props
         return (
             <div className={enhanced_pagination}>
-                <WrappedComponent {...restProps} {...newProps}/>
-                <div className="data-per-select">
+                <WrappedComponent {...restProps} {...newProps} className={u_float_pagination}/>
+                <div className={data_per_select}>
                     <select  name="data-select" id="" className={data_select}  value={this.state.dataNum} onChange={e=>this.dataNumSelect(e)}>
                       {dataNumSelect.length > 0 && dataNumSelect.map((item, i) => {
                       return <option key={i} value={item.id}>{item.name}</option>
