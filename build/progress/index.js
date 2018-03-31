@@ -52,25 +52,26 @@ var Progress = function (_Component) {
                 tenantId = _this$props.tenantId,
                 startFlag = _this$props.startFlag;
 
-            startFlag && _this.goToLoading(tenantId);
+            startFlag && _this.goToLoading();
         };
 
         _this.componentWillReceiveProps = function (nextProps) {
             var tenantId = nextProps.tenantId,
                 startFlag = nextProps.startFlag;
 
-            startFlag && _this.goToLoading(tenantId);
+            startFlag && _this.goToLoading();
         };
 
         _this.goToLoading = function (tenantId) {
             var check = _this.props.check;
 
+            var tenantIdVal = tenantId || _this.props.tenantId;
             var self = _this;
             var perValue = Math.floor(Math.random() * 10 + 1); //输出1～10之间的随机整数
             if (self.state.processValue < 90) {
                 self.setState({ processValue: self.state.processValue + perValue });
             }
-            check(tenantId, _this.goToLoading, _this.goToLoadingAfter);
+            check(tenantIdVal, _this.goToLoading, _this.goToLoadingAfter);
         };
 
         _this.goToLoadingAfter = function () {
