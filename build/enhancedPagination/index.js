@@ -18,6 +18,7 @@ require('./style.css');
 
 var _style = {
   'enhanced_pagination': 'enhanced_pagination__style___3LhAI',
+  'u-pagination': 'u-pagination__style___3Kd5L',
   'data_select': 'data_select__style___1N0jE',
   'page_jump': 'page_jump__style___3AeGw',
   'page_jump_value': 'page_jump_value__style___15gy0'

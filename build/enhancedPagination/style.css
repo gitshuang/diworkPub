@@ -10,6 +10,11 @@
     -webkit-box-pack: center;
     justify-content: center;
 }
+.enhanced_pagination__style___3LhAI .u-pagination__style___3Kd5L{
+    font-size: 14px;
+    margin: 5px;
+    float: left;
+}
 .data_select__style___1N0jE {
     outline: none;
     -webkit-appearance: none;
@@ -22,9 +27,13 @@
     text-align: center;
     font-size: 14px;
     margin: 0 6px;
+    float: left;
+    margin: 5px;
 }
 .page_jump__style___3AeGw {
     font-size: 14px;
+    float: left;
+    margin: 5px;
 }
 input.page_jump_value__style___15gy0 {
     outline: none;
