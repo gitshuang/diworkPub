@@ -74,10 +74,10 @@ var Progress = function (_Component) {
             check(tenantIdVal, _this.setLoadingValue, _this.goToLoadingAfter);
         };
 
-        _this.setLoadingValue = function () {
+        _this.setLoadingValue = function (tenantIdVal) {
             var perValue = Math.floor(Math.random() * 10 + 1); //输出1～10之间的随机整数
             if (_this.state.processValue < 90) {
-                _this.setState({ processValue: self.state.processValue + perValue });
+                _this.setState({ processValue: _this.state.processValue + perValue });
             }
         };
 

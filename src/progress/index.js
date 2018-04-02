@@ -34,10 +34,10 @@ class  Progress extends Component {
         check(tenantIdVal,this.setLoadingValue,this.goToLoadingAfter);
     }
 
-    setLoadingValue = () =>{
+    setLoadingValue = (tenantIdVal) =>{
         let perValue  = (Math.floor(Math.random()*10+1));//输出1～10之间的随机整数
         if(this.state.processValue < 90 ){
-            this.setState({processValue:self.state.processValue+perValue})
+            this.setState({processValue:this.state.processValue+perValue})
         }
     }
     goToLoadingAfter = () =>{
