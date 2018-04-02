@@ -66,7 +66,7 @@ export const getHost = (key = 'api') => {
       development: 'https://idtest.yyuap.com',
     },
     market: {
-      production: 'https://uastest.yyuap.com/market/index#/shopping/orderlist',
+      production: 'https://market.yonyoucloud.com/market/index#/shopping/orderlist',
       development: 'https://uastest.yyuap.com/market/index#/shopping/orderlist',
     },
   };
