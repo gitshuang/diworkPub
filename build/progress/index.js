@@ -63,9 +63,10 @@ var Progress = function (_Component) {
         };
 
         _this.goToLoading = function (tenantId) {
+            var tenantIdVal = _this.props.tenantId;
+            if (tenantId == '' || tenantId == undefined) return false;
             var check = _this.props.check;
 
-            var tenantIdVal = tenantId || _this.props.tenantId;
             var self = _this;
             var perValue = Math.floor(Math.random() * 10 + 1); //输出1～10之间的随机整数
             if (self.state.processValue < 90) {

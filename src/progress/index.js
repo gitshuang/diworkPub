@@ -24,8 +24,9 @@ class  Progress extends Component {
     }
 
     goToLoading = (tenantId) =>{
+        const tenantIdVal =this.props.tenantId;
+        if(tenantId == '' || tenantId == undefined) return false;         
         const {check} = this.props;
-        let tenantIdVal = tenantId || this.props.tenantId;
         let self = this;
         let perValue  = (Math.floor(Math.random()*10+1));//输出1～10之间的随机整数
         if(self.state.processValue < 90 ){
