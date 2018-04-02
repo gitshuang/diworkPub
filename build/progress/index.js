@@ -64,7 +64,7 @@ var Progress = function (_Component) {
 
         _this.goToLoading = function (tenantId) {
             var tenantIdVal = _this.props.tenantId;
-            if (tenantId == '' || tenantId == undefined) return false;
+            if (tenantIdVal == '' || tenantIdVal == undefined) return false;
             var check = _this.props.check;
 
             var self = _this;

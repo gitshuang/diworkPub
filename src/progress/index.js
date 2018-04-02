@@ -25,7 +25,7 @@ class  Progress extends Component {
 
     goToLoading = (tenantId) =>{
         const tenantIdVal =this.props.tenantId;
-        if(tenantId == '' || tenantId == undefined) return false;         
+        if(tenantIdVal == '' || tenantIdVal == undefined) return false;         
         const {check} = this.props;
         let self = this;
         let perValue  = (Math.floor(Math.random()*10+1));//输出1～10之间的随机整数
