@@ -20,11 +20,11 @@ class  Progress extends Component {
 
     componentWillReceiveProps = (nextProps) =>{
         const {tenantId,startFlag} = nextProps;
-        startFlag && this.goToLoading()
+        startFlag && this.goToLoading(tenantId)
     }
 
     goToLoading = (tenantId) =>{
-        const tenantIdVal =this.props.tenantId;
+        const tenantIdVal = tenantId || this.props.tenantId;
         if(tenantIdVal == '' || tenantIdVal == undefined) return false;         
         const {check} = this.props;
         let self = this;

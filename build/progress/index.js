@@ -59,11 +59,11 @@ var Progress = function (_Component) {
             var tenantId = nextProps.tenantId,
                 startFlag = nextProps.startFlag;
 
-            startFlag && _this.goToLoading();
+            startFlag && _this.goToLoading(tenantId);
         };
 
         _this.goToLoading = function (tenantId) {
-            var tenantIdVal = _this.props.tenantId;
+            var tenantIdVal = tenantId || _this.props.tenantId;
             if (tenantIdVal == '' || tenantIdVal == undefined) return false;
             var check = _this.props.check;
 
