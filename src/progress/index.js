@@ -31,9 +31,15 @@ class  Progress extends Component {
         if(self.state.processValue < 90 ){
             self.setState({processValue:self.state.processValue+perValue})
         }
-        check(tenantIdVal,this.goToLoading,this.goToLoadingAfter);
+        check(tenantIdVal,this.setLoadingValue,this.goToLoadingAfter);
     }
 
+    setLoadingValue = () =>{
+        let perValue  = (Math.floor(Math.random()*10+1));//输出1～10之间的随机整数
+        if(this.state.processValue < 90 ){
+            this.setState({processValue:self.state.processValue+perValue})
+        }
+    }
     goToLoadingAfter = () =>{
         const {tenantId}  = this.props;
         ProgressBar.done();
