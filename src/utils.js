@@ -67,7 +67,7 @@ export const getHost = (key = 'api') => {
     },
     user: {
       production: 'https://hr.diwork.com',
-      development: 'https://hrcloud.yyuap.com',
+      development: 'http://hrcloud.yyuap.com',
     },
     market: {
       production: 'https://market.yonyoucloud.com/market/index#/shopping/orderlist',
