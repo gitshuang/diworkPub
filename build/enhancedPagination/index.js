@@ -18,6 +18,8 @@ require('./style.css');
 
 var _style = {
   'enhanced_pagination': 'enhanced_pagination__style___3LhAI',
+  'u_float_pagination': 'u_float_pagination__style___2mZ3V',
+  'data_per_select': 'data_per_select__style___3VIUY',
   'data_select': 'data_select__style___1N0jE',
   'page_jump': 'page_jump__style___3AeGw',
   'page_jump_value': 'page_jump_value__style___15gy0'
@@ -110,10 +112,10 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
       return _react2["default"].createElement(
         'div',
         { className: _style.enhanced_pagination },
-        _react2["default"].createElement(WrappedComponent, _extends({}, restProps, newProps)),
+        _react2["default"].createElement(WrappedComponent, _extends({}, restProps, newProps, { className: _style.u_float_pagination })),
         _react2["default"].createElement(
           'div',
-          { className: 'data-per-select' },
+          { className: _style.data_per_select },
           _react2["default"].createElement(
             'select',
             { name: 'data-select', id: '', className: _style.data_select, value: this.state.dataNum, onChange: function onChange(e) {

@@ -20,20 +20,27 @@ class  Progress extends Component {
 
     componentWillReceiveProps = (nextProps) =>{
         const {tenantId,startFlag} = nextProps;
-        startFlag && this.goToLoading()
+        startFlag && this.goToLoading(tenantId)
     }
 
     goToLoading = (tenantId) =>{
+        const tenantIdVal = tenantId || this.props.tenantId;
+        if(tenantIdVal == '' || tenantIdVal == undefined) return false;         
         const {check} = this.props;
-        let tenantIdVal = tenantId || this.props.tenantId;
         let self = this;
         let perValue  = (Math.floor(Math.random()*10+1));//输出1～10之间的随机整数
         if(self.state.processValue < 90 ){
             self.setState({processValue:self.state.processValue+perValue})
         }
-        check(tenantIdVal,this.goToLoading,this.goToLoadingAfter);
+        check(tenantIdVal,this.setLoadingValue,this.goToLoadingAfter);
     }
 
+    setLoadingValue = (tenantIdVal) =>{
+        let perValue  = (Math.floor(Math.random()*10+1));//输出1～10之间的随机整数
+        if(this.state.processValue < 90 ){
+            this.setState({processValue:this.state.processValue+perValue})
+        }
+    }
     goToLoadingAfter = () =>{
         const {tenantId}  = this.props;
         ProgressBar.done();

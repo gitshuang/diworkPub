@@ -118,8 +118,16 @@ var getHost = exports.getHost = function getHost() {
       development: 'https://idtest.yyuap.com'
     },
     market: {
-      production: 'https://uastest.yyuap.com/market/index#/shopping/orderlist',
+      production: 'https://market.yonyoucloud.com/market/index#/shopping/orderlist',
       development: 'https://uastest.yyuap.com/market/index#/shopping/orderlist'
+    },
+    ref: {
+      production: 'https://ms.diwork.com',
+      development: 'http://workbench.yyuap.com'
+    },
+    org: {
+      production: 'https://bd.diwork.com',
+      development: 'http://workbenchdev.yyuap.com'
     }
   };
   return hosts[key][process.env.NODE_ENV];

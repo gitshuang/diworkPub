@@ -59,19 +59,27 @@ var Progress = function (_Component) {
             var tenantId = nextProps.tenantId,
                 startFlag = nextProps.startFlag;
 
-            startFlag && _this.goToLoading();
+            startFlag && _this.goToLoading(tenantId);
         };
 
         _this.goToLoading = function (tenantId) {
+            var tenantIdVal = tenantId || _this.props.tenantId;
+            if (tenantIdVal == '' || tenantIdVal == undefined) return false;
             var check = _this.props.check;
 
-            var tenantIdVal = tenantId || _this.props.tenantId;
             var self = _this;
             var perValue = Math.floor(Math.random() * 10 + 1); //输出1～10之间的随机整数
             if (self.state.processValue < 90) {
                 self.setState({ processValue: self.state.processValue + perValue });
             }
-            check(tenantIdVal, _this.goToLoading, _this.goToLoadingAfter);
+            check(tenantIdVal, _this.setLoadingValue, _this.goToLoadingAfter);
+        };
+
+        _this.setLoadingValue = function (tenantIdVal) {
+            var perValue = Math.floor(Math.random() * 10 + 1); //输出1～10之间的随机整数
+            if (_this.state.processValue < 90) {
+                _this.setState({ processValue: _this.state.processValue + perValue });
+            }
         };
 
         _this.goToLoadingAfter = function () {

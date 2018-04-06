@@ -71,6 +71,10 @@ class NotificationMess extends Component {
       closable: typeof closable === 'undefined' ? false : closable,
     });
   }
+
+  close = () => {
+  
+  }
 }
 
 let _notification;
