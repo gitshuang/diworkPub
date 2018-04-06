@@ -117,9 +117,21 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://euc.diwork.com',
       development: 'https://idtest.yyuap.com'
     },
+    user: {
+      production: 'https://hr.diwork.com',
+      development: 'https://hrcloud.yyuap.com'
+    },
     market: {
       production: 'https://market.yonyoucloud.com/market/index#/shopping/orderlist',
       development: 'https://uastest.yyuap.com/market/index#/shopping/orderlist'
+    },
+    order: {
+      production: 'https://ticket.yonyoucloud.com/',
+      development: 'https://ticket.yonyoucloud.com/'
+    },
+    cloundyy: {
+      production: 'https://www.yonyoucloud.com/',
+      development: 'https://cloudtest.yyuap.com/'
     },
     ref: {
       production: 'https://ms.diwork.com',
