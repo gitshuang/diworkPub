@@ -73,6 +73,14 @@ export const getHost = (key = 'api') => {
       production: 'https://market.yonyoucloud.com/market/index#/shopping/orderlist',
       development: 'https://uastest.yyuap.com/market/index#/shopping/orderlist',
     },
+    order: {
+      production: 'https://ticket.yonyoucloud.com/',
+      development: 'https://ticket.yonyoucloud.com/',
+    },
+    cloundyy: {
+      production: 'https://www.yonyoucloud.com/',
+      development: 'https://cloudtest.yyuap.com/',
+    },
     ref: {
       production: 'https://ms.diwork.com',
       development: 'http://workbench.yyuap.com',
