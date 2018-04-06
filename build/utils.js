@@ -111,7 +111,7 @@ var getHost = exports.getHost = function getHost() {
   var hosts = {
     api: {
       production: process.env.HOST || '',
-      development: ''
+      development: process.env.HOST || ''
     },
     euc: {
       production: 'https://euc.diwork.com',
