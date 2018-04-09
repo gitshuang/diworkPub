@@ -1,0 +1,109 @@
+/*  imported from style.css  */
+
+.page_home__style___vsQOe .lebra-navbar-left-icon{
+}
+body{
+  background-image:url("assets/image/wgt/wiget_bg.png"),url("assets/image/wgt/wiget_bg.png"),url("assets/image/wgt/wiget_bg.png");
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: 0% 100%, 100% 5%, 90% 100%;
+  background-attachment:fixed;
+}
+.header__style___swC0o{
+    position: fixed!important;
+    width: 100%;
+    min-height: 44px;
+    background:url("assets/image/wgt/navBar_bg.png") no-repeat;
+    background-position: right;
+    background-color:rgba(255,255,255,0.92);
+    z-index: 100;
+}
+.HeaderLeft__style___17Jua{}
+.HeaderLeft__style___17Jua img{
+  width: 58px;
+  height: 27px;
+}
+.um_content__style___3a8jv{
+	background:#e6e9e9;
+	padding:82px 23px 48px;
+}
+.umBoxJustify__style___2tN2v{
+  display: table;
+  width: 100%;
+	height:48px;
+  padding:10px 0px;
+  padding-left: 75px;
+	position:relative;
+	background:rgba(43, 55, 66, 0.6);
+}
+.umBoxJustify__style___2tN2v>div{
+  display: table-cell;
+}
+
+.umBoxJustify__style___2tN2v .preserve__style___1CXeY{
+	background:#e14c46;
+	border:none;
+}
+.umBoxJustify__style___2tN2v .preserve__style___1CXeY:hover{
+	background:#d03630;
+	border:none;
+	color:#fff;
+}
+.batchArea__style___1mhxk{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.batchArea__style___1mhxk>div{
+  margin-right: 8px;
+}
+.saveArea__style___20m3j{
+  width: 360px;
+}
+.saveArea__style___20m3j>div{
+  margin-left:8px;
+}
+.um_footer__style___3cr-t{
+	width:100%;
+	position:fixed;
+	bottom: 0;
+}
+/* :global(.cancelModal button){
+  margin:0;
+}
+:global(.cancelModal button:first-child){
+  float: left;
+  color: rgba(71,77,84,1);
+  background: transparent;
+}
+:global(.cancelModal button:first-child:hover){
+  color: rgba(71,77,84,1);
+  background: rgba(9,44,66,0.08);
+}
+:global(.cancelModal button:nth-child(2)){
+  background: rgba(225,76,70,1);
+  color: rgba(255,255,255,1);
+} */
+
+.addBtn__style___3zZN2{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.addGroupBtn__style___3tnOQ{
+  /* display:flex; */
+  border: 1px solid #D9D9D9;
+  font-size:12px;
+  color:rgba(71,77,84,1);
+}
+.addGroupBtn__style___3tnOQ .iconfont{
+  padding-right: 10px;
+}
+.manager_save_pop__style___2tUW_>div{
+  width: auto !important;
+}

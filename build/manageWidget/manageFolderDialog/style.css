@@ -1,0 +1,35 @@
+/*  imported from style.css  */
+
+.content__style___23Jeg{
+  overflow: auto;
+  height: 400px;
+  padding-left:10px;
+}
+
+.manageDialogFolder .folderDialog{
+  z-index: 2000;
+  background-color: initial;
+}
+.manageDialogFolder.u-modal{
+  position: fixed;
+  bottom: auto;
+  margin: 0px;
+  z-index: 3000;
+  height: 600px;
+  width: 1000px;
+  min-width: 1000px;
+  left: calc((100% - 1000px)/2);
+  top: calc((100% - 600px)/2);
+}
+.manageDialogFolder.u-modal .u-modal-content{
+  padding: 16px;
+}
+.manageDialogFolder .u-modal-dialog{
+  width: auto;
+}
+div[role=dialog]{
+  /* height:100%; */
+}
+.manageDialogFolder .u-modal-dialog{
+  margin:0px;
+}

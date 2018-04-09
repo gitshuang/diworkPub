@@ -1,0 +1,122 @@
+/*  imported from style.css  */
+
+.serviceItem__style___ZcaE2{
+    width:160px;
+    height:52px;
+    line-height: 38px;
+    float: left;
+    margin: 16px;
+    margin-right: 0px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    position: relative;
+    background:rgba(244,245,247,0.5);
+    border-radius: 3px ;
+
+    font-family: "\5FAE\8F6F\96C5\9ED1  Regular", 微软雅黑;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    border: 1px solid rgba(78,89,104,0.19);
+}
+.serviceItemTitle__style___2XEnj{
+  width: 100%;    
+  border-bottom: 1px solid rgba(13,20,36,0.1);
+  display: -webkit-box;
+  display:flex;
+}
+.serviceItemTitle__style___2XEnj .item_li_top__style___1Kk8d{
+  flex: 1;
+  height: 40px;
+  line-height: 40px;
+}
+.serviceItemTitle__style___2XEnj .item_footer__style___2__CS{
+  /* flex: 1; */
+  text-align: left;
+  /* width: 50px; */
+  position: relative;
+  right: 35px;
+  bottom: 0px;
+  /* border: 1px solid red; */
+}
+
+.item_li_top__style___1Kk8d{
+	height:100%;
+  display: -webkit-box;
+  display: flex;
+}
+
+
+.item_footer__style___2__CS{
+	height: 30px;
+  line-height: 24px;
+	text-align: right;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  /* color: rgba(117,127,140,1); */
+}
+
+.item_left__style___1swGm {
+    background: #ccc;
+    width: 60px;
+}
+.item_right__style___tCTBx{
+	flex: 1;
+	padding-left: 5px;
+	/* padding-top: 10px; */
+	box-sizing: border-box;
+
+  font-size:12px;
+  font-family:MicrosoftYaHei;
+  color:rgba(71,77,84,1);
+
+}
+.item_footer_app__style___2eCWr{
+  right: 58px !important;
+}
+
+.item_footer__style___2__CS span{
+  font-family: "\5FAE\8F6F\96C5\9ED1  Regular", 微软雅黑;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  color: rgb(153, 153, 153);
+}
+.item_footer__style___2__CS i{
+  font-size: 25px;
+}
+.serviceItem__style___ZcaE2 .item_footer__style___2__CS span,.serviceItem__style___ZcaE2 .item_footer__style___2__CS i{
+  display: table-row;
+}
+.icon__style___1lXCn{
+  width:30px;
+  height: 30px;
+}
+.item_li_top__style___1Kk8d  .icon__style___1lXCn{
+  margin-top: 4px;
+}
+.up_icon__style___28KQE{
+  color: rgba(117,127,140,1);
+  width:14px;
+  height:6px;
+  font-size: 20px;
+  cursor:pointer;
+  /* margin-left: 45px; */
+  margin-right: 8px;
+}
+/* 首页编辑-添加服务 */
+.ie9_pop .serviceItemTitle__style___2XEnj{
+  display: table;
+}
+.ie9_pop .serviceItemTitle__style___2XEnj>.item_footer__style___2__CS{
+  display: table-cell;
+  text-align: right;
+}
+.ie9_pop .serviceItemTitle__style___2XEnj>i{
+  display: table-cell;
+}
+.ie9_pop .item_li_top__style___1Kk8d>img{
+  float:left;
+}
