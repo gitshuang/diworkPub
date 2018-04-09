@@ -532,9 +532,12 @@ var WidgeFileItem = function (_Component) {
         };
       }
     }
+    var folderBgSrc = this.props.folderBgSrc;
+
+    var pngImport = { backgroundImage: 'url("' + folderBgSrc + '")', 'backgroundRepeat': 'no-repeat' };
     var _html = _react2["default"].createElement(
       'li',
-      { name: 'file', className: _style.widgetItem + ' ' + _style.widgetFileItem + ' animated ' + (isDragging ? 'zoomOut' : 'zoomIn') + ' ' + drag + ' ', style: _extends({}, opacity, styleOverLine, styleOver), onClick: this.props.onClick },
+      { name: 'file', className: _style.widgetItem + ' ' + _style.widgetFileItem + ' animated ' + (isDragging ? 'zoomOut' : 'zoomIn') + ' ' + drag + ' ', style: _extends({}, opacity, styleOverLine, styleOver, pngImport), onClick: this.props.onClick },
       _react2["default"].createElement(
         'div',
         { className: _style.title },

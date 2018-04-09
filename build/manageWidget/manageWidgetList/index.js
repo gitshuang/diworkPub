@@ -207,7 +207,8 @@ var WidgetList = function (_Component) {
         addDesk = _props.addDesk,
         requestSuccess = _props.requestSuccess,
         requestError = _props.requestError,
-        currGroupIndex = _props.currGroupIndex;
+        currGroupIndex = _props.currGroupIndex,
+        folderBgSrc = _props.folderBgSrc;
 
     var widgetItemProps = {
       manageList: manageList,
@@ -238,7 +239,8 @@ var WidgetList = function (_Component) {
       cancelFolderEdit: cancelFolderEdit,
       openFolder: openFolder,
       setEditonlyId: setEditonlyId,
-      setDragInputState: setDragInputState
+      setDragInputState: setDragInputState,
+      folderBgSrc: folderBgSrc
     };
     var selectWidgetListProps = {
       applicationsMap: applicationsMap,

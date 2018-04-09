@@ -116,7 +116,8 @@ var CreateManageModule = function (_Component) {
         setCurrentSelectWidgetMap = _props.setCurrentSelectWidgetMap,
         addDesk = _props.addDesk,
         moveGroupDrag = _props.moveGroupDrag,
-        moveItemDrag = _props.moveItemDrag;
+        moveItemDrag = _props.moveItemDrag,
+        folderBgSrc = _props.folderBgSrc;
 
     var manageProps = {
       manageList: manageList,
@@ -165,7 +166,8 @@ var CreateManageModule = function (_Component) {
       cancelFolderEdit: cancelFolderEdit,
       setEditonlyId: setEditonlyId,
       setDragInputState: setDragInputState,
-      delectService: delectService
+      delectService: delectService,
+      folderBgSrc: folderBgSrc
     };
     var widgetSelectListProps = {
       applicationsMap: applicationsMap,

@@ -135,7 +135,8 @@ var Content = function (_Component) {
         setEditonlyId = _props2.setEditonlyId,
         setDragInputState = _props2.setDragInputState,
         delectService = _props2.delectService,
-        addDesk = _props2.addDesk;
+        addDesk = _props2.addDesk,
+        folderBgSrc = _props2.folderBgSrc;
 
     var widgetListProps = {
       manageList: manageList,
@@ -161,7 +162,8 @@ var Content = function (_Component) {
       cancelFolderEdit: cancelFolderEdit,
       setEditonlyId: setEditonlyId,
       setDragInputState: setDragInputState,
-      delectService: delectService
+      delectService: delectService,
+      folderBgSrc: folderBgSrc
     };
     var widgetSelectListProps = {
       applicationsMap: applicationsMap,

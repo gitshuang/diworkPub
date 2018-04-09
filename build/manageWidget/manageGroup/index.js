@@ -522,7 +522,8 @@ var ManageGroup = function (_Component) {
         addDesk = _props3.addDesk,
         requestSuccess = _props3.requestSuccess,
         requestError = _props3.requestError,
-        delectService = _props3.delectService;
+        delectService = _props3.delectService,
+        folderBgSrc = _props3.folderBgSrc;
 
     var widgetListProps = {
       manageList: manageList,
@@ -548,7 +549,8 @@ var ManageGroup = function (_Component) {
       cancelFolderEdit: cancelFolderEdit,
       setEditonlyId: setEditonlyId,
       setDragInputState: setDragInputState,
-      delectService: delectService
+      delectService: delectService,
+      folderBgSrc: folderBgSrc
     };
     var widgetSelectListProps = {
       applicationsMap: applicationsMap,
