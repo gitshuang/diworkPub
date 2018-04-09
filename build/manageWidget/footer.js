@@ -14,8 +14,6 @@ require('./style.css');
 
 var _style = {
   'page_home': 'page_home__style___vsQOe',
-  'header': 'header__style___swC0o',
-  'HeaderLeft': 'HeaderLeft__style___17Jua',
   'um_content': 'um_content__style___3a8jv',
   'umBoxJustify': 'umBoxJustify__style___2tN2v',
   'preserve': 'preserve__style___1CXeY',
