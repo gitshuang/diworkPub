@@ -118,11 +118,12 @@ var itemTarget = {
     var componentRect = (0, _reactDom.findDOMNode)(component).getBoundingClientRect();
     var xGap = componentRect.left - clientOffset.x;
     var yGap = componentRect.top - clientOffset.y;
+    var dirDistance = 176;
     var moveLine = 'none';
-    if (Math.abs(xGap) < 180) {
-      if (Math.abs(xGap) < 60) {
+    if (Math.abs(xGap) < dirDistance) {
+      if (Math.abs(xGap) < dirDistance / 3) {
         moveLine = 'left';
-      } else if (Math.abs(xGap) < 120) {
+      } else if (Math.abs(xGap) < dirDistance / 3 * 2) {
         moveLine = 'center';
       } else {
         moveLine = 'right';

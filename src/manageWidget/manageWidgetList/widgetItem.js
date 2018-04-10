@@ -21,6 +21,22 @@ import {
   widget_node
 } from './style.css'
 
+const widgetStyle = [
+  // 小
+  {
+    width: 176
+  },
+  // 中
+  {
+    width: 360
+  },
+  // 大
+  {
+    width: 360,
+    height: 360
+  }
+];
+
 const type='item';
 var timestamp;
 const itemSource = {
@@ -38,6 +54,8 @@ const itemSource = {
 const itemTarget = {
   //hover 悬浮调用 drop落在目标上时调用
   hover(props, monitor,component){
+    var { size } = props.data;
+    var dirDistance = widgetStyle[size-1].width;
     const draggedId = monitor.getItem().id;
     const previousParentId = monitor.getItem().parentId;
     const preType = monitor.getItem().type;
@@ -62,10 +80,10 @@ const itemTarget = {
     var xGap = componentRect.left-clientOffset.x;
     var yGap = componentRect.top-clientOffset.y;
     var moveLine = 'none'
-    if(Math.abs(xGap)<180){
-      if(Math.abs(xGap)<60){
+    if(Math.abs(xGap)<dirDistance){
+      if(Math.abs(xGap)<(dirDistance/3)){
         moveLine = 'left'
-      }else if(Math.abs(xGap)<120){
+      }else if(Math.abs(xGap)<(dirDistance/3*2)){
         moveLine = 'center'
       }else{
         moveLine = 'right'
@@ -121,24 +139,6 @@ function getItemStyles() {
     background:'red',
   }
 }
-
-const widgetStyle = [
-  // 小
-  {
-    width: 176
-  },
-  // 中
-  {
-    width: 360
-  },
-  // 大
-  {
-    width: 360,
-    height: 360
-  }
-];
-
-
 
 class WidgetItem extends Component {
   static propTypes = {

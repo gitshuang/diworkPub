@@ -70,6 +70,21 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
+var widgetStyle = [
+// 小
+{
+  width: 176
+},
+// 中
+{
+  width: 360
+},
+// 大
+{
+  width: 360,
+  height: 360
+}];
+
 var type = 'item';
 var timestamp;
 var itemSource = {
@@ -87,6 +102,9 @@ var itemSource = {
 var itemTarget = {
   //hover 悬浮调用 drop落在目标上时调用
   hover: function hover(props, monitor, component) {
+    var size = props.data.size;
+
+    var dirDistance = widgetStyle[size - 1].width;
     var draggedId = monitor.getItem().id;
     var previousParentId = monitor.getItem().parentId;
     var preType = monitor.getItem().type;
@@ -111,10 +129,10 @@ var itemTarget = {
     var xGap = componentRect.left - clientOffset.x;
     var yGap = componentRect.top - clientOffset.y;
     var moveLine = 'none';
-    if (Math.abs(xGap) < 180) {
-      if (Math.abs(xGap) < 60) {
+    if (Math.abs(xGap) < dirDistance) {
+      if (Math.abs(xGap) < dirDistance / 3) {
         moveLine = 'left';
-      } else if (Math.abs(xGap) < 120) {
+      } else if (Math.abs(xGap) < dirDistance / 3 * 2) {
         moveLine = 'center';
       } else {
         moveLine = 'right';
@@ -167,21 +185,6 @@ function getItemStyles() {
     background: 'red'
   };
 }
-
-var widgetStyle = [
-// 小
-{
-  width: 176
-},
-// 中
-{
-  width: 360
-},
-// 大
-{
-  width: 360,
-  height: 360
-}];
 
 var WidgetItem = function (_Component) {
   _inherits(WidgetItem, _Component);
