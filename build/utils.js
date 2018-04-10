@@ -377,7 +377,7 @@ function findPath(datas, childrenKey, compareKey, compareValue) {
 }
 
 function avoidSameName(namaArr, name) {
-  var reg = new RegExp('^' + name + '(\\((\\d)\\)){0,1}$');
+  var reg = new RegExp('^' + name + '(\\((\\d+)\\)){0,1}$');
   var num = 0;
   namaArr.forEach(function (item) {
     if (reg.test(item)) {

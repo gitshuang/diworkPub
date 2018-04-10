@@ -308,7 +308,7 @@ export function findPath(datas, childrenKey, compareKey, compareValue) {
 }
 
 export function avoidSameName(namaArr, name) {
-  const reg = new RegExp(`^${name}(\\((\\d)\\)){0,1}$`);
+  const reg = new RegExp(`^${name}(\\((\\d+)\\)){0,1}$`);
   let num = 0;
   namaArr.forEach((item) => {
     if (reg.test(item)) {
