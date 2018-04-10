@@ -14,11 +14,23 @@
   margin: 0px;
   z-index: 3000;
   height: 600px;
+  width: 800px;
+  left: 20%;
+  top: 15%;
+  /* position: fixed;
+  bottom: auto;
+  margin: 0px;
+  z-index: 3000;
+  height: 600px;
   width: 1000px;
   min-width: 1000px;
   left: calc((100% - 1000px)/2);
-  top: calc((100% - 600px)/2);
+  top: calc((100% - 600px)/2); */
 }
+:global(.manageDialogFolder.u-modal .u-modal-dialog){
+  width:100%;
+}
+
 :global(.manageDialogFolder.u-modal .u-modal-content){
   padding: 16px;
 }
