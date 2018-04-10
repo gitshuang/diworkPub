@@ -68,8 +68,7 @@ var _style = {
   'groupArea': 'groupArea__style___3NyCg',
   'selectedBackClass': 'selectedBackClass__style___QJZ17',
   'iconBox': 'iconBox__style___CwgKm',
-  'widgetTitleInit': 'widgetTitleInit__style___3JKUO',
-  'check_group': 'check_group__style___2btKQ'
+  'widgetTitleInit': 'widgetTitleInit__style___3JKUO'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
