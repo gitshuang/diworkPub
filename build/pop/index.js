@@ -69,8 +69,14 @@ var PopDialog = function (_Component) {
       var e = evt || window.event;
       window.event ? e.cancelBubble = true : e.stopPropagation();
       var _data = _this.props.data ? _this.props.data : _this;
-      if (da.fun) {
+      if (typeof da.fun === 'function') {
         da.fun(_data, e);
+      } else {
+        var close = _this.props.close;
+
+        if (typeof close === 'function') {
+          close();
+        }
       }
     }, _this.getTypeIcon = function (type) {
       switch (type) {

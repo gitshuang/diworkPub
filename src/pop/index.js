@@ -21,8 +21,13 @@ class PopDialog extends Component {
     let e = evt || window.event;
     window.event ? e.cancelBubble = true : e.stopPropagation();
     let _data = this.props.data ? this.props.data : this;
-    if (da.fun) {
+    if (typeof da.fun === 'function') {
       da.fun(_data, e)
+    } else {
+      const { close } = this.props;
+      if (typeof close === 'function') {
+        close();
+      }
     }
   }
 
