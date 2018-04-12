@@ -88,6 +88,10 @@ export const getHost = (key = 'api') => {
     org: {
       production: 'https://bd.diwork.com',
       development: 'http://workbenchdev.yyuap.com',
+    },
+    upload: {
+      production: 'https://bd.diwork.com/manager/file/upload/oss',
+      development: 'http://workbenchdev.yyuap.com/manager/file/upload/oss',
     }
   };
   return hosts[key][process.env.NODE_ENV];
