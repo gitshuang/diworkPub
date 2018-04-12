@@ -142,8 +142,8 @@ var getHost = exports.getHost = function getHost() {
       development: 'http://workbenchdev.yyuap.com'
     },
     upload: {
-      production: 'https://bd.diwork.com/manager/file/upload/oss',
-      development: 'http://workbenchdev.yyuap.com/manager/file/upload/oss'
+      production: 'https://bd.diwork.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
+      development: 'http://workbenchdev.yyuap.com/manager/file/upload/oss/workbench-image-path-applicationIcon'
     }
   };
   return hosts[key][process.env.NODE_ENV];
