@@ -88,29 +88,27 @@ var SelectWidgetList = function (_Component) {
       if (value == "") {
         _applications = applications;
       } else {
-        _this.getSearch(applications, _applications, value);
+        _applications = _this.getSearch(applications, value);
       }
       _this.setState({
         applications: _applications
       });
     };
 
-    _this.getSearch = function (applications, _applications, value) {
-      var applicationsMap = _this.props.applicationsMap;
-
+    _this.getSearch = function (applications, value) {
+      // const {applicationsMap} = this.props;
+      var result = [];
       applications.forEach(function (da) {
-        var _name = da.serviceName ? da.serviceName : da.applicationName;
-        if (_name.indexOf(value) >= 0) {
-          if (da.serviceType && da.serviceType == "2") {
-            _applications.push(da);
-          } else {
-            _applications.push(applicationsMap[da.applicationId]);
+        var _name = da.applicationName || da.serviceName;
+        if (_name.indexOf(value) != -1) {
+          var data = _extends({}, da);
+          if (da.service && da.service.length > 0) {
+            data.service = _this.getSearch(da.service, value);
           }
-        }
-        if (da.service && da.service.length > 0) {
-          _this.getSearch(da.service, _applications, value);
+          result.push(data);
         }
       });
+      return result;
     };
 
     _this.onChange = function (data, sele) {
