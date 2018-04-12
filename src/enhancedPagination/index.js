@@ -19,7 +19,6 @@ const EnhancedPagination = WrappedComponent => {
         size: 'sm',
         gap: true,
         maxButtons: 7,
-        dataNumSelectActive: 1,
         dataNumSelect: [
           { id: 0, name: '5条/页' },
           { id: 1, name: '10条/页' },
@@ -34,7 +33,6 @@ const EnhancedPagination = WrappedComponent => {
         super(props);
         this.state = {
           activePage:this.props.activePage,//当前的页码
-          dataNum:this.props.dataNumSelectActive,
         }
       }
 
