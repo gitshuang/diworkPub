@@ -88,6 +88,10 @@ export const getHost = (key = 'api') => {
     org: {
       production: 'https://bd.diwork.com',
       development: 'http://workbenchdev.yyuap.com',
+    },
+    upload: {
+      production: 'https://bd.diwork.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
+      development: 'http://workbenchdev.yyuap.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
     }
   };
   return hosts[key][process.env.NODE_ENV];
@@ -308,7 +312,7 @@ export function findPath(datas, childrenKey, compareKey, compareValue) {
 }
 
 export function avoidSameName(namaArr, name) {
-  const reg = new RegExp(`^${name}(\\((\\d)\\)){0,1}$`);
+  const reg = new RegExp(`^${name}(\\((\\d+)\\)){0,1}$`);
   let num = 0;
   namaArr.forEach((item) => {
     if (reg.test(item)) {

@@ -41,7 +41,7 @@ class SelectWidgetList extends Component {
       labelGroups.forEach((da,i)=>{
         i === 0?da.active = true:da.active = false;
         const {labels} = da;
-        labels.splice(0, 0, {labelName:"全部",labelId:"all",active:true}); 
+        labels.splice(0, 0, {labelName:"全部",labelId:"all",active:true});
       });
       this.setState({
         data:payload,
@@ -50,35 +50,34 @@ class SelectWidgetList extends Component {
       requestSuccess();
     });
   }
-  
+
   btnSearch=()=>{
     const {data:{applications},value} = this.state;
     let _applications = [];
     if(value == ""){
       _applications = applications;
     }else{
-      this.getSearch(applications,_applications,value);
+      _applications = this.getSearch(applications, value);
     }
     this.setState({
       applications:_applications
     })
   }
 
-  getSearch=(applications,_applications,value)=>{
-    const {applicationsMap} = this.props;
-    applications.forEach((da)=>{
-      let _name = da.serviceName?da.serviceName:da.applicationName;
-      if(_name.indexOf(value)>=0){
-        if(da.serviceType && da.serviceType == "2"){
-          _applications.push(da)
-        }else{
-          _applications.push(applicationsMap[da.applicationId]);
+  getSearch=(applications,value)=>{
+    // const {applicationsMap} = this.props;
+    const result = [];
+    applications.forEach((da) => {
+      let _name = da.applicationName || da.serviceName;
+      if (_name.indexOf(value) != -1) {
+        const data = {...da};
+        if(da.service && da.service.length > 0){
+          data.service = this.getSearch(da.service, value);
         }
+        result.push(data);
       }
-      if(da.service && da.service.length > 0){
-        this.getSearch(da.service,_applications,value);
-      }
-    })
+    });
+    return result;
   }
 
   onChange=(data,sele)=>{
@@ -95,10 +94,10 @@ class SelectWidgetList extends Component {
 
     let _edit = false;
     applications.forEach((da,index)=>{
-      if(da.selected == "3"){ 
+      if(da.selected == "3"){
         _edit = true;
       }else{
-        if(da.service.length == 0) return; 
+        if(da.service.length == 0) return;
         let _ser = da.service.find((_da)=>_da.selected == "3");
         if(_ser){
           _edit = true;
@@ -124,7 +123,7 @@ class SelectWidgetList extends Component {
     const { requestError, requestSuccess, addDesk ,parentId} = this.props;
     let selectedList = [];
     applications.forEach((da,index)=>{
-      if(da.selected == "3"){ 
+      if(da.selected == "3"){
         selectedList.push(da);
      }
      if(da.service.length == 0) return;
@@ -190,7 +189,7 @@ class SelectWidgetList extends Component {
     });
   }
 
-  onKeyup=(e)=>{ 
+  onKeyup=(e)=>{
     if(e.keyCode === 13){
       this.btnSearch(e);
     }
@@ -202,7 +201,7 @@ class SelectWidgetList extends Component {
      labelGroups.forEach(({active,labels},i)=>{
       if(active){
         labels.forEach((da,j)=>{
-          btns.push(<Button key={`button_li_${da.labelId}-${i}-${j}`} shape='border' 
+          btns.push(<Button key={`button_li_${da.labelId}-${i}-${j}`} shape='border'
           className={ da.active? 'active' : '' } onClick={()=>{this.onBtnOnclick(da)}}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{da.labelName}</Button>);
         })
       }
@@ -242,8 +241,8 @@ class SelectWidgetList extends Component {
            <div className={panel} >
               <div className={panel_left}>
                 <div className={btn_type}>
-                  <ButtonGroup > 
-                    { 
+                  <ButtonGroup >
+                    {
                       labelGroups.map((da,i)=><Button key={`type-${i}`} className={da.active?btn_active:null} shape='border' onClick={()=>{this.btnTypeClick(da)}}>{da.labelGroupName}</Button>)
                     }
                   </ButtonGroup>

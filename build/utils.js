@@ -140,6 +140,10 @@ var getHost = exports.getHost = function getHost() {
     org: {
       production: 'https://bd.diwork.com',
       development: 'http://workbenchdev.yyuap.com'
+    },
+    upload: {
+      production: 'https://bd.diwork.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
+      development: 'http://workbenchdev.yyuap.com/manager/file/upload/oss/workbench-image-path-applicationIcon'
     }
   };
   return hosts[key][process.env.NODE_ENV];
@@ -377,7 +381,7 @@ function findPath(datas, childrenKey, compareKey, compareValue) {
 }
 
 function avoidSameName(namaArr, name) {
-  var reg = new RegExp('^' + name + '(\\((\\d)\\)){0,1}$');
+  var reg = new RegExp('^' + name + '(\\((\\d+)\\)){0,1}$');
   var num = 0;
   namaArr.forEach(function (item) {
     if (reg.test(item)) {
