@@ -225,7 +225,7 @@ export function get(oriUrl, oriParams = {}) {
   if (data) {
     url = `${url}?${data}`;
   }
-  let fh = url.indexOf("?") == -1?"?":"&&";
+  let fh = url.indexOf("?") == -1?"?":"&";
   url+= fh+"tm="+new Date().getTime();
   return fetch(url, options());
 }
