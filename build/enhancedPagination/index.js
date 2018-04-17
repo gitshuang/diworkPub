@@ -105,13 +105,14 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
 
       var _props = this.props,
           onDataNumSelect = _props.onDataNumSelect,
-          dataNumSelect = _props.dataNumSelect,
-          restProps = _objectWithoutProperties(_props, ['onDataNumSelect', 'dataNumSelect']);
+          restProps = _objectWithoutProperties(_props, ['onDataNumSelect']);
+
+      var dataNumSelect = this.state.dataNumSelect;
 
       return _react2["default"].createElement(
         'div',
         { className: _style.enhanced_pagination },
-        _react2["default"].createElement(WrappedComponent, _extends({}, restProps, newProps, { className: _style.u_float_pagination })),
+        _react2["default"].createElement(WrappedComponent, _extends({}, newProps, restProps, { className: _style.u_float_pagination })),
         _react2["default"].createElement(
           'div',
           { className: _style.data_per_select },
@@ -154,6 +155,7 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
     gap: true,
     maxButtons: 7,
     dataNumSelect: [{ id: 0, name: '5条/页' }, { id: 1, name: '10条/页' }, { id: 2, name: '15条/页' }, { id: 3, name: '20条/页' }],
+    dataNum: '1', //dataNumSelect的id 对应的时10条/页
     items: 0,
     activePage: 1
   }, _temp;
