@@ -298,7 +298,7 @@ function get(oriUrl) {
   if (data) {
     url = url + '?' + data;
   }
-  var fh = url.indexOf("?") == -1 ? "?" : "&&";
+  var fh = url.indexOf("?") == -1 ? "?" : "&";
   url += fh + "tm=" + new Date().getTime();
   return fetch(url, options());
 }

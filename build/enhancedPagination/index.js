@@ -82,8 +82,7 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
       };
 
       _this.state = {
-        activePage: _this.props.activePage, //当前的页码
-        dataNum: _this.props.dataNumSelectActive
+        activePage: _this.props.activePage //当前的页码
       };
       return _this;
     }
@@ -154,7 +153,6 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
     size: 'sm',
     gap: true,
     maxButtons: 7,
-    dataNumSelectActive: 1,
     dataNumSelect: [{ id: 0, name: '5条/页' }, { id: 1, name: '10条/页' }, { id: 2, name: '15条/页' }, { id: 3, name: '20条/页' }],
     items: 0,
     activePage: 1
