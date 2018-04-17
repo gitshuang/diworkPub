@@ -25,7 +25,6 @@ const EnhancedPagination = WrappedComponent => {
           { id: 2, name: '15条/页' },
           { id: 3, name: '20条/页' }
         ],
-        dataNum:'1',//dataNumSelect的id 对应的时10条/页
         items: 0,
         activePage: 1,
       }
@@ -34,6 +33,7 @@ const EnhancedPagination = WrappedComponent => {
         super(props);
         this.state = {
           activePage:this.props.activePage,//当前的页码
+          dataNum:'1',//dataNumSelect的id 对应的时10条/页
         }
       }
 
@@ -77,8 +77,7 @@ const EnhancedPagination = WrappedComponent => {
             maxButtons:5,
             boundaryLinks:true
         }
-        const {onDataNumSelect, ...restProps} = this.props
-        const {dataNumSelect} = this.state;
+        const {onDataNumSelect,dataNumSelect, ...restProps} = this.props
         return (
             <div className={enhanced_pagination}>
                 <WrappedComponent  {...newProps} {...restProps}  className={u_float_pagination}/>
