@@ -205,6 +205,6 @@
 .widgetTitleInit__style___3JKUO>div:nth-child(2)>div{
   display: inline-table;
 }
-/* .check_group :global(.u-checkbox input[type=checkbox]){
-  top:15px;
-} */
+.check_group__style___2btKQ .u-checkbox{
+  display:inline;
+}
