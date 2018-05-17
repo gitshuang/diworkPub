@@ -86,8 +86,8 @@ export const getHost = (key = 'api') => {
       development: 'http://workbench.yyuap.com',
     },
     org: {
-      production: 'https://bd.diwork.com',
-      development: 'http://workbenchdev.yyuap.com',
+      production: 'https://cdn.yonyoucloud.com/pro/diwork',
+      development: 'http://workbenchdev.yyuap.com/fe',
     },
     upload: {
       production: 'https://bd.diwork.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
