@@ -113,6 +113,10 @@ var getHost = exports.getHost = function getHost() {
       production: process.env.HOST || '',
       development: process.env.HOST || ''
     },
+    manageTeamEnter: {
+      production: 'https://euc.diwork.com',
+      development: 'http://web.yyuap.com:91/space/space/myspaceorder/type/diwork'
+    },
     euc: {
       production: 'https://euc.diwork.com',
       development: 'https://idtest.yyuap.com'
