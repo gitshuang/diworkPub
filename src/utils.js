@@ -140,7 +140,8 @@ const fetchTools = {
               return Promise.reject(new Error('接口返回数据无法解析'));
             }
             const { status, data, msg, errorCode } = result;
-            if (url.indexOf("/ref/diwork/iref_ctr/refInfo")>0 || status && status !== '0') {
+            // 获取隔离的接口没有status这一项
+            if (url.indexOf("/ref/diwork/iref_ctr/refInfo")> -1 || status && status !== '0') {
               return Promise.resolve(data);
             } else if (errorCode) {
               switch (errorCode) {
