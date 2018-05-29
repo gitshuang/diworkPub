@@ -141,7 +141,7 @@ const fetchTools = {
             }
             const { status, data, msg, errorCode } = result;
             // 获取隔离的接口没有status这一项
-            if (url.indexOf("/ref/diwork/iref_ctr/refInfo")> -1 || status && status !== '0') {
+            if ( (url.indexOf("/ref/diwork/iref_ctr/refInfo")> -1) || (status && status !== '0')) {
               return Promise.resolve(data);
             } else if (errorCode) {
               switch (errorCode) {
