@@ -207,7 +207,7 @@ var fetchTools = {
                 msg = _result.msg,
                 errorCode = _result.errorCode;
 
-            if (status && status !== '0') {
+            if (url.indexOf("/ref/diwork/iref_ctr/refInfo") > 0 || status && status !== '0') {
               return Promise.resolve(data);
             } else if (errorCode) {
               switch (errorCode) {

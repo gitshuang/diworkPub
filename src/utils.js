@@ -140,7 +140,7 @@ const fetchTools = {
               return Promise.reject(new Error('接口返回数据无法解析'));
             }
             const { status, data, msg, errorCode } = result;
-            if (status && status !== '0') {
+            if (url.indexOf("/ref/diwork/iref_ctr/refInfo")>0 || status && status !== '0') {
               return Promise.resolve(data);
             } else if (errorCode) {
               switch (errorCode) {
