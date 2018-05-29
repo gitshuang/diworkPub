@@ -229,7 +229,10 @@ export function get(oriUrl, oriParams = {}) {
 
   const data = params(oriParams);
   let url = urlMaker(oriUrl);
-
+  // 这里是授权参照的请求接口 不需要manager
+  if( oriUrl === "/ref/diwork/iref_ctr/refInfo") {
+    url = oriUrl;
+  }
   if (data) {
     url = `${url}?${data}`;
   }
