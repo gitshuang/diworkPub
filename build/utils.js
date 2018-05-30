@@ -206,9 +206,11 @@ var fetchTools = {
                 data = _result.data,
                 msg = _result.msg,
                 errorCode = _result.errorCode;
-            // 获取隔离的接口没有status这一项
+            // 获取隔离的接口没有status,data这一项
 
-            if (url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1 || status && status !== '0') {
+            if (url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1) {
+              return Promise.resolve(result);
+            } else if (status && status !== '0') {
               return Promise.resolve(data);
             } else if (errorCode) {
               switch (errorCode) {
