@@ -145,6 +145,7 @@ var NotificationMess = function (_Component) {
 
 var _notification = void 0;
 function openMess(options) {
+  _notification = null; //防止notification一个页面只能打开一种，其他被覆盖
   if (!_notification) {
     _notification = new NotificationMess(options);
   }
