@@ -65,6 +65,10 @@ export const getHost = (key = 'api') => {
       production: 'https://euc.diwork.com/space/space/myspaceorder/type/diwork',
       development: 'http://web.yyuap.com:91/space/space/myspaceorder/type/diwork',
     },
+    dynamic:{
+      production: 'https://euc.diwork.com/app/app/appredirect?appid=15',
+      development: 'http://web.yyuap.com:91/app/app/appredirect?appid=15',
+    },
     euc: {
       production: 'https://euc.diwork.com',
       development: 'https://idtest.yyuap.com',
