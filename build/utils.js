@@ -113,12 +113,12 @@ var getHost = exports.getHost = function getHost() {
       production: process.env.HOST || '',
       development: process.env.HOST || ''
     },
-    manageTeamEnter: {
-      production: 'https://euc.diwork.com/space/space/myspaceorder/type/diwork',
-      development: 'http://web.yyuap.com:91/space/space/myspaceorder/type/diwork'
+    manageTeamEnter:{
+      production: 'http://web.yyuap.com:91/space/space/myspaceorder/type/diwork',
+      development: 'http://web.yyuap.com:91/space/space/myspaceorder/type/diwork',
     },
     dynamic:{
-      production: 'https://euc.diwork.com/app/app/appredirect?appid=15',
+      production: 'http://web.yyuap.com:91/app/app/appredirect?appid=15',
       development: 'http://web.yyuap.com:91/app/app/appredirect?appid=15',
     },
     euc: {
