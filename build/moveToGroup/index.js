@@ -21,13 +21,13 @@ var _utils = require('../utils');
 require('./style.css');
 
 var _style = {
-  'container': 'container__style___2QKUW',
-  'title': 'title__style___3suWk',
-  'pd': 'pd__style___e-e2T',
-  'borderBox': 'borderBox__style___6ccEy',
-  'footer': 'footer__style___1e6dr',
-  'saveBtn': 'saveBtn__style___i-5bZ',
-  'selectedli': 'selectedli__style___NnZPl'
+  'container': 'container__style___3CvgR',
+  'title': 'title__style___YVWvc',
+  'pd': 'pd__style___3mSIE',
+  'borderBox': 'borderBox__style___1q8V0',
+  'footer': 'footer__style___33izj',
+  'saveBtn': 'saveBtn__style___2n4e3',
+  'selectedli': 'selectedli__style___6ub3B'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -303,7 +303,7 @@ var MoveToGroup = function (_Component) {
          </div>
        );
       }else{
-       }*/}
+      }*/}
     return content;
   };
 

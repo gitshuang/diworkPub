@@ -36,6 +36,7 @@
 :global(.u-modal-body) {
   /* TODO -- remove important */
   padding-right: 40px !important;
+  margin-top:10px; /* 防止遮挡header上的关闭按钮*/
 }
 
 /************************ error *************************/

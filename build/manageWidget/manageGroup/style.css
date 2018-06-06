@@ -1,13 +1,13 @@
 /*  imported from style.css  */
 
-.widgetTitle__style___8uu5O{
+.widgetTitle__style___5B_lc{
   height: 50px;
   line-height: 26px;
   color:rgba(136,136,136);
   margin-bottom:16px;
   display: flex;
 }
-.widgetTitle__style___8uu5O .iconfont{
+.widgetTitle__style___5B_lc .iconfont{
   font-size: 30px;
   margin-right: 20px;
   cursor:pointer;
@@ -15,7 +15,7 @@
 /* .widgetTitle :global(.u-checkbox input[type=checkbox]){
   top:18px;
 } */
-.addBtn__style___2tL6d{
+.addBtn__style___1pYRJ{
 	display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -30,13 +30,13 @@
   align-items: center;
 }
 
-.addGroupBtn__style___1ttdG{
+.addGroupBtn__style___3RkOC{
   /* display:flex; */
   /* border: 1px solid #D9D9D9; */
   font-size:12px;
   color:rgba(71,77,84,1);
 }
-.addGroupBtn__style___1ttdG .iconfont{
+.addGroupBtn__style___3RkOC .iconfont{
   padding-right: 10px;
 }
 /**
@@ -83,7 +83,7 @@
 	color:#fff;
 }
 **/
-.titleInputArea__style___2K6Ml .input__style___2J12Q{
+.titleInputArea__style___3_qnw .input__style___1eXYC{
   /* width:176px;
   height:22px;
   padding:0 9px;
@@ -91,7 +91,7 @@
   color:rgba(51,51,51,1);
   float: left; */
 }
-.newGroupName__style___235V4{
+.newGroupName__style___gKFWe{
 	width:176px;
 	height:22px;
 	padding:0 9px;
@@ -99,39 +99,39 @@
   color:rgba(51,51,51,1);
   float: left;
 }
-.newGroupName__style___235V4.input{
+.newGroupName__style___gKFWe.input{
   width:176px;
 	height:22px;
 }
 
-.newGroupName_focus__style___2zMCt{
+.newGroupName_focus__style___2OcOs{
 	border:2px solid rgba(0,205,195,1);
 }
-.newGroupName_blur__style___2B9Sn{
+.newGroupName_blur__style___1QJJD{
   border:1px solid #878B94;
 }
-.widgetTitle__style___8uu5O .uf,.widgetTitle__style___8uu5O .iconfont{
+.widgetTitle__style___5B_lc .uf,.widgetTitle__style___5B_lc .iconfont{
 	font-size:20px;
 	color:#4A515D;
 	margin-right:23px;
 	font-weight: bold;
 }
-.widgetTitle__style___8uu5O .iconfont:hover{
+.widgetTitle__style___5B_lc .iconfont:hover{
 	color:#242D3B;
 }
-.widgetTitle__style___8uu5O .btn__style___rBTYb{
+.widgetTitle__style___5B_lc .btn__style___1NAHM{
   display: inline-block;
   vertical-align: middle;
   margin-left: 8px;
   text-align: center;
   position: relative;
 }
-.widgetTitle__style___8uu5O .btn__style___rBTYb>span{
+.widgetTitle__style___5B_lc .btn__style___1NAHM>span{
   position: absolute;
   top: -6px;
   right: 6px;
 }
-.titleInputArea__style___2K6Ml{
+.titleInputArea__style___3_qnw{
   position:relative;
   display: inline-block;
   /* height: 22px; */
@@ -139,7 +139,7 @@
   overflow: hidden;
   vertical-align: middle;
 }
-.titleInputArea__style___2K6Ml .icon__style___19VqE{
+.titleInputArea__style___3_qnw .icon__style___3S22Q{
 	cursor: pointer;
 	color:rgb(179,179,179);
 	font-size:14px;
@@ -150,10 +150,10 @@
   	transform: translate(0, -50%);
   	font-size: 20px;
 }
-.newGroupName__style___235V4+.uf:hover{
+.newGroupName__style___gKFWe+.uf:hover{
 	color:#4A515D;
 }
-.groupArea__style___3bqWP>section{
+.groupArea__style___3NyCg>section{
   border: 1px solid #fff;
   min-width: 460px;
   border-radius:3px;
@@ -163,18 +163,18 @@
   background:rgba(79,86,98,0.1);
   cursor: move;
 }
-.addBtn__style___2tL6d .u-button{
+.addBtn__style___1pYRJ .u-button{
   width: 100%;
   margin: 0 0 16px 0;
 }
-.selectedBackClass__style___2DdUn{
+.selectedBackClass__style___QJZ17{
   background:rgba(255,255,255,1) !important;
   border:2px solid rgba(0,205,195,1) !important;
 }
-.iconBox__style___2sOu6{
+.iconBox__style___CwgKm{
   position: relative;
 }
-.iconBox__style___2sOu6 p{
+.iconBox__style___CwgKm p{
   top:34px;
   font-size:12px;
   position: absolute;
@@ -186,7 +186,7 @@
   -webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
 }
-.widgetTitleInit__style___1jG_l>div{
+.widgetTitleInit__style___3JKUO>div{
   display: flex;
   align-items: flex-end;
   justify-content:center;
@@ -195,16 +195,16 @@
   line-height: 50px;
 }
 /* IE9 */
-.widgetTitleInit__style___1jG_l{
+.widgetTitleInit__style___3JKUO{
   display: table;
   width: 100%;
 }
-.widgetTitleInit__style___1jG_l>div:nth-child(2){
+.widgetTitleInit__style___3JKUO>div:nth-child(2){
   width: 141px;
 }
-.widgetTitleInit__style___1jG_l>div:nth-child(2)>div{
+.widgetTitleInit__style___3JKUO>div:nth-child(2)>div{
   display: inline-table;
 }
-.check_group__style___Gfw7r .u-checkbox{
+.check_group__style___2btKQ .u-checkbox{
   display:inline;
 }

@@ -210,8 +210,11 @@ var fetchTools = {
                 data = _result.data,
                 msg = _result.msg,
                 errorCode = _result.errorCode;
+            // 获取隔离的接口没有status,data这一项
 
-            if (status && status !== '0') {
+            if (url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1) {
+              return Promise.resolve(result);
+            } else if (status && status !== '0') {
               return Promise.resolve(data);
             } else if (errorCode) {
               switch (errorCode) {
@@ -302,7 +305,10 @@ function get(oriUrl) {
 
   var data = params(oriParams);
   var url = urlMaker(oriUrl);
-
+  // 这里是授权参照的请求接口 不需要manager
+  if (oriUrl === "/ref/diwork/iref_ctr/refInfo") {
+    url = oriUrl;
+  }
   if (data) {
     url = url + '?' + data;
   }

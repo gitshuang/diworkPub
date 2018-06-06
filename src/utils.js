@@ -144,7 +144,10 @@ const fetchTools = {
               return Promise.reject(new Error('接口返回数据无法解析'));
             }
             const { status, data, msg, errorCode } = result;
-            if (status && status !== '0') {
+            // 获取隔离的接口没有status,data这一项
+            if ( (url.indexOf("/ref/diwork/iref_ctr/refInfo")> -1)) {
+              return Promise.resolve(result);
+            } else if ( status && status !== '0') {
               return Promise.resolve(data);
             } else if (errorCode) {
               switch (errorCode) {
@@ -233,7 +236,10 @@ export function get(oriUrl, oriParams = {}) {
 
   const data = params(oriParams);
   let url = urlMaker(oriUrl);
-
+  // 这里是授权参照的请求接口 不需要manager
+  if( oriUrl === "/ref/diwork/iref_ctr/refInfo") {
+    url = oriUrl;
+  }
   if (data) {
     url = `${url}?${data}`;
   }
