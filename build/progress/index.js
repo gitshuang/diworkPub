@@ -64,25 +64,42 @@ var Progress = function (_Component) {
 
         _this.goToLoading = function (tenantId) {
             var tenantIdVal = tenantId || _this.props.tenantId;
-            if (tenantIdVal == '' || tenantIdVal == undefined) return false;
-            var check = _this.props.check;
+            var _this$props2 = _this.props,
+                check = _this$props2.check,
+                idRequire = _this$props2.idRequire;
+            //必须第一个接口返回id就立刻执行加载
 
+            if (idRequire && (tenantIdVal == '' || tenantIdVal == undefined)) {
+                return false;
+            };
             var self = _this;
             var perValue = Math.floor(Math.random() * 10 + 1); //输出1～10之间的随机整数
             if (self.state.processValue < 90) {
                 self.setState({ processValue: self.state.processValue + perValue });
             }
-            check(tenantIdVal, _this.setLoadingValue, _this.goToLoadingAfter);
+            check(tenantIdVal, _this.loadingFunc, _this.successFunc);
         };
 
-        _this.setLoadingValue = function (tenantIdVal) {
+        _this.loadingFunc = function () {
+            var _this$props3 = _this.props,
+                check = _this$props3.check,
+                tenantId = _this$props3.tenantId,
+                idRequire = _this$props3.idRequire;
+
             var perValue = Math.floor(Math.random() * 10 + 1); //输出1～10之间的随机整数
+            var self = _this;
             if (_this.state.processValue < 90) {
                 _this.setState({ processValue: _this.state.processValue + perValue });
             }
+            //当不需要第一个接口返回id立刻执行加载
+            if (!idRequire && _this.state.processValue < 100) {
+                setTimeout(function () {
+                    check(tenantId, self.loadingFunc, self.successFunc);
+                }, 500);
+            }
         };
 
-        _this.goToLoadingAfter = function () {
+        _this.successFunc = function () {
             var tenantId = _this.props.tenantId;
 
             _beeProgressBar2["default"].done();

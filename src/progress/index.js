@@ -25,23 +25,32 @@ class  Progress extends Component {
 
     goToLoading = (tenantId) =>{
         const tenantIdVal = tenantId || this.props.tenantId;
-        if(tenantIdVal == '' || tenantIdVal == undefined) return false;         
-        const {check} = this.props;
+        const {check,idRequire} = this.props;
+        //必须第一个接口返回id就立刻执行加载
+        if(idRequire && (tenantIdVal == '' || tenantIdVal == undefined)) {return false;};
         let self = this;
         let perValue  = (Math.floor(Math.random()*10+1));//输出1～10之间的随机整数
         if(self.state.processValue < 90 ){
             self.setState({processValue:self.state.processValue+perValue})
         }
-        check(tenantIdVal,this.setLoadingValue,this.goToLoadingAfter);
+        check(tenantIdVal,this.loadingFunc,this.successFunc);
     }
 
-    setLoadingValue = (tenantIdVal) =>{
+    loadingFunc = () =>{
+        const {check,tenantId,idRequire} = this.props;
         let perValue  = (Math.floor(Math.random()*10+1));//输出1～10之间的随机整数
+        let self = this;
         if(this.state.processValue < 90 ){
             this.setState({processValue:this.state.processValue+perValue})
         }
+        //当不需要第一个接口返回id立刻执行加载
+        if(!idRequire && this.state.processValue < 100){
+            setTimeout(function () {
+                check(tenantId,self.loadingFunc,self.successFunc);
+            }, 500)
+        }
     }
-    goToLoadingAfter = () =>{
+    successFunc = () =>{
         const {tenantId}  = this.props;
         ProgressBar.done();
         this.setState({processValue:100})//直接结束
