@@ -51,12 +51,17 @@ class  Progress extends Component {
         }
     }
     successFunc = () =>{
-        const {tenantId}  = this.props;
-        ProgressBar.done();
+        const {tenantId,successFunc}  = this.props;
         this.setState({processValue:100})//直接结束
-        setTimeout(() => {
-          window.location.href  ="/?tenantId=" + tenantId + "&switch=true";
-        }, 600);
+        ProgressBar.done();
+        if(typeof(successFunc) === 'function'){
+            successFunc(tenantId);
+        } else {
+            setTimeout(() => {
+            window.location.href  ="/?tenantId=" + tenantId + "&switch=true";
+            }, 600);
+        }
+       
     }
 
     render(){

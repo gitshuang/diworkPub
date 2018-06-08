@@ -100,13 +100,19 @@ var Progress = function (_Component) {
         };
 
         _this.successFunc = function () {
-            var tenantId = _this.props.tenantId;
+            var _this$props4 = _this.props,
+                tenantId = _this$props4.tenantId,
+                successFunc = _this$props4.successFunc;
 
-            _beeProgressBar2["default"].done();
             _this.setState({ processValue: 100 }); //直接结束
-            setTimeout(function () {
-                window.location.href = "/?tenantId=" + tenantId + "&switch=true";
-            }, 600);
+            _beeProgressBar2["default"].done();
+            if (typeof successFunc === 'function') {
+                successFunc(tenantId);
+            } else {
+                setTimeout(function () {
+                    window.location.href = "/?tenantId=" + tenantId + "&switch=true";
+                }, 600);
+            }
         };
 
         _this.state = {
