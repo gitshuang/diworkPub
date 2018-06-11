@@ -13,45 +13,33 @@ class  Progress extends Component {
     }
 
     componentDidMount = () =>{
-        const {tenantId,startFlag} = this.props;
+        const {startFlag} = this.props;
         startFlag && this.goToLoading()
     }
 
 
     componentWillReceiveProps = (nextProps) =>{
-        const {tenantId,startFlag} = nextProps;
-        startFlag && this.goToLoading(tenantId)
+        const {startFlag} = nextProps;
+        startFlag && this.goToLoading()
     }
 
-    goToLoading = (tenantId) =>{
-        const tenantIdVal = tenantId || this.props.tenantId;
-        const {check,idRequire} = this.props;
-        //必须第一个接口返回id就立刻执行加载
-        if(idRequire && (tenantIdVal == '' || tenantIdVal == undefined)) {return false;};
-        let self = this;
+    goToLoading = () =>{
         let perValue  = (Math.floor(Math.random()*10+1));//输出1～10之间的随机整数
-        if(self.state.processValue < 90 ){
-            self.setState({processValue:self.state.processValue+perValue})
-        }
-        check(tenantIdVal,this.loadingFunc,this.successFunc);
-    }
-
-    loadingFunc = () =>{
-        const {check,tenantId,idRequire} = this.props;
-        let perValue  = (Math.floor(Math.random()*10+1));//输出1～10之间的随机整数
-        let self = this;
         if(this.state.processValue < 90 ){
             this.setState({processValue:this.state.processValue+perValue})
         }
-        //当不需要第一个接口返回id立刻执行加载
-        if(!idRequire && this.state.processValue < 100){
-            setTimeout(function () {
-                check(tenantId,self.loadingFunc,self.successFunc);
-            }, 500)
+        //回调函数
+        this.props.loadingCallBack(this.loadingFunc,this.successFunc);
+    }
+
+    loadingFunc = () =>{
+        let perValue  = (Math.floor(Math.random()*10+1));//输出1～10之间的随机整数
+        if(this.state.processValue < 90 ){
+            this.setState({processValue:this.state.processValue+perValue})
         }
     }
     successFunc = () =>{
-        const {tenantId,successFunc}  = this.props;
+        const {successFunc}  = this.props;
         this.setState({processValue:100})//直接结束
         ProgressBar.done();
         if(typeof(successFunc) === 'function'){
