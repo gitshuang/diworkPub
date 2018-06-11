@@ -43,7 +43,7 @@ class  Progress extends Component {
         this.setState({processValue:100})//直接结束
         ProgressBar.done();
         if(typeof(successFunc) === 'function'){
-            successFunc(tenantId);
+            successFunc();
         } else {
             setTimeout(() => {
             window.location.href  ="/?tenantId=" + tenantId + "&switch=true";

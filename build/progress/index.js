@@ -81,7 +81,7 @@ var Progress = function (_Component) {
             _this.setState({ processValue: 100 }); //直接结束
             _beeProgressBar2["default"].done();
             if (typeof successFunc === 'function') {
-                successFunc(tenantId);
+                successFunc();
             } else {
                 setTimeout(function () {
                     window.location.href = "/?tenantId=" + tenantId + "&switch=true";
