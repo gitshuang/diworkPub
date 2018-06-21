@@ -21,12 +21,12 @@ var _icon2 = _interopRequireDefault(_icon);
 require('./style.css');
 
 var _style = {
-    'progress_wrap': 'progress_wrap__style___3jdj3',
-    'progress_loading': 'progress_loading__style___2VLp_',
-    'progress_load_icon': 'progress_load_icon__style___2FrmF',
-    'opacityShow': 'opacityShow__style___1_rJb',
-    'opacityHidden': 'opacityHidden__style___2kVQY',
-    'loading_desc': 'loading_desc__style___ODeVU'
+    'progress_wrap': 'progress_wrap__style___2-Taf',
+    'progress_loading': 'progress_loading__style___2sjPW',
+    'progress_load_icon': 'progress_load_icon__style___2jRBw',
+    'opacityShow': 'opacityShow__style___1zSs_',
+    'opacityHidden': 'opacityHidden__style___3_bcZ',
+    'loading_desc': 'loading_desc__style___1mj9u'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
