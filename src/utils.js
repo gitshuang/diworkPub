@@ -61,12 +61,12 @@ export const getHost = (key = 'api') => {
       production: process.env.HOST || '',
       development: process.env.HOST || '',
     },
-    manageTeamEnter:{
-      production: 'http://web.yyuap.com:91/space/space/myspaceorder/type/diwork',
+    manageTeamEnter: {
+      production: 'https://nec.diwork.com/space/space/myspaceorder/type/diwork',
       development: 'http://web.yyuap.com:91/space/space/myspaceorder/type/diwork',
     },
-    dynamic:{
-      production: 'http://web.yyuap.com:91/app/app/appredirect?appid=15',
+    dynamic: {
+      production: 'https://nec.diwork.com/app/app/appredirect?appid=15',
       development: 'http://web.yyuap.com:91/app/app/appredirect?appid=15',
     },
     euc: {
