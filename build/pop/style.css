@@ -1,0 +1,159 @@
+/*  imported from style.css  */
+
+.btn__style___3snvj {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.closeBtn__style___39nWU {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 18px;
+  color: #757F8C;
+  cursor: pointer;
+  /* TODO -- remove important */
+  height: 30px !important;
+}
+.u-modal.fade {
+  transition: none;
+}
+
+.u-modal.in .u-modal-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);   /* IE 9 */
+  -webkit-transform: translate(-50%, -50%);    /* Safari and Chrome */
+  -o-transform: translate(-50%, -50%);       /* Opera */
+  -moz-transform: translate(-50%, -50%);     /* Firefox */
+  margin: 0px;
+  color: #474D54;
+  min-width: 400px;
+}
+.u-modal.in .u-modal-dialog >div{
+  box-shadow: 0px 6px 8px 0px rgba(74,81,93,0.25);
+}
+.u-modal-body {
+  /* TODO -- remove important */
+  padding-right: 40px !important;
+  margin-top:20px; /* 防止遮挡header上的关闭按钮*/
+}
+
+/************************ error *************************/
+
+.pop_type__style___39Ruo.error__style___1RDeg .u-modal-title .iconfont {
+  margin-right: 8px;
+  color: #4C4C4C;
+  font-weight: 900;
+  font-size: 20px;
+  position: relative;
+  top: 3px;
+}
+
+.pop_type__style___39Ruo.error__style___1RDeg .u-modal .u-modal-title {
+  font-size: 17px;
+}
+
+.pop_type__style___39Ruo.error__style___1RDeg .u-modal-body {
+  font-size: 14px;
+  padding: 0px;
+  padding-left: 44px;
+}
+
+.pop_type__style___39Ruo.error__style___1RDeg .u-modal-header {
+  padding-top: 30px;
+}
+
+/* .pop_type.error :global(.u-modal-footer .brand){
+  background: #4C4C4C;
+  color:rgba(255,255,255,1);
+} */
+
+/************************ warning *************************/
+
+.pop_type__style___39Ruo.warning__style___2qwlI .u-modal-title .iconfont {
+  margin-right: 8px;
+  color: #FF8B00;
+  font-weight: 900;
+  font-size: 20px;
+  position: relative;
+  top: 3px;
+}
+
+.pop_type__style___39Ruo.warning__style___2qwlI .u-modal .u-modal-title {
+  font-size: 17px;
+}
+
+.pop_type__style___39Ruo.warning__style___2qwlI .u-modal-body {
+  font-size: 14px;
+  padding: 0px;
+  padding-left: 44px;
+}
+
+.pop_type__style___39Ruo.warning__style___2qwlI .u-modal-header {
+  padding-top: 30px;
+}
+.pop_type__style___39Ruo.warning__style___2qwlI .u-modal.in .u-modal-dialog >div{
+  border: 1px dashed rgba(0, 0, 0, 0.4);
+}
+/* .pop_type.warning :global(.u-modal-footer .brand){
+  background: #FFAB00;
+  color:#474D54;
+} */
+
+/************************ danger *************************/
+
+.pop_type__style___39Ruo.danger__style___3vNqD .u-modal-title .iconfont {
+  margin-right: 8px;
+  color: #108EE9;
+  font-weight: 900;
+  font-size: 20px;
+  position: relative;
+  top: 3px;
+}
+
+.pop_type__style___39Ruo.danger__style___3vNqD .u-modal .u-modal-title {
+  font-size: 17px;
+}
+
+.pop_type__style___39Ruo.danger__style___3vNqD .u-modal-body {
+  font-size: 14px;
+  padding: 0px;
+  padding-left: 44px;
+}
+
+.pop_type__style___39Ruo.danger__style___3vNqD .u-modal-header {
+  padding-top: 30px;
+}
+.pop_type__style___39Ruo.danger__style___3vNqD .u-modal.in .u-modal-dialog >div{
+  border: 1px dashed rgba(0, 0, 0, 0.4);
+}
+/************************ success *************************/
+
+.pop_type__style___39Ruo.success__style___3fNXj .u-modal-title .iconfont {
+  margin-right: 8px;
+  color: #00B39E;
+  font-weight: 900;
+  font-size: 20px;
+  position: relative;
+  top: 3px;
+}
+
+.pop_type__style___39Ruo.success__style___3fNXj .u-modal .u-modal-title {
+  font-size: 17px;
+}
+
+.pop_type__style___39Ruo.success__style___3fNXj .u-modal-body {
+  font-size: 14px;
+  padding: 0px;
+  padding-left: 44px;
+}
+
+.pop_type__style___39Ruo.success__style___3fNXj .u-modal-header {
+  padding-top: 30px;
+}
+.pop_type__style___39Ruo.success__style___3fNXj .u-modal.in .u-modal-dialog >div{
+  border: 1px dashed rgba(0, 0, 0, 0.4);
+}
