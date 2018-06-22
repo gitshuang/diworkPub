@@ -68,7 +68,8 @@ gulp.task("fonts", ["clean"], function () {
       './src/**/*.eot',
       './src/**/*.svg',
       './src/**/*.ttf',
-      './src/**/*.woff'
+      './src/**/*.woff',
+      './src/**/*.woff2'
     ])
     .pipe(gulp.dest('build'))
 });
