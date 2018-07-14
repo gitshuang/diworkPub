@@ -59,7 +59,8 @@
   -webkit-box-flex:1.0;
   -webkit-box-pack: start;
   padding-left: 10px;
-  color:#4A515D;
+  font-size: 16px;
+  color:#111111;
 }
 .file_title_right__style___DiqgP{
   margin-top: 6px;
@@ -141,7 +142,7 @@
 }
 .editDele__style___3CkUL .iconfont{
   line-height:28px;
-  color: #878B94;
+  color: #555555;
 }
 .title_cont__style___1I2Gh{
   position: absolute;

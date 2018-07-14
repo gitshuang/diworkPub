@@ -57,7 +57,8 @@
   -webkit-box-flex:1.0;
   -webkit-box-pack: start;
   padding-left: 10px;
-  color:#4A515D;
+  font-size: 16px;
+  color:#111111;
 }
 .file_title_right{
   margin-top: 6px;
@@ -139,7 +140,7 @@
 }
 .editDele :global(.iconfont){
   line-height:28px;
-  color: #878B94;
+  color: #555555;
 }
 .title_cont{
   position: absolute;
