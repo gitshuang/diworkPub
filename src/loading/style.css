@@ -25,7 +25,7 @@
     padding: 22px;
     box-sizing: border-box;
 }
-.loading_icon{
+.loading_modal .loading_icon{
     font-size :76px;
     color:#fff;
 }
