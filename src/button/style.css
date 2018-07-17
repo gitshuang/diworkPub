@@ -18,55 +18,55 @@
 /** 品牌红 **/
 button.brand_btn{
   background:rgba(225,76,70,1);
-  color:rgba(255,255,255,1) ;
+  color:rgba(255,255,255,1) !important;
 }
 button.brand_btn:hover{
-  background:rgba(210,61,55,1);
+  background:rgba(210,61,55,1) !important;
 }
 button.brand_btn:active{
   background:rgba(178,51,46,1);
-  color:rgba(255,255,255,1);
+  color:rgba(255,255,255,1) !important;
 }
 button.brand_btn:disabled{
   background:rgba(9,44,66,0.04);
-  color: #A5ADBA;
+  color: #A5ADBA !important;
 }
 
 /** 默认**/
 button.default_btn {
-  color:rgba(71,77,84,1);
+  color:rgba(71,77,84,1) !important;
   background:rgba(9,44,66,0.04);
 }
 button.default_btn:hover{
- background:rgba(9,44,66,0.08);
-  color:rgba(71,77,84,1);
+  background:rgba(9,44,66,0.08);
+  color:rgba(71,77,84,1) !important;
 }
 button.default_btn:active{
   background:rgba(225,76,70,0.1);
-  color:rgba(225,76,70,1);
+  color:rgba(225,76,70,1) !important;
 }
 button.default_btn:disabled{
   background:rgba(9,44,66,0.04);
-  color:rgba(165,173,186,1);
+  color:rgba(165,173,186,1) !important;
 }
 
 /** 默认带边框 **/
 button.default_line_btn {
-  color:rgba(255,255,255,1);
+  color:rgba(255,255,255,1) !important;
   background:rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.8);
 }
 button.default_line_btn:active{
   background:rgba(252,237,236,1);
-  color:rgba(225,76,70,1);
+  color:rgba(225,76,70,1) !important;
 }
 button.default_line_btn:hover{
   border: 1px solid rgba(255,255,255,0.5);
   background:rgba(255,255,255,0.08);
-  color:rgba(255,255,255,1);
+  color:rgba(255,255,255,1) !important;
 }
 button.default_line_btn:disabled{
-  color:rgba(165,173,186,1);
+  color:rgba(165,173,186,1) !important;
   background:rgba(245,246,248,1);
 }
 /**
@@ -82,27 +82,27 @@ button.default_line_btn:disabled{
 /**  默认无背景色 **/
 button.default_alpha_btn {
   font-family:PingFangSC-Regular;
-  color:rgba(71,77,84,1);
+  color:rgba(71,77,84,1) !important;
   background: transparent;
 }
 button.default_alpha_btn:active{
   background:rgba(225,76,70,0.1);
-  color:rgba(225,76,70,1);
+  color:rgba(225,76,70,1) !important;
 }
 button.default_alpha_btn:hover{
-  color:rgba(71,77,84,1);
+  color:rgba(71,77,84,1) !important;
   background:rgba(9,44,66,0.08);
 }
 button.default_alpha_btn:disabled{
   background:rgba(9,44,66,0);
-  color:rgba(165,173,186,1);
+  color:rgba(165,173,186,1) !important;
   cursor: not-allowed;
 }
 
 /*默认白色背景带边框*/
 button.default_white_btn {
   font-family:MicrosoftYaHei;
-  color:rgba(71,77,84,1);
+  color:rgba(71,77,84,1) !important;
   background:rgba(255,255,255,1);
   border:1px solid rgba(78,89,104,0.25);
 }
@@ -112,11 +112,11 @@ button.default_white_btn:hover{
 button.default_white_btn:active{
   background:rgba(225,76,70,0.1);
   border-color: rgba(225,76,70,0.05);
-  color:rgba(225,76,70,1);
+  color:rgba(225,76,70,1) !important;
 }
 button.default_white_btn:disabled{
   background:rgba(9,44,66,0.04);
-  color:rgba(165,173,186,1);
+  color:rgba(165,173,186,1) !important;
   cursor: not-allowed;
 }
 
@@ -124,17 +124,16 @@ button.default_white_btn:disabled{
 button.check_selected_btn{
   width:22px;
   height:22px;
-  color:rgb(118, 127, 139);
-  // border: 1px solid rgba(117,127,140,1);
+  color:rgb(118, 127, 139) !important;
   background: transparent;
   margin: 0px;
   margin-left:2px;
 }
 button.check_selected_btn:active{
-  color: rgba(0,203,124,1);
+  color: rgba(0,203,124,1) !important;
 }
 button.check_selected_btn:hover{
-  color: rgba(45,63,93,1);
+  color: rgba(45,63,93,1) !important;
   background:none;
 }
 
@@ -146,17 +145,17 @@ button.check_selected_btn:hover{
 button.check_close_btn{
   width:22px;
   height:22px;
-  color:rgb(118, 127, 139);
+  color:rgb(118, 127, 139) !important;
   background: transparent;
   margin: 0px;
   margin-left:2px;
 }
 button.check_close_btn:active{
-  color: rgba(45,63,93,1);
+  color: rgba(45,63,93,1) !important;
 }
 
 button.check_close_btn:hover{
-  color: rgba(68,70,81,1);
+  color: rgba(68,70,81,1) !important;
   background:none;
 }
 
@@ -168,7 +167,7 @@ button.check_close_btn:hover{
 /**  危险 **/
 button.danger_btn{
   font-size:14px;font-family:AppleSystemUIFont;
-  color:rgba(255,255,255,1);
+  color:rgba(255,255,255,1) !important;
   background:rgb(76, 76, 76);
 }
 button.danger_btn:hover{
@@ -177,11 +176,11 @@ button.danger_btn:hover{
 }
 button.danger_btn:active{
   background:rgba(68,70,81,1);
-  color:rgba(255,255,255,1);
+  color:rgba(255,255,255,1) !important;
 }
 button.disabled_danger_btn{
   background:rgba(9,44,66,0);
-  color:rgba(165,173,186,1);
+  color:rgba(165,173,186,1) !important;
 }
 
 
