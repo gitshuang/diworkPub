@@ -162,7 +162,9 @@
   line-height:30px;
 }
 .search_icon_con .search_tit{
-  color:rgba(74,81,93,1);
+  font-size:14px;
+  font-family:MicrosoftYaHei;
+  color:rgba(85,85,85,1);
   margin-left:8px;
 }
 .panel_left :global(.u-button-group-vertical){
