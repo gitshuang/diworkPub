@@ -24,19 +24,17 @@
 }
 
 .searchPanel{
-  width: 100%;
-  height: 38px;
-  line-height: 38px;
-  border-bottom: 1px solid rgba(13,20,36,0.1);
+  width: 100%; 
+  border-bottom: 1px solid rgba(208,208,208,1);
   position: relative;
   margin: 5px 0;
-  padding-bottom: 54px;
+  padding-bottom: 18px;
   position: relative;
 }
 .form_control{
-  width:472px;
-  height:38px; 
-  border: 1px solid #dee0e3;
+  width:456px;
+  height:30px; 
+  border: 1px solid rgba(208,208,208,1);
   color:#bec0c4;
 }
 
@@ -59,7 +57,7 @@
   height: calc(100% - 40px);
   border: 1px solid rgba(78,89,104,0.19);
   border-radius: 3px;
-  padding:20px 2px;
+  padding:20px 0;
   margin-top: 8px;
 }
 .panel_right{
@@ -91,6 +89,10 @@
 .server_type button{
   height: 26px;
   text-align: left;
+  font-size: 14px;
+  font-family: MicrosoftYaHei;
+  color: rgba(85,85,85,1);
+  font-weight: normal;
 } 
 /* .panel_left>div{
   width: 100%;
@@ -108,7 +110,7 @@
   color:#E14C46;
 }
 .panel_left :global(.u-button-group-vertical .active),.panel_left :global(.u-button-group-vertical .u-button):active{
-  background:#eee;
+  background:rgba(243,243,243,1);
   color:#E14C46;
 }
 .panel_left :global(.u-button-border){
@@ -137,10 +139,10 @@
 }
 
 .search_icon_con{
-  height: 38px;
+  height: 30px;
   position: absolute;
   top: 0px;
-  left: 360px;
+  left: 356px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -152,12 +154,12 @@
   font-weight:bold;
   margin-left: 22px;
   box-flex:1;
-  line-height:40px;
+  line-height:30px;
 }
 .search_icon_con > span{
   color: #bec0c4;
   box-flex:1;
-  line-height:38px;
+  line-height:30px;
 }
 .search_icon_con .search_tit{
   color:rgba(74,81,93,1);
@@ -167,15 +169,18 @@
   width: 242px;
 }
 .panel_left :global(.u-button-group>button){
-  /* width:77px; */
+  width:77px;
   height:32px; 
   background:rgba(9,30,66,0.04);
-  border-radius: 3px 3px 0px 0px ;
+  border-radius: 3px ;
   margin-right: 2px;
+  font-size:14px;
+  font-family:MicrosoftYaHei;
+  color:rgba(85,85,85,1);
 }
 .btn_active{
   background:rgba(252,237,236,1) !important;
-  color: #E14C46;
+  color: #E14C46!important;
 }
 /* 首页编辑-添加服务 */
 :global(.ie9_pop) .search_icon_con>span,:global(.ie9_pop) .search_icon_con>i{ 

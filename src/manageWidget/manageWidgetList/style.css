@@ -243,6 +243,11 @@
 .pop_dialog_widge_list :global(.u-modal-dialog){
   padding-left: 0px !important;
 }
+.pop_dialog_widge_list :global(.u-modal-dialog .u-modal-title){
+  font-size:19px;
+  font-family:MicrosoftYaHei;
+  color:rgba(17,17,17,1);
+}
 .pop_dialog_widge_list :global(.close){
   right: 40px;
 }
