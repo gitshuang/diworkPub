@@ -7,7 +7,9 @@ const _diff = (_index, _data) => {
   const loop = (data) => {
     if (Array.isArray(data) && data.length) {
       data.forEach(item => {
-        loop(item);
+        if (typeof item === "object" && (item.length !== 0 || Object.keys(item).length)) {
+          loop(item);
+        }
       });
     } else if (typeof data === "object" && Object.keys(data).length) {
       // 获取 JSON VALUE  数组   [a,a1,b,c]
