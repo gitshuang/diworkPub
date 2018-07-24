@@ -145,9 +145,24 @@ const fetchTools = {
             }
             const { status, data, msg, errorCode } = result;
             // 获取隔离的接口没有status,data这一项
-            if ( (url.indexOf("/ref/diwork/iref_ctr/refInfo")> -1)) {
+            if ((url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1)) {
               return Promise.resolve(result);
-            } else if ( status && status !== '0') {
+            } else if (status && status !== '0') {
+              const currLocal = window.diworkContext().locale;
+              const index = ["zh_CN", "en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(value => {
+                return value === currLocal;
+              });
+              if (index === 0) {
+                return Promise.resolve(data);
+              }
+              if (typeof data === "object") {
+                const dataArr = Object.keys(data);
+                dataArr.forEach(item => {
+                  if (dataArr.includes(item + 'Ext1')) {
+                    data[item] = data[`${item}Ext${index}`];
+                  }
+                });
+              }
               return Promise.resolve(data);
             } else if (errorCode) {
               switch (errorCode) {
@@ -206,7 +221,7 @@ export function post(oriUrl, oriParams = {}) {
   return fetch(url(oriUrl), options);
 }
 
-export function postFileCros(oriUrl,file){
+export function postFileCros(oriUrl, file) {
   const {
     params,
     fetch,
@@ -237,14 +252,14 @@ export function get(oriUrl, oriParams = {}) {
   const data = params(oriParams);
   let url = urlMaker(oriUrl);
   // 这里是授权参照的请求接口 不需要manager
-  if( oriUrl === "/ref/diwork/iref_ctr/refInfo") {
+  if (oriUrl === "/ref/diwork/iref_ctr/refInfo") {
     url = oriUrl;
   }
   if (data) {
     url = `${url}?${data}`;
   }
-  let fh = url.indexOf("?") == -1?"?":"&";
-  url+= fh+"tm="+new Date().getTime();
+  let fh = url.indexOf("?") == -1 ? "?" : "&";
+  url += fh + "tm=" + new Date().getTime();
   return fetch(url, options());
 }
 
