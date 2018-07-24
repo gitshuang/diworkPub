@@ -3,6 +3,31 @@ import ReactDOM from 'react-dom';
 
 export const noop = () => { };
 
+const _diff = (_index, _data) => {
+  const loop = (data) => {
+    if (Array.isArray(data) && data.length) {
+      data.forEach(item => {
+        loop(item);
+      });
+    } else if (typeof data === "object" && Object.keys(data).length) {
+      // 获取 JSON VALUE  数组   [a,a1,b,c]
+      const dataKeys = Object.keys(data);
+      dataKeys.forEach((item, index) => {
+
+        if (dataKeys.includes(item + 'Ext1')) {
+          data[item] = data[item + 'Ext' + _index];
+        }
+        const currData = data[item];
+        if (!currData) return;
+        if ((Array.isArray(currData) && currData.length !== 0) || (typeof currData === "object" && Object.keys(currData).length)) {
+          loop(currData);
+        }
+      });
+    }
+  }
+  loop(_data);
+}
+
 export const mergeReducers = (...reducers) =>
   (state, action) => reducers.reduce(
     (prevState, reducer) => Object.assign(prevState, reducer(state, action)),
@@ -153,13 +178,8 @@ const fetchTools = {
               const index = ["zh_CN", "en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(value => {
                 return value === currLocal;
               });
-              if ( index > 0 && typeof data === "object") {
-                const dataArr = Object.keys(data);
-                dataArr.forEach(item => {
-                  if (dataArr.includes(item + 'Ext1')) {
-                    data[item] = data[`${item}Ext${index}`];
-                  }
-                });
+              if (index > 0 && typeof data === "object") {
+                _diff(index, data);
               }
               return Promise.resolve(data);
             } else if (errorCode) {

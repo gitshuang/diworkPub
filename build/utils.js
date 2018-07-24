@@ -5,9 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.IS_IE = exports.getHost = exports.logout = exports.createActions = exports.createTypes = exports.mergeReducers = exports.noop = undefined;
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 exports.post = post;
 exports.postFileCros = postFileCros;
@@ -36,6 +36,31 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
 
 var noop = exports.noop = function noop() {};
+
+var _diff = function _diff(_index, _data) {
+  var loop = function loop(data) {
+    if (Array.isArray(data) && data.length) {
+      data.forEach(function (item) {
+        loop(item);
+      });
+    } else if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object" && Object.keys(data).length) {
+      // 获取 JSON VALUE  数组   [a,a1,b,c]
+      var dataKeys = Object.keys(data);
+      dataKeys.forEach(function (item, index) {
+
+        if (dataKeys.includes(item + 'Ext1')) {
+          data[item] = data[item + 'Ext' + _index];
+        }
+        var currData = data[item];
+        if (!currData) return;
+        if (Array.isArray(currData) && currData.length !== 0 || (typeof currData === 'undefined' ? 'undefined' : _typeof(currData)) === "object" && Object.keys(currData).length) {
+          loop(currData);
+        }
+      });
+    }
+  };
+  loop(_data);
+};
 
 var mergeReducers = exports.mergeReducers = function mergeReducers() {
   for (var _len = arguments.length, reducers = Array(_len), _key = 0; _key < _len; _key++) {
@@ -221,12 +246,7 @@ var fetchTools = {
                 return value === currLocal;
               });
               if (index > 0 && (typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object") {
-                var dataArr = Object.keys(data);
-                dataArr.forEach(function (item) {
-                  if (dataArr.includes(item + 'Ext1')) {
-                    data[item] = data[item + 'Ext' + index];
-                  }
-                });
+                _diff(index, data);
               }
               return Promise.resolve(data);
             } else if (errorCode) {
