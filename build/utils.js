@@ -215,14 +215,12 @@ var fetchTools = {
             if (url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1) {
               return Promise.resolve(result);
             } else if (status && status !== '0') {
-              var currLocal = window.diworkContext().locale;
+
+              var currLocal = getContext().locale;
               var index = ["zh_CN", "en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(function (value) {
                 return value === currLocal;
               });
-              if (index === 0) {
-                return Promise.resolve(data);
-              }
-              if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object") {
+              if (index > 0 && (typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object") {
                 var dataArr = Object.keys(data);
                 dataArr.forEach(function (item) {
                   if (dataArr.includes(item + 'Ext1')) {
