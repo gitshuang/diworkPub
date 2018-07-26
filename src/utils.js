@@ -175,8 +175,12 @@ const fetchTools = {
             if ((url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1)) {
               return Promise.resolve(result);
             } else if (status && status !== '0') {
-
-              const currLocal = getContext().locale;
+              let currLocal;
+              if(self == top){
+                currLocal = getContext().locale;
+              }else{
+                currLocal = window.jDiwork.getContext(data => data).locale; 
+              }
               const index = ["zh_CN", "en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(value => {
                 return value === currLocal;
               });
@@ -390,6 +394,7 @@ export function getContext() {
     return {};
   }
 }
+
 
 /**
  * 汉子超过3位截取，其他字符8位数
