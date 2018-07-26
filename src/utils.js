@@ -21,7 +21,7 @@ const _diff = (_index, _data) => {
         }
         const currData = data[item];
         if (!currData) return;
-        if ((Array.isArray(currData) && currData.length !== 0) || (typeof currData === "object" && Object.keys(currData).length)) {
+        if (typeof currData === "object" && (currData.length !== 0 || Object.keys(currData).length)) {
           loop(currData);
         }
       });

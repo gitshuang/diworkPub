@@ -55,7 +55,7 @@ var _diff = function _diff(_index, _data) {
         }
         var currData = data[item];
         if (!currData) return;
-        if (Array.isArray(currData) && currData.length !== 0 || (typeof currData === 'undefined' ? 'undefined' : _typeof(currData)) === "object" && Object.keys(currData).length) {
+        if ((typeof currData === 'undefined' ? 'undefined' : _typeof(currData)) === "object" && (currData.length !== 0 || Object.keys(currData).length)) {
           loop(currData);
         }
       });
