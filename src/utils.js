@@ -5,7 +5,7 @@ export const noop = () => { };
 
 const _diff = (_index, _data) => {
   const loop = (data) => {
-    if (Array.isArray(data) && data.length) {
+    if (typeof data === "object" && Array.isArray(data) && data.length) {
       data.forEach(item => {
         if (typeof item === "object" && (item.length !== 0 || Object.keys(item).length)) {
           loop(item);

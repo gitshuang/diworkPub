@@ -39,7 +39,7 @@ var noop = exports.noop = function noop() {};
 
 var _diff = function _diff(_index, _data) {
   var loop = function loop(data) {
-    if (Array.isArray(data) && data.length) {
+    if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object" && Array.isArray(data) && data.length) {
       data.forEach(function (item) {
         if ((typeof item === 'undefined' ? 'undefined' : _typeof(item)) === "object" && (item.length !== 0 || Object.keys(item).length)) {
           loop(item);
