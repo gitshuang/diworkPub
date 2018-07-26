@@ -243,12 +243,10 @@ var fetchTools = {
               return Promise.resolve(result);
             } else if (status && status !== '0') {
               var currLocal = void 0;
-              if (self == top) {
+              if (window.self === window.top) {
                 currLocal = getContext().locale;
               } else {
-                currLocal = window.jDiwork.getContext(function (data) {
-                  return data;
-                }).locale;
+                currLocal = window.top.diworkContext().locale;
               }
               var index = ["zh_CN", "en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(function (value) {
                 return value === currLocal;

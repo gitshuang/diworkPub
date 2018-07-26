@@ -176,10 +176,10 @@ const fetchTools = {
               return Promise.resolve(result);
             } else if (status && status !== '0') {
               let currLocal;
-              if(self == top){
+              if(window.self === window.top){
                 currLocal = getContext().locale;
               }else{
-                currLocal = window.jDiwork.getContext(data => data).locale; 
+                currLocal = window.top.diworkContext().locale; 
               }
               const index = ["zh_CN", "en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(value => {
                 return value === currLocal;
