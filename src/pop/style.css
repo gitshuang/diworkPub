@@ -21,11 +21,11 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);   /* IE 9 */
-  -webkit-transform: translate(-50%, -50%);    /* Safari and Chrome */
-  -o-transform: translate(-50%, -50%);       /* Opera */
-  -moz-transform: translate(-50%, -50%);     /* Firefox */
+  transform: translate(-50%, -50%)!important;
+  -ms-transform: translate(-50%, -50%)!important;   /* IE 9 */
+  -webkit-transform: translate(-50%, -50%)!important;    /* Safari and Chrome */
+  -o-transform: translate(-50%, -50%)!important;       /* Opera */
+  -moz-transform: translate(-50%, -50%)!important;     /* Firefox */
   margin: 0px;
   color: #474D54;
   min-width: 400px;
