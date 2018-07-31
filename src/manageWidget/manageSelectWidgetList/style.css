@@ -32,10 +32,37 @@
   position: relative;
 }
 .form_control{
-  width:456px;
-  height:30px; 
-  border: 1px solid rgba(208,208,208,1);
-  color:#bec0c4;
+  width: 360px;
+	height:32px;
+  transition: none;
+  border-radius: 3px 0 0 3px;
+}
+.search_icon_con{
+  width: 95px;
+  height: 32px;
+  position: absolute;
+  top: 0;
+  left: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid #d0d0d0;
+  border-left: none;
+  border-radius: 0 3px 3px 0;
+}
+.search_icon_con > span{
+  line-height:32px;
+  margin-left: 4px;
+}
+.search_icon_con:hover{
+  background: #f3f3f3;
+}
+.search_icon_con:hover span{
+  color: #E14C46;
+}
+.search_icon_con:hover :global(.iconfont){
+  color: #E14C46;
 }
 
 .panel{
@@ -107,10 +134,12 @@
   border-radius:0;
 }
 .panel_left :global(.u-button-border:focus),.panel_left :global(.u-button-border:hover){
-  color:#E14C46;
+  background: #f3f3f3;
+  color: #555555;
 }
-.panel_left :global(.u-button-group-vertical .active),.panel_left :global(.u-button-group-vertical .u-button):active{
-  background:rgba(243,243,243,1);
+.panel_left :global(.u-button-group-vertical .active),
+.panel_left :global(.u-button-group-vertical .u-button):active{
+  background: #e4e4e4;
   color:#E14C46;
 }
 .panel_left :global(.u-button-border){
@@ -137,43 +166,13 @@
 .footer_btn>div{
   margin-right: 8px;
 }
-
-.search_icon_con{
-  height: 30px;
-  position: absolute;
-  top: 0px;
-  left: 356px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  cursor: pointer;
-}
-.search_icon_con :global(.iconfont){
-  color:#878B94;
-  font-size:20px;
-  font-weight:bold;
-  margin-left: 22px;
-  box-flex:1;
-  line-height:30px;
-}
-.search_icon_con > span{
-  color: #bec0c4;
-  box-flex:1;
-  line-height:30px;
-}
-.search_icon_con .search_tit{
-  font-size:14px;
-  font-family:MicrosoftYaHei;
-  color:rgba(85,85,85,1);
-  margin-left:8px;
-}
 .panel_left :global(.u-button-group-vertical){
   width: 242px;
 }
 .panel_left :global(.u-button-group>button){
   width:77px;
   height:32px; 
-  background:rgba(9,30,66,0.04);
+  background: #e4e4e4;
   border-radius: 3px ;
   margin-right: 2px;
   font-size:14px;

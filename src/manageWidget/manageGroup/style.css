@@ -110,12 +110,12 @@
 	font-weight: bold;
 }
 .widgetTitle :global(.iconfont):hover{
-	color:#242D3B;
+	color:#111111;
 }
 .widgetTitle .btn{
   display: inline-block;
   vertical-align: middle;
-  margin-left: 8px;
+  margin-left: 0px;
   text-align: center;
   position: relative;
 }
@@ -159,6 +159,9 @@
 .addBtn :global(.u-button){
   width: 100%;
   margin: 0 0 16px 0;
+}
+.addBtn :global(.u-button:hover){
+  background: rgba(255,255,255,0.6);
 }
 .selectedBackClass{
   background:rgba(255,255,255,1) !important;

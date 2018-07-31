@@ -142,6 +142,9 @@
   line-height:28px;
   color: #555555;
 }
+.editDele :global(.iconfont:hover){
+  color: #111111;
+}
 .title_cont{
   position: absolute;
   background: yellow;
@@ -156,6 +159,11 @@
   top: 20px;
   padding-left: 15px;
   box-sizing: border-box;
+  display: flex;
+}
+.edit_cont :global(.u-form-control){
+  height: 22px;
+  width: 110px;
 }
 .edit_btn{
    display: -webkit-box;
@@ -197,7 +205,7 @@
   line-height:176px;
 }
 .addModule:hover :global(.iconfont){
-  color:#242D3B;
+  color:#111111;
 }
 .addModule:hover{
   background:rgba(255,255,255,0.4);
@@ -272,6 +280,10 @@
   margin-left: 2px;
   text-align: center;
   position: relative;
+}
+.edit_cont .btn :global(.iconfont){
+  font-size: 22px;
+  color: #757F8C;
 }
 .edit_cont .btn>span{
   position: absolute;

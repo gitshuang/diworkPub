@@ -233,7 +233,6 @@ class SelectWidgetList extends Component {
           <div className={searchPanel}>
               <FormControl className={form_control} placeholder="搜索内容..." value={this.state.value} onKeyDown={this.onKeyup}  onChange={this.inputOnChange}/>
               <div className={search_icon_con} >
-                  <span>|</span>
                   <Icon type="search" className={search_icon} onClick={this.btnSearch} ></Icon>
                   <span className={search_tit} onClick={this.btnSearch} >搜索</span>
               </div>
