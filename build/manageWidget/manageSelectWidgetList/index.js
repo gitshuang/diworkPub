@@ -95,7 +95,6 @@ var SelectWidgetList = function (_Component) {
     };
 
     _this.getSearch = function (applications, value) {
-      // const {applicationsMap} = this.props;
       var result = [];
       applications.forEach(function (da) {
         var _name = da.applicationName || da.serviceName;
@@ -105,6 +104,17 @@ var SelectWidgetList = function (_Component) {
             data.service = _this.getSearch(da.service, value);
           }
           result.push(data);
+        } else {
+          if (da.service && da.service.length > 0) {
+            da.service.forEach(function (item) {
+              if (item.serviceName.indexOf(value) != -1) {
+                var data = _extends({}, da);
+                data.service = [];
+                data.service.push(item);
+                result.push(data);
+              }
+            });
+          }
         }
       });
       return result;
@@ -355,11 +365,11 @@ var SelectWidgetList = function (_Component) {
           _react2["default"].createElement(_formControl2["default"], { className: _style.form_control, placeholder: '\u641C\u7D22\u5185\u5BB9...', value: this.state.value, onKeyDown: this.onKeyup, onChange: this.inputOnChange }),
           _react2["default"].createElement(
             'div',
-            { className: _style.search_icon_con },
-            _react2["default"].createElement(_icon2["default"], { type: 'search', className: _style.search_icon, onClick: this.btnSearch }),
+            { className: _style.search_icon_con, onClick: this.btnSearch },
+            _react2["default"].createElement(_icon2["default"], { type: 'search', className: _style.search_icon }),
             _react2["default"].createElement(
               'span',
-              { className: _style.search_tit, onClick: this.btnSearch },
+              { className: _style.search_tit },
               '\u641C\u7D22'
             )
           )

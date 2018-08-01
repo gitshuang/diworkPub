@@ -65,16 +65,26 @@ class SelectWidgetList extends Component {
   }
 
   getSearch=(applications,value)=>{
-    // const {applicationsMap} = this.props;
-    const result = [];
-    applications.forEach((da) => {
-      let _name = da.applicationName || da.serviceName;
+    var result = [];
+    applications.forEach( (da) => {
+      var _name = da.applicationName || da.serviceName;
       if (_name.indexOf(value) != -1) {
         const data = {...da};
         if(da.service && da.service.length > 0){
           data.service = this.getSearch(da.service, value);
         }
         result.push(data);
+      }else{
+        if (da.service && da.service.length > 0) {
+          da.service.forEach(function(item){
+            if(item.serviceName.indexOf(value) != -1){
+              var data = {...da};
+              data.service = [];
+              data.service.push(item);
+              result.push(data);
+            }
+          });
+        }
       }
     });
     return result;
@@ -232,9 +242,9 @@ class SelectWidgetList extends Component {
        <div className={widget_right}>
           <div className={searchPanel}>
               <FormControl className={form_control} placeholder="搜索内容..." value={this.state.value} onKeyDown={this.onKeyup}  onChange={this.inputOnChange}/>
-              <div className={search_icon_con} >
-                  <Icon type="search" className={search_icon} onClick={this.btnSearch} ></Icon>
-                  <span className={search_tit} onClick={this.btnSearch} >搜索</span>
+              <div className={search_icon_con} onClick={this.btnSearch}>
+                  <Icon type="search" className={search_icon}></Icon>
+                  <span className={search_tit} >搜索</span>
               </div>
            </div>
            <div className={panel} >

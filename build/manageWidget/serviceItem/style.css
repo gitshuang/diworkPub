@@ -70,6 +70,10 @@ box-sizing: border-box;
 font-size:14px;
 font-family:MicrosoftYaHei;
 color:rgba(17,17,17,1);
+max-width: 112px;
+overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
 }
 .item_footer_app__style___2OgVL{
 right: 58px !important;
@@ -81,8 +85,11 @@ font-family:MicrosoftYaHei;
 color:rgba(191,191,191,1);
 }
 .item_footer__style___vW_yX i{
-font-size: 19px;
-color: rgba(85,85,85,1);
+  font-size: 19px;
+  color: rgba(85,85,85,1);
+}
+.item_footer__style___vW_yX i:hover{
+  color: #111111;
 }
 .serviceItem__style___3Llr- .item_footer__style___vW_yX span,.serviceItem__style___3Llr- .item_footer__style___vW_yX i{
 display: table-row;

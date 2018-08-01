@@ -68,6 +68,10 @@ box-sizing: border-box;
 font-size:14px;
 font-family:MicrosoftYaHei;
 color:rgba(17,17,17,1);
+max-width: 112px;
+overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
 }
 .item_footer_app{
 right: 58px !important;
@@ -79,8 +83,11 @@ font-family:MicrosoftYaHei;
 color:rgba(191,191,191,1);
 }
 .item_footer i{
-font-size: 19px;
-color: rgba(85,85,85,1);
+  font-size: 19px;
+  color: rgba(85,85,85,1);
+}
+.item_footer i:hover{
+  color: #111111;
 }
 .serviceItem .item_footer span,.serviceItem .item_footer i{
 display: table-row;
