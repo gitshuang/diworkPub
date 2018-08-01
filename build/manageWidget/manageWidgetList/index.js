@@ -33,27 +33,27 @@ var _button2 = _interopRequireDefault(_button);
 require('./style.css');
 
 var _style = {
-  'widgetItem': 'widgetItem__style___2cyTQ',
-  'widgetFileItem': 'widgetFileItem__style___tICaL',
-  'title': 'title__style___zm0G2',
-  'title_right': 'title_right__style___UBFBm',
-  'file_title_right': 'file_title_right__style___19Ee7',
-  'widget_node': 'widget_node__style___ToqKk',
-  'content': 'content__style___2LRlu',
-  'context': 'context__style___3qrT9',
-  'bottom': 'bottom__style___11bvF',
-  'file_context': 'file_context__style___3J9Fp',
-  'footer': 'footer__style___1aaeU',
-  'editDele': 'editDele__style___2JgLz',
-  'title_cont': 'title_cont__style___1Rfqr',
-  'edit_cont': 'edit_cont__style___j4ID9',
-  'edit_btn': 'edit_btn__style___1Gga9',
-  'title_edit': 'title_edit__style___2H-6e',
-  'clearfix': 'clearfix__style___3Dpug',
-  'addModule': 'addModule__style___2YCGI',
-  'widgetList': 'widgetList__style___3skJU',
-  'pop_dialog_widge_list': 'pop_dialog_widge_list__style___3h0GN',
-  'btn': 'btn__style___2hXhq'
+  'widgetItem': 'widgetItem__style___2ViXT',
+  'widgetFileItem': 'widgetFileItem__style___1T2a3',
+  'title': 'title__style___1B_fu',
+  'title_right': 'title_right__style___cw30g',
+  'file_title_right': 'file_title_right__style___DiqgP',
+  'widget_node': 'widget_node__style___JwigN',
+  'content': 'content__style___3kmtj',
+  'context': 'context__style___1VApU',
+  'bottom': 'bottom__style___cYT9M',
+  'file_context': 'file_context__style___3u6-0',
+  'footer': 'footer__style____qenv',
+  'editDele': 'editDele__style___3CkUL',
+  'title_cont': 'title_cont__style___1I2Gh',
+  'edit_cont': 'edit_cont__style___10taX',
+  'edit_btn': 'edit_btn__style___fCdEY',
+  'title_edit': 'title_edit__style___3Z4Sp',
+  'clearfix': 'clearfix__style___2IchN',
+  'addModule': 'addModule__style___2ewoD',
+  'widgetList': 'widgetList__style___hB67m',
+  'pop_dialog_widge_list': 'pop_dialog_widge_list__style___13RcY',
+  'btn': 'btn__style___2_s_F'
 };
 
 var _widgetItem = require('./widgetItem');

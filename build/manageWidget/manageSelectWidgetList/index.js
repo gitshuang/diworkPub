@@ -43,22 +43,21 @@ var _utils = require('../../utils');
 require('./style.css');
 
 var _style = {
-  'select_widget_list': 'select_widget_list__style___29GCK',
-  'widget_left': 'widget_left__style___2PoSw',
-  'widget_right': 'widget_right__style___1zoEI',
-  'title': 'title__style___EVnXD',
-  'searchPanel': 'searchPanel__style___2D6c1',
-  'form_control': 'form_control__style___1kIWJ',
-  'panel': 'panel__style___30rpa',
-  'panel_left': 'panel_left__style___3k5q5',
-  'panel_right': 'panel_right__style___bOU63',
-  'btn_type': 'btn_type__style___2i9Sz',
-  'server_type': 'server_type__style___1zZ5Z',
-  'footer_btn': 'footer_btn__style___3b0jb',
-  'search_icon_con': 'search_icon_con__style___3OaXI',
-  'search_tit': 'search_tit__style___aDQ4J',
-  'btn_active': 'btn_active__style___1KOIw',
-  'u-button-group-vertical': 'u-button-group-vertical__style___UDj5X'
+  'select_widget_list': 'select_widget_list__style___1dmkA',
+  'widget_left': 'widget_left__style___1Uete',
+  'widget_right': 'widget_right__style___2IBuX',
+  'title': 'title__style___1bhMP',
+  'searchPanel': 'searchPanel__style___1RPNQ',
+  'form_control': 'form_control__style___1s2u7',
+  'search_icon_con': 'search_icon_con__style___35fCP',
+  'panel': 'panel__style___1xtJs',
+  'panel_left': 'panel_left__style___2Vcpd',
+  'panel_right': 'panel_right__style___1AxwY',
+  'btn_type': 'btn_type__style___1gLNi',
+  'server_type': 'server_type__style___1hsyp',
+  'footer_btn': 'footer_btn__style___2u5rN',
+  'btn_active': 'btn_active__style___2R8kV',
+  'u-button-group-vertical': 'u-button-group-vertical__style___1lnGf'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -357,11 +356,6 @@ var SelectWidgetList = function (_Component) {
           _react2["default"].createElement(
             'div',
             { className: _style.search_icon_con },
-            _react2["default"].createElement(
-              'span',
-              null,
-              '|'
-            ),
             _react2["default"].createElement(_icon2["default"], { type: 'search', className: _style.search_icon, onClick: this.btnSearch }),
             _react2["default"].createElement(
               'span',

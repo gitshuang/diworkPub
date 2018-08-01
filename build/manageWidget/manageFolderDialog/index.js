@@ -13,7 +13,7 @@ var _react2 = _interopRequireDefault(_react);
 require('./style.css');
 
 var _style = {
-  'content': 'content__style___23Jeg'
+  'content': 'content__style___3zVXI'
 };
 
 var _pop = require('../../pop');
