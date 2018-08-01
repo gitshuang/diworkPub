@@ -99,21 +99,26 @@ var SelectWidgetList = function (_Component) {
       applications.forEach(function (da) {
         var _name = da.applicationName || da.serviceName;
         if (_name.indexOf(value) != -1) {
-          var data = _extends({}, da);
+          var _data2 = _extends({}, da);
           if (da.service && da.service.length > 0) {
-            data.service = _this.getSearch(da.service, value);
+            _data2.service = _this.getSearch(da.service, value);
           }
-          result.push(data);
+          result.push(_data2);
         } else {
+          // TODO 在原来基础上增加 父级不对应  子集对应的方法    有点low  后续有时间改进
           if (da.service && da.service.length > 0) {
+            var data = _extends({}, da);
+            data.service = [];
+            var flag = false;
             da.service.forEach(function (item) {
               if (item.serviceName.indexOf(value) != -1) {
-                var data = _extends({}, da);
-                data.service = [];
+                flag = true;
                 data.service.push(item);
-                result.push(data);
               }
             });
+            if (flag) {
+              result.push(data);
+            }
           }
         }
       });

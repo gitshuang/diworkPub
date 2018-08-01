@@ -74,16 +74,20 @@ class SelectWidgetList extends Component {
           data.service = this.getSearch(da.service, value);
         }
         result.push(data);
-      }else{
+      }else{  // TODO 在原来基础上增加 父级不对应  子集对应的方法    有点low  后续有时间改进
         if (da.service && da.service.length > 0) {
-          da.service.forEach(function(item){
-            if(item.serviceName.indexOf(value) != -1){
-              var data = {...da};
-              data.service = [];
+          var data = {...da};
+          data.service = [];
+          var flag = false;
+          da.service.forEach(function (item) {
+            if (item.serviceName.indexOf(value) != -1) {
+              flag = true;
               data.service.push(item);
-              result.push(data);
             }
           });
+          if(flag){
+            result.push(data);
+          }
         }
       }
     });
