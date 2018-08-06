@@ -243,7 +243,7 @@ class ManageGroup extends Component {
   // 输入框的更改
   editGroupName = (e) =>{
     let _groupName = e.target.value;
-    _groupName = getStrLenSubstr(_groupName,11,21,true)
+    // _groupName = getStrLenSubstr(_groupName,11,21,true)
     this.setState({
       groupName:_groupName
     })
@@ -476,6 +476,7 @@ class ManageGroup extends Component {
             <input
               className={`${inFoucs?newGroupName_focus:newGroupName_blur} ${newGroupName} input`}
               value={groupName}
+              maxLength="4"
               autoFocus="autofocus"
               onChange={this.editGroupName}
               onFocus={this.handleFocus}

@@ -233,7 +233,7 @@ var ManageGroup = function (_Component) {
 
     _this.editGroupName = function (e) {
       var _groupName = e.target.value;
-      _groupName = (0, _utils.getStrLenSubstr)(_groupName, 11, 21, true);
+      // _groupName = getStrLenSubstr(_groupName,11,21,true)
       _this.setState({
         groupName: _groupName
       });
@@ -590,6 +590,7 @@ var ManageGroup = function (_Component) {
           _react2["default"].createElement('input', {
             className: (inFoucs ? _style.newGroupName_focus : _style.newGroupName_blur) + ' ' + _style.newGroupName + ' input',
             value: groupName,
+            maxLength: '4',
             autoFocus: 'autofocus',
             onChange: this.editGroupName,
             onFocus: this.handleFocus,
