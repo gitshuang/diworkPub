@@ -79,14 +79,14 @@ var SelectWidgetList = function (_Component) {
     var _this = _possibleConstructorReturn(this, _Component.call(this, props));
 
     _this.btnSearch = function () {
-      var _this$state = _this.state,
-          applications = _this$state.data.applications,
-          value = _this$state.value;
+      var applications = _this.state.data.applications;
+      var value = _this.state.value;
 
       var _applications = [];
       if (value == "") {
         _applications = applications;
       } else {
+        value = value.trim();
         _applications = _this.getSearch(applications, value);
       }
       _this.setState({
@@ -214,9 +214,9 @@ var SelectWidgetList = function (_Component) {
 
     _this.onBtnOnclick = function (_data) {
       var applicationsMap = _this.props.applicationsMap;
-      var _this$state2 = _this.state,
-          data = _this$state2.data,
-          labelGroups = _this$state2.data.labelGroups;
+      var _this$state = _this.state,
+          data = _this$state.data,
+          labelGroups = _this$state.data.labelGroups;
 
       var _applications = [];
       var activeLabelGroups = labelGroups.find(function (da) {
