@@ -17,12 +17,12 @@ var _pagination2 = _interopRequireDefault(_pagination);
 require('./style.css');
 
 var _style = {
-  'enhanced_pagination': 'enhanced_pagination__style___3adls',
-  'u_float_pagination': 'u_float_pagination__style___1w2E-',
-  'data_per_select': 'data_per_select__style___3LK_h',
-  'data_select': 'data_select__style___3IIDe',
-  'page_jump': 'page_jump__style___2UQbq',
-  'page_jump_value': 'page_jump_value__style___2gtGd'
+  'enhanced_pagination': 'enhanced_pagination__style___3LhAI',
+  'u_float_pagination': 'u_float_pagination__style___2mZ3V',
+  'data_per_select': 'data_per_select__style___3VIUY',
+  'data_select': 'data_select__style___1N0jE',
+  'page_jump': 'page_jump__style___3AeGw',
+  'page_jump_value': 'page_jump_value__style___15gy0'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -71,13 +71,13 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
       };
 
       _this.dataNumSelect = function (e) {
-        var value = e.target.value;
-        var dataNumValue = _this.props.dataNumSelect[value].name;
+        var id = e.target.value;
+        var dataNumValue = _this.props.dataNumSelect[id].value;
         _this.setState({
-          dataNum: value
+          dataNum: id
         });
         if (_this.props.onDataNumSelect) {
-          _this.props.onDataNumSelect(e.target.value, dataNumValue);
+          _this.props.onDataNumSelect(id, dataNumValue);
         }
       };
 
@@ -107,7 +107,9 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
       var _props = this.props,
           onDataNumSelect = _props.onDataNumSelect,
           dataNumSelect = _props.dataNumSelect,
-          restProps = _objectWithoutProperties(_props, ['onDataNumSelect', 'dataNumSelect']);
+          dataNum = _props.dataNum,
+          enhancedPaginationText = _props.enhancedPaginationText,
+          restProps = _objectWithoutProperties(_props, ['onDataNumSelect', 'dataNumSelect', 'dataNum', 'enhancedPaginationText']);
 
       return _react2["default"].createElement(
         'div',
@@ -118,7 +120,7 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
           { className: _style.data_per_select },
           _react2["default"].createElement(
             'select',
-            { name: 'data-select', id: '', className: _style.data_select, value: this.state.dataNum, onChange: function onChange(e) {
+            { name: 'data-select', id: '', className: _style.data_select, value: dataNum === undefined ? this.state.dataNum : dataNum, onChange: function onChange(e) {
                 return _this2.dataNumSelect(e);
               } },
             dataNumSelect.length > 0 && dataNumSelect.map(function (item, i) {
@@ -133,13 +135,13 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
         _react2["default"].createElement(
           'div',
           { className: _style.page_jump },
-          '\u8DF3\u81F3',
+          enhancedPaginationText.jump,
           _react2["default"].createElement('input', { className: _style.page_jump_value, type: 'number', value: this.state.activePage, onKeyDown: function onKeyDown(e) {
               return _this2.onKeyup(e);
             }, onChange: function onChange(e) {
               return _this2.setPageJump(e);
             } }),
-          '\u9875'
+          enhancedPaginationText.jumpPage
         )
       );
     };
@@ -154,9 +156,14 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
     size: 'sm',
     gap: true,
     maxButtons: 7,
-    dataNumSelect: [{ id: 0, name: '5条/页' }, { id: 1, name: '10条/页' }, { id: 2, name: '15条/页' }, { id: 3, name: '20条/页' }],
+    dataNumSelect: [{ id: 0, name: '5条/页', value: 5 }, { id: 1, name: '10条/页', value: 10 }, { id: 2, name: '15条/页', value: 15 }, { id: 3, name: '20条/页', value: 20 }],
     items: 0,
-    activePage: 1
+    activePage: 1,
+    dataNum: undefined,
+    enhancedPaginationText: { //因为多语
+      jump: '跳至',
+      jumpPage: '页'
+    }
   }, _temp;
 };
 

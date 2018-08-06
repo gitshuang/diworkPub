@@ -15,6 +15,14 @@ import {
 const { Item } = Menu;
 
 class MoveToGroup extends Component {
+  static defaultProps = {
+    moveToGrouptext:{
+      add:'添加分组',
+      confirm:'确定',
+      cancel:'取消'
+
+    }
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -164,7 +172,8 @@ class MoveToGroup extends Component {
       onSave,
       onCancel,
       onAddGroup,
-      caller
+      caller,
+      moveToGrouptext
     } = this.props;
 
     let content = (
@@ -193,7 +202,7 @@ class MoveToGroup extends Component {
         <div className={`${footer} um-box-justify`}>
           {
             onAddGroup ? (<div>
-              <Button onClick={this.addGroup} disabled={inAddGroup? true: false}>添加分组</Button>
+              <Button onClick={this.addGroup} disabled={inAddGroup? true: false}>{moveToGrouptext.add}</Button>
             </div>) : null
           }
           <div>
@@ -202,11 +211,11 @@ class MoveToGroup extends Component {
                 colors="danger"
                 disabled={!way && !inAddGroup}
                 className={saveBtn}
-                onClick={ this.save }>确定</Button>) : null
+                onClick={ this.save }>{moveToGrouptext.confirm}</Button>) : null
             }
             {
               onCancel ? (<Button
-                onClick={this.cancel}>取消</Button>) : null
+                onClick={this.cancel}>{moveToGrouptext.cancel}</Button>) : null
             }
           </div>
         </div>

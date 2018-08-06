@@ -20,13 +20,18 @@ const EnhancedPagination = WrappedComponent => {
         gap: true,
         maxButtons: 7,
         dataNumSelect: [
-          { id: 0, name: '5条/页' },
-          { id: 1, name: '10条/页' },
-          { id: 2, name: '15条/页' },
-          { id: 3, name: '20条/页' }
+          { id: 0, name: '5条/页',value:5},
+          { id: 1, name: '10条/页',value:10 },
+          { id: 2, name: '15条/页',value:15 },
+          { id: 3, name: '20条/页',value:20}
         ],
         items: 0,
         activePage: 1,
+        dataNum:undefined,
+        enhancedPaginationText:{//因为多语
+          jump:'跳至',
+          jumpPage:'页'
+        }
       }
 
       constructor(props){
@@ -62,13 +67,13 @@ const EnhancedPagination = WrappedComponent => {
       }
 
       dataNumSelect = (e) =>{
-        let value = e.target.value;
-        let dataNumValue = this.props.dataNumSelect[value].name
+        let id = e.target.value;
+        let dataNumValue = this.props.dataNumSelect[id].value
         this.setState({
-          dataNum:value
+          dataNum:id
         })
         if(this.props.onDataNumSelect){
-          this.props.onDataNumSelect(e.target.value,dataNumValue)
+          this.props.onDataNumSelect(id,dataNumValue)
         }
       }
 
@@ -77,19 +82,19 @@ const EnhancedPagination = WrappedComponent => {
             maxButtons:5,
             boundaryLinks:true
         }
-        const {onDataNumSelect,dataNumSelect, ...restProps} = this.props
+        const {onDataNumSelect,dataNumSelect,dataNum, enhancedPaginationText, ...restProps} = this.props
         return (
             <div className={enhanced_pagination}>
                 <WrappedComponent  {...newProps} {...restProps}  className={u_float_pagination}/>
                 <div className={data_per_select}>
-                    <select  name="data-select" id="" className={data_select}  value={this.state.dataNum} onChange={e=>this.dataNumSelect(e)}>
+                    <select  name="data-select" id="" className={data_select}  value={dataNum===undefined?this.state.dataNum:dataNum} onChange={e=>this.dataNumSelect(e)}>
                       {dataNumSelect.length > 0 && dataNumSelect.map((item, i) => {
                       return <option key={i} value={item.id}>{item.name}</option>
                       })}
                     </select>
                 </div>
                 <div className={page_jump}>
-                    跳至<input className={page_jump_value} type='number' value={this.state.activePage} onKeyDown={e=>this.onKeyup(e)} onChange={e=>this.setPageJump(e) }/>页
+                    {enhancedPaginationText.jump}<input className={page_jump_value} type='number' value={this.state.activePage} onKeyDown={e=>this.onKeyup(e)} onChange={e=>this.setPageJump(e) }/>{enhancedPaginationText.jumpPage}
                 </div>
             </div>
         )

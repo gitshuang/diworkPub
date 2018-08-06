@@ -1,12 +1,12 @@
 /* imported from style.css */
 
 /*新增的requestloading*/
-  .progress_wrap__style___2-Taf{
+  .progress_wrap__style___3jdj3{
     position: relative;
     width: 338px;
     height: 32px
   }
-  .progress_loading__style___2sjPW{
+  .progress_loading__style___2VLp_{
     width: 338px;
     height: 32px;
     background-color: rgba(223,226,227,1);
@@ -14,7 +14,7 @@
     position: relative;
     box-shadow: none;
   }
-  .progress_load_icon__style___2jRBw{
+  .progress_load_icon__style___2FrmF{
     position: absolute;
     top: 0;
     line-height: 32px;
@@ -22,13 +22,13 @@
     font-size: 20px;
     right: 20px;
   }
-  .opacityShow__style___1zSs_{
+  .opacityShow__style___1_rJb{
     opacity: 1!important;
   }
-  .opacityHidden__style___3_bcZ{
+  .opacityHidden__style___2kVQY{
     opacity: 0!important;
   }
-  .loading_desc__style___1mj9u{
+  .loading_desc__style___ODeVU{
     font-size:12px;
     font-family:MicrosoftYaHei;
     color:rgba(110,110,119,1);
