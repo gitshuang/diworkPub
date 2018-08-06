@@ -16,7 +16,7 @@ const { Item } = Menu;
 
 class MoveToGroup extends Component {
   static defaultProps = {
-    moveToGrouptext={
+    moveToGrouptext:{
       add:'添加分组',
       confirm:'确定',
       cancel:'取消'
