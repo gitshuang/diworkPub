@@ -20,10 +20,10 @@ const EnhancedPagination = WrappedComponent => {
         gap: true,
         maxButtons: 7,
         dataNumSelect: [
-          { id: 0, name: '5条/页' },
-          { id: 1, name: '10条/页' },
-          { id: 2, name: '15条/页' },
-          { id: 3, name: '20条/页' }
+          { id: 0, name: '5条/页',value:5},
+          { id: 1, name: '10条/页',value:10 },
+          { id: 2, name: '15条/页',value:15 },
+          { id: 3, name: '20条/页',value:20}
         ],
         items: 0,
         activePage: 1,
@@ -67,13 +67,13 @@ const EnhancedPagination = WrappedComponent => {
       }
 
       dataNumSelect = (e) =>{
-        let value = e.target.value;
-        let dataNumValue = this.props.dataNumSelect[value].name
+        let id = e.target.value;
+        let dataNumValue = this.props.dataNumSelect[id].value
         this.setState({
-          dataNum:value
+          dataNum:id
         })
         if(this.props.onDataNumSelect){
-          this.props.onDataNumSelect(value,dataNumValue)
+          this.props.onDataNumSelect(id,dataNumValue)
         }
       }
 
