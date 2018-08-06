@@ -21,13 +21,13 @@ var _utils = require('../utils');
 require('./style.css');
 
 var _style = {
-  'container': 'container__style___2QKUW',
-  'title': 'title__style___3suWk',
-  'pd': 'pd__style___e-e2T',
-  'borderBox': 'borderBox__style___6ccEy',
-  'footer': 'footer__style___1e6dr',
-  'saveBtn': 'saveBtn__style___i-5bZ',
-  'selectedli': 'selectedli__style___NnZPl'
+  'container': 'container__style___3CvgR',
+  'title': 'title__style___YVWvc',
+  'pd': 'pd__style___3mSIE',
+  'borderBox': 'borderBox__style___1q8V0',
+  'footer': 'footer__style___33izj',
+  'saveBtn': 'saveBtn__style___2n4e3',
+  'selectedli': 'selectedli__style___6ub3B'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -222,7 +222,8 @@ var MoveToGroup = function (_Component) {
         onSave = _props.onSave,
         onCancel = _props.onCancel,
         onAddGroup = _props.onAddGroup,
-        caller = _props.caller;
+        caller = _props.caller,
+        moveToGrouptext = _props.moveToGrouptext;
 
 
     var content = _react2["default"].createElement(
@@ -266,7 +267,7 @@ var MoveToGroup = function (_Component) {
           _react2["default"].createElement(
             _button2["default"],
             { onClick: this.addGroup, disabled: inAddGroup ? true : false },
-            '\u6DFB\u52A0\u5206\u7EC4'
+            moveToGrouptext.add
           )
         ) : null,
         _react2["default"].createElement(
@@ -279,13 +280,13 @@ var MoveToGroup = function (_Component) {
               disabled: !way && !inAddGroup,
               className: _style.saveBtn,
               onClick: this.save },
-            '\u786E\u5B9A'
+            moveToGrouptext.confirm
           ) : null,
           onCancel ? _react2["default"].createElement(
             _button2["default"],
             {
               onClick: this.cancel },
-            '\u53D6\u6D88'
+            moveToGrouptext.cancel
           ) : null
         )
       )
@@ -303,12 +304,20 @@ var MoveToGroup = function (_Component) {
          </div>
        );
       }else{
-       }*/}
+      }*/}
     return content;
   };
 
   return MoveToGroup;
 }(_react.Component);
 
+MoveToGroup.defaultProps = {
+  moveToGrouptext: {
+    add: '添加分组',
+    confirm: '确定',
+    cancel: '取消'
+
+  }
+};
 exports["default"] = MoveToGroup;
 module.exports = exports['default'];
