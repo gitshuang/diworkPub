@@ -85,7 +85,8 @@ var Content = function (_Component) {
         getAllServicesByLabelGroup = _props.getAllServicesByLabelGroup,
         setCurrentSelectWidgetMap = _props.setCurrentSelectWidgetMap,
         moveGroupDrag = _props.moveGroupDrag,
-        moveItemDrag = _props.moveItemDrag;
+        moveItemDrag = _props.moveItemDrag,
+        languagesJSON = _props.languagesJSON;
 
     var manageProps = {
       manageList: manageList,
@@ -185,7 +186,8 @@ var Content = function (_Component) {
               addGroup({ index: 0 });
             } },
           _react2["default"].createElement(_icon2["default"], { type: 'add' }),
-          '\u6DFB\u52A0\u7EC4'
+          '//\u6DFB\u52A0\u7EC4',
+          languagesJSON.addGroup
         )
       );
     } else {
@@ -199,7 +201,9 @@ var Content = function (_Component) {
           moveGroupDrag: _this2.props.moveGroupDrag,
           moveItemDrag: _this2.props.moveItemDrag,
           checkFun: _this2.checkFun
-        }, manageProps, widgetListProps, widgetSelectListProps)));
+        }, manageProps, widgetListProps, widgetSelectListProps, {
+          languagesJSON: languagesJSON
+        })));
       });
     }
     return list;

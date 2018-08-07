@@ -117,7 +117,8 @@ var CreateManageModule = function (_Component) {
         addDesk = _props.addDesk,
         moveGroupDrag = _props.moveGroupDrag,
         moveItemDrag = _props.moveItemDrag,
-        folderBgSrc = _props.folderBgSrc;
+        folderBgSrc = _props.folderBgSrc,
+        languagesJSON = _props.languagesJSON;
 
     var manageProps = {
       manageList: manageList,
@@ -228,11 +229,11 @@ var CreateManageModule = function (_Component) {
     return _react2["default"].createElement(
       'div',
       null,
-      _react2["default"].createElement(_content2["default"], _extends({}, manageProps, widgetListProps, widgetSelectListProps)),
-      _react2["default"].createElement(_footer2["default"], footerProps),
-      _react2["default"].createElement(_folderDialog2["default"], _extends({}, folderDialogProps, widgetItemProps)),
-      _react2["default"].createElement(_batchMove2["default"], batchMoveRedux),
-      _react2["default"].createElement(_popDialogComp2["default"], popDialogOuter)
+      _react2["default"].createElement(_content2["default"], _extends({}, manageProps, widgetListProps, widgetSelectListProps, { languagesJSON: languagesJSON })),
+      _react2["default"].createElement(_footer2["default"], _extends({}, footerProps, { languagesJSON: languagesJSON })),
+      _react2["default"].createElement(_folderDialog2["default"], _extends({}, folderDialogProps, widgetItemProps, { languagesJSON: languagesJSON })),
+      _react2["default"].createElement(_batchMove2["default"], _extends({}, batchMoveRedux, { languagesJSON: languagesJSON })),
+      _react2["default"].createElement(_popDialogComp2["default"], _extends({}, popDialogOuter, { languagesJSON: languagesJSON }))
     );
   };
 

@@ -51,7 +51,8 @@ var FolderDialog = function (_Component) {
         selectListActions = _props.selectListActions,
         selectGroupActions = _props.selectGroupActions,
         addFolder = _props.addFolder,
-        delectService = _props.delectService;
+        delectService = _props.delectService,
+        languagesJSON = _props.languagesJSON;
 
     var folderDialogProps = {
       curDisplayFolder: curDisplayFolder,
@@ -76,7 +77,7 @@ var FolderDialog = function (_Component) {
     return _react2["default"].createElement(
       'div',
       { className: 'manageDialog' },
-      _react2["default"].createElement(_manageFolderDialog2["default"], _extends({}, folderDialogProps, widgetItemProps))
+      _react2["default"].createElement(_manageFolderDialog2["default"], _extends({}, folderDialogProps, widgetItemProps, { languagesJSON: languagesJSON }))
     );
   };
 

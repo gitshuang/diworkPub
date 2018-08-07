@@ -138,7 +138,8 @@ var SelectWidgetList = function (_Component) {
           return da.serviceId == data.serviceId;
         });
         _service.selected = sele;
-      }if (data.widgetTemplate.serviceType == "2") {
+      }
+      if (data.widgetTemplate.serviceType == "2") {
         //应用
         selectObj = applications.find(function (da) {
           return da.applicationId == data.applicationId;
@@ -279,7 +280,8 @@ var SelectWidgetList = function (_Component) {
     var _props = this.props,
         requestError = _props.requestError,
         requestSuccess = _props.requestSuccess,
-        getAllServicesByLabelGroup = _props.getAllServicesByLabelGroup;
+        getAllServicesByLabelGroup = _props.getAllServicesByLabelGroup,
+        languagesJSON = _props.languagesJSON;
 
     getAllServicesByLabelGroup().then(function (_ref) {
       var error = _ref.error,
@@ -294,7 +296,7 @@ var SelectWidgetList = function (_Component) {
         i === 0 ? da.active = true : da.active = false;
         var labels = da.labels;
 
-        labels.splice(0, 0, { labelName: "全部", labelId: "all", active: true });
+        labels.splice(0, 0, { labelName: languagesJSON.all, labelId: "all", active: true });
       });
       _this2.setState({
         data: payload,
@@ -313,7 +315,8 @@ var SelectWidgetList = function (_Component) {
     var _state = this.state,
         _state$data$labelGrou = _state.data.labelGroups,
         labelGroups = _state$data$labelGrou === undefined ? [] : _state$data$labelGrou,
-        applications = _state.applications;
+        applications = _state.applications,
+        languagesJSON = _state.languagesJSON;
 
     var btns = [];
     labelGroups.forEach(function (_ref2, i) {
@@ -351,11 +354,14 @@ var SelectWidgetList = function (_Component) {
         item.serviceCode = item.applicationCode;
         item.widgettemplateId = item.widgetTemplate.widgettemplateId;
         // item.extend = false;
-        list.push(_react2["default"].createElement(_serviceItem2["default"], { key: 'widget-title-' + i + '-' + item.serviceId, onChange: _this3.onChange, data: item, packUp: _this3.btnUp, arrow: service && service.length > 0 ? true : false }));
+        list.push(_react2["default"].createElement(_serviceItem2["default"], { key: 'widget-title-' + i + '-' + item.serviceId, onChange: _this3.onChange, data: item,
+          packUp: _this3.btnUp, arrow: service && service.length > 0 ? true : false,
+          languagesJSON: languagesJSON }));
       }
       item.service.forEach(function (da, i) {
         da.extend = _b;
-        list.push(_react2["default"].createElement(_serviceItem2["default"], { key: 'widget-' + (0, _utils.guid)(), onChange: _this3.onChange, data: da }));
+        list.push(_react2["default"].createElement(_serviceItem2["default"], { key: 'widget-' + (0, _utils.guid)(), onChange: _this3.onChange, data: da,
+          languagesJSON: languagesJSON }));
       });
     });
     return _react2["default"].createElement(
@@ -367,7 +373,8 @@ var SelectWidgetList = function (_Component) {
         _react2["default"].createElement(
           'div',
           { className: _style.searchPanel },
-          _react2["default"].createElement(_formControl2["default"], { className: _style.form_control, placeholder: '\u641C\u7D22\u5185\u5BB9...', value: this.state.value, onKeyDown: this.onKeyup, onChange: this.inputOnChange }),
+          _react2["default"].createElement(_formControl2["default"], { className: _style.form_control, placeholder: languagesJSON.searchContent, value: this.state.value,
+            onKeyDown: this.onKeyup, onChange: this.inputOnChange }),
           _react2["default"].createElement(
             'div',
             { className: _style.search_icon_con, onClick: this.btnSearch },
@@ -375,7 +382,7 @@ var SelectWidgetList = function (_Component) {
             _react2["default"].createElement(
               'span',
               { className: _style.search_tit },
-              '\u641C\u7D22'
+              languagesJSON.search
             )
           )
         ),
@@ -394,7 +401,8 @@ var SelectWidgetList = function (_Component) {
                 labelGroups.map(function (da, i) {
                   return _react2["default"].createElement(
                     _button2["default"],
-                    { key: 'type-' + i, className: da.active ? _style.btn_active : null, shape: 'border', onClick: function onClick() {
+                    { key: 'type-' + i, className: da.active ? _style.btn_active : null,
+                      shape: 'border', onClick: function onClick() {
                         _this3.btnTypeClick(da);
                       } },
                     da.labelGroupName
@@ -428,16 +436,16 @@ var SelectWidgetList = function (_Component) {
           this.state.edit ? _react2["default"].createElement(
             _button3.ButtonBrand,
             { onClick: this.btnSave },
-            '\u6DFB\u52A0'
+            languagesJSON.add
           ) : _react2["default"].createElement(
             _button3.ButtonBrand,
             { disabled: true },
-            '\u6DFB\u52A0'
+            languagesJSON.add
           ),
           _react2["default"].createElement(
             _button3.ButtonDefaultAlpha,
             { onClick: this.btnClose },
-            '\u53D6\u6D88'
+            languagesJSON.cancel
           )
         )
       )

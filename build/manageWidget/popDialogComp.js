@@ -47,8 +47,10 @@ var PopDialogComp = function (_Component) {
   }
 
   PopDialogComp.prototype.render = function render() {
-    var pop_btn = [{ label: "确认", fun: this.props.batchDelectFn, className: "" }, { label: "取消", fun: this.props.popClose, className: "" }];
-    var pop_btn2 = [{ label: "不保存", fun: this.props.cancel, type: "defaultAlpha" }, { label: "保存", fun: this.props.save, type: "warning" }, { label: "取消", fun: this.props.popCloseCancel, type: "defaultAlpha" }];
+    var languagesJSON = this.props.languagesJSON;
+
+    var pop_btn = [{ label: languagesJSON.confirm, fun: this.props.batchDelectFn, className: "" }, { label: languagesJSON.cancel, fun: this.props.popClose, className: "" }];
+    var pop_btn2 = [{ label: languagesJSON.notSave, fun: this.props.cancel, type: "defaultAlpha" }, { label: languagesJSON.save, fun: this.props.save, type: "warning" }, { label: languagesJSON.cancel, fun: this.props.popCloseCancel, type: "defaultAlpha" }];
     return _react2["default"].createElement(
       'div',
       null,
@@ -61,20 +63,20 @@ var PopDialogComp = function (_Component) {
           _react2["default"].createElement(
             'span',
             null,
-            '\u60A8\u786E\u8BA4\u8981\u6279\u91CF\u5220\u9664\u5417?'
+            languagesJSON.confirm_to_delete_batch
           )
         )
       ),
       _react2["default"].createElement(
         _pop2["default"],
-        { className: _style.manager_save_pop, type: 'warning', show: this.props.showCancelModal, close: this.props.popCloseCancel, btns: pop_btn2, title: "是否保存最新修改？" },
+        { className: _style.manager_save_pop, type: 'warning', show: this.props.showCancelModal, close: this.props.popCloseCancel, btns: pop_btn2, title: languagesJSON.save_latest_or_not },
         _react2["default"].createElement(
           'div',
           null,
           _react2["default"].createElement(
             'span',
             null,
-            '\u70B9\u51FB\u4E0D\u4FDD\u5B58\uFF0C\u5219\u6700\u65B0\u4FEE\u6539\u5C06\u4E22\u5931'
+            languagesJSON.notSave_to_lose_new_modify
           )
         )
       )

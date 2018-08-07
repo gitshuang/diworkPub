@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -38,7 +40,8 @@ var BatchMove = function (_Component) {
         moveData = _props.moveData,
         closeBatchMove = _props.closeBatchMove,
         batchMove = _props.batchMove,
-        addGroup = _props.addGroup;
+        addGroup = _props.addGroup,
+        languagesJSON = _props.languagesJSON;
 
     var batchMoveDialogProps = {
       batchMoveModalDisplay: batchMoveModalDisplay,
@@ -48,7 +51,9 @@ var BatchMove = function (_Component) {
       batchMove: batchMove,
       addGroup: addGroup
     };
-    return _react2["default"].createElement(_manageBatchMoveDialog2["default"], batchMoveDialogProps);
+    return _react2["default"].createElement(_manageBatchMoveDialog2["default"], _extends({}, batchMoveDialogProps, {
+      languagesJSON: languagesJSON
+    }));
   };
 
   return BatchMove;

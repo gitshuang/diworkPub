@@ -51,7 +51,8 @@ var Footer = function (_Component) {
         openGroupTo = _props.openGroupTo,
         isEdit = _props.isEdit,
         save = _props.save,
-        popOpenCancel = _props.popOpenCancel;
+        popOpenCancel = _props.popOpenCancel,
+        languagesJSON = _props.languagesJSON;
 
 
     return _react2["default"].createElement(
@@ -66,12 +67,12 @@ var Footer = function (_Component) {
           _react2["default"].createElement(
             _button.ButtonDefaultLine,
             { onClick: this.props.batchDelectFn, disabled: selectList.length ? false : true, className: 'horizontal' },
-            '\u5220\u9664'
+            languagesJSON["delete"]
           ),
           _react2["default"].createElement(
             _button.ButtonDefaultLine,
             { onClick: this.props.openGroupTo, disabled: selectList.length ? false : true },
-            '\u79FB\u52A8\u5230'
+            languagesJSON.moveTo
           )
         ),
         _react2["default"].createElement(
@@ -80,12 +81,12 @@ var Footer = function (_Component) {
           _react2["default"].createElement(
             _button.ButtonBrand,
             { disabled: !isEdit, onClick: this.props.save },
-            '\u4FDD\u5B58'
+            languagesJSON.save
           ),
           _react2["default"].createElement(
             _button.ButtonDefaultLine,
             { onClick: this.props.popOpenCancel },
-            '\u53D6\u6D88'
+            languagesJSON.cancel
           )
         )
       )
