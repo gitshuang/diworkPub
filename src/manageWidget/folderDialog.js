@@ -25,14 +25,15 @@ export default class FolderDialog extends Component{
       setFolderEdit,
       selectListActions,selectGroupActions,
       addFolder,
-      delectService
+      delectService,
+      languagesJSON
     } = this.props;
     var folderDialogProps = {
       curDisplayFolder,
       folderModalDisplay,
       closeFolder,
       moveService
-    }    
+    }
     var widgetItemProps ={
       manageList,
       curEditFolderId,
@@ -49,10 +50,10 @@ export default class FolderDialog extends Component{
     }
     return (
       <div className="manageDialog">
-        <ManageFolderDialog { ...folderDialogProps } {...widgetItemProps} />
+        <ManageFolderDialog { ...folderDialogProps } {...widgetItemProps} languagesJSON={languagesJSON}/>
       </div>
     )
-  } 
+  }
 }
 
 

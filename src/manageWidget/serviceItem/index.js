@@ -24,7 +24,7 @@ class ServiceItem extends Component {
 
   render() {
     // const {serviceId, serviceName,selected} = this.props.data;
-    const {data:{serviceId, serviceName,selected ,serviceType,serviceIcon,extend,service} ,arrow}  = this.props;
+    const {data:{serviceId, serviceName,selected ,serviceType,serviceIcon,extend,service} ,arrow,languagesJSON}  = this.props;
     let btn = null;
     if(selected){
       if(selected == "1"){
@@ -34,26 +34,26 @@ class ServiceItem extends Component {
         //  </div>);
         {serviceType=="2"?
           btn = (<div >
-                <span>已添加</span>
-                <Icon title="已添加"  type="pin2" style={{color:"rgba(117,127,140,1)"}} />
+                <span>{languagesJSON.added}</span>
+                <Icon title={languagesJSON.added}  type="pin2" style={{color:"rgba(117,127,140,1)"}} />
             </div>):
           btn = (<div >
-              <Icon title="已添加"  type="pin2" style={{color:"rgba(117,127,140,1)"}} />
-              <span>已添加</span>
+              <Icon title={languagesJSON.added}  type="pin2" style={{color:"rgba(117,127,140,1)"}} />
+              <span>{languagesJSON.added}</span>
             </div>)};
       }else if(selected == "2"){
         btn = (<div onClick={()=>{this.props.onChange(this.props.data,"3")}}  >
-        <Icon title="未添加" type="pin" style={{cursor:"pointer"}} /> </div>);
+        <Icon title={languagesJSON.notAdd} type="pin" style={{cursor:"pointer"}} /> </div>);
       }else if(selected == "3"){
         btn = (<div onClick={()=>{this.props.onChange(this.props.data,"2")}}  >
-        <Icon title="添加" type="pin2" style={{cursor:"pointer"}} /> </div>);
+        <Icon title={languagesJSON.add} type="pin2" style={{cursor:"pointer"}} /> </div>);
       }
     }else{//如果没有selected，就显示2
        btn = (<div onClick={()=>{this.props.onChange(this.props.data,"3")}}  >
-        <Icon title="未添加" type="pin" style={{cursor:"pointer"}} /> </div>);
+        <Icon title={languagesJSON.notAdd} type="pin" style={{cursor:"pointer"}} /> </div>);
     }
 
-    let upIcon = serviceType=="2"?<Icon className={up_icon} type={extend?"pull-down":"upward"} title={ extend ? '展开' : '收起' } onClick={()=>{this.props.packUp(this.props.data)}}></Icon>:null;
+    let upIcon = serviceType=="2"?<Icon className={up_icon} type={extend?"pull-down":"upward"} title={ extend ? languagesJSON.extend : languagesJSON.unfold } onClick={()=>{this.props.packUp(this.props.data)}}></Icon>:null;
     let _style = serviceType=="2"?null:extend?{display:"none"}:null;
     let _app = service && service.length == 0?item_footer_app:""
     return (

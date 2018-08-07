@@ -50,7 +50,8 @@ class ManageFolderDialog extends Component {
           setFolderEdit,
           selectListActions,selectGroupActions,
           addFolder,
-          delectService
+          delectService,
+          languagesJSON
         } = this.props;
         var widgetItemProps ={
           manageList,
@@ -81,10 +82,10 @@ class ManageFolderDialog extends Component {
                 moveLine : this.moveLine(id,this.state.moveLine),
             };
             return (
-                <WidgetItem { ...props } 
-                  folderType={'folder'} type="pop" dragType="dragInFolder" 
+                <WidgetItem { ...props }
+                  folderType={'folder'} type="pop" dragType="dragInFolder"
                   closeFolderDrag={this.closeFolderDrag}
-                  {...widgetItemProps}
+                  {...widgetItemProps} languagesJSON={languagesJSON}
                 />
             );
         });
@@ -94,8 +95,8 @@ class ManageFolderDialog extends Component {
 
       return (
             <div className="manageDialogFolder" >
-              <DialogContent 
-                folderModalDisplay = {folderModalDisplay} 
+              <DialogContent
+                folderModalDisplay = {folderModalDisplay}
                 closeFolderDrag={this.closeFolderDrag}
                 closeFolder = { closeFolder }
                 moveService = {moveService}

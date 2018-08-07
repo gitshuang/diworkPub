@@ -16,6 +16,7 @@ export default class BatchMove extends Component{
       closeBatchMove,
       batchMove,
       addGroup,
+      languagesJSON
     } = this.props;
     var batchMoveDialogProps = {
       batchMoveModalDisplay,
@@ -26,11 +27,12 @@ export default class BatchMove extends Component{
       addGroup
     }
     return (
-        <ManageBatchMoveDialog 
+        <ManageBatchMoveDialog
         {...batchMoveDialogProps}
+        languagesJSON={languagesJSON}
         />
     )
-  } 
+  }
 }
 
 

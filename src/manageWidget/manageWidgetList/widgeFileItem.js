@@ -16,7 +16,7 @@ import {ButtonDefaultLine,ButtonCheckClose,ButtonCheckSelected} from '../../butt
 
 const type='item';
 const itemSource = {
-  beginDrag(props) {    
+  beginDrag(props) {
     return { id: props.id , parentId:props.parentId,type:props.preType || props.type};
   },
   // endDrag(props, monitor){
@@ -46,7 +46,7 @@ const itemTarget = {
   //   const previousParentId = monitor.getItem().parentId;
   //   const preType = monitor.getItem().type;
   //   const preFolderType = monitor.getItem().folderType;
-  //   return (draggedId !== props.id && preType!==2) 
+  //   return (draggedId !== props.id && preType!==2)
   // },
   hover(props, monitor, component){
     const clientOffset = monitor.getClientOffset();
@@ -125,7 +125,7 @@ class WidgeFileItem extends Component {
   componentDidMount(){
     var position =  findDOMNode(this).getBoundingClientRect();
     this.setState({
-      position :{ 
+      position :{
         x:position.x,
         y:position.y,
       }
@@ -140,7 +140,7 @@ class WidgeFileItem extends Component {
     if( nextProps.isOver == true){
       var position =  findDOMNode(this).getBoundingClientRect();
       this.setState({
-        position :{ 
+        position :{
           x:position.x,
           y:position.y,
         }
@@ -154,7 +154,7 @@ class WidgeFileItem extends Component {
     //     })
     //   },1500)
     //   this.setState({
-    //     timer 
+    //     timer
     //   })
     // }else{
     //   clearTimeout(this.state.timer);
@@ -318,11 +318,11 @@ class WidgeFileItem extends Component {
 
     const da = this.props.data;
     const id = da.widgetId;
-    const {selectList,dragState} = this.props;
+    const {selectList,dragState,languagesJSON} = this.props;
     const checkType = selectList.indexOf(id) > -1 ? true : false;
     const pop_btn = [
-      {label:"确认",fun:this.popSave,className:""},
-      {label:"取消",fun:this.popClose,className:""}
+      {label:languagesJSON.confirm,fun:this.popSave,className:""},
+      {label:languagesJSON.cancel,fun:this.popClose,className:""}
     ]   //设置操作按钮
 
     const edit = <div className={edit_cont}>
@@ -338,8 +338,8 @@ class WidgeFileItem extends Component {
         <Checkbox className="test" size="sm" checked={checkType} onChange={ this.onHandChange } />
       </div>
       <div className={`${editDele} ${clearfix}`}>
-        <div onClick={this.fileEdit}><Icon title="重命名文件夹" type="record" /></div>
-        <div onClick={()=>{this.popSave(da)}}><Icon title="删除文件夹" type="dustbin" /></div>
+        <div onClick={this.fileEdit}><Icon title={languagesJSON.rename_folder} type="record" /></div>
+        <div onClick={()=>{this.popSave(da)}}><Icon title={languagesJSON.delete_folder} type="dustbin" /></div>
       </div>
     </div>
     const { connectDragSource, connectDropTarget,isDragging,drag,isOver,canDrop,offSet,offSet2} = this.props;
@@ -410,7 +410,8 @@ class WidgeFileItem extends Component {
 
         <PopDialog className="pop_dialog_delete" show = { this.state.showModal } type="delete" close={this.popClose} data={da} btns={pop_btn} >
           <div className="pop_cont">
-            <span>您确认要删除服务[{this.props.data.widgetName}]?</span>
+            {/*<span>您确认要删除服务[{this.props.data.widgetName}]?</span>*/}
+            <span>{languagesJSON.confirm_delete_service}[{this.props.data.widgetName}]?</span>
           </div>
         </PopDialog>
       </li>

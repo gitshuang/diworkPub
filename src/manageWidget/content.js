@@ -53,6 +53,7 @@ export default class Content extends Component{
       setCurrentSelectWidgetMap,
       moveGroupDrag,
       moveItemDrag,
+      languagesJSON
     } = this.props;
     var manageProps = {
       manageList,
@@ -147,7 +148,8 @@ export default class Content extends Component{
         <div className={addBtn} >
           <ButtonDefaultAlpha className={addGroupBtn} onClick={()=>{addGroup({index:0})}}>
             <Icon type="add"></Icon>
-            添加组
+            //添加组
+            {languagesJSON.addGroup}
           </ButtonDefaultAlpha>
         </div>
       );
@@ -166,6 +168,7 @@ export default class Content extends Component{
             {...manageProps}
             {...widgetListProps}
             {...widgetSelectListProps}
+            languagesJSON={languagesJSON}
             />
         )
       });

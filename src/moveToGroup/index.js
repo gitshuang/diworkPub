@@ -15,14 +15,6 @@ import {
 const { Item } = Menu;
 
 class MoveToGroup extends Component {
-  static defaultProps = {
-    moveToGrouptext:{
-      add:'添加分组',
-      confirm:'确定',
-      cancel:'取消'
-
-    }
-  }
   constructor(props) {
     super(props);
     this.state = {
@@ -44,13 +36,13 @@ class MoveToGroup extends Component {
   //  点击每一行对应的操作
   handlerClick(selectId) {
     const way = findPath(
-        this.props.data,
-        'children',
-        'widgetId',
-        selectId
-      ).map(
-        ({widgetName})=>widgetName
-      ).join('/');
+      this.props.data,
+      'children',
+      'widgetId',
+      selectId
+    ).map(
+      ({widgetName})=>widgetName
+    ).join('/');
     this.setState({
       way,
       selectId,
@@ -59,11 +51,11 @@ class MoveToGroup extends Component {
   }
   // 点击添加分组
   addGroup = () => {
-    const { data } = this.props;
+    const { data,languagesJSON } = this.props;
     const nameArr = data.map(({ widgetName }) => {
       return widgetName;
     });
-    const newGroupName = avoidSameName(nameArr, '分组');
+    const newGroupName = avoidSameName(nameArr, languagesJSON.group);
     this.setState({
       inAddGroup: true,
       newGroupName
@@ -173,13 +165,13 @@ class MoveToGroup extends Component {
       onCancel,
       onAddGroup,
       caller,
-      moveToGrouptext
+      languagesJSON
     } = this.props;
 
     let content = (
       <div className= {container}>
         <div className={title}>
-          {caller}到：{way}
+          {caller}{languagesJSON.to}：{way}
         </div>
         <div className={borderBox}>
           <Menu
@@ -192,9 +184,9 @@ class MoveToGroup extends Component {
           {/* { this.makeSelectInterface(data, selectId) } */}
           {inAddGroup ? (<div>
             <input type="text" ref="newGroupName"
-              value={newGroupName}
-              onChange={ this.setNewGroupName }
-              autoFocus="autofocus"
+                   value={newGroupName}
+                   onChange={ this.setNewGroupName }
+                   autoFocus="autofocus"
             />
           </div>):null}
         </div>
@@ -202,7 +194,7 @@ class MoveToGroup extends Component {
         <div className={`${footer} um-box-justify`}>
           {
             onAddGroup ? (<div>
-              <Button onClick={this.addGroup} disabled={inAddGroup? true: false}>{moveToGrouptext.add}</Button>
+              <Button onClick={this.addGroup} disabled={inAddGroup? true: false}>{languagesJSON.addGroup}</Button>
             </div>) : null
           }
           <div>
@@ -211,11 +203,11 @@ class MoveToGroup extends Component {
                 colors="danger"
                 disabled={!way && !inAddGroup}
                 className={saveBtn}
-                onClick={ this.save }>{moveToGrouptext.confirm}</Button>) : null
+                onClick={ this.save }>{languagesJSON.confirm}</Button>) : null
             }
             {
               onCancel ? (<Button
-                onClick={this.cancel}>{moveToGrouptext.cancel}</Button>) : null
+                onClick={this.cancel}>{languagesJSON.cancel}</Button>) : null
             }
           </div>
         </div>

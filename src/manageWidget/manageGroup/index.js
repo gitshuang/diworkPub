@@ -95,9 +95,9 @@ function collectTaget(connect, monitor) {
 
 Array.prototype.distinct = function (){
   var arr = this,
-      i,obj = {},
-      result = [],
-      len = arr.length;
+    i,obj = {},
+    result = [],
+    len = arr.length;
   for(i = 0; i< arr.length; i++){
     if(!obj[arr[i]]){
       obj[arr[i]] = 1;
@@ -169,7 +169,7 @@ class ManageGroup extends Component {
       });
       this.setState({
         inFoucs:false
-       })
+      })
     }
   }
   // 添加文件夹
@@ -410,7 +410,8 @@ class ManageGroup extends Component {
       requestSuccess,
       requestError,
       delectService,
-      folderBgSrc
+      folderBgSrc,
+      languagesJSON
     } = this.props;
     var widgetListProps = {
       manageList,
@@ -481,7 +482,8 @@ class ManageGroup extends Component {
               onChange={this.editGroupName}
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
-              placeholder="分组名称,最多4个字符"
+              // placeholder="分组名称,最多4个字符"
+              placeholder={languagesJSON.groupName_max_words_four}
               ref="groupName" />
           </div>
           <ButtonCheckSelected id={`${widgetId}_btn`} className={btn} onClick={ ()=>{this.renameGroupFn(index)} }><Icon type="right"></Icon></ButtonCheckSelected>
@@ -497,10 +499,10 @@ class ManageGroup extends Component {
           </div>
           <div>
             <div className={iconBox}>
-              <Icon title="重命名分组" type="record" onClick={ ()=>{this.openRenameGroupFn(widgetId)}} />
+              <Icon title={languagesJSON.rename_group} type="record" onClick={ ()=>{this.openRenameGroupFn(widgetId)}} />
             </div>
             <div className={iconBox}>
-              <Icon title="添加文件夹" type="add-files" onClick={this.addFolderFn.bind(this, index)} />
+              <Icon title={languagesJSON.add_folder} type="add-files" onClick={this.addFolderFn.bind(this, index)} />
             </div>
             {this.renderDrop(index)}
           </div>
@@ -510,12 +512,12 @@ class ManageGroup extends Component {
 
     const pop_btn = [
       {
-        label: "确认",
+        label: `${languagesJSON.confirm}`,
         fun: this.delectGroupFn,
         className: "",
       },
       {
-        label: "取消",
+        label: `${languagesJSON.cancel}`,
         fun: this.popClose,
         className: "",
       }
@@ -534,24 +536,24 @@ class ManageGroup extends Component {
         'borderRadius':'0',
       }
     }
-    let _html = ( <div className={`${groupArea} animated zoomIn`} style={{...overStyle}}> 
+    let _html = ( <div className={`${groupArea} animated zoomIn`} style={{...overStyle}}>
       <section style={{ ...opacity }} className={inFoucs ? selectedBackClass : ""} >
         { groupTitle }
         <div>
-          <WidgetList index={index} data={children} parentId={this.props.data.widgetId} 
-          {...widgetListProps} { ...widgetSelectListProps } />
+          <WidgetList index={index} data={children} parentId={this.props.data.widgetId}
+                      {...widgetListProps} { ...widgetSelectListProps } languagesJSON={languagesJSON}/>
         </div>
       </section>
 
       <div className={addBtn} >
         <ButtonDefaultWhite className={addGroupBtn} onClick={this.addGroupFn.bind(this, index)}>
           <Icon type="add"></Icon>
-          添加分组
+          {languagesJSON.addGroup}
         </ButtonDefaultWhite>
       </div>
       <PopDialog className="pop_dialog_delete" show={ showModal } type="delete" close={this.popClose} btns={pop_btn} data={{ index }}>
         <div className="pop_cont">
-          <span>您确认要删除此项?</span>
+          <span>{languagesJSON.confirm_del_this_item}</span>
         </div>
       </PopDialog>
     </div>);

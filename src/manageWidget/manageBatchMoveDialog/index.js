@@ -42,6 +42,7 @@ class ManageBatchMoveDialog extends Component {
     const {
       batchMoveModalDisplay,
       moveData,
+      languagesJSON
     } = this.props;
     const content = batchMoveModalDisplay ? (
         <div className={pin +" um-css3-center"}>
@@ -50,7 +51,8 @@ class ManageBatchMoveDialog extends Component {
             onSave={this.confirmFn}
             onCancel={this.cancelFn}
             onAddGroup={this.addNewGroup}
-            caller={"移动"}
+            caller={languagesJSON.move}
+            languagesJSON={languagesJSON}
           />
         </div>
     ) : null;

@@ -179,7 +179,7 @@ class WidgetItem extends Component {
     //     })
     //   },1500)
     //   this.setState({
-    //     timer 
+    //     timer
     //   })
     // }else{
     //   clearTimeout(this.state.timer);
@@ -295,16 +295,17 @@ class WidgetItem extends Component {
   }
 
   render() {
+    const {languagesJSON} = this.props;
     const pop_btn = [
-      {label:"确认",fun:this.popSave,className:""},
-      {label:"取消",fun:this.popClose,className:""}
+      {label:`${languagesJSON.confirm}`,fun:this.popSave,className:""},
+      {label:`${languagesJSON.cancel}`,fun:this.popClose,className:""}
     ]   //设置操作按钮
 
     const {
       data: {
         widgetId: id,
         size,
-        widgetName,
+        widgetName
       }
     } = this.props;
     const { connectDragSource, connectDropTarget,isDragging,selectList,drag } = this.props;
@@ -378,13 +379,13 @@ class WidgetItem extends Component {
         <div className={`${clearfix} ${footer}`}>
           {this.props.type == "pop"?null:<Checkbox className="test" checked={checkType} onChange={ this.onHandChange } />}
           <div className={`${editDele} ${clearfix}`}>
-            <div onClick={()=>{this.popSave(this.props.data)}}><Icon title="删除服务" type="dustbin" /></div>
+            <div onClick={()=>{this.popSave(this.props.data)}}><Icon title={languagesJSON.deleteService} type="dustbin" /></div>
           </div>
         </div>
 
         <PopDialog className="pop_dialog_delete" show = { this.state.showModal } type="delete" close={this.popClose} data={this.props.data} btns={pop_btn} >
             <div className="pop_cont">
-              <span>您确认要删除此项服务?</span>
+              <span>{languagesJSON.confirm_delete_this_service}</span>
             </div>
         </PopDialog>
 

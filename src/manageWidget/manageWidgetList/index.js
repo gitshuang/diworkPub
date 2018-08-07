@@ -117,7 +117,8 @@ class WidgetList extends Component {
       requestSuccess,
       requestError,
       currGroupIndex,
-      folderBgSrc
+      folderBgSrc,
+      languagesJSON
     } = this.props;
     var widgetItemProps ={
       manageList,
@@ -195,6 +196,7 @@ class WidgetList extends Component {
                 editTitle={this.editTitle}
                 onClick={(e)=>{this.widgeOnclick(e,item)}}
                 {...widgetFileProps}
+                languagesJSON={languagesJSON}
               />
             );
           default:
@@ -215,6 +217,7 @@ class WidgetList extends Component {
                 editTitle={this.editTitle}
                 addFolderDrag={this.addFolderDrag}
                 {...widgetItemProps}
+                languagesJSON={languagesJSON}
               />
             );
         }
@@ -230,12 +233,15 @@ class WidgetList extends Component {
     return (<ul className={`${widgetList} ${clearfix}`} >
         {list}
         <div className={addModule} onClick={this.openSelectWidget} >
-          <Icon title="添加快捷方式至首页" type="add"  />
+          {/*<Icon title="添加快捷方式至首页" type="add"  />*/}
+          <Icon title={languagesJSON.addQuick_to_home} type="add"  />
         </div>
 
-        <PopDialog className={pop_dialog_widge_list} type="info" title="添加快捷方式至首页" close={this.popClose} backdrop={false} show = { this.state.showModal } data={_da} >
-            <SelectWidgetList close={this.popClose} parentId={this.props.parentId} 
-            {...selectWidgetListProps}/>
+        <PopDialog className={pop_dialog_widge_list} type="info" title={languagesJSON.addQuick_to_home} close={this.popClose} backdrop={false} show = { this.state.showModal } data={_da} >
+            <SelectWidgetList close={this.popClose} parentId={this.props.parentId}
+            {...selectWidgetListProps}
+                              languagesJSON={languagesJSON}
+            />
         </PopDialog>
 
       </ul>);

@@ -1,10 +1,10 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-import Content from './content' 
-import Footer from './footer'  
-import FolderDialog from './folderDialog' 
+import Content from './content'
+import Footer from './footer'
+import FolderDialog from './folderDialog'
 import BatchMove from './batchMove'
-import PopDialogComp from './popDialogComp' 
+import PopDialogComp from './popDialogComp'
 import judgedBackend from './backend';
 import { DragDropContext } from 'react-dnd';
 
@@ -70,7 +70,8 @@ class CreateManageModule extends Component {
       addDesk,
       moveGroupDrag,
       moveItemDrag,
-      folderBgSrc
+      folderBgSrc,
+      languagesJSON
     } = this.props;
     var manageProps = {
       manageList,
@@ -180,11 +181,11 @@ class CreateManageModule extends Component {
     }
     return (
       <div>
-          <Content {...manageProps} {...widgetListProps} {...widgetSelectListProps}/>
-          <Footer {...footerProps} />
-          <FolderDialog {...folderDialogProps} {...widgetItemProps}/>
-          <BatchMove {...batchMoveRedux}/>
-          <PopDialogComp {...popDialogOuter}/>
+          <Content {...manageProps} {...widgetListProps} {...widgetSelectListProps} languagesJSON={languagesJSON}/>
+          <Footer {...footerProps} {languagesJSON}/>
+          <FolderDialog {...folderDialogProps} {...widgetItemProps} languagesJSON={languagesJSON}/>
+          <BatchMove {...batchMoveRedux} languagesJSON={languagesJSON}/>
+          <PopDialogComp {...popDialogOuter} languagesJSON={languagesJSON}/>
       </div>
     );
   }
