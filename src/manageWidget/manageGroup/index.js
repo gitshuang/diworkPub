@@ -132,6 +132,7 @@ class ManageGroup extends Component {
         isNew,
       },
       manageList,
+      languagesJSON
     } = this.props;
 
     if (isNew) {
@@ -140,7 +141,7 @@ class ManageGroup extends Component {
         const nameArr = manageList.map(({ widgetName }) => {
           return widgetName;
         });
-        const newGroupName = avoidSameName(nameArr, '分组');
+        const newGroupName = avoidSameName(nameArr, languagesJSON.group);
         this.setState({
           groupName: newGroupName,
         });
@@ -215,7 +216,7 @@ class ManageGroup extends Component {
   }
   // 点击按钮执行 action   重新构造
   renameGroupFn = (index) => {
-    const { renameGroup, manageList } = this.props;
+    const {renameGroup, manageList, languagesJSON} = this.props;
     const name = this.state.groupName;
     if( name == manageList[index].widgetName){
       this.renameGroupCancel(index);
@@ -225,7 +226,13 @@ class ManageGroup extends Component {
       return item.widgetName
     });
     if( widgetNameArr.includes(name) ){
-      Message.create({content: '分组名称已存在!',duration:1.5,position: 'topLeft',color: "warning",style:{height:'auto'}});
+      Message.create({
+        content: languagesJSON.group_name_exists,
+        duration: 1.5,
+        position: 'topLeft',
+        color: "warning",
+        style: {height: 'auto'}
+      });
       return false;
     }
     renameGroup({
@@ -346,20 +353,20 @@ class ManageGroup extends Component {
   }
 
   renderDrop =(index) => {
-    const { manageList } = this.props;
+    const {manageList, languagesJSON} = this.props;
     let menu = (
       <Menu onClick={this.onDropSelect(index)}>
         {
           index !== manageList.length - 1 ? (
-            <MenuItem key="1">下移</MenuItem>
+            <MenuItem key="1">{languagesJSON.move_down}</MenuItem>
           ) : null
         }
         {
           index ? (
-            <MenuItem key="2">上移</MenuItem>
+            <MenuItem key="2">{languagesJSON.move_up}</MenuItem>
           ) : null
         }
-        <MenuItem key="3">删除</MenuItem>
+        <MenuItem key="3">{languagesJSON.delete}</MenuItem>
       </Menu>
     );
 
@@ -372,7 +379,7 @@ class ManageGroup extends Component {
         trigger={['click']}
         overlay={menu}
         animation="slide-up" >
-        <div><Icon title="更多" type="more" /></div>
+        <div><Icon title={languagesJSON.more} type="more" /></div>
       </Dropdown>
     )
   }
