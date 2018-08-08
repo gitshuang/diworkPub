@@ -181,10 +181,10 @@ const fetchTools = {
               }else{
                 currLocal = window.top.diworkContext().locale; 
               }
-              const index = ["zh_CN", "en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(value => {
+              const index = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(value => {
                 return value === currLocal;
               });
-              if (index > 0 && typeof data === "object") {
+              if (index > -1 && typeof data === "object") {
                 _diff(index, data);
               }
               return Promise.resolve(data);
