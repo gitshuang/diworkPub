@@ -79,7 +79,8 @@ var ServiceItem = function (_Component) {
         serviceIcon = _props$data.serviceIcon,
         extend = _props$data.extend,
         service = _props$data.service,
-        arrow = _props.arrow;
+        arrow = _props.arrow,
+        languagesJSON = _props.languagesJSON;
 
     var btn = null;
     if (selected) {
@@ -95,17 +96,17 @@ var ServiceItem = function (_Component) {
             _react2["default"].createElement(
               'span',
               null,
-              '\u5DF2\u6DFB\u52A0'
+              languagesJSON.added
             ),
-            _react2["default"].createElement(_icon2["default"], { title: '\u5DF2\u6DFB\u52A0', type: 'pin2', style: { color: "rgba(117,127,140,1)" } })
+            _react2["default"].createElement(_icon2["default"], { title: languagesJSON.added, type: 'pin2', style: { color: "rgba(117,127,140,1)" } })
           ) : btn = _react2["default"].createElement(
             'div',
             null,
-            _react2["default"].createElement(_icon2["default"], { title: '\u5DF2\u6DFB\u52A0', type: 'pin2', style: { color: "rgba(117,127,140,1)" } }),
+            _react2["default"].createElement(_icon2["default"], { title: languagesJSON.added, type: 'pin2', style: { color: "rgba(117,127,140,1)" } }),
             _react2["default"].createElement(
               'span',
               null,
-              '\u5DF2\u6DFB\u52A0'
+              languagesJSON.added
             )
           );
         };
@@ -115,7 +116,7 @@ var ServiceItem = function (_Component) {
           { onClick: function onClick() {
               _this2.props.onChange(_this2.props.data, "3");
             } },
-          _react2["default"].createElement(_icon2["default"], { title: '\u672A\u6DFB\u52A0', type: 'pin', style: { cursor: "pointer" } }),
+          _react2["default"].createElement(_icon2["default"], { title: languagesJSON.notAdd, type: 'pin', style: { cursor: "pointer" } }),
           ' '
         );
       } else if (selected == "3") {
@@ -124,7 +125,7 @@ var ServiceItem = function (_Component) {
           { onClick: function onClick() {
               _this2.props.onChange(_this2.props.data, "2");
             } },
-          _react2["default"].createElement(_icon2["default"], { title: '\u6DFB\u52A0', type: 'pin2', style: { cursor: "pointer" } }),
+          _react2["default"].createElement(_icon2["default"], { title: languagesJSON.add, type: 'pin2', style: { cursor: "pointer" } }),
           ' '
         );
       }
@@ -135,12 +136,12 @@ var ServiceItem = function (_Component) {
         { onClick: function onClick() {
             _this2.props.onChange(_this2.props.data, "3");
           } },
-        _react2["default"].createElement(_icon2["default"], { title: '\u672A\u6DFB\u52A0', type: 'pin', style: { cursor: "pointer" } }),
+        _react2["default"].createElement(_icon2["default"], { title: languagesJSON.notAdd, type: 'pin', style: { cursor: "pointer" } }),
         ' '
       );
     }
 
-    var upIcon = serviceType == "2" ? _react2["default"].createElement(_icon2["default"], { className: _style2.up_icon, type: extend ? "pull-down" : "upward", title: extend ? '展开' : '收起', onClick: function onClick() {
+    var upIcon = serviceType == "2" ? _react2["default"].createElement(_icon2["default"], { className: _style2.up_icon, type: extend ? "pull-down" : "upward", title: extend ? languagesJSON.extend : languagesJSON.unfold, onClick: function onClick() {
         _this2.props.packUp(_this2.props.data);
       } }) : null;
     var _style = serviceType == "2" ? null : extend ? { display: "none" } : null;

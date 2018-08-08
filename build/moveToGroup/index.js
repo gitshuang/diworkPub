@@ -59,14 +59,16 @@ var MoveToGroup = function (_Component) {
     };
 
     _this.addGroup = function () {
-      var data = _this.props.data;
+      var _this$props = _this.props,
+          data = _this$props.data,
+          languagesJSON = _this$props.languagesJSON;
 
       var nameArr = data.map(function (_ref) {
         var widgetName = _ref.widgetName;
 
         return widgetName;
       });
-      var newGroupName = (0, _utils.avoidSameName)(nameArr, '分组');
+      var newGroupName = (0, _utils.avoidSameName)(nameArr, languagesJSON.group);
       _this.setState({
         inAddGroup: true,
         newGroupName: newGroupName
@@ -223,7 +225,7 @@ var MoveToGroup = function (_Component) {
         onCancel = _props.onCancel,
         onAddGroup = _props.onAddGroup,
         caller = _props.caller,
-        moveToGrouptext = _props.moveToGrouptext;
+        languagesJSON = _props.languagesJSON;
 
 
     var content = _react2["default"].createElement(
@@ -233,7 +235,8 @@ var MoveToGroup = function (_Component) {
         'div',
         { className: _style.title },
         caller,
-        '\u5230\uFF1A',
+        languagesJSON.to,
+        '\uFF1A',
         way
       ),
       _react2["default"].createElement(
@@ -267,7 +270,7 @@ var MoveToGroup = function (_Component) {
           _react2["default"].createElement(
             _button2["default"],
             { onClick: this.addGroup, disabled: inAddGroup ? true : false },
-            moveToGrouptext.add
+            languagesJSON.addGroup
           )
         ) : null,
         _react2["default"].createElement(
@@ -280,13 +283,13 @@ var MoveToGroup = function (_Component) {
               disabled: !way && !inAddGroup,
               className: _style.saveBtn,
               onClick: this.save },
-            moveToGrouptext.confirm
+            languagesJSON.confirm
           ) : null,
           onCancel ? _react2["default"].createElement(
             _button2["default"],
             {
               onClick: this.cancel },
-            moveToGrouptext.cancel
+            languagesJSON.cancel
           ) : null
         )
       )
@@ -311,13 +314,5 @@ var MoveToGroup = function (_Component) {
   return MoveToGroup;
 }(_react.Component);
 
-MoveToGroup.defaultProps = {
-  moveToGrouptext: {
-    add: '添加分组',
-    confirm: '确定',
-    cancel: '取消'
-
-  }
-};
 exports["default"] = MoveToGroup;
 module.exports = exports['default'];

@@ -28,7 +28,7 @@ export default class PopDialogComp extends Component{
             <span>{languagesJSON.confirm_to_delete_batch}</span>
           </div>
         </PopDialog>
-        <PopDialog  className={ manager_save_pop } type="warning" show = { this.props.showCancelModal } close={this.props.popCloseCancel} btns={pop_btn2} title={"是否保存最新修改？"} >
+        <PopDialog  className={ manager_save_pop } type="warning" show = { this.props.showCancelModal } close={this.props.popCloseCancel} btns={pop_btn2} title={languagesJSON.save_latest_or_not} >
           <div>
             {/*<span>点击不保存，则最新修改将丢失</span>*/}
             <span>{languagesJSON.notSave_to_lose_new_modify}</span>

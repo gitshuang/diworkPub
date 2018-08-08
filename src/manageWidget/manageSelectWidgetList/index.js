@@ -216,7 +216,8 @@ class SelectWidgetList extends Component {
   }
 
   render() {
-    const {data: {labelGroups = []}, applications, languagesJSON} = this.state;
+    const {data: {labelGroups = []}, applications} = this.state;
+    const {languagesJSON} = this.props;
     let btns = [];
     labelGroups.forEach(({active, labels}, i) => {
       if (active) {

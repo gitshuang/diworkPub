@@ -204,7 +204,8 @@ var ManageGroup = function (_Component) {
     _this.renameGroupFn = function (index) {
       var _this$props2 = _this.props,
           renameGroup = _this$props2.renameGroup,
-          manageList = _this$props2.manageList;
+          manageList = _this$props2.manageList,
+          languagesJSON = _this$props2.languagesJSON;
 
       var name = _this.state.groupName;
       if (name == manageList[index].widgetName) {
@@ -215,7 +216,13 @@ var ManageGroup = function (_Component) {
         return item.widgetName;
       });
       if (widgetNameArr.includes(name)) {
-        _message2["default"].create({ content: '分组名称已存在!', duration: 1.5, position: 'topLeft', color: "warning", style: { height: 'auto' } });
+        _message2["default"].create({
+          content: languagesJSON.group_name_exists,
+          duration: 1.5,
+          position: 'topLeft',
+          color: "warning",
+          style: { height: 'auto' }
+        });
         return false;
       }
       renameGroup({
@@ -347,7 +354,9 @@ var ManageGroup = function (_Component) {
     };
 
     _this.renderDrop = function (index) {
-      var manageList = _this.props.manageList;
+      var _this$props6 = _this.props,
+          manageList = _this$props6.manageList,
+          languagesJSON = _this$props6.languagesJSON;
 
       var menu = _react2["default"].createElement(
         _menus2["default"],
@@ -355,17 +364,17 @@ var ManageGroup = function (_Component) {
         index !== manageList.length - 1 ? _react2["default"].createElement(
           _menus.Item,
           { key: '1' },
-          '\u4E0B\u79FB'
+          languagesJSON.move_down
         ) : null,
         index ? _react2["default"].createElement(
           _menus.Item,
           { key: '2' },
-          '\u4E0A\u79FB'
+          languagesJSON.move_up
         ) : null,
         _react2["default"].createElement(
           _menus.Item,
           { key: '3' },
-          '\u5220\u9664'
+          languagesJSON["delete"]
         )
       );
 
@@ -382,7 +391,7 @@ var ManageGroup = function (_Component) {
         _react2["default"].createElement(
           'div',
           null,
-          _react2["default"].createElement(_icon2["default"], { title: '\u66F4\u591A', type: 'more' })
+          _react2["default"].createElement(_icon2["default"], { title: languagesJSON.more, type: 'more' })
         )
       );
     };
@@ -404,7 +413,8 @@ var ManageGroup = function (_Component) {
         _props$data = _props.data,
         widgetName = _props$data.widgetName,
         isNew = _props$data.isNew,
-        manageList = _props.manageList;
+        manageList = _props.manageList,
+        languagesJSON = _props.languagesJSON;
 
 
     if (isNew) {
@@ -415,7 +425,7 @@ var ManageGroup = function (_Component) {
 
           return widgetName;
         });
-        var newGroupName = (0, _utils.avoidSameName)(nameArr, '分组');
+        var newGroupName = (0, _utils.avoidSameName)(nameArr, languagesJSON.group);
         _this2.setState({
           groupName: newGroupName
         });
@@ -523,7 +533,8 @@ var ManageGroup = function (_Component) {
         requestSuccess = _props3.requestSuccess,
         requestError = _props3.requestError,
         delectService = _props3.delectService,
-        folderBgSrc = _props3.folderBgSrc;
+        folderBgSrc = _props3.folderBgSrc,
+        languagesJSON = _props3.languagesJSON;
 
     var widgetListProps = {
       manageList: manageList,
@@ -594,8 +605,9 @@ var ManageGroup = function (_Component) {
             autoFocus: 'autofocus',
             onChange: this.editGroupName,
             onFocus: this.handleFocus,
-            onBlur: this.handleBlur,
-            placeholder: '\u5206\u7EC4\u540D\u79F0,\u6700\u591A4\u4E2A\u5B57\u7B26',
+            onBlur: this.handleBlur
+            // placeholder="分组名称,最多4个字符"
+            , placeholder: languagesJSON.groupName_max_words_four,
             ref: 'groupName' })
         ),
         _react2["default"].createElement(
@@ -636,14 +648,14 @@ var ManageGroup = function (_Component) {
           _react2["default"].createElement(
             'div',
             { className: _style.iconBox },
-            _react2["default"].createElement(_icon2["default"], { title: '\u91CD\u547D\u540D\u5206\u7EC4', type: 'record', onClick: function onClick() {
+            _react2["default"].createElement(_icon2["default"], { title: languagesJSON.rename_group, type: 'record', onClick: function onClick() {
                 _this3.openRenameGroupFn(widgetId);
               } })
           ),
           _react2["default"].createElement(
             'div',
             { className: _style.iconBox },
-            _react2["default"].createElement(_icon2["default"], { title: '\u6DFB\u52A0\u6587\u4EF6\u5939', type: 'add-files', onClick: this.addFolderFn.bind(this, index) })
+            _react2["default"].createElement(_icon2["default"], { title: languagesJSON.add_folder, type: 'add-files', onClick: this.addFolderFn.bind(this, index) })
           ),
           this.renderDrop(index)
         )
@@ -651,11 +663,11 @@ var ManageGroup = function (_Component) {
     }
 
     var pop_btn = [{
-      label: "确认",
+      label: '' + languagesJSON.confirm,
       fun: this.delectGroupFn,
       className: ""
     }, {
-      label: "取消",
+      label: '' + languagesJSON.cancel,
       fun: this.popClose,
       className: ""
     }];
@@ -687,7 +699,7 @@ var ManageGroup = function (_Component) {
           'div',
           null,
           _react2["default"].createElement(_manageWidgetList2["default"], _extends({ index: index, data: children, parentId: this.props.data.widgetId
-          }, widgetListProps, widgetSelectListProps))
+          }, widgetListProps, widgetSelectListProps, { languagesJSON: languagesJSON }))
         )
       ),
       _react2["default"].createElement(
@@ -697,7 +709,7 @@ var ManageGroup = function (_Component) {
           _button3.ButtonDefaultWhite,
           { className: _style.addGroupBtn, onClick: this.addGroupFn.bind(this, index) },
           _react2["default"].createElement(_icon2["default"], { type: 'add' }),
-          '\u6DFB\u52A0\u5206\u7EC4'
+          languagesJSON.addGroup
         )
       ),
       _react2["default"].createElement(
@@ -709,7 +721,7 @@ var ManageGroup = function (_Component) {
           _react2["default"].createElement(
             'span',
             null,
-            '\u60A8\u786E\u8BA4\u8981\u5220\u9664\u6B64\u9879?'
+            languagesJSON.confirm_del_this_item
           )
         )
       )

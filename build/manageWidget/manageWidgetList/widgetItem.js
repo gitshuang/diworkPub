@@ -302,7 +302,7 @@ var WidgetItem = function (_Component) {
     //     })
     //   },1500)
     //   this.setState({
-    //     timer 
+    //     timer
     //   })
     // }else{
     //   clearTimeout(this.state.timer);
@@ -359,7 +359,9 @@ var WidgetItem = function (_Component) {
   WidgetItem.prototype.render = function render() {
     var _this2 = this;
 
-    var pop_btn = [{ label: "确认", fun: this.popSave, className: "" }, { label: "取消", fun: this.popClose, className: "" }]; //设置操作按钮
+    var languagesJSON = this.props.languagesJSON;
+
+    var pop_btn = [{ label: '' + languagesJSON.confirm, fun: this.popSave, className: "" }, { label: '' + languagesJSON.cancel, fun: this.popClose, className: "" }]; //设置操作按钮
 
     var _props$data = this.props.data,
         id = _props$data.widgetId,
@@ -461,7 +463,7 @@ var WidgetItem = function (_Component) {
             { onClick: function onClick() {
                 _this2.popSave(_this2.props.data);
               } },
-            _react2["default"].createElement(_icon2["default"], { title: '\u5220\u9664\u670D\u52A1', type: 'dustbin' })
+            _react2["default"].createElement(_icon2["default"], { title: languagesJSON.deleteService, type: 'dustbin' })
           )
         )
       ),
@@ -474,7 +476,7 @@ var WidgetItem = function (_Component) {
           _react2["default"].createElement(
             'span',
             null,
-            '\u60A8\u786E\u8BA4\u8981\u5220\u9664\u6B64\u9879\u670D\u52A1?'
+            languagesJSON.confirm_delete_this_service
           )
         )
       )

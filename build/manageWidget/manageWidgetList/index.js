@@ -208,7 +208,8 @@ var WidgetList = function (_Component) {
         requestSuccess = _props.requestSuccess,
         requestError = _props.requestError,
         currGroupIndex = _props.currGroupIndex,
-        folderBgSrc = _props.folderBgSrc;
+        folderBgSrc = _props.folderBgSrc,
+        languagesJSON = _props.languagesJSON;
 
     var widgetItemProps = {
       manageList: manageList,
@@ -287,7 +288,9 @@ var WidgetList = function (_Component) {
             onClick: function onClick(e) {
               _this2.widgeOnclick(e, item);
             }
-          }, widgetFileProps));
+          }, widgetFileProps, {
+            languagesJSON: languagesJSON
+          }));
         default:
           return _react2["default"].createElement(_widgetItem2["default"], _extends({
             ref: id,
@@ -304,7 +307,9 @@ var WidgetList = function (_Component) {
             moveItemDrag: _this2.moveItemDrag,
             editTitle: _this2.editTitle,
             addFolderDrag: _this2.addFolderDrag
-          }, widgetItemProps));
+          }, widgetItemProps, {
+            languagesJSON: languagesJSON
+          }));
       }
     });
 
@@ -322,13 +327,15 @@ var WidgetList = function (_Component) {
       _react2["default"].createElement(
         'div',
         { className: _style.addModule, onClick: this.openSelectWidget },
-        _react2["default"].createElement(_icon2["default"], { title: '\u6DFB\u52A0\u5FEB\u6377\u65B9\u5F0F\u81F3\u9996\u9875', type: 'add' })
+        _react2["default"].createElement(_icon2["default"], { title: languagesJSON.addQuick_to_home, type: 'add' })
       ),
       _react2["default"].createElement(
         _pop2["default"],
-        { className: _style.pop_dialog_widge_list, type: 'info', title: '\u6DFB\u52A0\u5FEB\u6377\u65B9\u5F0F\u81F3\u9996\u9875', close: this.popClose, backdrop: false, show: this.state.showModal, data: _da },
+        { className: _style.pop_dialog_widge_list, type: 'info', title: languagesJSON.addQuick_to_home, close: this.popClose, backdrop: false, show: this.state.showModal, data: _da },
         _react2["default"].createElement(_manageSelectWidgetList2["default"], _extends({ close: this.popClose, parentId: this.props.parentId
-        }, selectWidgetListProps))
+        }, selectWidgetListProps, {
+          languagesJSON: languagesJSON
+        }))
       )
     );
   };

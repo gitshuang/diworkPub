@@ -111,7 +111,7 @@ var itemTarget = {
   //   const previousParentId = monitor.getItem().parentId;
   //   const preType = monitor.getItem().type;
   //   const preFolderType = monitor.getItem().folderType;
-  //   return (draggedId !== props.id && preType!==2) 
+  //   return (draggedId !== props.id && preType!==2)
   // },
   hover: function hover(props, monitor, component) {
     var clientOffset = monitor.getClientOffset();
@@ -357,7 +357,7 @@ var WidgeFileItem = function (_Component) {
     //     })
     //   },1500)
     //   this.setState({
-    //     timer 
+    //     timer
     //   })
     // }else{
     //   clearTimeout(this.state.timer);
@@ -425,10 +425,11 @@ var WidgeFileItem = function (_Component) {
     var id = da.widgetId;
     var _props2 = this.props,
         selectList = _props2.selectList,
-        dragState = _props2.dragState;
+        dragState = _props2.dragState,
+        languagesJSON = _props2.languagesJSON;
 
     var checkType = selectList.indexOf(id) > -1 ? true : false;
-    var pop_btn = [{ label: "确认", fun: this.popSave, className: "" }, { label: "取消", fun: this.popClose, className: "" }]; //设置操作按钮
+    var pop_btn = [{ label: languagesJSON.confirm, fun: this.popSave, className: "" }, { label: languagesJSON.cancel, fun: this.popClose, className: "" }]; //设置操作按钮
 
     var edit = _react2["default"].createElement(
       'div',
@@ -460,14 +461,14 @@ var WidgeFileItem = function (_Component) {
         _react2["default"].createElement(
           'div',
           { onClick: this.fileEdit },
-          _react2["default"].createElement(_icon2["default"], { title: '\u91CD\u547D\u540D\u6587\u4EF6\u5939', type: 'record' })
+          _react2["default"].createElement(_icon2["default"], { title: languagesJSON.rename_folder, type: 'record' })
         ),
         _react2["default"].createElement(
           'div',
           { onClick: function onClick() {
               _this2.popSave(da);
             } },
-          _react2["default"].createElement(_icon2["default"], { title: '\u5220\u9664\u6587\u4EF6\u5939', type: 'dustbin' })
+          _react2["default"].createElement(_icon2["default"], { title: languagesJSON.delete_folder, type: 'dustbin' })
         )
       )
     );
@@ -561,7 +562,8 @@ var WidgeFileItem = function (_Component) {
           _react2["default"].createElement(
             'span',
             null,
-            '\u60A8\u786E\u8BA4\u8981\u5220\u9664\u670D\u52A1[',
+            languagesJSON.confirm_delete_service,
+            '[',
             this.props.data.widgetName,
             ']?'
           )

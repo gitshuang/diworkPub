@@ -102,7 +102,8 @@ var ManageFolderDialog = function (_Component) {
         selectListActions = _props.selectListActions,
         selectGroupActions = _props.selectGroupActions,
         addFolder = _props.addFolder,
-        delectService = _props.delectService;
+        delectService = _props.delectService,
+        languagesJSON = _props.languagesJSON;
 
     var widgetItemProps = {
       manageList: manageList,
@@ -144,7 +145,8 @@ var ManageFolderDialog = function (_Component) {
       return _react2["default"].createElement(_widgetItem2["default"], _extends({}, props, {
         folderType: 'folder', type: 'pop', dragType: 'dragInFolder',
         closeFolderDrag: _this2.closeFolderDrag
-      }, widgetItemProps));
+      }, widgetItemProps, { languagesJSON: languagesJSON
+      }));
     });
     var isDragging = this.props.isDragging;
     var _props3 = this.props,

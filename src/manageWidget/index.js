@@ -182,7 +182,7 @@ class CreateManageModule extends Component {
     return (
       <div>
           <Content {...manageProps} {...widgetListProps} {...widgetSelectListProps} languagesJSON={languagesJSON}/>
-          <Footer {...footerProps} {languagesJSON}/>
+          <Footer {...footerProps} languagesJSON={languagesJSON}/>
           <FolderDialog {...folderDialogProps} {...widgetItemProps} languagesJSON={languagesJSON}/>
           <BatchMove {...batchMoveRedux} languagesJSON={languagesJSON}/>
           <PopDialogComp {...popDialogOuter} languagesJSON={languagesJSON}/>

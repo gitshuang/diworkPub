@@ -85,7 +85,8 @@ var ManageBatchMoveDialog = function (_Component) {
   ManageBatchMoveDialog.prototype.render = function render() {
     var _props = this.props,
         batchMoveModalDisplay = _props.batchMoveModalDisplay,
-        moveData = _props.moveData;
+        moveData = _props.moveData,
+        languagesJSON = _props.languagesJSON;
 
     var content = batchMoveModalDisplay ? _react2["default"].createElement(
       'div',
@@ -95,7 +96,8 @@ var ManageBatchMoveDialog = function (_Component) {
         onSave: this.confirmFn,
         onCancel: this.cancelFn,
         onAddGroup: this.addNewGroup,
-        caller: "移动"
+        caller: languagesJSON.move,
+        languagesJSON: languagesJSON
       })
     ) : null;
     return _react2["default"].createElement(
