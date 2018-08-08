@@ -315,8 +315,8 @@ var SelectWidgetList = function (_Component) {
     var _state = this.state,
         _state$data$labelGrou = _state.data.labelGroups,
         labelGroups = _state$data$labelGrou === undefined ? [] : _state$data$labelGrou,
-        applications = _state.applications,
-        languagesJSON = _state.languagesJSON;
+        applications = _state.applications;
+    var languagesJSON = this.props.languagesJSON;
 
     var btns = [];
     labelGroups.forEach(function (_ref2, i) {
