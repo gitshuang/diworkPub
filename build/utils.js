@@ -248,10 +248,10 @@ var fetchTools = {
               } else {
                 currLocal = window.top.diworkContext().locale;
               }
-              var index = ["zh_CN", "en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(function (value) {
+              var index = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(function (value) {
                 return value === currLocal;
               });
-              if (index > 0 && (typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object") {
+              if (index > -1 && (typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object") {
                 _diff(index, data);
               }
               return Promise.resolve(data);
