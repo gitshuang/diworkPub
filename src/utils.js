@@ -87,6 +87,7 @@ export const getHost = (key = 'api') => {
     api: {
       production: process.env.HOST || '',
       development: process.env.HOST || '',
+      daily:process.env.HOST || '',
     },
     manageTeamEnter: {
       production: 'https://nec.diwork.com/space/space/myspaceorder/type/diwork',
