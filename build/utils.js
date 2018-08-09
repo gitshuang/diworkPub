@@ -142,43 +142,53 @@ var getHost = exports.getHost = function getHost() {
     },
     manageTeamEnter: {
       production: 'https://nec.diwork.com/space/space/myspaceorder/type/diwork',
-      development: 'http://web.yyuap.com:91/space/space/myspaceorder/type/diwork'
+      development: 'http://web.yyuap.com:91/space/space/myspaceorder/type/diwork',
+      daily: 'https://ec-daily.yyuap.com/'
     },
     dynamic: {
       production: 'https://nec.diwork.com/app/app/appredirect?appid=15',
-      development: 'http://web.yyuap.com:91/app/app/appredirect?appid=15'
+      development: 'http://web.yyuap.com:91/app/app/appredirect?appid=15',
+      daily: 'https://ec-daily.yyuap.com/'
     },
     euc: {
       production: 'https://euc.diwork.com',
-      development: 'https://idtest.yyuap.com'
+      development: 'https://idtest.yyuap.com',
+      daily: "https://user-daily.yyuap.com"
     },
     user: {
       production: 'https://hr.diwork.com',
-      development: 'http://hrcloud.yyuap.com'
+      development: 'http://hrcloud.yyuap.com',
+      daily: 'https://hr-daily.yyuap.com'
     },
     market: {
       production: 'https://market.yonyoucloud.com/market/index#/shopping/orderlist',
-      development: 'https://uastest.yyuap.com/market/index#/shopping/orderlist'
+      development: 'https://uastest.yyuap.com/market/index#/shopping/orderlist',
+      daily: 'https://market-daily.yyuap.com'
     },
     order: {
       production: 'https://ticket.yonyoucloud.com',
-      development: 'https://ticket.yonyoucloud.com'
+      development: 'https://ticket.yonyoucloud.com',
+      daily: 'https://ticket.yonyoucloud.com'
     },
     cloundyy: {
       production: 'https://www.yonyoucloud.com',
-      development: 'https://cloudtest.yyuap.com'
+      development: 'https://cloudtest.yyuap.com',
+      daily: 'https://www.yonyoucloud.com'
     },
     ref: {
       production: 'https://ms.diwork.com',
-      development: 'http://workbench.yyuap.com'
+      development: 'http://workbench.yyuap.com',
+      daily: 'https://ms-daily.yyuap.com'
     },
     org: {
       production: 'https://cdn.yonyoucloud.com/pro/diwork',
-      development: 'http://workbenchdev.yyuap.com/fe'
+      development: 'http://workbenchdev.yyuap.com/fe',
+      daily: 'https://cdn.yonyoucloud.com/pro/diwork'
     },
     upload: {
       production: 'https://bd.diwork.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
-      development: 'http://workbenchdev.yyuap.com/manager/file/upload/oss/workbench-image-path-applicationIcon'
+      development: 'http://workbenchdev.yyuap.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
+      daily: 'http://workbenchdev.yyuap.com/manager/file/upload/oss/workbench-image-path-applicationIcon'
     }
   };
   return hosts[key][process.env.NODE_ENV];
