@@ -17,7 +17,10 @@ const _diff = (_index, _data) => {
       dataKeys.forEach((item, index) => {
 
         if (dataKeys.includes(item + 'Ext1')) {
-          data[item] = data[item + 'Ext' + _index];
+          const currItem = data[item + 'Ext' + _index];
+          if(currItem){
+            data[item] = currItem;
+          }
         }
         const currData = data[item];
         if (!currData) return;
