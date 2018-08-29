@@ -15,9 +15,9 @@ const _diff = (_index, _data) => {
       // 获取 JSON VALUE  数组   [a,a1,b,c]
       const dataKeys = Object.keys(data);
       dataKeys.forEach((item, index) => {
-
-        if (dataKeys.includes(item + 'Ext1')) {
-          const currItem = data[item + 'Ext' + _index];
+        const currKey = item + 'Ext' + _index;
+        if (dataKeys.includes(currKey)) {
+          const currItem = data[currKey];
           if(currItem){
             data[item] = currItem;
           }
@@ -199,7 +199,7 @@ const fetchTools = {
                 return value === currLocal;
               });
               if (index > -1 && typeof data === "object") {
-                _diff(index, data);
+                _diff(index + 2, data);
               }
               return Promise.resolve(data);
             } else if (errorCode) {
