@@ -33,6 +33,7 @@
     "bee-table": "1.0.6",
     "bee-tabs": "1.0.5",
     "bee-tree": "1.0.5",
+    "bee-tooltip": "1.0.7",
     "prop-types": "15.6.0",
     "react": "15.6.2",
     "react-dom": "15.6.2",

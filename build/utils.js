@@ -49,9 +49,9 @@ var _diff = function _diff(_index, _data) {
       // 获取 JSON VALUE  数组   [a,a1,b,c]
       var dataKeys = Object.keys(data);
       dataKeys.forEach(function (item, index) {
-
-        if (dataKeys.includes(item + 'Ext1')) {
-          var currItem = data[item + 'Ext' + _index];
+        var currKey = item + 'Ext' + _index;
+        if (dataKeys.includes(currKey)) {
+          var currItem = data[currKey];
           if (currItem) {
             data[item] = currItem;
           }
@@ -266,7 +266,7 @@ var fetchTools = {
                 return value === currLocal;
               });
               if (index > -1 && (typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object") {
-                _diff(index, data);
+                _diff(index + 2, data);
               }
               return Promise.resolve(data);
             } else if (errorCode) {
