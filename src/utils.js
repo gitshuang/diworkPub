@@ -95,12 +95,12 @@ export const getHost = (key = 'api') => {
     manageTeamEnter: {
       production: 'https://nec.diwork.com/space/space/myspaceorder/type/diwork',
       development: 'http://web.yyuap.com:91/space/space/myspaceorder/type/diwork',
-      daily:'https://nec-daily.yyuap.com/',
+      daily:'https://nec-daily.yyuap.com/space/space/myspaceorder/type/diwork',
     },
     dynamic: {
       production: 'https://nec.diwork.com/app/app/appredirect?appid=15',
       development: 'http://web.yyuap.com:91/app/app/appredirect?appid=15',
-      daily:'https://nec-daily.yyuap.com/',
+      daily:'https://nec-daily.yyuap.com/app/app/appredirect?appid=15',
     },
     euc: {
       production: 'https://euc.diwork.com',
