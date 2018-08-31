@@ -141,7 +141,22 @@ export const getHost = (key = 'api') => {
       production: 'https://bd.diwork.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
       development: 'http://workbenchdev.yyuap.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
       daily: 'http://workbenchdev.yyuap.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
-    }
+    },
+    info: {
+      production: 'https://nec.diwork.com/app/app/appredirect?appid=15',
+      development: 'http://web.yyuap.com:91/app/app/appredirect?appid=15',
+      daily:'https://nec-daily.yyuap.com/',
+    },
+    speak: {
+      production: 'https://nec.diwork.com/app/app/appredirect?appid=15',
+      development: 'http://web.yyuap.com:91/app/app/appredirect?appid=15',
+      daily:'https://nec-daily.yyuap.com/',
+    },
+    honor: {
+      production: 'https://nec.diwork.com/app/app/appredirect?appid=15',
+      development: 'http://web.yyuap.com:91/app/app/appredirect?appid=15',
+      daily:'https://nec-daily.yyuap.com/',
+    },
   };
   return hosts[key][process.env.NODE_ENV];
 };
