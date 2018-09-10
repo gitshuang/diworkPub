@@ -208,6 +208,11 @@ var getHost = exports.getHost = function getHost() {
       production: '//wsbs.diwork.com/pc/modules/honorZone/ph/index.html',
       development: '//wsbs.app.yyuap.com/pc/modules/honorZone/ph/index.html',
       daily: '//wsbs-daily.diwork.com/pc/modules/honorZone/ph/index.html'
+    },
+    sendHonor: {
+      production: '//wsbs.diwork.com/pc/modules/honorZone/send/index.html',
+      development: '//wsbs.app.yyuap.com/pc/modules/honorZone/send/index.html',
+      daily: '//wsbs-daily.diwork.com/pc/modules/honorZone/send/index.html'
     }
   };
   return hosts[key][process.env.NODE_ENV];
