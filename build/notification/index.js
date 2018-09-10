@@ -28,15 +28,15 @@ var _notification3 = _interopRequireDefault(_notification2);
 require('./index.css');
 
 var _index = {
-  'notification_mess': 'notification_mess__index___3mDDV',
-  'notification_cont': 'notification_cont__index___S9iXu',
-  '_close': '_close__index___2cdGg',
-  '_title': '_title__index___3dsJ9',
-  'title_cont': 'title_cont__index___3Hswc',
-  'warning_cont': 'warning_cont__index___klNkj',
-  'success_cont': 'success_cont__index___11zLi',
-  'info_cont': 'info_cont__index___2fgLF',
-  'error_cont': 'error_cont__index___1UYNA'
+  'notification_mess': 'notification_mess__index___1pev5',
+  'notification_cont': 'notification_cont__index___15Vwo',
+  '_close': '_close__index___3a-O5',
+  '_title': '_title__index___1MUHP',
+  'title_cont': 'title_cont__index___2YW9p',
+  'warning_cont': 'warning_cont__index___nmpZZ',
+  'success_cont': 'success_cont__index___o7G-M',
+  'info_cont': 'info_cont__index___2pga9',
+  'error_cont': 'error_cont__index___2HtBx'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

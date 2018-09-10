@@ -93,9 +93,9 @@ export const getHost = (key = 'api') => {
       daily:process.env.HOST || '',
     },
     manageTeamEnter: {
-      production: 'https://nec.diwork.com/space/space/myspaceorder/type/diwork',
-      development: 'http://web.yyuap.com:91/space/space/myspaceorder/type/diwork',
-      daily:'https://nec-daily.yyuap.com/space/space/myspaceorder/type/diwork',
+      production: 'https://nec.diwork.com/static/home.html#/spaceList/joined',
+      development: 'http://web.yyuap.com:91/static/home.html#/spaceList/joined',
+      daily:'https://nec-daily.yyuap.com/static/home.html#/spaceList/joined',
     },
     dynamic: {
       production: 'https://nec.diwork.com/app/app/appredirect?appid=15',
