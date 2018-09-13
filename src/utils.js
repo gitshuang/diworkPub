@@ -115,7 +115,7 @@ export const getHost = (key = 'api') => {
     market: {
       production: 'https://market.yonyoucloud.com/market/index#/shopping/orderlist',
       development: 'https://uastest.yyuap.com/market/index#/shopping/orderlist',
-      daily:'https://market-daily.yyuap.com',
+      daily:'https://market-daily.yyuap.com/market/index#/shopping/orderlist',
     },
     order: {
       production: 'https://ticket.yonyoucloud.com',
