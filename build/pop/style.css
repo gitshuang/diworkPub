@@ -1,11 +1,11 @@
 /*  imported from style.css  */
 
-.btn__style___3snvj {
+.btn__style___20DQM {
   margin-right: 10px;
   display: inline-block;
 }
 
-.closeBtn__style___39nWU {
+.closeBtn__style___2Ow_p {
   position: absolute;
   top: 12px;
   right: 14px;
@@ -43,7 +43,7 @@
 
 /************************ error *************************/
 
-.pop_type__style___39Ruo.error__style___1RDeg .u-modal-title .iconfont {
+.pop_type__style___7FzHT.error__style___3lAfZ .u-modal-title .iconfont {
   margin-right: 8px;
   color: #4C4C4C;
   font-weight: 900;
@@ -52,17 +52,17 @@
   top: 3px;
 }
 
-.pop_type__style___39Ruo.error__style___1RDeg .u-modal .u-modal-title {
+.pop_type__style___7FzHT.error__style___3lAfZ .u-modal .u-modal-title {
   font-size: 17px;
 }
 
-.pop_type__style___39Ruo.error__style___1RDeg .u-modal-body {
+.pop_type__style___7FzHT.error__style___3lAfZ .u-modal-body {
   font-size: 14px;
   padding: 0px;
   padding-left: 44px;
 }
 
-.pop_type__style___39Ruo.error__style___1RDeg .u-modal-header {
+.pop_type__style___7FzHT.error__style___3lAfZ .u-modal-header {
   padding-top: 30px;
 }
 
@@ -73,7 +73,7 @@
 
 /************************ warning *************************/
 
-.pop_type__style___39Ruo.warning__style___2qwlI .u-modal-title .iconfont {
+.pop_type__style___7FzHT.warning__style___rOA-7 .u-modal-title .iconfont {
   margin-right: 8px;
   color: #FF8B00;
   font-weight: 900;
@@ -82,20 +82,20 @@
   top: 3px;
 }
 
-.pop_type__style___39Ruo.warning__style___2qwlI .u-modal .u-modal-title {
+.pop_type__style___7FzHT.warning__style___rOA-7 .u-modal .u-modal-title {
   font-size: 17px;
 }
 
-.pop_type__style___39Ruo.warning__style___2qwlI .u-modal-body {
+.pop_type__style___7FzHT.warning__style___rOA-7 .u-modal-body {
   font-size: 14px;
   padding: 0px;
   padding-left: 44px;
 }
 
-.pop_type__style___39Ruo.warning__style___2qwlI .u-modal-header {
+.pop_type__style___7FzHT.warning__style___rOA-7 .u-modal-header {
   padding-top: 30px;
 }
-.pop_type__style___39Ruo.warning__style___2qwlI .u-modal.in .u-modal-dialog >div{
+.pop_type__style___7FzHT.warning__style___rOA-7 .u-modal.in .u-modal-dialog >div{
   border: 1px dashed rgba(0, 0, 0, 0.4);
 }
 /* .pop_type.warning :global(.u-modal-footer .brand){
@@ -105,7 +105,7 @@
 
 /************************ danger *************************/
 
-.pop_type__style___39Ruo.danger__style___3vNqD .u-modal-title .iconfont {
+.pop_type__style___7FzHT.danger__style___2dz2P .u-modal-title .iconfont {
   margin-right: 8px;
   color: #108EE9;
   font-weight: 900;
@@ -114,25 +114,25 @@
   top: 3px;
 }
 
-.pop_type__style___39Ruo.danger__style___3vNqD .u-modal .u-modal-title {
+.pop_type__style___7FzHT.danger__style___2dz2P .u-modal .u-modal-title {
   font-size: 17px;
 }
 
-.pop_type__style___39Ruo.danger__style___3vNqD .u-modal-body {
+.pop_type__style___7FzHT.danger__style___2dz2P .u-modal-body {
   font-size: 14px;
   padding: 0px;
   padding-left: 44px;
 }
 
-.pop_type__style___39Ruo.danger__style___3vNqD .u-modal-header {
+.pop_type__style___7FzHT.danger__style___2dz2P .u-modal-header {
   padding-top: 30px;
 }
-.pop_type__style___39Ruo.danger__style___3vNqD .u-modal.in .u-modal-dialog >div{
+.pop_type__style___7FzHT.danger__style___2dz2P .u-modal.in .u-modal-dialog >div{
   border: 1px dashed rgba(0, 0, 0, 0.4);
 }
 /************************ success *************************/
 
-.pop_type__style___39Ruo.success__style___3fNXj .u-modal-title .iconfont {
+.pop_type__style___7FzHT.success__style___3B6OV .u-modal-title .iconfont {
   margin-right: 8px;
   color: #00B39E;
   font-weight: 900;
@@ -141,19 +141,19 @@
   top: 3px;
 }
 
-.pop_type__style___39Ruo.success__style___3fNXj .u-modal .u-modal-title {
+.pop_type__style___7FzHT.success__style___3B6OV .u-modal .u-modal-title {
   font-size: 17px;
 }
 
-.pop_type__style___39Ruo.success__style___3fNXj .u-modal-body {
+.pop_type__style___7FzHT.success__style___3B6OV .u-modal-body {
   font-size: 14px;
   padding: 0px;
   padding-left: 44px;
 }
 
-.pop_type__style___39Ruo.success__style___3fNXj .u-modal-header {
+.pop_type__style___7FzHT.success__style___3B6OV .u-modal-header {
   padding-top: 30px;
 }
-.pop_type__style___39Ruo.success__style___3fNXj .u-modal.in .u-modal-dialog >div{
+.pop_type__style___7FzHT.success__style___3B6OV .u-modal.in .u-modal-dialog >div{
   border: 1px dashed rgba(0, 0, 0, 0.4);
 }
