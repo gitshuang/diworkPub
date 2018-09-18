@@ -122,7 +122,7 @@ class PopDialog extends Component {
 
       <Modal.Body>
         <div>
-          {this.props.children}
+          {this.props.children?this.props.children:(this.props.msg?this.props.msg:'')}
         </div>
 
         

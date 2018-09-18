@@ -207,7 +207,7 @@ var PopDialog = function (_Component) {
         _react2["default"].createElement(
           'div',
           null,
-          this.props.children
+          this.props.children ? this.props.children : this.props.msg ? this.props.msg : ''
         )
       ),
       _react2["default"].createElement(
