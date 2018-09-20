@@ -145,9 +145,9 @@ var getHost = exports.getHost = function getHost() {
       daily: process.env.HOST || ''
     },
     manageTeamEnter: {
-      production: 'https://nec.diwork.com/static/home.html#/spaceList/joined',
-      development: 'http://web.yyuap.com:91/static/home.html#/spaceList/joined',
-      daily: 'https://nec-daily.yyuap.com/static/home.html#/spaceList/joined'
+      production: 'https://nec.diwork.com/static/home.html#/spaceList/joined?target=pc',
+      development: 'http://web.yyuap.com:91/static/home.html#/spaceList/joined?target=pc',
+      daily: 'https://nec-daily.yyuap.com/static/home.html#/spaceList/joined?target=pc'
     },
     dynamic: {
       production: 'https://nec.diwork.com/app/app/appredirect?appid=15',
