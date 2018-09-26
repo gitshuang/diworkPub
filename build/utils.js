@@ -195,14 +195,14 @@ var getHost = exports.getHost = function getHost() {
       daily: 'http://workbenchdev.yyuap.com/manager/file/upload/oss/workbench-image-path-applicationIcon'
     },
     info: {
-      production: 'https://nec.diwork.com/app/app/appredirect?appid=15',
-      development: 'http://web.yyuap.com:91/app/app/appredirect?appid=15',
-      daily: 'https://nec-daily.yyuap.com/'
+      production: 'https://ec.diwork.com/static/home.html#/myspeech/personInfo?target=pc',
+      development: 'http://web.yyuap.com:91/static/home.html#/myspeech/personInfo?target=pc',
+      daily: 'https://nec-daily.yyuap.com/static/home.html#/myspeech/personInfo?target=pc'
     },
     speak: {
-      production: 'https://nec.diwork.com/app/app/appredirect?appid=15',
-      development: 'http://web.yyuap.com:91/app/app/appredirect?appid=15',
-      daily: 'https://nec-daily.yyuap.com/'
+      production: 'https://ec.diwork.com/static/home.html#/myspeech/index?index=0&target=pc',
+      development: 'http://web.yyuap.com:91/static/home.html#/myspeech/index?index=0&target=pc',
+      daily: 'https://nec-daily.yyuap.com/static/home.html#/myspeech/index?index=0&target=pc'
     },
     honor: {
       production: '//wsbs.diwork.com/pc/modules/honorZone/ph/index.html',
