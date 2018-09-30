@@ -6,6 +6,7 @@ import Button from 'bee/button';
 
 import { serviceItem,serviceItemTitle,item_li_top,item_footer,item_footer_app,item_left,item_right,
   icon,up_icon} from './style.css'
+  import defaultBg from '../default.svg';
 
 class ServiceItem extends Component {
 
@@ -59,7 +60,7 @@ class ServiceItem extends Component {
     return (
        <div className={serviceType=="2"?serviceItemTitle:serviceItem} style={{..._style}}>
             <div className={item_li_top}>
-                <img className={icon} src={serviceIcon}/>
+                <img className={icon} src={serviceIcon|| defaultBg}/>
                 <div className={item_right}>
                     {serviceName}
                 </div>

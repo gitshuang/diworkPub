@@ -38,6 +38,10 @@ var _style2 = {
   'up_icon': 'up_icon__style___28KQE'
 };
 
+var _default = require('../default.svg');
+
+var _default2 = _interopRequireDefault(_default);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -152,7 +156,7 @@ var ServiceItem = function (_Component) {
       _react2["default"].createElement(
         'div',
         { className: _style2.item_li_top },
-        _react2["default"].createElement('img', { className: _style2.icon, src: serviceIcon }),
+        _react2["default"].createElement('img', { className: _style2.icon, src: serviceIcon || _default2["default"] }),
         _react2["default"].createElement(
           'div',
           { className: _style2.item_right },
