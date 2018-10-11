@@ -204,3 +204,15 @@
 .check_group :global(.u-checkbox){
   display:inline;
 }
+.noChildStyle{
+  margin-left: 10px;
+  color: #E14C46;
+  line-height: 26px;
+}
+.noChildStyle :global(.iconfont){
+  color: #E14C46;
+  margin-right: 0;
+  position: relative;
+  top: 3px;
+  font-size: 20px;
+}

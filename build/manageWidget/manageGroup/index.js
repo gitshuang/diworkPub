@@ -69,7 +69,8 @@ var _style = {
   'selectedBackClass': 'selectedBackClass__style___QJZ17',
   'iconBox': 'iconBox__style___CwgKm',
   'widgetTitleInit': 'widgetTitleInit__style___3JKUO',
-  'check_group': 'check_group__style___2btKQ'
+  'check_group': 'check_group__style___2btKQ',
+  'noChildStyle': 'noChildStyle__style___1sFC6'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -640,6 +641,12 @@ var ManageGroup = function (_Component) {
                 _this3.selectFn(e, index);
               } },
             widgetName
+          ),
+          children.length ? null : _react2["default"].createElement(
+            'span',
+            { className: _style.noChildStyle },
+            _react2["default"].createElement(_icon2["default"], { type: 'notice' }),
+            languagesJSON.noDataGroup
           )
         ),
         _react2["default"].createElement(
