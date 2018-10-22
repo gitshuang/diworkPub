@@ -14,7 +14,7 @@
 }
 
 .appImg{
-  background: rgba(190,193,200,1) url("assets/image/uploadImg.svg") no-repeat;
+  background: rgba(190,193,200,1) url("./uploadImg.svg") no-repeat;
   width:64px;
   height:64px; 
   border-radius: 50%;
