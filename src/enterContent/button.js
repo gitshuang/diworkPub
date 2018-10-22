@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { ButtonBrand } from 'pub-comp/button';
+import { ButtonBrand } from '../button';
 
 class SubmitBtn extends Component {
   static propTypes = {

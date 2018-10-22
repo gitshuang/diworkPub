@@ -8,7 +8,7 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _icon2 = require('pub-comp/icon');
+var _icon2 = require('../../icon');
 
 var _icon3 = _interopRequireDefault(_icon2);
 

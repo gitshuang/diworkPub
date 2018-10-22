@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // 公共UI组件
-import Form, { FormItem } from 'bee/form';
-import FormControl from 'bee/form-control';
-import Radio from 'bee/radio';
-import Select from 'bee/select';
-import CitySelect from 'bee/city-select';
+import Form, { FormItem } from '../bee/form';
+import FormControl from '../bee/form-control';
+import Radio from '../bee/radio';
+import Select from '../bee/select';
+import CitySelect from '../bee/city-select';
+import Progress from '../progress';
 // diwork业务组件
-import Progress from 'pub-comp/progress';
 import Upload from './upload';
 import { check } from './checkTenantStatus';
-
-// 组件拆分
 import SubmitBtn from './button';
 import { tenantIndustry, tenantSizeOption } from './state';
 import { enterForm, line, infoTitle, progressBar } from './style.css';

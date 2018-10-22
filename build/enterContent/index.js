@@ -34,7 +34,7 @@ var _citySelect = require('../bee/city-select');
 
 var _citySelect2 = _interopRequireDefault(_citySelect);
 
-var _progress = require('pub-comp/progress');
+var _progress = require('../progress');
 
 var _progress2 = _interopRequireDefault(_progress);
 
@@ -73,9 +73,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // 公共UI组件
 
 // diwork业务组件
-
-
-// 组件拆分
 
 
 var Option = _select2["default"].Option;
