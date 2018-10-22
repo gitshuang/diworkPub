@@ -188,7 +188,7 @@ class EnterContent extends Component {
         return obj;
       }, {});
 
-      handleClickFn(param, _from,({ error, payload }) => {
+      handleClickFn(param, ({ error, payload }) => {
         // 只要是回调都将按钮的disabled 设定为false
         this.setState({
           disabled: false,

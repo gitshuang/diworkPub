@@ -163,7 +163,7 @@ var EnterContent = function (_Component) {
           return obj;
         }, {});
 
-        handleClickFn(param, _from, function (_ref2) {
+        handleClickFn(param, function (_ref2) {
           var error = _ref2.error,
               payload = _ref2.payload;
 
