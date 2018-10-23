@@ -170,24 +170,22 @@ var EnterContent = function (_Component) {
           _this.setState({
             disabled: false
           });
-          if (!error) {
+          // 创建
+          if (!error && _from === "create") {
+            _this.setState({
+              startFlag: true,
+              tenantId: payload.tenantId
+            }, function () {
+              (0, _checkTenantStatus.check)(payload.tenantId, _this.loadingFunc, _this.successFunc);
+            });
+            return false;
+          }
+          // 升级
+          if (!error && _from === "update") {
             _this.setState({
               startFlag: true
             });
-            // 当创建企业 
-            if (_from === "create") {
-              _this.setState({
-                tenantId: payload.tenantId
-              }, function () {
-                (0, _checkTenantStatus.check)(payload.tenantId, _this.loadingFunc, _this.successFunc);
-              });
-              return false;
-            }
-            // 团队升级为企业   需要加载  并且检测 
-            if (_from === "update") {
-              (0, _checkTenantStatus.check)(tenantId, _this.loadingFunc, _this.successFunc);
-              return false;
-            }
+            (0, _checkTenantStatus.check)(tenantId, _this.loadingFunc, _this.successFunc);
           }
         });
       }

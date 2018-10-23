@@ -196,24 +196,22 @@ class EnterContent extends Component {
         this.setState({
           disabled: false,
         });
-        if (!error) {
+        // 创建
+        if (!error && _from === "create") {
+          this.setState({
+            startFlag: true,
+            tenantId: payload.tenantId,
+          }, () => {
+            check(payload.tenantId, this.loadingFunc, this.successFunc);
+          });
+          return false;
+        }
+        // 升级
+        if (!error && _from === "update") {
           this.setState({
             startFlag: true,
           });
-          // 当创建企业 
-          if (_from === "create") {
-            this.setState({
-              tenantId: payload.tenantId,
-            }, () => {
-              check(payload.tenantId, this.loadingFunc, this.successFunc);
-            });
-            return false;
-          }
-          // 团队升级为企业   需要加载  并且检测 
-          if (_from === "update") {
-            check(tenantId, this.loadingFunc, this.successFunc);
-            return false;
-          }
+          check(tenantId, this.loadingFunc, this.successFunc);
         }
       });
     }
