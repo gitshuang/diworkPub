@@ -137,18 +137,17 @@ var EnterContent = function (_Component) {
           disabled: true
         });
         // 这个form表单组件有点坑， 还得自己完善兼容性  radio的两个 
-        var AllowExit = data.find(function (da) {
-          return da.name === 'allowExit';
-        });
-        if (!AllowExit.value && AllowExit.value === '') {
-          AllowExit.value = allowExit;
-        }
-        var Watermark = data.find(function (da) {
-          return da.name === 'isWaterMark';
-        });
-        if (!Watermark.value && Watermark.value === '') {
-          Watermark.value = isWaterMark;
-        }
+        // if (_from !== "create") {
+        //   const AllowExit = data.find(da => da.name === 'allowExit');
+        //   if (!AllowExit.value && AllowExit.value === '') {
+        //     AllowExit.value = allowExit;
+        //   }
+        //   const Watermark = data.find(da => da.name === 'isWaterMark');
+        //   if (!Watermark.value && Watermark.value === '') {
+        //     Watermark.value = isWaterMark;
+        //   }
+        // }
+
         // 将地址 组合  真实上传的参数
         var TenantAddress = address.province + '|' + address.city + '|' + address.area + '|' + addressInput;
         data.push({ name: 'tenantAddress', value: TenantAddress });
@@ -171,15 +170,24 @@ var EnterContent = function (_Component) {
           _this.setState({
             disabled: false
           });
-          // 当请求成功才走下一步
-          if (!error && (_from === "update" || _from === "create")) {
-            // 当创建企业/ 团队升级为企业   需要滚动条  并且检测 
+          if (!error) {
             _this.setState({
-              startFlag: true,
-              tenantId: payload.tenantId
-            }, function () {
-              (0, _checkTenantStatus.check)(payload.tenantId, _this.loadingFunc, _this.successFunc);
+              startFlag: true
             });
+            // 当创建企业 
+            if (_from === "create") {
+              _this.setState({
+                tenantId: payload.tenantId
+              }, function () {
+                (0, _checkTenantStatus.check)(payload.tenantId, _this.loadingFunc, _this.successFunc);
+              });
+              return false;
+            }
+            // 团队升级为企业   需要加载  并且检测 
+            if (_from === "update") {
+              (0, _checkTenantStatus.check)(tenantId, _this.loadingFunc, _this.successFunc);
+              return false;
+            }
           }
         });
       }
