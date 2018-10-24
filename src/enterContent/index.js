@@ -169,16 +169,16 @@ class EnterContent extends Component {
         disabled: true,
       });
       // 这个form表单组件有点坑， 还得自己完善兼容性  radio的两个 
-      // if (_from !== "create") {
-      //   const AllowExit = data.find(da => da.name === 'allowExit');
-      //   if (!AllowExit.value && AllowExit.value === '') {
-      //     AllowExit.value = allowExit;
-      //   }
-      //   const Watermark = data.find(da => da.name === 'isWaterMark');
-      //   if (!Watermark.value && Watermark.value === '') {
-      //     Watermark.value = isWaterMark;
-      //   }
-      // }
+      if (_from !== "create") {
+        const AllowExit = data.find(da => da.name === 'allowExit');
+        if (AllowExit && AllowExit.value === '') {
+          AllowExit.value = allowExit;
+        }
+        const Watermark = data.find(da => da.name === 'isWaterMark');
+        if (Watermark && Watermark.value === '') {
+          Watermark.value = isWaterMark;
+        }
+      }
 
       // 将地址 组合  真实上传的参数
       const TenantAddress = `${address.province}|${address.city}|${address.area}|${addressInput}`;
