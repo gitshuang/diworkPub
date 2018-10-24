@@ -50,10 +50,16 @@ var _diff = function _diff(_index, _data) {
       var dataKeys = Object.keys(data);
       dataKeys.forEach(function (item, index) {
         var currKey = item + 'Ext' + _index;
+        var currKey2 = item + _index;
         if (dataKeys.includes(currKey)) {
           var currItem = data[currKey];
           if (currItem) {
             data[item] = currItem;
+          }
+        } else if (dataKeys.includes(currKey2)) {
+          var _currItem = data[currKey2];
+          if (_currItem) {
+            data[item] = _currItem;
           }
         }
         var currData = data[item];

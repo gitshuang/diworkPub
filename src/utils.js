@@ -16,8 +16,14 @@ const _diff = (_index, _data) => {
       const dataKeys = Object.keys(data);
       dataKeys.forEach((item, index) => {
         const currKey = item + 'Ext' + _index;
+        const currKey2 = item + _index;
         if (dataKeys.includes(currKey)) {
           const currItem = data[currKey];
+          if(currItem){
+            data[item] = currItem;
+          }
+        }else if(dataKeys.includes(currKey2)){
+          const currItem = data[currKey2];
           if(currItem){
             data[item] = currItem;
           }
