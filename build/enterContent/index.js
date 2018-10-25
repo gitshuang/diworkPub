@@ -48,8 +48,6 @@ var _button = require('./button');
 
 var _button2 = _interopRequireDefault(_button);
 
-var _state2 = require('./state');
-
 require('./style.css');
 
 var _style = {
@@ -73,6 +71,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // 公共UI组件
 
 // diwork业务组件
+
+// import { tenantIndustry, tenantSizeOption } from './state';
 
 
 var Option = _select2["default"].Option;
@@ -236,9 +236,9 @@ var EnterContent = function (_Component) {
     };
 
     // 所属行业
-    _this.tenantIndustry = _state2.tenantIndustry;
+    //this.tenantIndustry = this.props.texts.tenantIndustry;
     // 规模范围
-    _this.tenantSizeOption = _state2.tenantSizeOption;
+    //this.tenantSizeOption = this.props.texts.tenantSizeOption;
 
     // progressbar
     _this.loadingFunc = null;
@@ -305,7 +305,8 @@ var EnterContent = function (_Component) {
     var _props2 = this.props,
         buttonText = _props2.buttonText,
         _from = _props2._from,
-        loadingDesc = _props2.loadingDesc;
+        loadingDesc = _props2.loadingDesc,
+        texts = _props2.texts;
     var _state = this.state,
         address = _state.address,
         startFlag = _state.startFlag,
@@ -334,7 +335,7 @@ var EnterContent = function (_Component) {
           labelName: _react2["default"].createElement(
             'span',
             null,
-            '\u4F01\u4E1A\u540D\u79F0',
+            texts.tenantNameLabel,
             _react2["default"].createElement(
               'font',
               { color: 'red' },
@@ -343,13 +344,18 @@ var EnterContent = function (_Component) {
           ),
           isRequire: true,
           valuePropsName: 'value',
-          errorMessage: '\u8BF7\u8F93\u5165\u4F01\u4E1A\u540D\u79F0',
+          errorMessage: texts.tenantNameError,
           method: 'blur',
           inline: true
         },
-        _react2["default"].createElement(_formControl2["default"], { name: 'tenantName', value: tenantName || '', onChange: function onChange(e) {
+        _react2["default"].createElement(_formControl2["default"], {
+          name: 'tenantName',
+          value: tenantName || '',
+          onChange: function onChange(e) {
             _this2.inputOnChange(e, 'tenantName');
-          }, placeholder: '\u6700\u591A60\u4E2A\u5B57\u7B26' })
+          },
+          placeholder: texts.placeholder1
+        })
       ),
       _react2["default"].createElement(
         _form.FormItem,
@@ -358,7 +364,8 @@ var EnterContent = function (_Component) {
           labelName: _react2["default"].createElement(
             'span',
             null,
-            '\u4F01\u4E1A\u5934\u50CF \xA0\xA0\xA0 '
+            texts.logoLabel,
+            ' \xA0\xA0\xA0 '
           ),
           valuePropsName: 'value',
           method: 'change',
@@ -369,6 +376,8 @@ var EnterContent = function (_Component) {
           logo: logo || '',
           onChange: this.onChangeUpload,
           tip: '',
+          logoError: texts.logoError,
+          logoError2: texts.logoError2,
           uploadApplication: this.props.uploadApplication
         })
       ),
@@ -379,7 +388,7 @@ var EnterContent = function (_Component) {
           labelName: _react2["default"].createElement(
             'span',
             null,
-            '\u6240\u5C5E\u884C\u4E1A',
+            texts.tenantIndustryLabel,
             _react2["default"].createElement(
               'font',
               { color: 'red' },
@@ -388,7 +397,7 @@ var EnterContent = function (_Component) {
           ),
           isRequire: true,
           valuePropsName: 'value',
-          errorMessage: '\u8BF7\u9009\u62E9\u6240\u5C5E\u884C\u4E1A',
+          errorMessage: texts.tenantIndustryError,
           method: 'blur',
           inline: true
         },
@@ -403,7 +412,7 @@ var EnterContent = function (_Component) {
               _this2.setOptherData({ name: 'tenantIndustry', value: e });
             }
           },
-          this.tenantIndustry.map(function (_ref3) {
+          texts.tenantIndustry.map(function (_ref3) {
             var label = _ref3.label,
                 value = _ref3.value;
             return _react2["default"].createElement(
@@ -421,7 +430,7 @@ var EnterContent = function (_Component) {
           labelName: _react2["default"].createElement(
             'span',
             null,
-            '\u89C4\u6A21\u8303\u56F4',
+            texts.tenantSizeLabel,
             _react2["default"].createElement(
               'font',
               { color: 'red' },
@@ -430,7 +439,7 @@ var EnterContent = function (_Component) {
           ),
           isRequire: true,
           valuePropsName: 'value',
-          errorMessage: '\u8BF7\u9009\u62E9\u89C4\u6A21\u8303\u56F4',
+          errorMessage: texts.tenantSizeError,
           method: 'blur',
           inline: true
         },
@@ -445,7 +454,7 @@ var EnterContent = function (_Component) {
               _this2.setOptherData({ name: 'tenantSize', value: e });
             }
           },
-          this.tenantSizeOption.map(function (_ref4) {
+          texts.tenantSizeOption.map(function (_ref4) {
             var label = _ref4.label,
                 value = _ref4.value;
             return _react2["default"].createElement(
@@ -463,11 +472,12 @@ var EnterContent = function (_Component) {
           labelName: _react2["default"].createElement(
             'span',
             null,
-            '\u4F01\u4E1A\u5730\u5740\xA0\xA0'
+            texts.addressLabel,
+            '\xA0\xA0'
           ),
           isRequire: false,
           valuePropsName: 'value',
-          errorMessage: '\u8BF7\u8F93\u5165\u4F01\u4E1A\u5730\u5740',
+          errorMessage: texts.addressError,
           method: 'blur',
           inline: true
         },
@@ -479,7 +489,7 @@ var EnterContent = function (_Component) {
           showMast: false,
           isRequire: false,
           valuePropsName: 'value',
-          errorMessage: '\u8BF7\u8F93\u5165\u4F01\u4E1A\u5730\u5740',
+          errorMessage: texts.addressError,
           method: 'blur',
           inline: true
         },
@@ -489,7 +499,7 @@ var EnterContent = function (_Component) {
           onChange: function onChange(e) {
             _this2.inputOnChange(e, 'addressInput');
           },
-          placeholder: '\u6700\u591A60\u4E2A\u5B57\u7B26'
+          placeholder: texts.placeholder1
         })
       ),
       _from === "create" ? _react2["default"].createElement('div', null) : _react2["default"].createElement(
@@ -499,7 +509,7 @@ var EnterContent = function (_Component) {
           labelName: _react2["default"].createElement(
             'span',
             null,
-            '\u9080\u8BF7\u89C4\u5219',
+            texts.invitePermissionLabel,
             _react2["default"].createElement(
               'font',
               { color: 'red' },
@@ -524,17 +534,17 @@ var EnterContent = function (_Component) {
           _react2["default"].createElement(
             Option,
             { value: '1' },
-            '\u5168\u5458\u9080\u8BF7 '
+            texts.invitePermissionO1
           ),
           _react2["default"].createElement(
             Option,
             { value: '2' },
-            '\u7981\u6B62\u9080\u8BF7'
+            texts.invitePermissionO2
           ),
           _react2["default"].createElement(
             Option,
             { value: '0' },
-            '\u7BA1\u7406\u5458\u9080\u8BF7'
+            texts.invitePermissionO3
           )
         )
       ),
@@ -545,7 +555,7 @@ var EnterContent = function (_Component) {
           labelName: _react2["default"].createElement(
             'span',
             null,
-            '\u7533\u8BF7\u6743\u9650',
+            texts.joinPermissionLabel,
             _react2["default"].createElement(
               'font',
               { color: 'red' },
@@ -570,12 +580,12 @@ var EnterContent = function (_Component) {
           _react2["default"].createElement(
             Option,
             { value: '0' },
-            '\u6240\u6709\u7528\u6237\u90FD\u53EF\u7533\u8BF7\u52A0\u5165 '
+            texts.joinPermissionO1
           ),
           _react2["default"].createElement(
             Option,
             { value: '1' },
-            '\u7981\u6B62\u7528\u6237\u7533\u8BF7\u52A0\u5165'
+            texts.joinPermissionO2
           )
         )
       ),
@@ -586,7 +596,7 @@ var EnterContent = function (_Component) {
           labelName: _react2["default"].createElement(
             'span',
             null,
-            '\u5141\u8BB8\u7528\u6237\u9000\u51FA',
+            texts.allowExitLabel,
             _react2["default"].createElement(
               'font',
               { color: 'red' },
@@ -606,12 +616,12 @@ var EnterContent = function (_Component) {
           _react2["default"].createElement(
             _radio2["default"],
             { value: '0' },
-            '\u7981\u6B62'
+            texts.radio1
           ),
           _react2["default"].createElement(
             _radio2["default"],
             { value: '1' },
-            '\u5141\u8BB8'
+            texts.radio2
           )
         )
       ),
@@ -622,7 +632,7 @@ var EnterContent = function (_Component) {
           labelName: _react2["default"].createElement(
             'span',
             null,
-            '\u4E0A\u4E0B\u7EA7\u663E\u793A',
+            texts.subordinateTypeLabel,
             _react2["default"].createElement(
               'font',
               { color: 'red' },
@@ -647,12 +657,13 @@ var EnterContent = function (_Component) {
           _react2["default"].createElement(
             Option,
             { value: 0 },
-            '\u6839\u636E\u7EC4\u7EC7\u673A\u6784\u8D1F\u8D23\u4EBA\u663E\u793A\u4E0A\u4E0B\u7EA7 '
+            texts.subordinateTypeO1,
+            ' '
           ),
           _react2["default"].createElement(
             Option,
             { value: 1 },
-            '\u6839\u636E\u5BFC\u5165\u7684\u4E0A\u4E0B\u7EA7\u5173\u7CFB\u663E\u793A\u4E0A\u4E0B\u7EA7'
+            texts.subordinateTypeO2
           )
         )
       ),
@@ -663,7 +674,7 @@ var EnterContent = function (_Component) {
           labelName: _react2["default"].createElement(
             'span',
             null,
-            '\u901A\u8BAF\u5F55\u663E\u793A\u6C34\u5370',
+            texts.isWaterMarkLabel,
             _react2["default"].createElement(
               'font',
               { color: 'red' },
@@ -683,12 +694,12 @@ var EnterContent = function (_Component) {
           _react2["default"].createElement(
             _radio2["default"],
             { value: 0 },
-            '\u7981\u6B62'
+            texts.radio1
           ),
           _react2["default"].createElement(
             _radio2["default"],
             { value: 1 },
-            '\u5141\u8BB8'
+            texts.radio2
           )
         )
       ),
@@ -696,7 +707,8 @@ var EnterContent = function (_Component) {
       _react2["default"].createElement(
         'div',
         { className: _style.infoTitle },
-        '\u8054\u7CFB\u4EBA\u4FE1\u606F\uFF1A'
+        texts.infoTitle,
+        '\uFF1A'
       ),
       _react2["default"].createElement(
         _form.FormItem,
@@ -705,7 +717,7 @@ var EnterContent = function (_Component) {
           labelName: _react2["default"].createElement(
             'span',
             null,
-            '\u59D3\u540D',
+            texts.linkmanLabel,
             _react2["default"].createElement(
               'font',
               { color: 'red' },
@@ -713,14 +725,14 @@ var EnterContent = function (_Component) {
             )
           ),
           isRequire: true, valuePropsName: 'value',
-          errorMessage: '\u8BF7\u8F93\u5165\u8054\u7CFB\u4EBA\u59D3\u540D',
+          errorMessage: texts.linkmanError,
           method: 'blur',
           inline: true
         },
         _react2["default"].createElement(_formControl2["default"], {
           name: 'linkman',
           value: linkman || '',
-          placeholder: '\u8BF7\u8F93\u5165\u8054\u7CFB\u4EBA\u59D3\u540D',
+          placeholder: texts.linkmanError,
           onChange: function onChange(e) {
             _this2.inputOnChange(e, 'linkman');
           }
@@ -734,7 +746,7 @@ var EnterContent = function (_Component) {
           labelName: _react2["default"].createElement(
             'span',
             null,
-            '\u90AE\u7BB1',
+            texts.tenantEmailLabel,
             _react2["default"].createElement(
               'font',
               { color: 'red' },
@@ -744,7 +756,7 @@ var EnterContent = function (_Component) {
           isRequire: true,
           method: 'blur',
           htmlType: 'email',
-          errorMessage: '\u90AE\u7BB1\u683C\u5F0F\u9519\u8BEF',
+          errorMessage: texts.tenantEmailError,
           inline: true
         },
         _react2["default"].createElement(_formControl2["default"], {
@@ -753,7 +765,7 @@ var EnterContent = function (_Component) {
           onChange: function onChange(e) {
             _this2.inputOnChange(e, 'tenantEmail');
           },
-          placeholder: '\u8BF7\u8F93\u5165\u90AE\u7BB1'
+          placeholder: texts.tenantEmailPlace
         })
       ),
       _react2["default"].createElement(
@@ -765,7 +777,7 @@ var EnterContent = function (_Component) {
           labelName: _react2["default"].createElement(
             'span',
             null,
-            '\u624B\u673A\u53F7',
+            texts.tenantTelLabel,
             _react2["default"].createElement(
               'font',
               { color: 'red' },
@@ -774,7 +786,7 @@ var EnterContent = function (_Component) {
           ),
           isRequire: true, method: 'blur',
           htmlType: 'tel',
-          errorMessage: '\u624B\u673A\u53F7\u683C\u5F0F\u9519\u8BEF',
+          errorMessage: texts.tenantTelError,
           inline: true
         },
         _react2["default"].createElement(_formControl2["default"], {
@@ -783,7 +795,7 @@ var EnterContent = function (_Component) {
           onChange: function onChange(e) {
             _this2.inputOnChange(e, 'tenantTel');
           },
-          placeholder: '\u8BF7\u8F93\u5165\u624B\u673A\u53F7'
+          placeholder: texts.tenantTelPlace
         })
       ),
       startFlag ? _react2["default"].createElement(

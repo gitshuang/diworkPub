@@ -26,15 +26,16 @@ class UploadPage extends Component {
     this.refs.file.click();
   }
   imgChange = (e) => {
+    const { logoError, logoError2 } = this.props;
     if (e.target.value.trim().length === 0) {
       this.setState({
-        imgWarning: "请上传图片"
+        imgWarning: logoError
       });
     }
     let val = e.target.value && e.target.value.substr(e.target.value.lastIndexOf("."));
     if (val && !val.match(/.jpg|.gif|.png|.bmp|.svg/i)) {
       this.setState({
-        imgWarning: "必须是一个图片"
+        imgWarning: logoError2
       });
       return false;
     } else {

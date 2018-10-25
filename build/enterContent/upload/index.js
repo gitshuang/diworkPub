@@ -50,15 +50,19 @@ var UploadPage = function (_Component) {
     };
 
     _this.imgChange = function (e) {
+      var _this$props = _this.props,
+          logoError = _this$props.logoError,
+          logoError2 = _this$props.logoError2;
+
       if (e.target.value.trim().length === 0) {
         _this.setState({
-          imgWarning: "请上传图片"
+          imgWarning: logoError
         });
       }
       var val = e.target.value && e.target.value.substr(e.target.value.lastIndexOf("."));
       if (val && !val.match(/.jpg|.gif|.png|.bmp|.svg/i)) {
         _this.setState({
-          imgWarning: "必须是一个图片"
+          imgWarning: logoError2
         });
         return false;
       } else {

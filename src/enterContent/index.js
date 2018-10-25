@@ -11,7 +11,7 @@ import Progress from '../progress';
 import Upload from './upload';
 import { check } from './checkTenantStatus';
 import SubmitBtn from './button';
-import { tenantIndustry, tenantSizeOption } from './state';
+// import { tenantIndustry, tenantSizeOption } from './state';
 import { enterForm, line, infoTitle, progressBar } from './style.css';
 
 const { Option } = Select;
@@ -70,9 +70,9 @@ class EnterContent extends Component {
     };
 
     // 所属行业
-    this.tenantIndustry = tenantIndustry;
+    //this.tenantIndustry = this.props.texts.tenantIndustry;
     // 规模范围
-    this.tenantSizeOption = tenantSizeOption;
+    //this.tenantSizeOption = this.props.texts.tenantSizeOption;
 
     // progressbar
     this.loadingFunc = null;
@@ -229,7 +229,7 @@ class EnterContent extends Component {
   }
 
   render() {
-    const { buttonText, _from, loadingDesc } = this.props;
+    const { buttonText, _from, loadingDesc, texts } = this.props;
     const {
       address,
       startFlag,
@@ -255,19 +255,24 @@ class EnterContent extends Component {
 
         <FormItem
           showMast={false}
-          labelName={<span>企业名称<font color="red">&nbsp;*&nbsp;</font></span>}
+          labelName={<span>{texts.tenantNameLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
           isRequire
           valuePropsName="value"
-          errorMessage="请输入企业名称"
+          errorMessage={texts.tenantNameError}
           method="blur"
           inline
         >
-          <FormControl name="tenantName" value={tenantName || ''} onChange={(e) => { this.inputOnChange(e, 'tenantName'); }} placeholder="最多60个字符" />
+          <FormControl 
+            name="tenantName" 
+            value={tenantName || ''} 
+            onChange={(e) => { this.inputOnChange(e, 'tenantName'); }} 
+            placeholder={texts.placeholder1} 
+          />
         </FormItem>
 
         <FormItem
           showMast={false}
-          labelName={<span>企业头像 &nbsp;&nbsp;&nbsp; </span>}
+          labelName={<span>{texts.logoLabel} &nbsp;&nbsp;&nbsp; </span>}
           valuePropsName="value"
           method="change"
           inline
@@ -277,16 +282,18 @@ class EnterContent extends Component {
             logo={logo || ''}
             onChange={this.onChangeUpload}
             tip=""
+            logoError={texts.logoError}
+            logoError2={texts.logoError2}
             uploadApplication={this.props.uploadApplication}
           />
         </FormItem>
 
         <FormItem
           showMast={false}
-          labelName={<span>所属行业<font color="red">&nbsp;*&nbsp;</font></span>}
+          labelName={<span>{texts.tenantIndustryLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
           isRequire
           valuePropsName="value"
-          errorMessage="请选择所属行业"
+          errorMessage={texts.tenantIndustryError}
           method="blur"
           inline
         >
@@ -298,7 +305,7 @@ class EnterContent extends Component {
             onChange={(e) => { this.setOptherData({ name: 'tenantIndustry', value: e }); }}
           >
             {
-              this.tenantIndustry.map(({ label, value }) =>
+              texts.tenantIndustry.map(({ label, value }) =>
                 <Option key={value} value={value}>{label}</Option>)
             }
           </Select>
@@ -306,10 +313,10 @@ class EnterContent extends Component {
 
         <FormItem
           showMast={false}
-          labelName={<span>规模范围<font color="red">&nbsp;*&nbsp;</font></span>}
+          labelName={<span>{texts.tenantSizeLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
           isRequire
           valuePropsName="value"
-          errorMessage="请选择规模范围"
+          errorMessage={texts.tenantSizeError}
           method="blur"
           inline
         >
@@ -321,7 +328,7 @@ class EnterContent extends Component {
             onChange={(e) => { this.setOptherData({ name: 'tenantSize', value: e }); }}
           >
             {
-              this.tenantSizeOption.map(({ label, value }) =>
+              texts.tenantSizeOption.map(({ label, value }) =>
                 <Option key={`${value}`} value={value}>{label}</Option>)
             }
           </Select>
@@ -329,10 +336,10 @@ class EnterContent extends Component {
 
         <FormItem
           showMast={false}
-          labelName={<span>企业地址&nbsp;&nbsp;</span>}
+          labelName={<span>{texts.addressLabel}&nbsp;&nbsp;</span>}
           isRequire={false}
           valuePropsName="value"
-          errorMessage="请输入企业地址"
+          errorMessage={texts.addressError}
           method="blur"
           inline
         >
@@ -343,7 +350,7 @@ class EnterContent extends Component {
           showMast={false}
           isRequire={false}
           valuePropsName="value"
-          errorMessage="请输入企业地址"
+          errorMessage={texts.addressError}
           method="blur"
           inline
         >
@@ -351,14 +358,14 @@ class EnterContent extends Component {
             name="addressInput"
             value={addressInput || ''}
             onChange={(e) => { this.inputOnChange(e, 'addressInput'); }}
-            placeholder="最多60个字符"
+            placeholder={texts.placeholder1}
           />
         </FormItem>
 
         {_from === "create" ? <div></div> :
           <FormItem
             showMast={false}
-            labelName={<span>邀请规则<font color="red">&nbsp;*&nbsp;</font></span>}
+            labelName={<span>{texts.invitePermissionLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
             isRequire={false}
             valuePropsName="value"
             inline
@@ -370,16 +377,16 @@ class EnterContent extends Component {
               style={{ width: 338, marginRight: 6 }}
               onChange={(e) => { this.setOptherData({ name: 'invitePermission', value: e }); }}
             >
-              <Option value="1">全员邀请 </Option>
-              <Option value="2">禁止邀请</Option>
-              <Option value="0">管理员邀请</Option>
+              <Option value="1">{texts.invitePermissionO1}</Option>
+              <Option value="2">{texts.invitePermissionO2}</Option>
+              <Option value="0">{texts.invitePermissionO3}</Option>
             </Select>
           </FormItem>
         }
         {_from === "create" ? <div></div> :
           <FormItem
             showMast={false}
-            labelName={<span>申请权限<font color="red">&nbsp;*&nbsp;</font></span>}
+            labelName={<span>{texts.joinPermissionLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
             isRequire={false}
             valuePropsName="value"
             inline
@@ -391,15 +398,15 @@ class EnterContent extends Component {
               style={{ width: 338, marginRight: 6 }}
               onChange={(e) => { this.setOptherData({ name: 'joinPermission', value: e }); }}
             >
-              <Option value="0">所有用户都可申请加入 </Option>
-              <Option value="1">禁止用户申请加入</Option>
+              <Option value="0">{texts.joinPermissionO1}</Option>
+              <Option value="1">{texts.joinPermissionO2}</Option>
             </Select>
           </FormItem>
         }
         {_from === "create" ? <div></div> :
           <FormItem
             showMast={false}
-            labelName={<span>允许用户退出<font color="red">&nbsp;*&nbsp;</font></span>}
+            labelName={<span>{texts.allowExitLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
             isRequire={false}
             inline
           >
@@ -408,15 +415,15 @@ class EnterContent extends Component {
               onChange={this.allowExitChange}
               selectedValue={allowExit || '0'}
             >
-              <Radio value="0" >禁止</Radio>
-              <Radio value="1" >允许</Radio>
+              <Radio value="0" >{texts.radio1}</Radio>
+              <Radio value="1" >{texts.radio2}</Radio>
             </Radio.RadioGroup>
           </FormItem>
         }
         {_from === "create" ? <div></div> :
           <FormItem
             showMast={false}
-            labelName={<span>上下级显示<font color="red">&nbsp;*&nbsp;</font></span>}
+            labelName={<span>{texts.subordinateTypeLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
             isRequire={false}
             valuePropsName="value"
             inline
@@ -428,15 +435,15 @@ class EnterContent extends Component {
               style={{ width: 338, marginRight: 6 }}
               onChange={(e) => { this.setOptherData({ name: 'subordinateType', value: e }); }}
             >
-              <Option value={0}>根据组织机构负责人显示上下级 </Option>
-              <Option value={1}>根据导入的上下级关系显示上下级</Option>
+              <Option value={0}>{texts.subordinateTypeO1} </Option>
+              <Option value={1}>{texts.subordinateTypeO2}</Option>
             </Select>
           </FormItem>
         }
         {_from === "create" ? <div></div> :
           <FormItem
             showMast={false}
-            labelName={<span>通讯录显示水印<font color="red"> &nbsp;*&nbsp;</font></span>}
+            labelName={<span>{texts.isWaterMarkLabel}<font color="red"> &nbsp;*&nbsp;</font></span>}
             isRequire={false}
             inline
           >
@@ -445,27 +452,27 @@ class EnterContent extends Component {
               onChange={this.watermarkChange}
               selectedValue={isWaterMark}
             >
-              <Radio value={0} >禁止</Radio>
-              <Radio value={1} >允许</Radio>
+              <Radio value={0} >{texts.radio1}</Radio>
+              <Radio value={1} >{texts.radio2}</Radio>
             </Radio.RadioGroup>
           </FormItem>
         }
 
         <div className={line}></div>
-        <div className={infoTitle}>联系人信息：</div>
+        <div className={infoTitle}>{texts.infoTitle}：</div>
 
         <FormItem
           showMast={false}
-          labelName={<span>姓名<font color="red">&nbsp;*&nbsp;</font></span>}
+          labelName={<span>{texts.linkmanLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
           isRequire valuePropsName="value"
-          errorMessage="请输入联系人姓名"
+          errorMessage={texts.linkmanError}
           method="blur"
           inline
         >
           <FormControl
             name="linkman"
             value={linkman || ''}
-            placeholder="请输入联系人姓名"
+            placeholder={texts.linkmanError}
             onChange={(e) => { this.inputOnChange(e, 'linkman'); }}
           />
         </FormItem>
@@ -473,18 +480,18 @@ class EnterContent extends Component {
         <FormItem
           showMast={false}
           valuePropsName="value"
-          labelName={<span>邮箱<font color="red">&nbsp;*&nbsp;</font></span>}
+          labelName={<span>{texts.tenantEmailLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
           isRequire
           method="blur"
           htmlType="email"
-          errorMessage="邮箱格式错误"
+          errorMessage={texts.tenantEmailError}
           inline
         >
           <FormControl
             name="tenantEmail"
             value={tenantEmail || ''}
             onChange={(e) => { this.inputOnChange(e, 'tenantEmail'); }}
-            placeholder="请输入邮箱"
+            placeholder={texts.tenantEmailPlace}
           />
         </FormItem>
 
@@ -492,17 +499,17 @@ class EnterContent extends Component {
           className="input_phone"
           showMast={false}
           valuePropsName="value"
-          labelName={<span>手机号<font color="red">&nbsp;*&nbsp;</font></span>}
+          labelName={<span>{texts.tenantTelLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
           isRequire method="blur"
           htmlType="tel"
-          errorMessage="手机号格式错误"
+          errorMessage={texts.tenantTelError}
           inline
         >
           <FormControl
             name="tenantTel"
             value={tenantTel || ''}
             onChange={(e) => { this.inputOnChange(e, 'tenantTel'); }}
-            placeholder="请输入手机号"
+            placeholder={texts.tenantTelPlace}
           />
         </FormItem>
 
