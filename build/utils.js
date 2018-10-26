@@ -153,12 +153,12 @@ var getHost = exports.getHost = function getHost() {
     manageTeamEnter: {
       production: 'https://nec.diwork.com/static/home.html#/spaceList/joined?target=pc',
       development: 'http://web.yyuap.com:91/static/home.html#/spaceList/joined?target=pc',
-      daily: 'https://nec-daily.yyuap.com/static/home.html#/spaceList/joined?target=pc'
+      daily: 'https://ec-daily.yyuap.com/static/home.html#/spaceList/joined?target=pc'
     },
     dynamic: {
       production: 'https://nec.diwork.com/app/app/appredirect?appid=15',
       development: 'http://web.yyuap.com:91/app/app/appredirect?appid=15',
-      daily: 'https://nec-daily.yyuap.com/app/app/appredirect?appid=15'
+      daily: 'https://ec-daily.yyuap.com/app/app/appredirect?appid=15'
     },
     euc: {
       production: 'https://euc.diwork.com',
@@ -203,12 +203,12 @@ var getHost = exports.getHost = function getHost() {
     info: {
       production: 'https://ec.diwork.com/static/home.html#/myspeech/personInfo?target=pc',
       development: 'http://web.yyuap.com:91/static/home.html#/myspeech/personInfo?target=pc',
-      daily: 'https://nec-daily.yyuap.com/static/home.html#/myspeech/personInfo?target=pc'
+      daily: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/personInfo?target=pc'
     },
     speak: {
       production: 'https://ec.diwork.com/static/home.html#/myspeech/index?index=0&target=pc',
       development: 'http://web.yyuap.com:91/static/home.html#/myspeech/index?index=0&target=pc',
-      daily: 'https://nec-daily.yyuap.com/static/home.html#/myspeech/index?index=0&target=pc'
+      daily: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/index?index=0&target=pc'
     },
     honor: {
       production: '//wsbs.diwork.com/pc/modules/honorZone/ph/index.html',
