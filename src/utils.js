@@ -98,16 +98,21 @@ export const getHost = (key = 'api') => {
       development: process.env.HOST || '',
       daily:process.env.HOST || '',
     },
+    yzone: {
+      production: 'https://ec.diwork.com',
+      development: 'http://web.yyuap.com:91',
+      daily:'https://ec-daily.yyuap.com',
+    },
     manageTeamEnter: {
       production: 'https://nec.diwork.com/static/home.html#/spaceList/joined?target=pc',
       development: 'http://web.yyuap.com:91/static/home.html#/spaceList/joined?target=pc',
       daily:'https://ec-daily.yyuap.com/static/home.html#/spaceList/joined?target=pc',
     },
-    dynamic: {
-      production: 'https://nec.diwork.com/app/app/appredirect?appid=15',
-      development: 'http://web.yyuap.com:91/app/app/appredirect?appid=15',
-      daily:'https://ec-daily.yyuap.com/app/app/appredirect?appid=15',
-    },
+    // dynamic: {
+    //   production: 'https://nec.diwork.com/app/app/appredirect?appid=15',
+    //   development: 'http://web.yyuap.com:91/app/app/appredirect?appid=15',
+    //   daily:'https://ec-daily.yyuap.com/app/app/appredirect?appid=15',
+    // },
     euc: {
       production: 'https://euc.diwork.com',
       development: 'https://idtest.yyuap.com',
