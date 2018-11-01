@@ -276,7 +276,7 @@ var EnterContent = function (_Component) {
     }
     data.linkman = data.linkman || userInfo.userName;
     data.tenantEmail = data.tenantEmail || userInfo.userEmail;
-    data.countryCode = data.tenantTel ? data.tenantTel.substring(0, data.tenantTel.length - 11) : '86';
+    data.countryCode = data.tenantTel && data.tenantTel.length > 11 ? data.tenantTel.substring(0, data.tenantTel.length - 11) : '86';
     data.tenantTel = data.tenantTel ? data.tenantTel.substring(data.tenantTel.length - 11) : userInfo.userMobile;
     this.setState(_extends({}, data));
   };
