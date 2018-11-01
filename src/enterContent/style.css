@@ -124,6 +124,8 @@
   left: -272px;
   z-index: 2;
   line-height: 44px;
+  font-size: 14px;
+  color: #555555;
 }
 .inputPhone{
   float: left;
@@ -134,5 +136,6 @@
   width: 226px !important;
   border-radius: 0 3px 3px 0 !important;
   border-left: none;
-  padding-left: 44px; 
+  padding-left: 44px;
+  height: 32px; 
 }
