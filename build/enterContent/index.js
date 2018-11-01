@@ -54,7 +54,10 @@ var _style = {
   'enterForm': 'enterForm__style___3rLaN',
   'line': 'line__style___1rbXZ',
   'infoTitle': 'infoTitle__style___15dG2',
-  'progressBar': 'progressBar__style___kjcre'
+  'progressBar': 'progressBar__style___kjcre',
+  'country': 'country__style___3E-Os',
+  'code': 'code__style___1L3cM',
+  'inputPhone': 'inputPhone__style___1hlKj'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -71,8 +74,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // 公共UI组件
 
 // diwork业务组件
-
-// import { tenantIndustry, tenantSizeOption } from './state';
 
 
 var Option = _select2["default"].Option;
@@ -165,6 +166,7 @@ var EnterContent = function (_Component) {
           }
           return obj;
         }, {});
+        param.tenantTel = '' + param.countryCode + param.tenantTel;
 
         handleClickFn(param, function (_ref2) {
           var error = _ref2.error,
@@ -208,14 +210,10 @@ var EnterContent = function (_Component) {
     };
 
     _this.state = {
-      disabled: false, // 按钮是否可点击， true为不可点击  （todo现在反了）
+      disabled: false, // 按钮是否可点击， true为不可点击 
       startFlag: false, // process 0～1 
       tenantId: '', // 租户ID
-      address: {
-        province: '北京',
-        city: '北京',
-        area: '东城区'
-      }, // 企业地址 
+      address: null, // 企业地址 
       addressInput: '', // 企业地址 (60个字输入框)
 
       tenantName: '', // 企业名称
@@ -231,14 +229,11 @@ var EnterContent = function (_Component) {
       isWaterMark: 1, // 通讯录是否显示水印      number类型
 
       linkman: '', // 姓名
+      countryCode: '86', // 国家代号
       tenantTel: '', // 手机号
-      tenantEmail: '' // 邮箱
+      tenantEmail: '', // 邮箱
+      charged: false // new -  企业是否为付费
     };
-
-    // 所属行业
-    //this.tenantIndustry = this.props.texts.tenantIndustry;
-    // 规模范围
-    //this.tenantSizeOption = this.props.texts.tenantSizeOption;
 
     // progressbar
     _this.loadingFunc = null;
@@ -258,7 +253,12 @@ var EnterContent = function (_Component) {
       this.setState({
         linkman: userInfo.userName,
         tenantEmail: userInfo.userEmail,
-        tenantTel: userInfo.userMobile
+        tenantTel: userInfo.userMobile,
+        address: {
+          province: '北京',
+          city: '北京',
+          area: '东城区'
+        }
       });
       return false;
     }
@@ -268,16 +268,16 @@ var EnterContent = function (_Component) {
     if (tenantAddress) {
       var Addres = tenantAddress.split('|');
       data.address = {
-        province: Addres[0] || '',
-        city: Addres[1] || '',
-        area: Addres[2] || ''
+        province: Addres[0] || '北京',
+        city: Addres[1] || '北京',
+        area: Addres[2] || '东城区'
       };
       data.addressInput = Addres[Addres.length - 1];
     }
     data.linkman = data.linkman || userInfo.userName;
     data.tenantEmail = data.tenantEmail || userInfo.userEmail;
-    data.tenantTel = data.tenantTel || userInfo.userMobile;
-
+    data.countryCode = data.tenantTel ? data.tenantTel.substring(0, data.tenantTel.length - 11) : '86';
+    data.tenantTel = data.tenantTel ? data.tenantTel.substring(data.tenantTel.length - 11) : userInfo.userMobile;
     this.setState(_extends({}, data));
   };
   // 切换企业地址
@@ -322,7 +322,9 @@ var EnterContent = function (_Component) {
         isWaterMark = _state.isWaterMark,
         linkman = _state.linkman,
         tenantTel = _state.tenantTel,
-        tenantEmail = _state.tenantEmail;
+        tenantEmail = _state.tenantEmail,
+        countryCode = _state.countryCode,
+        charged = _state.charged;
 
 
     return _react2["default"].createElement(
@@ -465,7 +467,7 @@ var EnterContent = function (_Component) {
           })
         )
       ),
-      _react2["default"].createElement(
+      address ? _react2["default"].createElement(
         _form.FormItem,
         {
           showMast: false,
@@ -482,7 +484,7 @@ var EnterContent = function (_Component) {
           inline: true
         },
         _react2["default"].createElement(_citySelect2["default"], { name: 'address', onChange: this.onCityChange, defaultValue: address })
-      ),
+      ) : _react2["default"].createElement('div', null),
       _react2["default"].createElement(
         _form.FormItem,
         {
@@ -502,7 +504,7 @@ var EnterContent = function (_Component) {
           placeholder: texts.placeholder1
         })
       ),
-      _from === "create" ? _react2["default"].createElement('div', null) : _react2["default"].createElement(
+      _from === "create" || !charged ? _react2["default"].createElement('div', null) : _react2["default"].createElement(
         _form.FormItem,
         {
           showMast: false,
@@ -589,7 +591,7 @@ var EnterContent = function (_Component) {
           )
         )
       ),
-      _from === "create" ? _react2["default"].createElement('div', null) : _react2["default"].createElement(
+      _from === "create" || !charged ? _react2["default"].createElement('div', null) : _react2["default"].createElement(
         _form.FormItem,
         {
           showMast: false,
@@ -769,12 +771,10 @@ var EnterContent = function (_Component) {
         })
       ),
       _react2["default"].createElement(
-        _form.FormItem,
-        {
-          className: 'input_phone',
-          showMast: false,
-          valuePropsName: 'value',
-          labelName: _react2["default"].createElement(
+        _form.FormItem
+        // showMast={false}
+        ,
+        { labelName: _react2["default"].createElement(
             'span',
             null,
             texts.tenantTelLabel,
@@ -783,11 +783,43 @@ var EnterContent = function (_Component) {
               { color: 'red' },
               '\xA0*\xA0'
             )
-          ),
-          isRequire: true, method: 'blur',
+          )
+          // isRequire={false}
+          // valuePropsName="value"
+          , inline: true,
+          className: _style.country
+        },
+        _react2["default"].createElement(
+          _select2["default"],
+          {
+            name: 'countryCode',
+            defaultValue: "86",
+            value: countryCode,
+            style: { width: 112, marginRight: 6 },
+            onChange: function onChange(e) {
+              _this2.setOptherData({ name: 'countryCode', value: e });
+            }
+          },
+          texts.country.map(function (_ref5) {
+            var countryCode = _ref5.countryCode,
+                name = _ref5.name;
+            return _react2["default"].createElement(
+              Option,
+              { value: countryCode },
+              name
+            );
+          })
+        )
+      ),
+      _react2["default"].createElement(
+        _form.FormItem,
+        {
+          className: _style.inputPhone,
+          valuePropsName: 'value',
+          isRequire: true,
+          method: 'blur',
           htmlType: 'tel',
-          errorMessage: texts.tenantTelError,
-          inline: true
+          errorMessage: texts.tenantTelError
         },
         _react2["default"].createElement(_formControl2["default"], {
           name: 'tenantTel',
@@ -798,6 +830,12 @@ var EnterContent = function (_Component) {
           placeholder: texts.tenantTelPlace
         })
       ),
+      _react2["default"].createElement(
+        'div',
+        { className: _style.code },
+        '+' + countryCode
+      ),
+      _react2["default"].createElement('div', { className: 'clear', style: { clear: "both" } }),
       startFlag ? _react2["default"].createElement(
         'div',
         { className: _style.progressBar },

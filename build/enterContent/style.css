@@ -57,6 +57,7 @@
 
 .enterForm__style___3rLaN .u-form-item{
   width: 100%;
+  min-height: 64px;
 }
 
 .enterForm__style___3rLaN .u-input-inner>input{
@@ -105,4 +106,35 @@
 
 .progressBar__style___kjcre .iconfont{
   color: #fff;
+}
+
+.country__style___3E-Os{
+  float: left;
+  margin-left: 40%;
+  position: relative;
+  left: -56px;
+} 
+.country__style___3E-Os .u-label {
+  width: auto;
+}
+.country__style___3E-Os .u-select .u-select-selection{
+  border-radius: 3px 0 0 3px;
+}
+.code__style___1L3cM{
+  float: left;
+  position: relative;
+  left: -272px;
+  z-index: 2;
+  line-height: 44px;
+}
+.inputPhone__style___1hlKj{
+  float: left;
+  position: relative;
+  left: -52px;
+}
+.enterForm__style___3rLaN .inputPhone__style___1hlKj .u-input-inner>input{
+  width: 226px !important;
+  border-radius: 0 3px 3px 0 !important;
+  border-left: none;
+  padding-left: 44px; 
 }

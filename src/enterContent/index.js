@@ -11,8 +11,7 @@ import Progress from '../progress';
 import Upload from './upload';
 import { check } from './checkTenantStatus';
 import SubmitBtn from './button';
-// import { tenantIndustry, tenantSizeOption } from './state';
-import { enterForm, line, infoTitle, progressBar } from './style.css';
+import { enterForm, line, infoTitle, progressBar, country, code, inputPhone, } from './style.css';
 
 const { Option } = Select;
 
@@ -42,14 +41,10 @@ class EnterContent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      disabled: false,                // 按钮是否可点击， true为不可点击  （todo现在反了）
+      disabled: false,                // 按钮是否可点击， true为不可点击 
       startFlag: false,                // process 0～1 
       tenantId: '',                   // 租户ID
-      address: {
-        province: '北京',
-        city: '北京',
-        area: '东城区',
-      },                              // 企业地址 
+      address: null,                // 企业地址 
       addressInput: '',               // 企业地址 (60个字输入框)
 
       tenantName: '',                 // 企业名称
@@ -65,14 +60,11 @@ class EnterContent extends Component {
       isWaterMark: 1,                 // 通讯录是否显示水印      number类型
 
       linkman: '',                    // 姓名
+      countryCode: '86',              // 国家代号
       tenantTel: '',                  // 手机号
       tenantEmail: '',                // 邮箱
+      charged: false,                 // new -  企业是否为付费
     };
-
-    // 所属行业
-    //this.tenantIndustry = this.props.texts.tenantIndustry;
-    // 规模范围
-    //this.tenantSizeOption = this.props.texts.tenantSizeOption;
 
     // progressbar
     this.loadingFunc = null;
@@ -88,6 +80,11 @@ class EnterContent extends Component {
         linkman: userInfo.userName,
         tenantEmail: userInfo.userEmail,
         tenantTel: userInfo.userMobile,
+        address: {
+          province: '北京',
+          city: '北京',
+          area: '东城区',
+        },
       });
       return false;
     }
@@ -96,16 +93,16 @@ class EnterContent extends Component {
     if (tenantAddress) {
       const Addres = tenantAddress.split('|');
       data.address = {
-        province: Addres[0] || '',
-        city: Addres[1] || '',
-        area: Addres[2] || '',
+        province: Addres[0] || '北京',
+        city: Addres[1] || '北京',
+        area: Addres[2] || '东城区',
       };
       data.addressInput = Addres[Addres.length - 1]
     }
     data.linkman = data.linkman || userInfo.userName;
     data.tenantEmail = data.tenantEmail || userInfo.userEmail;
-    data.tenantTel = data.tenantTel || userInfo.userMobile;
-
+    data.countryCode = data.tenantTel ? data.tenantTel.substring(0, data.tenantTel.length - 11) : '86';
+    data.tenantTel = data.tenantTel ? data.tenantTel.substring(data.tenantTel.length - 11) : userInfo.userMobile;
     this.setState({
       ...data,
     });
@@ -190,6 +187,7 @@ class EnterContent extends Component {
         }
         return obj;
       }, {});
+      param.tenantTel = `${param.countryCode}${param.tenantTel}`;
 
       handleClickFn(param, ({ error, payload }) => {
         // 只要是回调都将按钮的disabled 设定为false
@@ -248,6 +246,8 @@ class EnterContent extends Component {
       linkman,                    // 姓名
       tenantTel,                  // 手机号
       tenantEmail,                // 邮箱
+      countryCode,                // 国区编号
+      charged,                    // 是否免费企业
     } = this.state;
 
     return (
@@ -262,11 +262,11 @@ class EnterContent extends Component {
           method="blur"
           inline
         >
-          <FormControl 
-            name="tenantName" 
-            value={tenantName || ''} 
-            onChange={(e) => { this.inputOnChange(e, 'tenantName'); }} 
-            placeholder={texts.placeholder1} 
+          <FormControl
+            name="tenantName"
+            value={tenantName || ''}
+            onChange={(e) => { this.inputOnChange(e, 'tenantName'); }}
+            placeholder={texts.placeholder1}
           />
         </FormItem>
 
@@ -333,19 +333,19 @@ class EnterContent extends Component {
             }
           </Select>
         </FormItem>
-
-        <FormItem
-          showMast={false}
-          labelName={<span>{texts.addressLabel}&nbsp;&nbsp;</span>}
-          isRequire={false}
-          valuePropsName="value"
-          errorMessage={texts.addressError}
-          method="blur"
-          inline
-        >
-          <CitySelect name="address" onChange={this.onCityChange} defaultValue={address} />
-        </FormItem>
-
+        {
+          address ? <FormItem
+            showMast={false}
+            labelName={<span>{texts.addressLabel}&nbsp;&nbsp;</span>}
+            isRequire={false}
+            valuePropsName="value"
+            errorMessage={texts.addressError}
+            method="blur"
+            inline
+          >
+            <CitySelect name="address" onChange={this.onCityChange} defaultValue={address} />
+          </FormItem> : <div />
+        }
         <FormItem
           showMast={false}
           isRequire={false}
@@ -362,7 +362,7 @@ class EnterContent extends Component {
           />
         </FormItem>
 
-        {_from === "create" ? <div></div> :
+        {_from === "create" || !charged ? <div></div> :
           <FormItem
             showMast={false}
             labelName={<span>{texts.invitePermissionLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
@@ -403,7 +403,7 @@ class EnterContent extends Component {
             </Select>
           </FormItem>
         }
-        {_from === "create" ? <div></div> :
+        {_from === "create" || !charged ? <div></div> :
           <FormItem
             showMast={false}
             labelName={<span>{texts.allowExitLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
@@ -496,23 +496,44 @@ class EnterContent extends Component {
         </FormItem>
 
         <FormItem
-          className="input_phone"
-          showMast={false}
-          valuePropsName="value"
+          // showMast={false}
           labelName={<span>{texts.tenantTelLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
-          isRequire method="blur"
+          // isRequire={false}
+          // valuePropsName="value"
+          inline
+          className={country}
+        >
+          <Select
+            name="countryCode"
+            defaultValue={"86"}
+            value={countryCode}
+            style={{ width: 112, marginRight: 6 }}
+            onChange={(e) => { this.setOptherData({ name: 'countryCode', value: e }); }}
+          >
+            {
+              texts.country.map(({ countryCode, name }) =>
+                <Option value={countryCode}>{name}</Option>)
+            }
+          </Select>
+        </FormItem>
+        <FormItem
+          className={inputPhone}
+          valuePropsName="value"
+          isRequire
+          method="blur"
           htmlType="tel"
           errorMessage={texts.tenantTelError}
-          inline
         >
           <FormControl
             name="tenantTel"
             value={tenantTel || ''}
             onChange={(e) => { this.inputOnChange(e, 'tenantTel'); }}
             placeholder={texts.tenantTelPlace}
-          />
+          >
+          </FormControl>
         </FormItem>
-
+        <div className={code}>{`+${countryCode}`}</div>
+        <div className="clear" style={{ clear: "both" }}></div>
         {
           startFlag ?
             <div className={progressBar}>
