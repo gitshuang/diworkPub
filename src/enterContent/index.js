@@ -28,6 +28,8 @@ class EnterContent extends Component {
     buttonText: PropTypes.string,
     uploadApplication: PropTypes.func,
     loadingDesc: PropTypes.string,
+    texts: PropTypes.shape({}),
+    lang: PropTypes.string,
   };
   static defaultProps = {
     userInfo: {},                 // 用户信息
@@ -37,6 +39,8 @@ class EnterContent extends Component {
     buttonText: '',               // 按钮显示文字
     uploadApplication: () => { },          // 上传事件
     loadingDesc: '',              // 滚动条 文字提示
+    texts: {},
+    lang: 'zh_CN',
   };
   constructor(props) {
     super(props);
@@ -227,7 +231,7 @@ class EnterContent extends Component {
   }
 
   render() {
-    const { buttonText, _from, loadingDesc, texts } = this.props;
+    const { buttonText, _from, loadingDesc, texts, lang } = this.props;
     const {
       address,
       startFlag,
@@ -343,7 +347,7 @@ class EnterContent extends Component {
             method="blur"
             inline
           >
-            <CitySelect name="address" onChange={this.onCityChange} defaultValue={address} />
+            <CitySelect name="address" onChange={this.onCityChange} defaultValue={address} lang={lang} />
           </FormItem> : <div />
         }
         <FormItem

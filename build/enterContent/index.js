@@ -306,7 +306,8 @@ var EnterContent = function (_Component) {
         buttonText = _props2.buttonText,
         _from = _props2._from,
         loadingDesc = _props2.loadingDesc,
-        texts = _props2.texts;
+        texts = _props2.texts,
+        lang = _props2.lang;
     var _state = this.state,
         address = _state.address,
         startFlag = _state.startFlag,
@@ -483,7 +484,7 @@ var EnterContent = function (_Component) {
           method: 'blur',
           inline: true
         },
-        _react2["default"].createElement(_citySelect2["default"], { name: 'address', onChange: this.onCityChange, defaultValue: address })
+        _react2["default"].createElement(_citySelect2["default"], { name: 'address', onChange: this.onCityChange, defaultValue: address, lang: lang })
       ) : _react2["default"].createElement('div', null),
       _react2["default"].createElement(
         _form.FormItem,
@@ -867,7 +868,9 @@ EnterContent.propTypes = {
   _from: _propTypes2["default"].string,
   buttonText: _propTypes2["default"].string,
   uploadApplication: _propTypes2["default"].func,
-  loadingDesc: _propTypes2["default"].string
+  loadingDesc: _propTypes2["default"].string,
+  texts: _propTypes2["default"].shape({}),
+  lang: _propTypes2["default"].string
 };
 EnterContent.defaultProps = {
   userInfo: {}, // 用户信息
@@ -876,7 +879,9 @@ EnterContent.defaultProps = {
   _from: '', // 来源，（新建，设置，升级）
   buttonText: '', // 按钮显示文字
   uploadApplication: function uploadApplication() {}, // 上传事件
-  loadingDesc: '' // 滚动条 文字提示
+  loadingDesc: '', // 滚动条 文字提示
+  texts: {},
+  lang: 'zh_CN'
 };
 exports["default"] = EnterContent;
 module.exports = exports['default'];
