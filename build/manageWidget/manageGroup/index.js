@@ -642,12 +642,12 @@ var ManageGroup = function (_Component) {
               } },
             widgetName
           ),
-          children.length || !languagesJSON.noDataGroup ? null : _react2["default"].createElement(
+          languagesJSON.noDataGroup && children.length === 0 ? _react2["default"].createElement(
             'span',
             { className: _style.noChildStyle },
             _react2["default"].createElement(_icon2["default"], { type: 'notice' }),
             languagesJSON.noDataGroup
-          )
+          ) : null
         ),
         _react2["default"].createElement(
           'div',
