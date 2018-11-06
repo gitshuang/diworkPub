@@ -504,7 +504,7 @@ class ManageGroup extends Component {
         <div className={`${widgetTitle} ${widgetTitleInit} `} >
           <div className={check_group}>
             <Checkbox checked={checkType} onChange={(e)=>{this.selectFn(e,index)}}>{widgetName}</Checkbox>
-            {children.length ? null : <span className={noChildStyle}><Icon type="notice" />{languagesJSON.noDataGroup}</span>}
+            {children.length && !languagesJSON.noDataGroup ? null : <span className={noChildStyle}><Icon type="notice" />{languagesJSON.noDataGroup}</span>}
           </div>
           <div>
             <div className={iconBox}>
