@@ -119,6 +119,7 @@
 }
 .country__style___3E-Os .u-select .u-select-selection{
   border-radius: 3px 0 0 3px;
+  border-right: none;
 }
 .code__style___1L3cM{
   float: left;
@@ -137,7 +138,7 @@
 .enterForm__style___3rLaN .inputPhone__style___1hlKj .u-input-inner>input{
   width: 230px !important;
   border-radius: 0 3px 3px 0 !important;
-  border-left: none;
+  /* border-left: none; */
   padding-left: 44px;
   height: 32px; 
 }

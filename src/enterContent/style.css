@@ -117,6 +117,7 @@
 }
 .country :global(.u-select .u-select-selection){
   border-radius: 3px 0 0 3px;
+  border-right: none;
 }
 .code{
   float: left;
@@ -135,7 +136,7 @@
 .enterForm .inputPhone :global(.u-input-inner>input){
   width: 230px !important;
   border-radius: 0 3px 3px 0 !important;
-  border-left: none;
+  /* border-left: none; */
   padding-left: 44px;
   height: 32px; 
 }
