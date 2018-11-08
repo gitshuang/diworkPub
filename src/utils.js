@@ -323,7 +323,13 @@ export function get(oriUrl, oriParams = {}) {
   // 这里是授权参照的请求接口 不需要manager
   if (oriUrl === "/ref/diwork/iref_ctr/refInfo" || oriUrl.indexOf('/ref/diwork/iref_ctr/refInfo')>-1) {
     url = oriUrl;
-    jsonp({ url, data });
+    let arr = data.split('&');
+    let objData = {};
+    for(let index=0; index<arr.length; ++index){
+        let curr = arr[index].split('=');
+        objData[curr[0]] = curr[1];
+    }
+    jsonp({ url, data:objData });
     return false;
 
   }
