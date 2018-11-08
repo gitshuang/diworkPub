@@ -10,16 +10,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = require('react-router-dom');
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _icon = require('../../icon');
-
-var _icon2 = _interopRequireDefault(_icon);
-
 var _buttonGroup = require('../../bee/button-group');
 
 var _buttonGroup2 = _interopRequireDefault(_buttonGroup);
@@ -32,9 +22,9 @@ var _serviceItem = require('../serviceItem');
 
 var _serviceItem2 = _interopRequireDefault(_serviceItem);
 
-var _formControl = require('../../bee/form-control');
+var _searchInput = require('../../searchInput');
 
-var _formControl2 = _interopRequireDefault(_formControl);
+var _searchInput2 = _interopRequireDefault(_searchInput);
 
 var _button3 = require('../../button');
 
@@ -370,22 +360,14 @@ var SelectWidgetList = function (_Component) {
       _react2["default"].createElement(
         'div',
         { className: _style.widget_right },
-        _react2["default"].createElement(
-          'div',
-          { className: _style.searchPanel },
-          _react2["default"].createElement(_formControl2["default"], { className: _style.form_control, placeholder: languagesJSON.searchContent, value: this.state.value,
-            onKeyDown: this.onKeyup, onChange: this.inputOnChange }),
-          _react2["default"].createElement(
-            'div',
-            { className: _style.search_icon_con, onClick: this.btnSearch },
-            _react2["default"].createElement(_icon2["default"], { type: 'search', className: _style.search_icon }),
-            _react2["default"].createElement(
-              'span',
-              { className: _style.search_tit },
-              languagesJSON.search
-            )
-          )
-        ),
+        _react2["default"].createElement(_searchInput2["default"], {
+          onKeyDown: this.onKeyup,
+          onChange: this.inputOnChange,
+          keywords: this.state.value,
+          onClick: this.btnSearch,
+          placeholder: languagesJSON.searchContent,
+          btnText: languagesJSON.search
+        }),
         _react2["default"].createElement(
           'div',
           { className: _style.panel },
