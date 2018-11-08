@@ -392,6 +392,8 @@ function get(oriUrl) {
   // 这里是授权参照的请求接口 不需要manager
   if (oriUrl === "/ref/diwork/iref_ctr/refInfo") {
     url = oriUrl;
+    jsonp({ url: url, data: data });
+    return false;
   }
   if (data) {
     url = url + '?' + data;
@@ -399,6 +401,45 @@ function get(oriUrl) {
   var fh = url.indexOf("?") == -1 ? "?" : "&";
   url += fh + "tm=" + new Date().getTime();
   return fetch(url, options());
+}
+
+function jsonp(options) {
+  return new Promise(function (resolve, reject) {
+    var callbackID = 'jsonp_' + Date.now(),
+        container = document.getElementsByTagName('head')[0],
+        scriptNode = document.createElement("script"),
+        data = options.data || {},
+        url = options.url,
+        params = [];
+    data["callback"] = callbackID;
+    for (var key in data) {
+      params.push(key + "=" + data[key]);
+    }
+
+    url += /\?/.test(url) ? '&' : '?';
+    url += params.join('&');
+    scriptNode.id = callbackID;
+    scriptNode.src = url;
+    function removeNode() {
+      window[callbackID] = undefined;
+      var script = document.getElementById(callbackID);
+      container.removeChild(script);
+    }
+    scriptNode.onerror = function () {
+      reject();
+      removeNode();
+    };
+    window[callbackID] = function (response) {
+      resolve(response);
+      removeNode();
+    };
+    scriptNode.type = "text/javascript";
+    try {
+      container.appendChild(scriptNode);
+    } catch (err) {
+      reject(err);
+    }
+  });
 }
 
 function mapStateToProps() {
