@@ -54,6 +54,8 @@ var SearchInput = function (_Component) {
 
   SearchInput.prototype.render = function render() {
     var _props = this.props,
+        placeholder = _props.placeholder,
+        btnText = _props.btnText,
         keywords = _props.keywords,
         onKeyDown = _props.onKeyDown,
         onChange = _props.onChange,
@@ -65,7 +67,7 @@ var SearchInput = function (_Component) {
       { className: _index.searchPanel + ' ' + classname },
       _react2["default"].createElement(_formControl2["default"], {
         className: _index.serviceSearch,
-        placeholder: '\u641C\u7D22\u4EBA\u5458\u4FE1\u606F\u3001\u670D\u52A1\u53CA\u5176\u4ED6\u5185\u5BB9',
+        placeholder: placeholder,
         value: keywords,
         onKeyDown: onKeyDown,
         onChange: onChange
@@ -82,7 +84,7 @@ var SearchInput = function (_Component) {
         _react2["default"].createElement(
           'span',
           null,
-          '\u641C\u7D22'
+          btnText
         )
       )
     );
@@ -92,6 +94,8 @@ var SearchInput = function (_Component) {
 }(_react.Component);
 
 SearchInput.propTypes = {
+  placeholder: _propTypes2["default"].string,
+  btnText: _propTypes2["default"].string,
   keywords: _propTypes2["default"].string,
   onKeyDown: _propTypes2["default"].func,
   onChange: _propTypes2["default"].func,
@@ -99,6 +103,8 @@ SearchInput.propTypes = {
   classname: _propTypes2["default"].string
 };
 SearchInput.defaultProps = {
+  placeholder: '',
+  btnText: '搜索',
   keywords: '',
   onKeyDown: function onKeyDown() {},
   onChange: function onChange() {},

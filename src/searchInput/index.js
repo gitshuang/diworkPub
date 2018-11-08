@@ -9,6 +9,8 @@ import {
 } from './index.css';
 class SearchInput extends Component {
   static propTypes = {
+    placeholder: PropTypes.string,
+    btnText: PropTypes.string,
     keywords: PropTypes.string,
     onKeyDown: PropTypes.func,
     onChange: PropTypes.func,
@@ -16,6 +18,8 @@ class SearchInput extends Component {
     classname: PropTypes.string,
   }
   static defaultProps = {
+    placeholder: '',
+    btnText: '搜索',
     keywords: '',
     onKeyDown: () => { },
     onChange: () => { },
@@ -34,12 +38,12 @@ class SearchInput extends Component {
   }
 
   render() {
-    const { keywords, onKeyDown, onChange, onClick, classname } = this.props;
+    const { placeholder, btnText, keywords, onKeyDown, onChange, onClick, classname } = this.props;
     return (
       <div className={`${searchPanel} ${classname}`}>
         <FormControl
           className={serviceSearch}
-          placeholder="搜索人员信息、服务及其他内容"
+          placeholder={placeholder}
           value={keywords}
           onKeyDown={onKeyDown}
           onChange={onChange}
@@ -47,7 +51,7 @@ class SearchInput extends Component {
         <div className={search_icon_con} onClick={onClick}>
           <b>|</b>
           <Icon type="search" />
-          <span>搜索</span>
+          <span>{btnText}</span>
         </div>
       </div>
     )
