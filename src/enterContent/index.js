@@ -92,6 +92,7 @@ class EnterContent extends Component {
       });
       return false;
     }
+
     const { tenantAddress } = data;
     // 将 地址综合 赋值到 address 和 address和 addressInput 上
     if (tenantAddress) {
@@ -102,7 +103,15 @@ class EnterContent extends Component {
         area: Addres[2] || '东城区',
       };
       data.addressInput = Addres[Addres.length - 1]
+    } else {
+      data.address = {
+        province: '北京',
+        city: '北京',
+        area: '东城区',
+      };
+      data.addressInput = '';
     }
+
     data.linkman = data.linkman || userInfo.userName;
     data.tenantEmail = data.tenantEmail || userInfo.userEmail;
     data.countryCode = data.tenantTel && data.tenantTel.length > 11 ? data.tenantTel.substring(0, data.tenantTel.length - 11) : '86';
