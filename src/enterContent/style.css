@@ -121,7 +121,7 @@
 .code{
   float: left;
   position: relative;
-  left: -272px;
+  left: -280px;
   z-index: 2;
   line-height: 44px;
   font-size: 14px;
@@ -130,12 +130,15 @@
 .inputPhone{
   float: left;
   position: relative;
-  left: -52px;
+  left: -56px;
 }
 .enterForm .inputPhone :global(.u-input-inner>input){
-  width: 226px !important;
+  width: 230px !important;
   border-radius: 0 3px 3px 0 !important;
   border-left: none;
   padding-left: 44px;
   height: 32px; 
+}
+.enterForm :global(.u-form-item.u-form-inline .u-input-group-outer){
+  max-width: auto !important;
 }

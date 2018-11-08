@@ -796,7 +796,7 @@ var EnterContent = function (_Component) {
             name: 'countryCode',
             defaultValue: "86",
             value: countryCode,
-            style: { width: 112, marginRight: 6 },
+            style: { width: 108 },
             onChange: function onChange(e) {
               _this2.setOptherData({ name: 'countryCode', value: e });
             }

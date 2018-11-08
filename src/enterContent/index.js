@@ -511,7 +511,7 @@ class EnterContent extends Component {
             name="countryCode"
             defaultValue={"86"}
             value={countryCode}
-            style={{ width: 112, marginRight: 6 }}
+            style={{ width: 108 }}
             onChange={(e) => { this.setOptherData({ name: 'countryCode', value: e }); }}
           >
             {
