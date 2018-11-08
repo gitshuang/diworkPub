@@ -48,7 +48,7 @@ class SearchInput extends Component {
           onKeyDown={onKeyDown}
           onChange={onChange}
         />
-        <div className={search_icon_con} onClick={onClick}>
+        <div className={search_icon_con} onClick={() => { onClick() }}>
           <b>|</b>
           <Icon type="search" />
           <span>{btnText}</span>

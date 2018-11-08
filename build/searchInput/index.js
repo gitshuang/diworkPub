@@ -59,7 +59,7 @@ var SearchInput = function (_Component) {
         keywords = _props.keywords,
         onKeyDown = _props.onKeyDown,
         onChange = _props.onChange,
-        onClick = _props.onClick,
+        _onClick = _props.onClick,
         classname = _props.classname;
 
     return _react2["default"].createElement(
@@ -74,7 +74,9 @@ var SearchInput = function (_Component) {
       }),
       _react2["default"].createElement(
         'div',
-        { className: _index.search_icon_con, onClick: onClick },
+        { className: _index.search_icon_con, onClick: function onClick() {
+            _onClick();
+          } },
         _react2["default"].createElement(
           'b',
           null,
