@@ -19,12 +19,12 @@ const _diff = (_index, _data) => {
         const currKey2 = item + _index;
         if (dataKeys.includes(currKey)) {
           const currItem = data[currKey];
-          if(currItem){
+          if (currItem) {
             data[item] = currItem;
           }
-        }else if(dataKeys.includes(currKey2)){
+        } else if (dataKeys.includes(currKey2)) {
           const currItem = data[currKey2];
-          if(currItem){
+          if (currItem) {
             data[item] = currItem;
           }
         }
@@ -96,17 +96,17 @@ export const getHost = (key = 'api') => {
     api: {
       production: process.env.HOST || '',
       development: process.env.HOST || '',
-      daily:process.env.HOST || '',
+      daily: process.env.HOST || '',
     },
     yzone: {
       production: 'https://ec.diwork.com',
       development: 'http://web.yyuap.com:91',
-      daily:'https://ec-daily.yyuap.com',
+      daily: 'https://ec-daily.yyuap.com',
     },
     manageTeamEnter: {
       production: 'https://nec.diwork.com/static/home.html#/spaceList/joined?target=pc',
       development: 'http://web.yyuap.com:91/static/home.html#/spaceList/joined?target=pc',
-      daily:'https://ec-daily.yyuap.com/static/home.html#/spaceList/joined?target=pc',
+      daily: 'https://ec-daily.yyuap.com/static/home.html#/spaceList/joined?target=pc',
     },
     // dynamic: {
     //   production: 'https://nec.diwork.com/app/app/appredirect?appid=15',
@@ -121,32 +121,32 @@ export const getHost = (key = 'api') => {
     user: {
       production: 'https://hr.diwork.com',
       development: 'http://hrcloud.yyuap.com',
-      daily:'https://hr-daily.yyuap.com',
+      daily: 'https://hr-daily.yyuap.com',
     },
     market: {
       production: 'https://market.yonyoucloud.com/market/index#/shopping/orderlist',
       development: 'https://uastest.yyuap.com/market/index#/shopping/orderlist',
-      daily:'https://market-daily.yyuap.com/market/index#/shopping/orderlist',
+      daily: 'https://market-daily.yyuap.com/market/index#/shopping/orderlist',
     },
     order: {
       production: 'https://ticket.yonyoucloud.com',
       development: 'https://ticket.yonyoucloud.com',
-      daily:'https://ticket.yonyoucloud.com',
+      daily: 'https://ticket.yonyoucloud.com',
     },
     cloundyy: {
       production: 'https://www.yonyoucloud.com',
       development: 'https://cloudtest.yyuap.com',
-      daily:'https://www.yonyoucloud.com',
+      daily: 'https://www.yonyoucloud.com',
     },
     ref: {
       production: 'https://ms.diwork.com',
       development: 'http://workbench.yyuap.com',
-      daily:'https://ms-daily.yyuap.com',
+      daily: 'https://ms-daily.yyuap.com',
     },
     org: {
       production: 'https://cdn.yonyoucloud.com/pro/diwork',
       development: 'http://workbenchdev.yyuap.com/fe',
-      daily:'https://cdn.yonyoucloud.com/pro/diwork',
+      daily: 'https://cdn.yonyoucloud.com/pro/diwork',
     },
     upload: {
       production: 'https://bd.diwork.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
@@ -156,22 +156,22 @@ export const getHost = (key = 'api') => {
     info: {
       production: 'https://ec.diwork.com/static/home.html#/myspeech/personInfo?target=pc',
       development: 'http://web.yyuap.com:91/static/home.html#/myspeech/personInfo?target=pc',
-      daily:'https://ec-daily.yyuap.com/static/home.html#/myspeech/personInfo?target=pc',
+      daily: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/personInfo?target=pc',
     },
     speak: {
       production: 'https://ec.diwork.com/static/home.html#/myspeech/index?index=0&target=pc',
       development: 'http://web.yyuap.com:91/static/home.html#/myspeech/index?index=0&target=pc',
-      daily:'https://ec-daily.yyuap.com/static/home.html#/myspeech/index?index=0&target=pc',
+      daily: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/index?index=0&target=pc',
     },
     honor: {
       production: '//wsbs.diwork.com/pc/modules/honorZone/ph/index.html',
       development: '//wsbs.app.yyuap.com/pc/modules/honorZone/ph/index.html',
-      daily:'//wsbs-daily.diwork.com/pc/modules/honorZone/ph/index.html',
+      daily: '//wsbs-daily.diwork.com/pc/modules/honorZone/ph/index.html',
     },
     sendHonor: {
       production: '//wsbs.diwork.com/pc/modules/honorZone/send/index.html',
       development: '//wsbs.app.yyuap.com/pc/modules/honorZone/send/index.html',
-      daily:'//wsbs-daily.diwork.com/pc/modules/honorZone/send/index.html',
+      daily: '//wsbs-daily.diwork.com/pc/modules/honorZone/send/index.html',
     },
   };
   return hosts[key][process.env.NODE_ENV];
@@ -221,10 +221,10 @@ const fetchTools = {
               return Promise.resolve(result);
             } else if (status && status !== '0') {
               let currLocal;
-              if(window.self === window.top){
+              if (window.self === window.top) {
                 currLocal = getContext().locale;
-              }else{
-                currLocal = window.top.diworkContext().locale; 
+              } else {
+                currLocal = window.top.diworkContext().locale;
               }
               const index = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(value => {
                 return value === currLocal;
@@ -323,6 +323,9 @@ export function get(oriUrl, oriParams = {}) {
   // 这里是授权参照的请求接口 不需要manager
   if (oriUrl === "/ref/diwork/iref_ctr/refInfo") {
     url = oriUrl;
+    jsonp({ url, data });
+    return false;
+
   }
   if (data) {
     url = `${url}?${data}`;
@@ -331,6 +334,46 @@ export function get(oriUrl, oriParams = {}) {
   url += fh + "tm=" + new Date().getTime();
   return fetch(url, options());
 }
+
+function jsonp(options) {
+  return new Promise((resolve, reject) => {
+    let callbackID = `jsonp_${Date.now()}`,
+      container = document.getElementsByTagName('head')[0],
+      scriptNode = document.createElement("script"),
+      data = options.data || {},
+      url = options.url,
+      params = [];
+    data["callback"] = callbackID
+    for (let key in data) {
+      params.push(key + "=" + data[key]);
+    }
+
+    url += (/\?/.test(url)) ? '&' : '?';
+    url += params.join('&');
+    scriptNode.id = callbackID;
+    scriptNode.src = url;
+    function removeNode() {
+      window[callbackID] = undefined;
+      let script = document.getElementById(callbackID)
+      container.removeChild(script)
+    }
+    scriptNode.onerror = function () {
+      reject();
+      removeNode()
+    }
+    window[callbackID] = function (response) {
+      resolve(response);
+      removeNode()
+    }
+    scriptNode.type = "text/javascript";
+    try {
+      container.appendChild(scriptNode)
+    } catch (err) {
+      reject(err)
+    }
+  })
+}
+
 
 export function mapStateToProps(...keys) {
   if (keys.length) {
