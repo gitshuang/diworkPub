@@ -321,7 +321,7 @@ export function get(oriUrl, oriParams = {}) {
   const data = params(oriParams);
   let url = urlMaker(oriUrl);
   // 这里是授权参照的请求接口 不需要manager
-  if (oriUrl === "/ref/diwork/iref_ctr/refInfo") {
+  if (oriUrl === "/ref/diwork/iref_ctr/refInfo" || oriUrl.indexOf('/ref/diwork/iref_ctr/refInfo')>-1) {
     url = oriUrl;
     jsonp({ url, data });
     return false;
