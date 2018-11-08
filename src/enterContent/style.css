@@ -143,3 +143,9 @@
 .enterForm :global(.u-form-item.u-form-inline .u-input-group-outer){
   min-width: 108px !important;
 }
+.enterForm :global(.u-form-error.show){
+  margin-left: 40% !important;
+}
+.enterForm .inputPhone :global(.u-form-error.show){
+  margin-left: 0 !important;
+}

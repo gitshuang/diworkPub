@@ -145,3 +145,9 @@
 .enterForm__style___3rLaN .u-form-item.u-form-inline .u-input-group-outer{
   min-width: 108px !important;
 }
+.enterForm__style___3rLaN .u-form-error.show{
+  margin-left: 40% !important;
+}
+.enterForm__style___3rLaN .inputPhone__style___1hlKj .u-form-error.show{
+  margin-left: 0 !important;
+}
