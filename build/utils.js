@@ -398,7 +398,7 @@ function get(oriUrl) {
       var curr = arr[index].split('=');
       objData[curr[0]] = curr[1];
     }
-    jsonp({ url: url, data: objData });
+    return jsonp({ url: url, data: objData });
     return false;
   }
   if (data) {
