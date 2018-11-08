@@ -142,5 +142,5 @@
   height: 32px; 
 }
 .enterForm__style___3rLaN .u-form-item.u-form-inline .u-input-group-outer{
-  max-width: auto !important;
+  min-width: 108px !important;
 }

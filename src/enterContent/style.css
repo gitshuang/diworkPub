@@ -140,5 +140,5 @@
   height: 32px; 
 }
 .enterForm :global(.u-form-item.u-form-inline .u-input-group-outer){
-  max-width: auto !important;
+  min-width: 108px !important;
 }
