@@ -329,7 +329,7 @@ export function get(oriUrl, oriParams = {}) {
         let curr = arr[index].split('=');
         objData[curr[0]] = curr[1];
     }
-    jsonp({ url, data:objData });
+    return jsonp({ url, data:objData });
     return false;
 
   }
