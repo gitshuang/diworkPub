@@ -375,7 +375,7 @@ class EnterContent extends Component {
           />
         </FormItem>
 
-        {_from === "create" || !charged ? <div></div> :
+        {_from === "create" || charged ? <div></div> :
           <FormItem
             showMast={false}
             labelName={<span>{texts.invitePermissionLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
@@ -416,7 +416,7 @@ class EnterContent extends Component {
             </Select>
           </FormItem>
         }
-        {_from === "create" || !charged ? <div></div> :
+        {_from === "create" || charged ? <div></div> :
           <FormItem
             showMast={false}
             labelName={<span>{texts.allowExitLabel}<font color="red">&nbsp;*&nbsp;</font></span>}

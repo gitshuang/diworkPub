@@ -514,7 +514,7 @@ var EnterContent = function (_Component) {
           placeholder: texts.placeholder1
         })
       ),
-      _from === "create" || !charged ? _react2["default"].createElement('div', null) : _react2["default"].createElement(
+      _from === "create" || charged ? _react2["default"].createElement('div', null) : _react2["default"].createElement(
         _form.FormItem,
         {
           showMast: false,
@@ -601,7 +601,7 @@ var EnterContent = function (_Component) {
           )
         )
       ),
-      _from === "create" || !charged ? _react2["default"].createElement('div', null) : _react2["default"].createElement(
+      _from === "create" || charged ? _react2["default"].createElement('div', null) : _react2["default"].createElement(
         _form.FormItem,
         {
           showMast: false,
