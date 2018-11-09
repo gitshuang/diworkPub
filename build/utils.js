@@ -228,8 +228,8 @@ var getHost = exports.getHost = function getHost() {
   };
   return hosts[key][process.env.NODE_ENV];
 };
-
-var IS_IE = exports.IS_IE = !!window.ActiveXObject;
+//ie11的window.ActiveXObject返回undefined，
+var IS_IE = exports.IS_IE = !!window.ActiveXObject || "ActiveXObject" in window;
 
 var fetchTools = {
   params: function params(_params) {
