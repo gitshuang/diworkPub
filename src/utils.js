@@ -176,8 +176,8 @@ export const getHost = (key = 'api') => {
   };
   return hosts[key][process.env.NODE_ENV];
 };
-
-export const IS_IE = !!window.ActiveXObject;
+//ie11的window.ActiveXObject返回undefined，
+export const IS_IE = !!window.ActiveXObject || "ActiveXObject" in window;
 
 const fetchTools = {
   params(params) {
