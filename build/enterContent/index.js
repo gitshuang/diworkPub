@@ -341,9 +341,7 @@ var EnterContent = function (_Component) {
       _form2["default"],
       { submitCallBack: this.checkForm, showSubmit: false, className: _style.enterForm },
       _react2["default"].createElement(
-        _form.FormItem
-        // showMast={false}
-        ,
+        _form.FormItem,
         {
           showMast: false,
           labelName: _react2["default"].createElement(
@@ -783,7 +781,9 @@ var EnterContent = function (_Component) {
         })
       ),
       _react2["default"].createElement(
-        _form.FormItem,
+        _form.FormItem
+        // showMast={false}
+        ,
         { labelName: _react2["default"].createElement(
             'span',
             null,
@@ -825,11 +825,11 @@ var EnterContent = function (_Component) {
         _form.FormItem,
         {
           className: _style.inputPhone,
-          valuePropsName: 'value',
-          isRequire: true,
-          method: 'blur',
-          htmlType: 'tel',
-          errorMessage: texts.tenantTelError
+          valuePropsName: 'value'
+          // isRequire
+          // method="blur"
+          // htmlType="tel"
+          // errorMessage={texts.tenantTelError}
         },
         _react2["default"].createElement(_formControl2["default"], {
           name: 'tenantTel',
@@ -837,7 +837,8 @@ var EnterContent = function (_Component) {
           onChange: function onChange(e) {
             _this2.inputOnChange(e, 'tenantTel');
           },
-          placeholder: texts.tenantTelPlace
+          placeholder: texts.tenantTelPlace,
+          maxLength: 11
         })
       ),
       _react2["default"].createElement(
