@@ -13,6 +13,9 @@
   /* TODO -- remove important */
   height: 30px !important;
 }
+.closeBtn :global(.iconfont){
+  color: #888888;
+}
 :global(.u-modal.fade) {
   transition: none;
 }
@@ -28,7 +31,7 @@
   -moz-transform: translate(-50%, -50%)!important;     /* Firefox */
   margin: 0px;
   color: #474D54;
-  min-width: 400px;
+  min-width: 370px;
 }
 :global(.u-modal.in .u-modal-dialog) >div{
   box-shadow: 0px 6px 8px 0px rgba(74,81,93,0.25);
@@ -41,7 +44,7 @@
 
 /************************ error *************************/
 
-.pop_type.error :global(.u-modal-title .iconfont) {
+.pop_type.error :global(.u-modal-title > .iconfont) {
   margin-right: 8px;
   color: #4C4C4C;
   font-weight: 900;
@@ -71,7 +74,7 @@
 
 /************************ warning *************************/
 
-.pop_type.warning :global(.u-modal-title .iconfont) {
+.pop_type.warning :global(.u-modal-title > .iconfont) {
   margin-right: 8px;
   color: #FF8B00;
   font-weight: 900;
@@ -103,7 +106,7 @@
 
 /************************ danger *************************/
 
-.pop_type.danger :global(.u-modal-title .iconfont) {
+.pop_type.danger :global(.u-modal-title > .iconfont) {
   margin-right: 8px;
   color: #108EE9;
   font-weight: 900;
@@ -130,7 +133,7 @@
 }
 /************************ success *************************/
 
-.pop_type.success :global(.u-modal-title .iconfont) {
+.pop_type.success :global(.u-modal-title > .iconfont) {
   margin-right: 8px;
   color: #00B39E;
   font-weight: 900;

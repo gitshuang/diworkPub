@@ -15,6 +15,9 @@
   /* TODO -- remove important */
   height: 30px !important;
 }
+.closeBtn__style___2Ow_p .iconfont{
+  color: #888888;
+}
 .u-modal.fade {
   transition: none;
 }
@@ -30,7 +33,7 @@
   -moz-transform: translate(-50%, -50%)!important;     /* Firefox */
   margin: 0px;
   color: #474D54;
-  min-width: 400px;
+  min-width: 370px;
 }
 .u-modal.in .u-modal-dialog >div{
   box-shadow: 0px 6px 8px 0px rgba(74,81,93,0.25);
@@ -43,7 +46,7 @@
 
 /************************ error *************************/
 
-.pop_type__style___7FzHT.error__style___3lAfZ .u-modal-title .iconfont {
+.pop_type__style___7FzHT.error__style___3lAfZ .u-modal-title > .iconfont {
   margin-right: 8px;
   color: #4C4C4C;
   font-weight: 900;
@@ -73,7 +76,7 @@
 
 /************************ warning *************************/
 
-.pop_type__style___7FzHT.warning__style___rOA-7 .u-modal-title .iconfont {
+.pop_type__style___7FzHT.warning__style___rOA-7 .u-modal-title > .iconfont {
   margin-right: 8px;
   color: #FF8B00;
   font-weight: 900;
@@ -105,7 +108,7 @@
 
 /************************ danger *************************/
 
-.pop_type__style___7FzHT.danger__style___2dz2P .u-modal-title .iconfont {
+.pop_type__style___7FzHT.danger__style___2dz2P .u-modal-title > .iconfont {
   margin-right: 8px;
   color: #108EE9;
   font-weight: 900;
@@ -132,7 +135,7 @@
 }
 /************************ success *************************/
 
-.pop_type__style___7FzHT.success__style___3B6OV .u-modal-title .iconfont {
+.pop_type__style___7FzHT.success__style___3B6OV .u-modal-title > .iconfont {
   margin-right: 8px;
   color: #00B39E;
   font-weight: 900;
