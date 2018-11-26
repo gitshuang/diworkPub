@@ -532,10 +532,9 @@ class EnterContent extends Component {
         <FormItem
           className={inputPhone}
           valuePropsName="value"
-          // isRequire
-          // method="blur"
-          // htmlType="tel"
-          // errorMessage={texts.tenantTelError}
+          isRequire
+          method="blur"
+          errorMessage={texts.tenantTelError}
         >
           <FormControl
             name="tenantTel"
