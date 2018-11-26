@@ -27,8 +27,7 @@ var _style = {
   'borderBox': 'borderBox__style___6ccEy',
   'footer': 'footer__style___1e6dr',
   'saveBtn': 'saveBtn__style___i-5bZ',
-  'selectedli': 'selectedli__style___NnZPl',
-  'btnHover': 'btnHover__style___VlfeY'
+  'selectedli': 'selectedli__style___NnZPl'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
