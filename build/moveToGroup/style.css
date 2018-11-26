@@ -36,6 +36,7 @@
 }
 .borderBox__style___6ccEy .u-menu-inline .u-menu-item-active{
   color: #e14c46;
+  background:#f3f3f3;
 }
 .borderBox__style___6ccEy ul{
   padding:5px;
@@ -114,5 +115,6 @@
   margin-right: 5px;
 }
 .selectedli__style___NnZPl{
-  background:rgba(238,238,238,1);
+  background:#f3f3f3;
+  color: #e14c46;
 }
