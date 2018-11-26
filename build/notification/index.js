@@ -134,7 +134,7 @@ var NotificationMess = function (_Component) {
     _this.close = function () {};
 
     _this.notification = _notification3["default"].newInstance({
-      position: 'bottomRight',
+      position: 'topMiddle',
       className: _this.getTypeNotifica() + " " + _index.notification_mess
     });
     return _this;
