@@ -51,13 +51,13 @@ var _button2 = _interopRequireDefault(_button);
 require('./style.css');
 
 var _style = {
-  'enterForm': 'enterForm__style___1xirt',
-  'line': 'line__style___28K_Q',
-  'infoTitle': 'infoTitle__style___1OVxL',
-  'progressBar': 'progressBar__style___qLuEs',
-  'country': 'country__style___1_O_R',
-  'code': 'code__style___1KAx2',
-  'inputPhone': 'inputPhone__style___2wjuf'
+  'enterForm': 'enterForm__style___3rLaN',
+  'line': 'line__style___1rbXZ',
+  'infoTitle': 'infoTitle__style___15dG2',
+  'progressBar': 'progressBar__style___kjcre',
+  'country': 'country__style___3E-Os',
+  'code': 'code__style___1L3cM',
+  'inputPhone': 'inputPhone__style___1hlKj'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -825,11 +825,10 @@ var EnterContent = function (_Component) {
         _form.FormItem,
         {
           className: _style.inputPhone,
-          valuePropsName: 'value'
-          // isRequire
-          // method="blur"
-          // htmlType="tel"
-          // errorMessage={texts.tenantTelError}
+          valuePropsName: 'value',
+          isRequire: true,
+          method: 'blur',
+          errorMessage: texts.tenantTelError
         },
         _react2["default"].createElement(_formControl2["default"], {
           name: 'tenantTel',
