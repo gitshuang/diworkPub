@@ -18,19 +18,22 @@ button.btn{
 }
 
 /** 品牌红 **/
-button.brand_btn{
+button.btn.brand_btn{
   background:#e14c46;
   color:rgba(255,255,255,1);
 }
-button.brand_btn:hover{
+button.btn.brand_btn:hover{
   background:#d23d37;
+  color:rgba(255,255,255,1);
 }
-button.brand_btn:active{
+button.btn.brand_btn:active{
   background:#b2332e;
   color:rgba(255,255,255,1);
 }
-button.brand_btn:disabled,
-button.brand_btn:disabled:hover{
+button.btn.brand_btn:disabled,
+button.btn.brand_btn:disabled:hover,
+button.btn.default_btn:disabled,
+button.btn.default_btn:disabled:hover{
   background:#f3f3f3;
   color: #bfbfbf;
 }
@@ -48,11 +51,8 @@ button.default_btn:active{
   background:#fcedec;
   color:#e14c46;
 }
-button.default_btn:disabled,
-button.default_btn:disabled:hover{
-  background:f3f3f3;
-  color:bfbfbf;
-}
+
+
 
 /** 默认带边框 **/
 button.default_line_btn {

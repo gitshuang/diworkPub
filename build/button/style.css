@@ -20,19 +20,22 @@ button.btn__style___37bsb{
 }
 
 /** 品牌红 **/
-button.brand_btn__style___2q2wL{
+button.btn__style___37bsb.brand_btn__style___2q2wL{
   background:#e14c46;
   color:rgba(255,255,255,1);
 }
-button.brand_btn__style___2q2wL:hover{
+button.btn__style___37bsb.brand_btn__style___2q2wL:hover{
   background:#d23d37;
+  color:rgba(255,255,255,1);
 }
-button.brand_btn__style___2q2wL:active{
+button.btn__style___37bsb.brand_btn__style___2q2wL:active{
   background:#b2332e;
   color:rgba(255,255,255,1);
 }
-button.brand_btn__style___2q2wL:disabled,
-button.brand_btn__style___2q2wL:disabled:hover{
+button.btn__style___37bsb.brand_btn__style___2q2wL:disabled,
+button.btn__style___37bsb.brand_btn__style___2q2wL:disabled:hover,
+button.btn__style___37bsb.default_btn__style___ID6yW:disabled,
+button.btn__style___37bsb.default_btn__style___ID6yW:disabled:hover{
   background:#f3f3f3;
   color: #bfbfbf;
 }
@@ -50,11 +53,8 @@ button.default_btn__style___ID6yW:active{
   background:#fcedec;
   color:#e14c46;
 }
-button.default_btn__style___ID6yW:disabled,
-button.default_btn__style___ID6yW:disabled:hover{
-  background:f3f3f3;
-  color:bfbfbf;
-}
+
+
 
 /** 默认带边框 **/
 button.default_line_btn__style___bm6bw {
