@@ -54,7 +54,7 @@
 }
 
 .pop_type.error :global(.u-modal .u-modal-title) {
-  font-size: 17px;
+  font-size: 19px;
 }
 
 .pop_type.error :global(.u-modal-body) {
@@ -78,13 +78,14 @@
   margin-right: 8px;
   color: #FF8B00;
   font-weight: 900;
-  font-size: 20px;
+  font-size: 32px;
   position: relative;
   top: 3px;
+  vertical-align: sub;
 }
 
-.pop_type.warning :global(.u-modal .u-modal-title) {
-  font-size: 17px;
+.pop_type.warning :global(.u-modal-dialog .u-modal-title) {
+  font-size: 19px;
 }
 
 .pop_type.warning :global(.u-modal-body) {
@@ -95,6 +96,7 @@
 
 .pop_type.warning :global(.u-modal-header) {
   padding-top: 30px;
+  padding-bottom: 0;
 }
 .pop_type.warning :global(.u-modal.in .u-modal-dialog) >div{
   border: 1px dashed rgba(0, 0, 0, 0.4);
@@ -116,7 +118,7 @@
 }
 
 .pop_type.danger :global(.u-modal .u-modal-title) {
-  font-size: 17px;
+  font-size: 19px;
 }
 
 .pop_type.danger :global(.u-modal-body) {
@@ -143,7 +145,7 @@
 }
 
 .pop_type.success :global(.u-modal .u-modal-title) {
-  font-size: 17px;
+  font-size: 19px;
 }
 
 .pop_type.success :global(.u-modal-body) {
