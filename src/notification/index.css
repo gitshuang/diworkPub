@@ -23,8 +23,8 @@
 }
 ._title{
   font-size:16px;
-  height: 30px;
-  line-height: 30px;
+  /* height: 30px; */
+  line-height: 20px;
   position: relative;
 }
 ._title i{
@@ -80,14 +80,20 @@
 }
  /*** error ***/
  .error_cont :global(.u-notification-notice){
-  background:rgba(255,255,255,1);
+  /* background:rgba(255,255,255,1);
   box-shadow: 0px 10px 12px 0px rgba(74,81,93,0.25);
   border: 1px solid RGBA(76, 76, 76, 0.5);
-  border-top: 3px solid RGBA(76, 76, 76, 1);
+  border-top: 3px solid RGBA(189, 54, 70, 1); */
+  background: rgba(189, 54, 70, 0.02);
+  box-shadow: 0px 10px 12px 0px rgba(14, 35, 71, 0.15);
+  border: 1px solid RGBA(189, 54, 70, 0.5);
+  border-top: 3px solid RGBA(189, 54, 70, 1);
 }
 .error_cont  ._title{
-  color:RGBA(71, 77, 84, 1);
+  /* color:RGBA(71, 77, 84, 1); */
+  color: RGBA(189, 54, 70, 1);
 }
 .error_cont  ._title i{
-  color:RGBA(71, 77, 84, 1);
+  /* color:RGBA(71, 77, 84, 1); */
+  color: RGBA(189, 54, 70, 1);
 }
