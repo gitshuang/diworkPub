@@ -5,13 +5,16 @@
 
 .closeBtn {
   position: absolute;
-  top: 12px;
-  right: 14px;
   font-size: 18px;
   color: #757F8C;
   cursor: pointer;
   /* TODO -- remove important */
-  height: 30px !important;
+  height: 32px !important;
+  width: 32px !important;
+  right: 8px;
+  top: 8px;
+  text-align: center;
+  line-height: 32px;
 }
 .closeBtn :global(.iconfont){
   color: #888888;
@@ -38,8 +41,8 @@
 }
 :global(.u-modal-body) {
   /* TODO -- remove important */
-  padding-right: 40px !important;
-  margin-top:20px; /* 防止遮挡header上的关闭按钮*/
+  padding-right: 52px !important;
+  margin-top:12px; /* 防止遮挡header上的关闭按钮*/
 }
 
 /************************ error *************************/
@@ -48,23 +51,30 @@
   margin-right: 8px;
   color: #4C4C4C;
   font-weight: 900;
-  font-size: 20px;
-  position: relative;
-  top: 3px;
+  font-size: 32px;
+  position: absolute;
+  left: 22px;
+  top: 37px;
 }
 
-.pop_type.error :global(.u-modal .u-modal-title) {
+.pop_type.error :global(.u-modal-dialog .u-modal-title) {
   font-size: 19px;
+    line-height: 24px;
 }
 
 .pop_type.error :global(.u-modal-body) {
   font-size: 14px;
   padding: 0px;
-  padding-left: 44px;
+  padding-left: 60px;
+  padding-bottom: 6px;
+  line-height: 26px;
 }
 
 .pop_type.error :global(.u-modal-header) {
-  padding-top: 30px;
+    padding-top: 40px;
+    padding-bottom: 0;
+    padding-left: 60px;
+    padding-right: 52px;
 }
 
 /* .pop_type.error :global(.u-modal-footer .brand){
@@ -79,24 +89,29 @@
   color: #FF8B00;
   font-weight: 900;
   font-size: 32px;
-  position: relative;
-  top: 3px;
-  vertical-align: sub;
+  position: absolute;
+  left: 22px;
+  top: 37px;
 }
 
 .pop_type.warning :global(.u-modal-dialog .u-modal-title) {
   font-size: 19px;
+    line-height: 24px;
 }
 
 .pop_type.warning :global(.u-modal-body) {
   font-size: 14px;
   padding: 0px;
-  padding-left: 44px;
+  padding-left: 60px;
+  padding-bottom: 6px;
+  line-height: 26px;
 }
 
 .pop_type.warning :global(.u-modal-header) {
-  padding-top: 30px;
-  padding-bottom: 0;
+    padding-top: 40px;
+    padding-bottom: 0;
+    padding-left: 60px;
+    padding-right: 52px;
 }
 .pop_type.warning :global(.u-modal.in .u-modal-dialog) >div{
   border: 1px dashed rgba(0, 0, 0, 0.4);
@@ -112,23 +127,30 @@
   margin-right: 8px;
   color: #108EE9;
   font-weight: 900;
-  font-size: 20px;
-  position: relative;
-  top: 3px;
+  font-size: 32px;
+  position: absolute;
+  left: 22px;
+  top: 37px;
 }
 
-.pop_type.danger :global(.u-modal .u-modal-title) {
+.pop_type.danger :global(.u-modal-dialog .u-modal-title) {
   font-size: 19px;
+    line-height: 24px;
 }
 
 .pop_type.danger :global(.u-modal-body) {
   font-size: 14px;
   padding: 0px;
-  padding-left: 44px;
+  padding-left: 60px;
+  padding-bottom: 6px;
+  line-height: 26px;
 }
 
 .pop_type.danger :global(.u-modal-header) {
-  padding-top: 30px;
+    padding-top: 40px;
+    padding-bottom: 0;
+    padding-left: 60px;
+    padding-right: 52px;
 }
 .pop_type.danger :global(.u-modal.in .u-modal-dialog) >div{
   border: 1px dashed rgba(0, 0, 0, 0.4);
@@ -139,24 +161,36 @@
   margin-right: 8px;
   color: #00B39E;
   font-weight: 900;
-  font-size: 20px;
-  position: relative;
-  top: 3px;
+  font-size: 32px;
+  position: absolute;
+  left: 22px;
+  top: 37px;
 }
 
-.pop_type.success :global(.u-modal .u-modal-title) {
+.pop_type.success :global(.u-modal-dialog .u-modal-title) {
   font-size: 19px;
+    line-height: 24px;
 }
 
 .pop_type.success :global(.u-modal-body) {
   font-size: 14px;
   padding: 0px;
-  padding-left: 44px;
+  padding-left: 60px;
+  padding-bottom: 6px;
+  line-height: 26px;
 }
 
 .pop_type.success :global(.u-modal-header) {
-  padding-top: 30px;
+    padding-top: 40px;
+    padding-bottom: 0;
+    padding-left: 60px;
+    padding-right: 52px;
 }
 .pop_type.success :global(.u-modal.in .u-modal-dialog) >div{
   border: 1px dashed rgba(0, 0, 0, 0.4);
+}
+
+.pop_type :global(.u-modal-dialog .u-modal-footer) {
+  padding-top: 32px ;
+  padding-bottom: 18px ;
 }
