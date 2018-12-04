@@ -8,7 +8,9 @@
 .notification_mess :global(.u-notification-notice){
   width: 528px;
   height: auto;
+  padding:15px 18px 15px 22px;
 }
+
 .notification_cont{
   margin-top: 3px;
   font-size: 14px;
@@ -18,18 +20,22 @@
 }
 ._close{
   position: absolute;
-  right: -14px;
+  right: 0;
   top: -7px;
+  color:#555;
 }
 ._title{
   font-size:16px;
   /* height: 30px; */
   line-height: 20px;
   position: relative;
+  vertical-align: middle;
 }
-._title i{
+._title i._tip{
   vertical-align: -16%;
   margin-right: 9px;
+  display: inline-block;
+  margin-right: 24px;
 }
 .title_cont{
   font-size:16px;
@@ -49,7 +55,7 @@
 .warning_cont  ._title{
   color:rgba(255,139,0,1);
 }
-.warning_cont  ._title i{
+.warning_cont  ._title i._tip{
   color:rgba(255,139,0,1);
 }
 /*** success ***/
@@ -62,7 +68,7 @@
 .success_cont  ._title{
   color:RGBA(0, 179, 158, 1);
 }
-.success_cont  ._title i{
+.success_cont  ._title i._tip{
   color:RGBA(0, 179, 158, 1);
 }
  /*** info ***/
@@ -75,7 +81,7 @@
 .info_cont  ._title{
   color:RGBA(16, 142, 233, 1);
 }
-.info_cont  ._title i{
+.info_cont  ._title i._tip{
   color:RGBA(16, 142, 233, 1);
 }
  /*** error ***/
@@ -93,7 +99,7 @@
   /* color:RGBA(71, 77, 84, 1); */
   color: RGBA(189, 54, 70, 1);
 }
-.error_cont  ._title i{
+.error_cont  ._title i._tip{
   /* color:RGBA(71, 77, 84, 1); */
   color: RGBA(189, 54, 70, 1);
 }
