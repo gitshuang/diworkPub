@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Icon from 'pub-comp/icon';
 import Button from 'bee/button';
 import Notification from 'bee/notification';
-import {page,notification_mess,notification_cont,title_cont,warning_cont,success_cont,info_cont,error_cont,_title,_close} from "./index.css";
+import {page,notification_mess,notification_cont,title_cont,warning_cont,success_cont,info_cont,error_cont,_title,_close,_tip} from "./index.css";
 
 class NotificationMess extends Component {
 
@@ -59,7 +59,7 @@ class NotificationMess extends Component {
     this.notification.notice({
       content:(<div className={`${page}` }>
         <div className={_title}>
-          <Icon type={this.getTypeIcon()} />
+          <Icon className={_tip} type={this.getTypeIcon()} />
           <span className={title_cont}>{title}</span>
           <Icon type="error3" className={_close} onClick={this.close(this, key)} />
         </div>
