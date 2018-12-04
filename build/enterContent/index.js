@@ -51,13 +51,13 @@ var _button2 = _interopRequireDefault(_button);
 require('./style.css');
 
 var _style = {
-  'enterForm': 'enterForm__style___3rLaN',
-  'line': 'line__style___1rbXZ',
-  'infoTitle': 'infoTitle__style___15dG2',
-  'progressBar': 'progressBar__style___kjcre',
-  'country': 'country__style___3E-Os',
-  'code': 'code__style___1L3cM',
-  'inputPhone': 'inputPhone__style___1hlKj'
+  'enterForm': 'enterForm__style___1xirt',
+  'line': 'line__style___28K_Q',
+  'infoTitle': 'infoTitle__style___1OVxL',
+  'progressBar': 'progressBar__style___qLuEs',
+  'country': 'country__style___1_O_R',
+  'code': 'code__style___1KAx2',
+  'inputPhone': 'inputPhone__style___2wjuf'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -341,9 +341,7 @@ var EnterContent = function (_Component) {
       _form2["default"],
       { submitCallBack: this.checkForm, showSubmit: false, className: _style.enterForm },
       _react2["default"].createElement(
-        _form.FormItem
-        // showMast={false}
-        ,
+        _form.FormItem,
         {
           showMast: false,
           labelName: _react2["default"].createElement(
@@ -783,7 +781,9 @@ var EnterContent = function (_Component) {
         })
       ),
       _react2["default"].createElement(
-        _form.FormItem,
+        _form.FormItem
+        // showMast={false}
+        ,
         { labelName: _react2["default"].createElement(
             'span',
             null,
