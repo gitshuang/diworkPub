@@ -3,40 +3,12 @@ import ReactDOM from 'react-dom';
 
 export const noop = () => { };
 
-const _diff = (_index, _data) => {
-  const loop = (data) => {
-    if (typeof data === "object" && Array.isArray(data) && data.length) {
-      data.forEach(item => {
-        if (typeof item === "object" && (item.length !== 0 || Object.keys(item).length)) {
-          loop(item);
-        }
-      });
-    } else if (typeof data === "object" && Object.keys(data).length) {
-      // 获取 JSON VALUE  数组   [a,a1,b,c]
-      const dataKeys = Object.keys(data);
-      dataKeys.forEach((item, index) => {
-        const currKey = item + 'Ext' + _index;
-        const currKey2 = item + _index;
-        if (dataKeys.includes(currKey)) {
-          const currItem = data[currKey];
-          if (currItem) {
-            data[item] = currItem;
-          }
-        } else if (dataKeys.includes(currKey2)) {
-          const currItem = data[currKey2];
-          if (currItem) {
-            data[item] = currItem;
-          }
-        }
-        const currData = data[item];
-        if (!currData) return;
-        if (typeof currData === "object" && (currData.length !== 0 || Object.keys(currData).length)) {
-          loop(currData);
-        }
-      });
-    }
-  }
-  loop(_data);
+const getLocaleIndex = () => {
+  const currLocal = window.self === window.top ? getContext().locale : window.top.diworkContext().locale
+  const index = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(value => {
+    return value === currLocal;
+  });
+  return index;
 }
 
 export const mergeReducers = (...reducers) =>
@@ -220,15 +192,8 @@ const fetchTools = {
             if ((url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1)) {
               return Promise.resolve(result);
             } else if (status && status !== '0') {
-              let currLocal;
-              if (window.self === window.top) {
-                currLocal = getContext().locale;
-              } else {
-                currLocal = window.top.diworkContext().locale;
-              }
-              const index = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(value => {
-                return value === currLocal;
-              });
+              // 获取语种索引
+              const index = getLocaleIndex();
               if (index > -1 && typeof data === "object") {
                 _diff(index + 2, data);
               }
@@ -272,16 +237,26 @@ const fetchTools = {
   },
 };
 
-export function post(oriUrl, oriParams = {}) {
+
+
+
+export function post(oriUrl, oriParams = {}, isExt) {
   const {
     params,
     fetch,
     options: optionsMaker,
     url,
   } = fetchTools;
-  const data = params(oriParams);
+  // const data = params(oriParams);
+  
+  const index = getLocaleIndex();
+  // const data = isExt ? postManage(index + 2)(oriParams) : oriParams;
+  if (index > -1 && typeof oriParams === "object" || isExt) {
+    postManage(index + 2, oriParams);
+  }
   const options = optionsMaker('post');
   options.headers['Content-Type'] = 'application/json;charset=UTF-8';
+
   try {
     options.body = JSON.stringify(oriParams);
   } catch (e) {
@@ -321,15 +296,15 @@ export function get(oriUrl, oriParams = {}) {
   const data = params(oriParams);
   let url = urlMaker(oriUrl);
   // 这里是授权参照的请求接口 不需要manager
-  if (oriUrl === "/ref/diwork/iref_ctr/refInfo" || oriUrl.indexOf('/ref/diwork/iref_ctr/refInfo')>-1) {
+  if (oriUrl === "/ref/diwork/iref_ctr/refInfo" || oriUrl.indexOf('/ref/diwork/iref_ctr/refInfo') > -1) {
     url = oriUrl;
     let arr = data.split('&');
     let objData = {};
-    for(let index=0; index<arr.length; ++index){
-        let curr = arr[index].split('=');
-        objData[curr[0]] = curr[1];
+    for (let index = 0; index < arr.length; ++index) {
+      let curr = arr[index].split('=');
+      objData[curr[0]] = curr[1];
     }
-    return jsonp({ url, data:objData });
+    return jsonp({ url, data: objData });
     return false;
 
   }
@@ -566,4 +541,80 @@ export function getNewEvent(name) {
       bubbles: true,
     });
   }
+}
+
+
+const _diff = (_index, _data) => {
+  const loop = (data) => {
+    if (typeof data === "object" && Array.isArray(data) && data.length) {
+      data.forEach(item => {
+        if (typeof item === "object" && (item.length !== 0 || Object.keys(item).length)) {
+          loop(item);
+        }
+      });
+    } else if (typeof data === "object" && Object.keys(data).length) {
+      // 获取 JSON VALUE  数组   [a,a1,b,c]
+      const dataKeys = Object.keys(data);
+      dataKeys.forEach((item, index) => {
+        const currKey = item + 'Ext' + _index;
+        const currKey2 = item + _index;
+        if (dataKeys.includes(currKey)) {
+          const currItem = data[currKey];
+          if (currItem) {
+            data.TEMPORARY = data[item];
+            data[item] = currItem;
+          }
+        } else if (dataKeys.includes(currKey2)) {
+          const currItem = data[currKey2];
+          if (currItem) {
+            data.TEMPORARY = data[item];
+            data[item] = currItem;
+          }
+        }
+        const currData = data[item];
+        if (!currData) return;
+        if (typeof currData === "object" && (currData.length !== 0 || Object.keys(currData).length)) {
+          loop(currData);
+        }
+      });
+    }
+  }
+  loop(_data);
+}
+
+const postManage = (_index, _data) => {
+  const loop = (data) => {
+    if (typeof data === "object" && Array.isArray(data) && data.length) {
+      data.forEach(item => {
+        if (typeof item === "object" && (item.length !== 0 || Object.keys(item).length)) {
+          loop(item);
+        }
+      });
+    } else if (typeof data === "object" && Object.keys(data).length) {
+      // 获取 JSON VALUE  数组   [a,a1,b,c]
+      const dataKeys = Object.keys(data);
+      dataKeys.forEach((item, index) => {
+        const currKey = item + 'Ext' + _index;
+        const currKey2 = item + _index;
+        if (dataKeys.includes(currKey)) {
+          const currItem = data[currKey];
+          if (currItem) {
+            data[currKey] = data[item];
+            data[item] = data.TEMPORARY;
+            delete data.TEMPORARY;
+          }
+        } else if (dataKeys.includes(currKey2)) {
+          data[currKey2] = data[item];
+          data[item] = data.TEMPORARY;
+          delete data.TEMPORARY;
+        }
+        const currData = data[item];
+        if (!currData) return;
+        if (typeof currData === "object" && (currData.length !== 0 || Object.keys(currData).length)) {
+          loop(currData);
+        }
+      });
+    }
+  }
+  loop(_data);
 }

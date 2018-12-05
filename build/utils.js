@@ -5,9 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.IS_IE = exports.getHost = exports.logout = exports.createActions = exports.createTypes = exports.mergeReducers = exports.noop = undefined;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 exports.post = post;
 exports.postFileCros = postFileCros;
@@ -37,40 +37,12 @@ function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
 
 var noop = exports.noop = function noop() {};
 
-var _diff = function _diff(_index, _data) {
-  var loop = function loop(data) {
-    if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object" && Array.isArray(data) && data.length) {
-      data.forEach(function (item) {
-        if ((typeof item === 'undefined' ? 'undefined' : _typeof(item)) === "object" && (item.length !== 0 || Object.keys(item).length)) {
-          loop(item);
-        }
-      });
-    } else if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object" && Object.keys(data).length) {
-      // 获取 JSON VALUE  数组   [a,a1,b,c]
-      var dataKeys = Object.keys(data);
-      dataKeys.forEach(function (item, index) {
-        var currKey = item + 'Ext' + _index;
-        var currKey2 = item + _index;
-        if (dataKeys.includes(currKey)) {
-          var currItem = data[currKey];
-          if (currItem) {
-            data[item] = currItem;
-          }
-        } else if (dataKeys.includes(currKey2)) {
-          var _currItem = data[currKey2];
-          if (_currItem) {
-            data[item] = _currItem;
-          }
-        }
-        var currData = data[item];
-        if (!currData) return;
-        if ((typeof currData === 'undefined' ? 'undefined' : _typeof(currData)) === "object" && (currData.length !== 0 || Object.keys(currData).length)) {
-          loop(currData);
-        }
-      });
-    }
-  };
-  loop(_data);
+var getLocaleIndex = function getLocaleIndex() {
+  var currLocal = window.self === window.top ? getContext().locale : window.top.diworkContext().locale;
+  var index = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(function (value) {
+    return value === currLocal;
+  });
+  return index;
 };
 
 var mergeReducers = exports.mergeReducers = function mergeReducers() {
@@ -287,15 +259,8 @@ var fetchTools = {
             if (url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1) {
               return Promise.resolve(result);
             } else if (status && status !== '0') {
-              var currLocal = void 0;
-              if (window.self === window.top) {
-                currLocal = getContext().locale;
-              } else {
-                currLocal = window.top.diworkContext().locale;
-              }
-              var index = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(function (value) {
-                return value === currLocal;
-              });
+              // 获取语种索引
+              var index = getLocaleIndex();
               if (index > -1 && (typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object") {
                 _diff(index + 2, data);
               }
@@ -344,14 +309,21 @@ var fetchTools = {
 
 function post(oriUrl) {
   var oriParams = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var isExt = arguments[2];
   var params = fetchTools.params,
       fetch = fetchTools.fetch,
       optionsMaker = fetchTools.options,
       url = fetchTools.url;
+  // const data = params(oriParams);
 
-  var data = params(oriParams);
+  var index = getLocaleIndex();
+  // const data = isExt ? postManage(index + 2)(oriParams) : oriParams;
+  if (index > -1 && (typeof oriParams === 'undefined' ? 'undefined' : _typeof(oriParams)) === "object" || isExt) {
+    postManage(index + 2, oriParams);
+  }
   var options = optionsMaker('post');
   options.headers['Content-Type'] = 'application/json;charset=UTF-8';
+
   try {
     options.body = JSON.stringify(oriParams);
   } catch (e) {
@@ -649,3 +621,78 @@ function getNewEvent(name) {
     });
   }
 }
+
+var _diff = function _diff(_index, _data) {
+  var loop = function loop(data) {
+    if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object" && Array.isArray(data) && data.length) {
+      data.forEach(function (item) {
+        if ((typeof item === 'undefined' ? 'undefined' : _typeof(item)) === "object" && (item.length !== 0 || Object.keys(item).length)) {
+          loop(item);
+        }
+      });
+    } else if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object" && Object.keys(data).length) {
+      // 获取 JSON VALUE  数组   [a,a1,b,c]
+      var dataKeys = Object.keys(data);
+      dataKeys.forEach(function (item, index) {
+        var currKey = item + 'Ext' + _index;
+        var currKey2 = item + _index;
+        if (dataKeys.includes(currKey)) {
+          var currItem = data[currKey];
+          if (currItem) {
+            data.TEMPORARY = data[item];
+            data[item] = currItem;
+          }
+        } else if (dataKeys.includes(currKey2)) {
+          var _currItem = data[currKey2];
+          if (_currItem) {
+            data.TEMPORARY = data[item];
+            data[item] = _currItem;
+          }
+        }
+        var currData = data[item];
+        if (!currData) return;
+        if ((typeof currData === 'undefined' ? 'undefined' : _typeof(currData)) === "object" && (currData.length !== 0 || Object.keys(currData).length)) {
+          loop(currData);
+        }
+      });
+    }
+  };
+  loop(_data);
+};
+
+var postManage = function postManage(_index, _data) {
+  var loop = function loop(data) {
+    if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object" && Array.isArray(data) && data.length) {
+      data.forEach(function (item) {
+        if ((typeof item === 'undefined' ? 'undefined' : _typeof(item)) === "object" && (item.length !== 0 || Object.keys(item).length)) {
+          loop(item);
+        }
+      });
+    } else if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object" && Object.keys(data).length) {
+      // 获取 JSON VALUE  数组   [a,a1,b,c]
+      var dataKeys = Object.keys(data);
+      dataKeys.forEach(function (item, index) {
+        var currKey = item + 'Ext' + _index;
+        var currKey2 = item + _index;
+        if (dataKeys.includes(currKey)) {
+          var currItem = data[currKey];
+          if (currItem) {
+            data[currKey] = data[item];
+            data[item] = data.TEMPORARY;
+            delete data.TEMPORARY;
+          }
+        } else if (dataKeys.includes(currKey2)) {
+          data[currKey2] = data[item];
+          data[item] = data.TEMPORARY;
+          delete data.TEMPORARY;
+        }
+        var currData = data[item];
+        if (!currData) return;
+        if ((typeof currData === 'undefined' ? 'undefined' : _typeof(currData)) === "object" && (currData.length !== 0 || Object.keys(currData).length)) {
+          loop(currData);
+        }
+      });
+    }
+  };
+  loop(_data);
+};
