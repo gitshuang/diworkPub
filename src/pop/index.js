@@ -264,7 +264,8 @@ class Dialog {
 let globalDialogInstance;
 let dialogIsOpen = false;
 function makeGlobalDialogInstance(options) {
-  globalDialogInstance = new Dialog(options)
+  globalDialogInstance = new Dialog(options);
+  return globalDialogInstance;
 }
 function openGlobalDialog(options) {
   // if (dialogIsOpen) {
@@ -275,7 +276,8 @@ function openGlobalDialog(options) {
   if (globalDialogInstance) {
     globalDialogInstance.destroy();
   }
-  dialogFactory();
+  let instance = dialogFactory();
+  return instance;
 }
 function closeGlobalDialog() {
   if (globalDialogInstance) {
