@@ -248,17 +248,16 @@ export function post(oriUrl, oriParams = {}, isExt) {
     url,
   } = fetchTools;
   // const data = params(oriParams);
-  
+  const data = JSON.parse(JSON.stringify(oriParams));
   const index = getLocaleIndex();
-  // const data = isExt ? postManage(index + 2)(oriParams) : oriParams;
-  if (index > -1 && typeof oriParams === "object" || isExt) {
-    postManage(index + 2, oriParams);
+  if (index > -1 && typeof data === "object" || isExt) {
+    postManage(index + 2, data);
   }
   const options = optionsMaker('post');
   options.headers['Content-Type'] = 'application/json;charset=UTF-8';
 
   try {
-    options.body = JSON.stringify(oriParams);
+    options.body = JSON.stringify(data);
   } catch (e) {
     return Promise.reject(e);
   }
