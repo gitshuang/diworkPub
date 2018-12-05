@@ -120,6 +120,8 @@
   margin-left: 0px;
   text-align: center;
   position: relative;
+  min-width: auto;
+  padding: 0;
 }
 .widgetTitle__style___5B_lc .btn__style___1NAHM>span{
   position: absolute;

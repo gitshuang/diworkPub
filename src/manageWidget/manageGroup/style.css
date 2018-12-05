@@ -118,6 +118,8 @@
   margin-left: 0px;
   text-align: center;
   position: relative;
+  min-width: auto;
+  padding: 0;
 }
 .widgetTitle .btn>span{
   position: absolute;
