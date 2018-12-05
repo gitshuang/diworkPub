@@ -316,10 +316,13 @@ function post(oriUrl) {
       url = fetchTools.url;
   // const data = params(oriParams);
 
-  var data = JSON.parse(JSON.stringify(oriParams));
+  var data = {};
   var index = getLocaleIndex();
-  if (index > -1 && (typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object" || isExt) {
+  if (index > -1 && (typeof oriParams === 'undefined' ? 'undefined' : _typeof(oriParams)) === "object" || isExt) {
+    data = JSON.parse(JSON.stringify(oriParams));
     postManage(index + 2, data);
+  } else {
+    data = oriParams;
   }
   var options = optionsMaker('post');
   options.headers['Content-Type'] = 'application/json;charset=UTF-8';

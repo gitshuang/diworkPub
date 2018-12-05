@@ -248,10 +248,13 @@ export function post(oriUrl, oriParams = {}, isExt) {
     url,
   } = fetchTools;
   // const data = params(oriParams);
-  const data = JSON.parse(JSON.stringify(oriParams));
+  let data = {};
   const index = getLocaleIndex();
-  if (index > -1 && typeof data === "object" || isExt) {
+  if (index > -1 && typeof oriParams === "object" || isExt) {
+    data = JSON.parse(JSON.stringify(oriParams));
     postManage(index + 2, data);
+  }else{
+    data = oriParams;
   }
   const options = optionsMaker('post');
   options.headers['Content-Type'] = 'application/json;charset=UTF-8';
