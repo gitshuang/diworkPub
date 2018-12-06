@@ -188,16 +188,20 @@ const fetchTools = {
               return Promise.reject(new Error('接口返回数据无法解析'));
             }
             const { status, data, msg, errorCode } = result;
+            let _data = {};
             // 获取隔离的接口没有status,data这一项
             if ((url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1)) {
               return Promise.resolve(result);
             } else if (status && status !== '0') {
               // 获取语种索引
               const index = getLocaleIndex();
+              // 赋值_data
               if (index > -1 && typeof data === "object") {
-                _diff(index + 2, data);
+                _data = _diff(index + 2, data, "set");
+              }else{
+                _data = data;
               }
-              return Promise.resolve(data);
+              return Promise.resolve(_data);
             } else if (errorCode) {
               switch (errorCode) {
                 case '000001':
@@ -251,9 +255,8 @@ export function post(oriUrl, oriParams = {}, isExt) {
   let data = {};
   const index = getLocaleIndex();
   if (index > -1 && typeof oriParams === "object" || isExt) {
-    data = JSON.parse(JSON.stringify(oriParams));
-    postManage(index + 2, data);
-  }else{
+    data = _diff(index + 2, oriParams, "get");
+  } else {
     data = oriParams;
   }
   const options = optionsMaker('post');
@@ -546,7 +549,8 @@ export function getNewEvent(name) {
 }
 
 
-const _diff = (_index, _data) => {
+const _diff = (_index, _data, type) => {
+  const data = JSON.parse(JSON.stringify(_data));
   const loop = (data) => {
     if (typeof data === "object" && Array.isArray(data) && data.length) {
       data.forEach(item => {
@@ -562,53 +566,25 @@ const _diff = (_index, _data) => {
         const currKey2 = item + _index;
         if (dataKeys.includes(currKey)) {
           const currItem = data[currKey];
-          if (currItem) {
+          // 判断是设置 新属性  还是读取新属性的
+          if (currItem && type == "set") {
             data.TEMPORARY = data[item];
             data[item] = currItem;
-          }
-        } else if (dataKeys.includes(currKey2)) {
-          const currItem = data[currKey2];
-          if (currItem) {
-            data.TEMPORARY = data[item];
-            data[item] = currItem;
-          }
-        }
-        const currData = data[item];
-        if (!currData) return;
-        if (typeof currData === "object" && (currData.length !== 0 || Object.keys(currData).length)) {
-          loop(currData);
-        }
-      });
-    }
-  }
-  loop(_data);
-}
-
-const postManage = (_index, _data) => {
-  const loop = (data) => {
-    if (typeof data === "object" && Array.isArray(data) && data.length) {
-      data.forEach(item => {
-        if (typeof item === "object" && (item.length !== 0 || Object.keys(item).length)) {
-          loop(item);
-        }
-      });
-    } else if (typeof data === "object" && Object.keys(data).length) {
-      // 获取 JSON VALUE  数组   [a,a1,b,c]
-      const dataKeys = Object.keys(data);
-      dataKeys.forEach((item, index) => {
-        const currKey = item + 'Ext' + _index;
-        const currKey2 = item + _index;
-        if (dataKeys.includes(currKey)) {
-          const currItem = data[currKey];
-          if (currItem) {
+          } else {
             data[currKey] = data[item];
             data[item] = data.TEMPORARY;
             delete data.TEMPORARY;
           }
         } else if (dataKeys.includes(currKey2)) {
-          data[currKey2] = data[item];
-          data[item] = data.TEMPORARY;
-          delete data.TEMPORARY;
+          const currItem = data[currKey2];
+          if (currItem && type == "set") {
+            data.TEMPORARY = data[item];
+            data[item] = currItem;
+          } else {
+            data[currKey2] = data[item];
+            data[item] = data.TEMPORARY;
+            delete data.TEMPORARY;
+          }
         }
         const currData = data[item];
         if (!currData) return;
@@ -617,6 +593,7 @@ const postManage = (_index, _data) => {
         }
       });
     }
+    return data;
   }
-  loop(_data);
+  return loop(data);
 }

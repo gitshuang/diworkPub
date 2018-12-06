@@ -254,17 +254,21 @@ var fetchTools = {
                 data = _result.data,
                 msg = _result.msg,
                 errorCode = _result.errorCode;
-            // 获取隔离的接口没有status,data这一项
 
+            var _data = {};
+            // 获取隔离的接口没有status,data这一项
             if (url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1) {
               return Promise.resolve(result);
             } else if (status && status !== '0') {
               // 获取语种索引
               var index = getLocaleIndex();
+              // 赋值_data
               if (index > -1 && (typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object") {
-                _diff(index + 2, data);
+                _data = _diff(index + 2, data, "set");
+              } else {
+                _data = data;
               }
-              return Promise.resolve(data);
+              return Promise.resolve(_data);
             } else if (errorCode) {
               switch (errorCode) {
                 case '000001':
@@ -319,8 +323,7 @@ function post(oriUrl) {
   var data = {};
   var index = getLocaleIndex();
   if (index > -1 && (typeof oriParams === 'undefined' ? 'undefined' : _typeof(oriParams)) === "object" || isExt) {
-    data = JSON.parse(JSON.stringify(oriParams));
-    postManage(index + 2, data);
+    data = _diff(index + 2, oriParams, "get");
   } else {
     data = oriParams;
   }
@@ -625,7 +628,8 @@ function getNewEvent(name) {
   }
 }
 
-var _diff = function _diff(_index, _data) {
+var _diff = function _diff(_index, _data, type) {
+  var data = JSON.parse(JSON.stringify(_data));
   var loop = function loop(data) {
     if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object" && Array.isArray(data) && data.length) {
       data.forEach(function (item) {
@@ -641,53 +645,25 @@ var _diff = function _diff(_index, _data) {
         var currKey2 = item + _index;
         if (dataKeys.includes(currKey)) {
           var currItem = data[currKey];
-          if (currItem) {
+          // 判断是设置 新属性  还是读取新属性的
+          if (currItem && type == "set") {
             data.TEMPORARY = data[item];
             data[item] = currItem;
-          }
-        } else if (dataKeys.includes(currKey2)) {
-          var _currItem = data[currKey2];
-          if (_currItem) {
-            data.TEMPORARY = data[item];
-            data[item] = _currItem;
-          }
-        }
-        var currData = data[item];
-        if (!currData) return;
-        if ((typeof currData === 'undefined' ? 'undefined' : _typeof(currData)) === "object" && (currData.length !== 0 || Object.keys(currData).length)) {
-          loop(currData);
-        }
-      });
-    }
-  };
-  loop(_data);
-};
-
-var postManage = function postManage(_index, _data) {
-  var loop = function loop(data) {
-    if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object" && Array.isArray(data) && data.length) {
-      data.forEach(function (item) {
-        if ((typeof item === 'undefined' ? 'undefined' : _typeof(item)) === "object" && (item.length !== 0 || Object.keys(item).length)) {
-          loop(item);
-        }
-      });
-    } else if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object" && Object.keys(data).length) {
-      // 获取 JSON VALUE  数组   [a,a1,b,c]
-      var dataKeys = Object.keys(data);
-      dataKeys.forEach(function (item, index) {
-        var currKey = item + 'Ext' + _index;
-        var currKey2 = item + _index;
-        if (dataKeys.includes(currKey)) {
-          var currItem = data[currKey];
-          if (currItem) {
+          } else {
             data[currKey] = data[item];
             data[item] = data.TEMPORARY;
             delete data.TEMPORARY;
           }
         } else if (dataKeys.includes(currKey2)) {
-          data[currKey2] = data[item];
-          data[item] = data.TEMPORARY;
-          delete data.TEMPORARY;
+          var _currItem = data[currKey2];
+          if (_currItem && type == "set") {
+            data.TEMPORARY = data[item];
+            data[item] = _currItem;
+          } else {
+            data[currKey2] = data[item];
+            data[item] = data.TEMPORARY;
+            delete data.TEMPORARY;
+          }
         }
         var currData = data[item];
         if (!currData) return;
@@ -696,6 +672,7 @@ var postManage = function postManage(_index, _data) {
         }
       });
     }
+    return data;
   };
-  loop(_data);
+  return loop(data);
 };
