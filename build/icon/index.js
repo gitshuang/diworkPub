@@ -21,6 +21,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 require('./style.css');
 
 var types = {
+  'iconfont': 'iconfont__style___LBvY-',
   'icon-Tree-plus-sign': 'icon-Tree-plus-sign__style___1gwJz',
   'icon-Tree-minus-sign': 'icon-Tree-minus-sign__style___Hf4U1',
   'icon-Friends-space': 'icon-Friends-space__style___24yj2',
