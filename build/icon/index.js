@@ -320,7 +320,7 @@ function Icon(props) {
   var sizeClassName = sizes[size] || '';
   var typeClassName = types['icon-' + type] || '';
   return _react2["default"].createElement('i', _extends({
-    className: 'iconfont ' + typeClassName + ' ' + sizeClassName + ' ' + className
+    className: 'iconfont diworkiconfont ' + typeClassName + ' ' + sizeClassName + ' ' + className
   }, ret));
 }
 

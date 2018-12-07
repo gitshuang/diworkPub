@@ -26,6 +26,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.diworkiconfont{
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .icon-Tree-plus-sign__style___1gwJz:before {
   content: "\E986";
   color: #555;

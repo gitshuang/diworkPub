@@ -20,7 +20,7 @@ function Icon(props) {
   const typeClassName = types[`icon-${type}`] || '';
   return (
     <i
-      className={`iconfont ${typeClassName} ${sizeClassName} ${className}`}
+      className={`iconfont diworkiconfont ${typeClassName} ${sizeClassName} ${className}`}
       {...ret}
     />
   )
