@@ -645,8 +645,11 @@ var _diff = function _diff(_index, _data, type) {
         var currKey2 = item + _index;
         if (dataKeys.includes(currKey)) {
           var currItem = data[currKey];
+          if (!currItem) {
+            return;
+          }
           // 判断是设置 新属性  还是读取新属性的
-          if (currItem && type == "set") {
+          if (type == "set") {
             data.TEMPORARY = data[item];
             data[item] = currItem;
           } else {
@@ -656,7 +659,10 @@ var _diff = function _diff(_index, _data, type) {
           }
         } else if (dataKeys.includes(currKey2)) {
           var _currItem = data[currKey2];
-          if (_currItem && type == "set") {
+          if (!_currItem) {
+            return;
+          }
+          if (type == "set") {
             data.TEMPORARY = data[item];
             data[item] = _currItem;
           } else {

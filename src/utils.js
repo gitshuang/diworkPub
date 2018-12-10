@@ -566,8 +566,11 @@ const _diff = (_index, _data, type) => {
         const currKey2 = item + _index;
         if (dataKeys.includes(currKey)) {
           const currItem = data[currKey];
+          if(!currItem){
+            return;
+          }
           // 判断是设置 新属性  还是读取新属性的
-          if (currItem && type == "set") {
+          if (type == "set") {
             data.TEMPORARY = data[item];
             data[item] = currItem;
           } else {
@@ -577,7 +580,10 @@ const _diff = (_index, _data, type) => {
           }
         } else if (dataKeys.includes(currKey2)) {
           const currItem = data[currKey2];
-          if (currItem && type == "set") {
+          if(!currItem){
+            return;
+          }
+          if (type == "set") {
             data.TEMPORARY = data[item];
             data[item] = currItem;
           } else {
