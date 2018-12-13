@@ -196,6 +196,11 @@ var getHost = exports.getHost = function getHost() {
       production: '//wsbs.diwork.com/pc/modules/honorZone/send/index.html',
       development: '//wsbs.app.yyuap.com/pc/modules/honorZone/send/index.html',
       daily: '//wsbs-daily.yyuap.com/pc/modules/honorZone/send/index.html'
+    },
+    ticket: {
+      production: 'https://ticket.yonyoucloud.com/ticket/create/KJ',
+      development: 'http://172.20.9.47:8000/index.html',
+      daily: 'http://172.20.9.47:8000/index.html'
     }
   };
   return hosts[key][process.env.NODE_ENV];
