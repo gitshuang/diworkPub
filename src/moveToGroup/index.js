@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Button from 'bee/button';
 import Menu, { SubMenu } from 'bee/menus';
-import { findPath, avoidSameName } from '../utils';
+import { findPath, avoidSameName } from '@u';
+/*  style */
 import {
   container,
   title,
-  pd,
   borderBox,
   footer,
   selectedli,
@@ -15,34 +16,50 @@ import {
 const { Item } = Menu;
 
 class MoveToGroup extends Component {
+  static propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object),
+    onAddGroup: PropTypes.func,
+    onSave: PropTypes.func,
+    onCancel: PropTypes.func,
+    caller: PropTypes.string,
+  };
+  static defaultProps = {
+    data: [],
+    onAddGroup: () => { },
+    onSave: () => { },
+    onCancel: () => { },
+    caller: '',
+  };
   constructor(props) {
     super(props);
     this.state = {
-      newGroupName: "分组",      // 新分组名
-      inAddGroup: false,        // 是否是打开新的分组
-      way: '',          // 路径
-      selectId: '',   // 选中的id
-    }
+      // 新分组名
+      newGroupName: '分组',
+      // 是否是打开新的分组
+      inAddGroup: false,
+      // 路径
+      way: '',
+      // 选中的id
+      selectId: '',
+    };
   }
 
   // 新分组名称的onchange
-  setNewGroupName =(e) => {
-    let env = e || window.event;
+  setNewGroupName = (e) => {
+    const env = e || window.event;
     this.setState({
       newGroupName: env.target.value,
-      way:env.target.value
-    })
+      way: env.target.value,
+    });
   }
   //  点击每一行对应的操作
-  handlerClick(selectId) {
+  handlerClick = (selectId) => {
     const way = findPath(
       this.props.data,
       'children',
       'widgetId',
-      selectId
-    ).map(
-      ({widgetName})=>widgetName
-    ).join('/');
+      selectId,
+    ).map(({ widgetName }) => widgetName).join('/');
     this.setState({
       way,
       selectId,
@@ -51,18 +68,16 @@ class MoveToGroup extends Component {
   }
   // 点击添加分组
   addGroup = () => {
-    const { data,languagesJSON } = this.props;
-    const nameArr = data.map(({ widgetName }) => {
-      return widgetName;
-    });
+    const { data, languagesJSON } = this.props;
+    const nameArr = data.map(({ widgetName }) => widgetName);
     const newGroupName = avoidSameName(nameArr, languagesJSON.group);
     this.setState({
       inAddGroup: true,
-      newGroupName
+      newGroupName,
     });
     setTimeout(() => {
-      this.refs.newGroupName.focus();
-      this.refs.newGroupName.select();
+      this.newGroupName.focus();
+      this.newGroupName.select();
     }, 0);
   }
   // 确认添加分组
@@ -82,9 +97,9 @@ class MoveToGroup extends Component {
   //   保存
   save = () => {
     const { selectId, inAddGroup } = this.state;
-    if(inAddGroup){
-      this.confirmAddGroup()
-    }else{
+    if (inAddGroup) {
+      this.confirmAddGroup();
+    } else {
       this.props.onSave(selectId);
     }
   }
@@ -93,37 +108,50 @@ class MoveToGroup extends Component {
     this.props.onCancel();
   }
   makeSelectInterface(data, selectId) {
-    /*下拉菜单式*/
-    let result = [];
-    data.forEach(({widgetId,widgetName,children,type})=>{
-      const classname = widgetId == selectId ? selectedli : "";
-      if(children && children.length){
+    // 下拉菜单式*/
+    const result = [];
+    data.forEach(({
+      widgetId,
+      widgetName,
+      children,
+    }) => {
+      const classname = widgetId === selectId ? selectedli : '';
+      if (children && children.length) {
         result.push(
           <SubMenu
             key={widgetId}
+            classname={classname}
             title={
-              <span
-                onClick={this.handlerClick.bind(this, widgetId)}
-                className={ classname }>
+              <span onClick={() => { this.handlerClick(widgetId); }}
+                onKeyDown={() => { this.handlerClick(widgetId); }}
+                role="presentation"
+                style={{ display: "block" }}
+                className={classname}
+              >
                 {widgetName}
               </span>
-            }>
-            { this.makeSelectInterface(children,selectId) }
-          </SubMenu>
-        );
-      }else{
-        result.push(
-          <Item key={widgetId} className={ classname }>
+            }
+          >
+            {this.makeSelectInterface(children, selectId)}
+          </SubMenu>);
+      } else {
+        const pushOb = (
+          <Item key={widgetId} className={classname}>
             <span
-              onClick={this.handlerClick.bind(this, widgetId)}>
-              { widgetName }
+              style={{ display: "block" }}
+              onClick={() => { this.handlerClick(widgetId); }}
+              onKeyDown={() => { this.handlerClick(widgetId); }}
+              role="presentation"
+            >
+              {widgetName}
             </span>
           </Item>
         );
+        result.push(pushOb);
       }
     });
     return result;
-    /*默认展开式*/
+    /* 默认展开式 */
     // if (data.length) {
     //   return (
     //     <ul>
@@ -165,11 +193,11 @@ class MoveToGroup extends Component {
       onCancel,
       onAddGroup,
       caller,
-      languagesJSON
+      languagesJSON,
     } = this.props;
 
-    let content = (
-      <div className= {container}>
+    const content = (
+      <div className={container}>
         <div className={title}>
           {caller}{languagesJSON.to}：{way}
         </div>
@@ -178,56 +206,62 @@ class MoveToGroup extends Component {
             onClick={this.handleClick}
             style={{ width: '100%' }}
             onOpenChange={this.onOpenChange}
-            mode="inline">
-            { this.makeSelectInterface(data, selectId) }
+            mode="inline"
+          >
+            {this.makeSelectInterface(data, selectId)}
           </Menu>
           {/* { this.makeSelectInterface(data, selectId) } */}
-          {inAddGroup ? (<div>
-            <input type="text" ref="newGroupName"
-                   value={newGroupName}
-                   onChange={ this.setNewGroupName }
-                   autoFocus="autofocus"
-            />
-          </div>):null}
+          {
+            inAddGroup
+              ?
+              (
+                <div>
+                  <input
+                    type="text"
+                    ref={(c) => { this.newGroupName = c; }}
+                    value={newGroupName}
+                    onChange={this.setNewGroupName}
+                  />
+                </div>
+              )
+              : null
+          }
         </div>
 
-        <div className={`${footer} um-box-justify`}>
+        <div className={`${footer} um-box-justify`} style={{ overflow: 'hidden' }}>
           {
-            onAddGroup ? (<div>
-              <Button onClick={this.addGroup} disabled={inAddGroup? true: false}>{languagesJSON.addGroup}</Button>
-            </div>) : null
+            onAddGroup ? (
+              <div>
+                <Button style={{ float: 'left' }} onClick={this.addGroup} disabled={inAddGroup}>{languagesJSON.addGroup}</Button>
+              </div>
+            ) : null
           }
-          <div>
+          <div style={{ float: 'right' }}>
             {
-              onSave ? (<Button
-                colors="danger"
-                disabled={!way && !inAddGroup}
-                className={saveBtn}
-                onClick={ this.save }>{languagesJSON.confirm}</Button>) : null
+              onSave ? (
+                <Button
+                  colors="danger"
+                  disabled={!way && !inAddGroup}
+                  className={saveBtn}
+                  onClick={this.save}
+                >
+                  {languagesJSON.confirm}
+                </Button>
+              ) : null
             }
             {
-              onCancel ? (<Button
-                onClick={this.cancel}>{languagesJSON.cancel}</Button>) : null
+              onCancel ? (
+                <Button
+                  onClick={this.cancel}
+                >
+                  {languagesJSON.cancel}
+                </Button>
+              ) : null
             }
           </div>
         </div>
       </div>
     );
-    {/*if (inAddGroup) {
-      content = (
-        <div className= {`${pd} ${container}`}>
-          <div className={borderBox}>
-            <input type="text" value={newGroupName} onChange={ this.setNewGroupName }/>
-          </div>
-          <div className={footer + " um-box-justify"}>
-            <Button colors="danger" disabled={!newGroupName} onClick={ this.confirmAddGroup }>添加新分组</Button>
-            <Button onClick={ this.cancelAddGroup }>取消</Button>
-          </div>
-        </div>
-      );
-    }else{
-
-    }*/}
     return content;
   }
 }

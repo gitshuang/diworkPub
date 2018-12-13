@@ -8,6 +8,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _button = require('../bee/button');
 
 var _button2 = _interopRequireDefault(_button);
@@ -16,18 +20,19 @@ var _menus = require('../bee/menus');
 
 var _menus2 = _interopRequireDefault(_menus);
 
-var _utils = require('../utils');
+var _u = require('@u');
 
 require('./style.css');
 
 var _style = {
   'container': 'container__style___3CvgR',
   'title': 'title__style___YVWvc',
-  'pd': 'pd__style___3mSIE',
   'borderBox': 'borderBox__style___1q8V0',
+  'u-menu-inline': 'u-menu-inline__style___1KbeC',
+  'u-menu-selected': 'u-menu-selected__style___2rj0p',
   'footer': 'footer__style___33izj',
-  'saveBtn': 'saveBtn__style___2n4e3',
-  'selectedli': 'selectedli__style___6ub3B'
+  'selectedli': 'selectedli__style___6ub3B',
+  'saveBtn': 'saveBtn__style___2n4e3'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -39,6 +44,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+/*  style */
+
 
 var Item = _menus2["default"].Item;
 
@@ -58,31 +65,42 @@ var MoveToGroup = function (_Component) {
       });
     };
 
+    _this.handlerClick = function (selectId) {
+      var way = (0, _u.findPath)(_this.props.data, 'children', 'widgetId', selectId).map(function (_ref) {
+        var widgetName = _ref.widgetName;
+        return widgetName;
+      }).join('/');
+      _this.setState({
+        way: way,
+        selectId: selectId,
+        inAddGroup: false
+      });
+    };
+
     _this.addGroup = function () {
       var _this$props = _this.props,
           data = _this$props.data,
           languagesJSON = _this$props.languagesJSON;
 
-      var nameArr = data.map(function (_ref) {
-        var widgetName = _ref.widgetName;
-
+      var nameArr = data.map(function (_ref2) {
+        var widgetName = _ref2.widgetName;
         return widgetName;
       });
-      var newGroupName = (0, _utils.avoidSameName)(nameArr, languagesJSON.group);
+      var newGroupName = (0, _u.avoidSameName)(nameArr, languagesJSON.group);
       _this.setState({
         inAddGroup: true,
         newGroupName: newGroupName
       });
       setTimeout(function () {
-        _this.refs.newGroupName.focus();
-        _this.refs.newGroupName.select();
+        _this.newGroupName.focus();
+        _this.newGroupName.select();
       }, 0);
     };
 
     _this.confirmAddGroup = function () {
-      _this.props.onAddGroup(_this.state.newGroupName).then(function (_ref2) {
-        var error = _ref2.error,
-            payload = _ref2.payload;
+      _this.props.onAddGroup(_this.state.newGroupName).then(function (_ref3) {
+        var error = _ref3.error,
+            payload = _ref3.payload;
 
         if (!error) {
           _this.props.onSave(payload.widgetId);
@@ -110,29 +128,22 @@ var MoveToGroup = function (_Component) {
     };
 
     _this.state = {
-      newGroupName: "分组", // 新分组名
-      inAddGroup: false, // 是否是打开新的分组
-      way: '', // 路径
-      selectId: '' // 选中的id
+      // 新分组名
+      newGroupName: '分组',
+      // 是否是打开新的分组
+      inAddGroup: false,
+      // 路径
+      way: '',
+      // 选中的id
+      selectId: ''
     };
     return _this;
   }
 
   // 新分组名称的onchange
 
-
   //  点击每一行对应的操作
-  MoveToGroup.prototype.handlerClick = function handlerClick(selectId) {
-    var way = (0, _utils.findPath)(this.props.data, 'children', 'widgetId', selectId).map(function (_ref3) {
-      var widgetName = _ref3.widgetName;
-      return widgetName;
-    }).join('/');
-    this.setState({
-      way: way,
-      selectId: selectId,
-      inAddGroup: false
-    });
-  };
+
   // 点击添加分组
 
   // 确认添加分组
@@ -146,44 +157,61 @@ var MoveToGroup = function (_Component) {
   MoveToGroup.prototype.makeSelectInterface = function makeSelectInterface(data, selectId) {
     var _this2 = this;
 
-    /*下拉菜单式*/
+    // 下拉菜单式*/
     var result = [];
     data.forEach(function (_ref4) {
       var widgetId = _ref4.widgetId,
           widgetName = _ref4.widgetName,
-          children = _ref4.children,
-          type = _ref4.type;
+          children = _ref4.children;
 
-      var classname = widgetId == selectId ? _style.selectedli : "";
+      var classname = widgetId === selectId ? _style.selectedli : '';
       if (children && children.length) {
         result.push(_react2["default"].createElement(
           _menus.SubMenu,
           {
             key: widgetId,
+            classname: classname,
             title: _react2["default"].createElement(
               'span',
-              {
-                onClick: _this2.handlerClick.bind(_this2, widgetId),
-                className: classname },
+              { onClick: function onClick() {
+                  _this2.handlerClick(widgetId);
+                },
+                onKeyDown: function onKeyDown() {
+                  _this2.handlerClick(widgetId);
+                },
+                role: 'presentation',
+                style: { display: "block" },
+                className: classname
+              },
               widgetName
-            ) },
+            )
+          },
           _this2.makeSelectInterface(children, selectId)
         ));
       } else {
-        result.push(_react2["default"].createElement(
+        var pushOb = _react2["default"].createElement(
           Item,
           { key: widgetId, className: classname },
           _react2["default"].createElement(
             'span',
             {
-              onClick: _this2.handlerClick.bind(_this2, widgetId) },
+              style: { display: "block" },
+              onClick: function onClick() {
+                _this2.handlerClick(widgetId);
+              },
+              onKeyDown: function onKeyDown() {
+                _this2.handlerClick(widgetId);
+              },
+              role: 'presentation'
+            },
             widgetName
           )
-        ));
+        );
+        result.push(pushOb);
       }
     });
     return result;
-    /*默认展开式*/
+    /* 默认展开式 */
     // if (data.length) {
     //   return (
     //     <ul>
@@ -214,6 +242,8 @@ var MoveToGroup = function (_Component) {
   };
 
   MoveToGroup.prototype.render = function render() {
+    var _this3 = this;
+
     var _state = this.state,
         inAddGroup = _state.inAddGroup,
         newGroupName = _state.newGroupName,
@@ -248,71 +278,77 @@ var MoveToGroup = function (_Component) {
             onClick: this.handleClick,
             style: { width: '100%' },
             onOpenChange: this.onOpenChange,
-            mode: 'inline' },
+            mode: 'inline'
+          },
           this.makeSelectInterface(data, selectId)
         ),
         inAddGroup ? _react2["default"].createElement(
           'div',
           null,
-          _react2["default"].createElement('input', { type: 'text', ref: 'newGroupName',
+          _react2["default"].createElement('input', {
+            type: 'text',
+            ref: function ref(c) {
+              _this3.newGroupName = c;
+            },
             value: newGroupName,
-            onChange: this.setNewGroupName,
-            autoFocus: 'autofocus'
+            onChange: this.setNewGroupName
           })
         ) : null
       ),
       _react2["default"].createElement(
         'div',
-        { className: _style.footer + ' um-box-justify' },
+        { className: _style.footer + ' um-box-justify', style: { overflow: 'hidden' } },
         onAddGroup ? _react2["default"].createElement(
           'div',
           null,
           _react2["default"].createElement(
             _button2["default"],
-            { onClick: this.addGroup, disabled: inAddGroup ? true : false },
+            { style: { "float": 'left' }, onClick: this.addGroup, disabled: inAddGroup },
             languagesJSON.addGroup
           )
         ) : null,
         _react2["default"].createElement(
           'div',
-          null,
+          { style: { "float": 'right' } },
           onSave ? _react2["default"].createElement(
             _button2["default"],
             {
               colors: 'danger',
               disabled: !way && !inAddGroup,
               className: _style.saveBtn,
-              onClick: this.save },
+              onClick: this.save
+            },
             languagesJSON.confirm
           ) : null,
           onCancel ? _react2["default"].createElement(
             _button2["default"],
             {
-              onClick: this.cancel },
+              onClick: this.cancel
+            },
             languagesJSON.cancel
           ) : null
         )
       )
     );
-    {/*if (inAddGroup) {
-       content = (
-         <div className= {`${pd} ${container}`}>
-           <div className={borderBox}>
-             <input type="text" value={newGroupName} onChange={ this.setNewGroupName }/>
-           </div>
-           <div className={footer + " um-box-justify"}>
-             <Button colors="danger" disabled={!newGroupName} onClick={ this.confirmAddGroup }>添加新分组</Button>
-             <Button onClick={ this.cancelAddGroup }>取消</Button>
-           </div>
-         </div>
-       );
-      }else{
-      }*/}
     return content;
   };
 
   return MoveToGroup;
 }(_react.Component);
 
+MoveToGroup.propTypes = {
+  data: _propTypes2["default"].arrayOf(_propTypes2["default"].object),
+  onAddGroup: _propTypes2["default"].func,
+  onSave: _propTypes2["default"].func,
+  onCancel: _propTypes2["default"].func,
+  caller: _propTypes2["default"].string
+};
+MoveToGroup.defaultProps = {
+  data: [],
+  onAddGroup: function onAddGroup() {},
+  onSave: function onSave() {},
+  onCancel: function onCancel() {},
+  caller: ''
+};
 exports["default"] = MoveToGroup;
 module.exports = exports['default'];
