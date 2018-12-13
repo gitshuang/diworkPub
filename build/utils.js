@@ -199,8 +199,8 @@ var getHost = exports.getHost = function getHost() {
     },
     ticket: {
       production: 'https://ticket.yonyoucloud.com/ticket/create/KJ',
-      development: 'http://172.20.9.47:8000/index.html',
-      daily: 'http://172.20.9.47:8000/index.html'
+      development: 'http://172.20.9.47:8000/ticket/query',
+      daily: 'http://172.20.9.47:8000/ticket/query'
     }
   };
   return hosts[key][process.env.NODE_ENV];
