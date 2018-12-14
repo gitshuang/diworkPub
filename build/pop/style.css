@@ -38,14 +38,19 @@
   color: #474D54;
   min-width: 370px;
 }
+
+/************************ 下面的type会对header跟body进行样式覆盖 *************************/
+.pop_dialog.u-modal  .u-modal-header{
+  padding:20px;
+}
+.pop_dialog.u-modal  .u-modal-body{
+  margin: 0;
+  padding:0 25px;
+}
 .u-modal.in .u-modal-dialog >div{
   box-shadow: 0px 6px 8px 0px rgba(74,81,93,0.25);
 }
-.u-modal-body {
-  /* TODO -- remove important */
-  padding-right: 52px !important;
-  margin-top:12px; /* 防止遮挡header上的关闭按钮*/
-}
+
 
 /************************ error *************************/
 

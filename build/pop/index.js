@@ -185,7 +185,7 @@ var PopDialog = function (_Component) {
     // this.props.backdrop?false:true
     return _react2["default"].createElement(
       _modal2["default"],
-      { className: (_utils.IS_IE ? 'ie9_pop' : '') + ' ' + (this.props.className ? this.props.className : "pop_dialog") + ' ' + _style.pop_type + ' ' + this.getTypeClass(this.props.type), backdrop: false, show: this.props.show, onHide: this.props.close, animation: false },
+      { className: (_utils.IS_IE ? 'ie9_pop' : '') + ' ' + (this.props.className ? 'pop_dialog ' + this.props.classNam : "pop_dialog") + ' ' + _style.pop_type + ' ' + this.getTypeClass(this.props.type), backdrop: false, show: this.props.show, onHide: this.props.close, animation: false },
       _react2["default"].createElement(
         _modal2["default"].Header,
         null,
