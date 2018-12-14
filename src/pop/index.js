@@ -111,28 +111,31 @@ class PopDialog extends Component {
     // }
 
     // this.props.backdrop?false:true
-    return (<Modal className={`${IS_IE ? 'ie9_pop' : ''} ${this.props.className ? this.props.className : "pop_dialog"} ${pop_type} ${this.getTypeClass(this.props.type)}`} backdrop={false} show={this.props.show} onHide={this.props.close} animation={false}>
-      <Modal.Header>
-        <Modal.Title>
-          {type ? <Icon type={this.getTypeIcon(type)} /> : ""}
-          {this.props.title}
-          <div className={`${closeBtn} close`} onClick={this.props.close} ><Icon type="error3" /></div>
-        </Modal.Title>
-      </Modal.Header>
+    return (
+      <Modal className={`${IS_IE ? 'ie9_pop' : ''} ${this.props.className ? `pop_dialog ${this.props.classNam}` : "pop_dialog"} ${pop_type} ${this.getTypeClass(this.props.type)}`} backdrop={false} show={this.props.show} onHide={this.props.close} animation={false}>
+        <Modal.Header>
+          <Modal.Title>
+            {type ? <Icon type={this.getTypeIcon(type)} /> : ""}
+            {this.props.title}
+            <div className={`${closeBtn} close`} onClick={this.props.close} ><Icon type="error3" /></div>
+          </Modal.Title>
+        </Modal.Header>
 
-      <Modal.Body>
-        <div>
-          {this.props.children?this.props.children:(this.props.msg?this.props.msg:'')}
-        </div>
+        <Modal.Body>
+          <div>
+            {this.props.children?this.props.children:(this.props.msg?this.props.msg:'')}
+          </div>
 
-        
-      </Modal.Body>
+          
+        </Modal.Body>
 
-      <Modal.Footer>
-        {_btns}
-      </Modal.Footer>
-    </Modal>)
+        <Modal.Footer>
+          {_btns}
+        </Modal.Footer>
+      </Modal>
+    )
   }
+
 }
 
 // const PopDialog = ({ ...props }) => {
