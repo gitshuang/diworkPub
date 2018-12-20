@@ -199,8 +199,8 @@ var getHost = exports.getHost = function getHost() {
     },
     ticket: {
       production: 'http://wo.diwork.com/ticket/query',
-      development: 'http://wo.diwork.com/ticket/query',
-      daily: 'http://wo.diwork.com/ticket/query'
+      development: 'http://172.20.9.47:8000/ticket/query',
+      daily: 'http://ticket.app.yyuap.com/ticket/query'
     }
   };
   return hosts[key][process.env.NODE_ENV];

@@ -341,9 +341,7 @@ var EnterContent = function (_Component) {
       _form2["default"],
       { submitCallBack: this.checkForm, showSubmit: false, className: _style.enterForm },
       _react2["default"].createElement(
-        _form.FormItem
-        // showMast={false}
-        ,
+        _form.FormItem,
         {
           showMast: false,
           labelName: _react2["default"].createElement(
@@ -783,7 +781,9 @@ var EnterContent = function (_Component) {
         })
       ),
       _react2["default"].createElement(
-        _form.FormItem,
+        _form.FormItem
+        // showMast={false}
+        ,
         { labelName: _react2["default"].createElement(
             'span',
             null,
