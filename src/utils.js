@@ -146,9 +146,9 @@ export const getHost = (key = 'api') => {
       daily: '//wsbs-daily.yyuap.com/pc/modules/honorZone/send/index.html',
     },
     ticket: {
-      production: 'https://ticket.yonyoucloud.com/ticket/create/KJ',
-      development: 'http://172.20.9.47:8000/ticket/query',
-      daily: 'http://172.20.9.47:8000/ticket/query',
+      production: 'http://wo.diwork.com/ticket/query',
+      development: 'http://wo.diwork.com/ticket/query',
+      daily: 'http://wo.diwork.com/ticket/query',
     }
   };
   return hosts[key][process.env.NODE_ENV];
