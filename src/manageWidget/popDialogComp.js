@@ -17,7 +17,7 @@ export default class PopDialogComp extends Component{
       ]
       const pop_btn2 = [
         {label:languagesJSON.notSave,fun:this.props.cancel,type:"defaultAlpha"},
-        {label:languagesJSON.save,fun:this.props.save,type:"warning"},
+        {label:languagesJSON.save,fun:this.props.save,type:"danger"},
         {label:languagesJSON.cancel,fun:this.props.popCloseCancel,type:"defaultAlpha"}
       ]
     return (
