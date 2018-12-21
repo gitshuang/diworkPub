@@ -50,7 +50,7 @@ var PopDialogComp = function (_Component) {
     var languagesJSON = this.props.languagesJSON;
 
     var pop_btn = [{ label: languagesJSON.confirm, fun: this.props.batchDelectFn, className: "" }, { label: languagesJSON.cancel, fun: this.props.popClose, className: "" }];
-    var pop_btn2 = [{ label: languagesJSON.notSave, fun: this.props.cancel, type: "defaultAlpha" }, { label: languagesJSON.save, fun: this.props.save, type: "warning" }, { label: languagesJSON.cancel, fun: this.props.popCloseCancel, type: "defaultAlpha" }];
+    var pop_btn2 = [{ label: languagesJSON.notSave, fun: this.props.cancel, type: "defaultAlpha" }, { label: languagesJSON.save, fun: this.props.save, type: "danger" }, { label: languagesJSON.cancel, fun: this.props.popCloseCancel, type: "defaultAlpha" }];
     return _react2["default"].createElement(
       'div',
       null,
