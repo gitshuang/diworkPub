@@ -71,11 +71,14 @@
 }
 
 .pop_type__style___7FzHT.error__style___3lAfZ .u-modal-body {
-  font-size: 14px;
-  padding: 0px;
-  padding-left: 60px;
-  padding-bottom: 6px;
-  line-height: 26px;
+ font-size: 14px;
+ /* padding: 0px;
+ padding-left: 60px;
+ padding-bottom: 6px; */
+ padding:0 18px 6px 18px;
+ text-indent: 42px;
+ line-height: 26px;
+
 }
 
 .pop_type__style___7FzHT.error__style___3lAfZ .u-modal-header {
