@@ -153,9 +153,11 @@
 
 .pop_type__style___7FzHT.danger__style___2dz2P .u-modal-body {
   font-size: 14px;
-  padding: 0px;
+  /* padding: 0px;
   padding-left: 60px;
-  padding-bottom: 6px;
+  padding-bottom: 6px; */
+  padding:0 18px 6px 18px;
+  text-indent: 42px;
   line-height: 26px;
 }
 
