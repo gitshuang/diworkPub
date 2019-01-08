@@ -116,12 +116,16 @@
   height: 100%;
 }
 .server_type__style___1zZ5Z button{
-  height: 26px;
+  height: 30px;
+  font-weight: normal;
+  display: block;
+  width: 100%;
   text-align: left;
   font-size: 14px;
   font-family: MicrosoftYaHei;
-  color: rgba(85,85,85,1);
-  font-weight: normal;
+  color: #555;
+  line-height: 30px;
+  padding: 0 0 0 23px;
 } 
 /* .panel_left>div{
   width: 100%;
