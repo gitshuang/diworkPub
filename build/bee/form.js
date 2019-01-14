@@ -5,21 +5,21 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = undefined;
 
-var _form = require('../form');
+var _beeForm = require('bee-form');
 
-Object.keys(_form).forEach(function (key) {
+Object.keys(_beeForm).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _form[key];
+      return _beeForm[key];
     }
   });
 });
 Object.defineProperty(exports, 'default', {
   enumerable: true,
   get: function get() {
-    return _interopRequireDefault(_form)["default"];
+    return _interopRequireDefault(_beeForm)["default"];
   }
 });
 
