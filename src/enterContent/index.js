@@ -233,6 +233,7 @@ class EnterContent extends Component {
             onChange={(e) => { this.inputOnChange(e, 'tenantName'); }}
             placeholder={texts.placeholder1}
             {...getFieldProps('tenantName', {
+              initialValue: tenantName || '',
               validateTrigger: 'onBlur',
               rules: [{ required: true, message: texts.tenantNameError, }],
             })}

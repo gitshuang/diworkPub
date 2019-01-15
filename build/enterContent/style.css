@@ -16,6 +16,7 @@
 }
 .enterForm__style___3rLaN input {
   width: 338px;
+  height: 32px;
 }
 .upload__style___1zxuY{
   float: left;
@@ -112,7 +113,7 @@
 
 .enterForm__style___3rLaN .u-form-item{
   width: 100%;
-  min-height: 64px;
+  min-height: 64px !important;
 }
 
 .enterForm__style___3rLaN .u-input-inner>input{

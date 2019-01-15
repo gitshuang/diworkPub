@@ -319,6 +319,7 @@ var EnterContent = function (_Component) {
           },
           placeholder: texts.placeholder1
         }, getFieldProps('tenantName', {
+          initialValue: tenantName || '',
           validateTrigger: 'onBlur',
           rules: [{ required: true, message: texts.tenantNameError }]
         }))),
