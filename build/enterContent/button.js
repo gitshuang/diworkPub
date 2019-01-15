@@ -36,9 +36,9 @@ var SubmitBtn = function (_Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.click = function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.click = function (e) {
       if (typeof _this.props.onClick === 'function') {
-        _this.props.onClick();
+        _this.props.onClick(e);
       }
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }

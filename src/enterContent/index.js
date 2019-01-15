@@ -11,7 +11,7 @@ import Progress from '../progress';
 import Upload from './upload';
 import { check } from './checkTenantStatus';
 import SubmitBtn from './button';
-import { enterForm, line, infoTitle, progressBar, country, code, inputPhone, } from './style.css';
+import { enterForm, tel, line, infoTitle, progressBar, country, code, upload, } from './style.css';
 
 const { Option } = Select;
 
@@ -28,8 +28,6 @@ class EnterContent extends Component {
     buttonText: PropTypes.string,
     uploadApplication: PropTypes.func,
     loadingDesc: PropTypes.string,
-    texts: PropTypes.shape({}),
-    lang: PropTypes.string,
   };
   static defaultProps = {
     userInfo: {},                 // 用户信息
@@ -39,8 +37,6 @@ class EnterContent extends Component {
     buttonText: '',               // 按钮显示文字
     uploadApplication: () => { },          // 上传事件
     loadingDesc: '',              // 滚动条 文字提示
-    texts: {},
-    lang: 'zh_CN',
   };
   constructor(props) {
     super(props);
@@ -48,13 +44,17 @@ class EnterContent extends Component {
       disabled: false,                // 按钮是否可点击， true为不可点击 
       startFlag: false,                // process 0～1 
       tenantId: '',                   // 租户ID
-      address: null,                // 企业地址 
+      address: {
+        province: '北京',
+        city: '北京',
+        area: '东城区',
+      },                // 企业地址 
       addressInput: '',               // 企业地址 (60个字输入框)
 
       tenantName: '',                 // 企业名称
       logo: '',                       // logo
-      tenantIndustry: '',             // 选中的行业
-      tenantSize: '',                 // 规模范围
+      tenantIndustry: 'A',             // 选中的行业
+      tenantSize: 'A',                 // 规模范围
       tenantAddress: '',              // 企业地址 + 60个字输入框显示
 
       invitePermission: '',           // 邀请规则              string类型
@@ -67,7 +67,7 @@ class EnterContent extends Component {
       countryCode: '86',              // 国家代号
       tenantTel: '',                  // 手机号
       tenantEmail: '',                // 邮箱
-      charged: false,                 // new -  企业是否为付费
+      charged: true,                 // new -  企业是否为付费
     };
 
     // progressbar
@@ -84,15 +84,9 @@ class EnterContent extends Component {
         linkman: userInfo.userName,
         tenantEmail: userInfo.userEmail,
         tenantTel: userInfo.userMobile,
-        address: {
-          province: '北京',
-          city: '北京',
-          area: '东城区',
-        },
       });
       return false;
     }
-
     const { tenantAddress } = data;
     // 将 地址综合 赋值到 address 和 address和 addressInput 上
     if (tenantAddress) {
@@ -102,19 +96,11 @@ class EnterContent extends Component {
         city: Addres[1] || '北京',
         area: Addres[2] || '东城区',
       };
-      data.addressInput = Addres[Addres.length - 1]
-    } else {
-      data.address = {
-        province: '北京',
-        city: '北京',
-        area: '东城区',
-      };
-      data.addressInput = '';
+      data.addressInput = Addres[Addres.length - 1];
     }
-
     data.linkman = data.linkman || userInfo.userName;
     data.tenantEmail = data.tenantEmail || userInfo.userEmail;
-    data.countryCode = data.tenantTel && data.tenantTel.length > 11 ? data.tenantTel.substring(0, data.tenantTel.length - 11) : '86';
+    data.countryCode = data.tenantTel ? data.tenantTel.substring(0, data.tenantTel.length - 11) : '86';
     data.tenantTel = data.tenantTel ? data.tenantTel.substring(data.tenantTel.length - 11) : userInfo.userMobile;
     this.setState({
       ...data,
@@ -163,69 +149,62 @@ class EnterContent extends Component {
     });
   }
 
+  clickFn = (e) => {
+    e.preventDefault();
+
+    this.props.form.validateFields((err, values) => {
+      if (err) {
+        console.log('校验失败', values);
+      } else {
+        console.log('提交成功', values)
+        console.log(this.state);
+        this.checkForm(values);
+      }
+    });
+  }
+
   // 这个方法是点击了提交按钮执行的，form组件封的有点疯
-  checkForm = (flag, data) => {
+  checkForm = (data) => {
     const { handleClickFn, _from } = this.props;
     const {
       tenantId,
       address,
       addressInput,
-      allowExit,
-      isWaterMark
+      logo,
     } = this.state;
 
-    if (flag) {
+    this.setState({
+      disabled: true,
+    });
+    // 将地址 组合  真实上传的参数
+    const TenantAddress = `${address.province}|${address.city}|${address.area}|${addressInput}`;
+    data.tenantAddress = TenantAddress;
+    data.tenantId = tenantId;
+    data.tenantTel = `${data.countryCode}${data.tenantTel}`;
+    data.logo = logo;
+    handleClickFn(data, ({ error, payload }) => {
+      // 只要是回调都将按钮的disabled 设定为false
       this.setState({
-        disabled: true,
+        disabled: false,
       });
-      // 这个form表单组件有点坑， 还得自己完善兼容性  radio的两个 
-      if (_from !== "create") {
-        const AllowExit = data.find(da => da.name === 'allowExit');
-        if (AllowExit && AllowExit.value === '') {
-          AllowExit.value = allowExit;
-        }
-        const Watermark = data.find(da => da.name === 'isWaterMark');
-        if (Watermark && Watermark.value === '') {
-          Watermark.value = isWaterMark;
-        }
-      }
-
-      // 将地址 组合  真实上传的参数
-      const TenantAddress = `${address.province}|${address.city}|${address.area}|${addressInput}`;
-      data.push({ name: 'tenantAddress', value: TenantAddress });
-      data.push({ name: 'tenantId', value: tenantId });
-      const param = data.reduce((obj, { value, name }) => {
-        if (name) {
-          obj[name] = value;
-        }
-        return obj;
-      }, {});
-      param.tenantTel = `${param.countryCode}${param.tenantTel}`;
-
-      handleClickFn(param, ({ error, payload }) => {
-        // 只要是回调都将按钮的disabled 设定为false
+      // 创建
+      if (!error && _from === "create") {
         this.setState({
-          disabled: false,
+          startFlag: true,
+          tenantId: payload.tenantId,
+        }, () => {
+          check(payload.tenantId, this.loadingFunc, this.successFunc);
         });
-        // 创建
-        if (!error && _from === "create") {
-          this.setState({
-            startFlag: true,
-            tenantId: payload.tenantId,
-          }, () => {
-            check(payload.tenantId, this.loadingFunc, this.successFunc);
-          });
-          return false;
-        }
-        // 升级
-        if (!error && _from === "update") {
-          this.setState({
-            startFlag: true,
-          });
-          check(tenantId, this.loadingFunc, this.successFunc);
-        }
-      });
-    }
+        return false;
+      }
+      // 升级
+      if (!error && _from === "update") {
+        this.setState({
+          startFlag: true,
+        });
+        check(tenantId, this.loadingFunc, this.successFunc);
+      }
+    });
   }
 
   successLoading = () => {
@@ -240,7 +219,9 @@ class EnterContent extends Component {
   }
 
   render() {
-    const { buttonText, _from, loadingDesc, texts, lang } = this.props;
+    const { buttonText, _from, loadingDesc, texts } = this.props;
+    const { getFieldProps, getFieldError } = this.props.form;
+    const _this = this;
     const {
       address,
       startFlag,
@@ -266,56 +247,49 @@ class EnterContent extends Component {
     return (
       <Form submitCallBack={this.checkForm} showSubmit={false} className={enterForm}>
 
-        <FormItem
-          showMast={false}
-          labelName={<span>{texts.tenantNameLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
-          isRequire
-          valuePropsName="value"
-          errorMessage={texts.tenantNameError}
-          method="blur"
-          inline
-        >
+        <FormItem>
+          <label><span>{texts.tenantNameLabel}<font color="red">&nbsp;*&nbsp;</font></span></label>
           <FormControl
             name="tenantName"
             value={tenantName || ''}
             onChange={(e) => { this.inputOnChange(e, 'tenantName'); }}
             placeholder={texts.placeholder1}
+            {...getFieldProps('tenantName', {
+              validateTrigger: 'onBlur',
+              rules: [{ required: true, message: texts.tenantNameError, }],
+            })}
           />
+          <span className='error'>
+            {getFieldError('tenantName')}
+          </span>
         </FormItem>
 
-        <FormItem
-          showMast={false}
-          labelName={<span>{texts.logoLabel} &nbsp;&nbsp;&nbsp; </span>}
-          valuePropsName="value"
-          method="change"
-          inline
-        >
-          <Upload
-            name="logo"
-            logo={logo || ''}
-            onChange={this.onChangeUpload}
-            tip=""
-            logoError={texts.logoError}
-            logoError2={texts.logoError2}
-            uploadApplication={this.props.uploadApplication}
-          />
+        <FormItem>
+          <label><span>{texts.logoLabel} &nbsp;&nbsp;&nbsp; </span></label>
+          <div className={upload}>
+            <Upload
+              name="logo"
+              logo={logo || ''}
+              onChange={this.onChangeUpload}
+              tip=""
+              logoError={texts.logoError}
+              logoError2={texts.logoError2}
+              uploadApplication={this.props.uploadApplication}
+            />
+          </div>
         </FormItem>
 
-        <FormItem
-          showMast={false}
-          labelName={<span>{texts.tenantIndustryLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
-          isRequire
-          valuePropsName="value"
-          errorMessage={texts.tenantIndustryError}
-          method="blur"
-          inline
-        >
+        <FormItem>
+          <label><span>{texts.tenantIndustryLabel}<font color="red">&nbsp;*&nbsp;</font></span></label>
           <Select
             name="tenantIndustry"
-            defaultValue="A"
-            value={tenantIndustry || 'A'}
             style={{ width: 338, marginRight: 6 }}
-            onChange={(e) => { this.setOptherData({ name: 'tenantIndustry', value: e }); }}
+            {
+            ...getFieldProps('tenantIndustry', {
+              initialValue: tenantIndustry || 'A',
+              rules: [{ required: true }]
+            })
+            }
           >
             {
               texts.tenantIndustry.map(({ label, value }) =>
@@ -324,21 +298,16 @@ class EnterContent extends Component {
           </Select>
         </FormItem>
 
-        <FormItem
-          showMast={false}
-          labelName={<span>{texts.tenantSizeLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
-          isRequire
-          valuePropsName="value"
-          errorMessage={texts.tenantSizeError}
-          method="blur"
-          inline
-        >
+        <FormItem>
+          <label><span>{texts.tenantSizeLabel}<font color="red">&nbsp;*&nbsp;</font></span></label>
           <Select
-            name="tenantSize"
-            defaultValue="A"
-            value={tenantSize || "A"}
             style={{ width: 338, marginRight: 6 }}
-            onChange={(e) => { this.setOptherData({ name: 'tenantSize', value: e }); }}
+            {
+            ...getFieldProps('tenantSize', {
+              initialValue: tenantSize || 'A',
+              rules: [{ required: true }]
+            })
+            }
           >
             {
               texts.tenantSizeOption.map(({ label, value }) =>
@@ -347,26 +316,17 @@ class EnterContent extends Component {
           </Select>
         </FormItem>
         {
-          address ? <FormItem
-            showMast={false}
-            labelName={<span>{texts.addressLabel}&nbsp;&nbsp;</span>}
-            isRequire={false}
-            valuePropsName="value"
-            errorMessage={texts.addressError}
-            method="blur"
-            inline
-          >
-            <CitySelect name="address" onChange={this.onCityChange} defaultValue={address} lang={lang} />
-          </FormItem> : <div />
+          <FormItem>
+            <label><span>{texts.addressLabel}&nbsp;&nbsp;</span></label>
+            <CitySelect
+              name="address"
+              onChange={this.onCityChange}
+              defaultValue={address}
+            />
+          </FormItem>
         }
-        <FormItem
-          showMast={false}
-          isRequire={false}
-          valuePropsName="value"
-          errorMessage={texts.addressError}
-          method="blur"
-          inline
-        >
+        <FormItem>
+          <label></label>
           <FormControl
             name="addressInput"
             value={addressInput || ''}
@@ -375,20 +335,17 @@ class EnterContent extends Component {
           />
         </FormItem>
 
-        {_from === "create" || charged ? <div></div> :
-          <FormItem
-            showMast={false}
-            labelName={<span>{texts.invitePermissionLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
-            isRequire={false}
-            valuePropsName="value"
-            inline
-          >
+        {_from === "create" || !charged ? null :
+          <FormItem>
+            <label><span>{texts.invitePermissionLabel}<font color="red">&nbsp;*&nbsp;</font></span></label>
             <Select
-              name="invitePermission"
-              defaultValue="1"
-              value={invitePermission || '1'}
               style={{ width: 338, marginRight: 6 }}
-              onChange={(e) => { this.setOptherData({ name: 'invitePermission', value: e }); }}
+              {
+              ...getFieldProps('invitePermission', {
+                initialValue: invitePermission || '1',
+                rules: [{ required: true }]
+              })
+              }
             >
               <Option value="1">{texts.invitePermissionO1}</Option>
               <Option value="2">{texts.invitePermissionO2}</Option>
@@ -396,74 +353,76 @@ class EnterContent extends Component {
             </Select>
           </FormItem>
         }
-        {_from === "create" ? <div></div> :
-          <FormItem
-            showMast={false}
-            labelName={<span>{texts.joinPermissionLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
-            isRequire={false}
-            valuePropsName="value"
-            inline
-          >
+        {_from === "create" ? null :
+          <FormItem>
+            <label><span>{texts.joinPermissionLabel}<font color="red">&nbsp;*&nbsp;</font></span></label>
             <Select
-              name="joinPermission"
-              defaultValue="1"
-              value={joinPermission || '1'}
               style={{ width: 338, marginRight: 6 }}
-              onChange={(e) => { this.setOptherData({ name: 'joinPermission', value: e }); }}
+              {
+              ...getFieldProps('joinPermission', {
+                initialValue: joinPermission || '1',
+                rules: [{ required: true }]
+              })
+              }
             >
               <Option value="0">{texts.joinPermissionO1}</Option>
               <Option value="1">{texts.joinPermissionO2}</Option>
             </Select>
           </FormItem>
         }
-        {_from === "create" || charged ? <div></div> :
-          <FormItem
-            showMast={false}
-            labelName={<span>{texts.allowExitLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
-            isRequire={false}
-            inline
-          >
+        {_from === "create" || !charged ? null :
+          <FormItem>
+            <label><span>{texts.allowExitLabel}<font color="red">&nbsp;*&nbsp;</font></span></label>
             <Radio.RadioGroup
               name="allowExit"
-              onChange={this.allowExitChange}
               selectedValue={allowExit || '0'}
+              {
+              ...getFieldProps('allowExit', {
+                initialValue: allowExit || '0',
+                onChange(value) {
+                  _this.setState({ allowExit: value });
+                },
+                rules: [{ required: true }]
+              })
+              }
             >
               <Radio value="0" >{texts.radio1}</Radio>
               <Radio value="1" >{texts.radio2}</Radio>
             </Radio.RadioGroup>
           </FormItem>
         }
-        {_from === "create" ? <div></div> :
-          <FormItem
-            showMast={false}
-            labelName={<span>{texts.subordinateTypeLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
-            isRequire={false}
-            valuePropsName="value"
-            inline
-          >
+        {_from === "create" ? null :
+          <FormItem>
+            <label><span>{texts.subordinateTypeLabel}<font color="red">&nbsp;*&nbsp;</font></span></label>
             <Select
-              name="subordinateType"
-              defaultValue={0}
-              value={subordinateType || 0}
               style={{ width: 338, marginRight: 6 }}
-              onChange={(e) => { this.setOptherData({ name: 'subordinateType', value: e }); }}
+              {
+              ...getFieldProps('subordinateType', {
+                initialValue: subordinateType || 0,
+                rules: [{ required: true }]
+              })
+              }
             >
               <Option value={0}>{texts.subordinateTypeO1} </Option>
               <Option value={1}>{texts.subordinateTypeO2}</Option>
             </Select>
           </FormItem>
         }
-        {_from === "create" ? <div></div> :
-          <FormItem
-            showMast={false}
-            labelName={<span>{texts.isWaterMarkLabel}<font color="red"> &nbsp;*&nbsp;</font></span>}
-            isRequire={false}
-            inline
-          >
+        {_from === "create" ? null :
+          <FormItem>
+            <label><span>{texts.isWaterMarkLabel}<font color="red"> &nbsp;*&nbsp;</font></span></label>
             <Radio.RadioGroup
               name="isWaterMark"
-              onChange={this.watermarkChange}
               selectedValue={isWaterMark}
+              {
+              ...getFieldProps('isWaterMark', {
+                initialValue: isWaterMark,
+                onChange(value) {
+                  _this.setState({ isWaterMark: value });
+                },
+                rules: [{ required: true }]
+              })
+              }
             >
               <Radio value={0} >{texts.radio1}</Radio>
               <Radio value={1} >{texts.radio2}</Radio>
@@ -474,78 +433,74 @@ class EnterContent extends Component {
         <div className={line}></div>
         <div className={infoTitle}>{texts.infoTitle}：</div>
 
-        <FormItem
-          showMast={false}
-          labelName={<span>{texts.linkmanLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
-          isRequire valuePropsName="value"
-          errorMessage={texts.linkmanError}
-          method="blur"
-          inline
-        >
+        <FormItem>
+          <label><span>{texts.linkmanLabel}<font color="red">&nbsp;*&nbsp;</font></span></label>
           <FormControl
             name="linkman"
             value={linkman || ''}
             placeholder={texts.linkmanError}
             onChange={(e) => { this.inputOnChange(e, 'linkman'); }}
+            {...getFieldProps('linkman', {
+              validateTrigger: 'onBlur',
+              rules: [{ required: true, message: texts.linkmanError, }],
+            })}
           />
+          <span className='error'>
+            {getFieldError('linkman')}
+          </span>
         </FormItem>
 
-        <FormItem
-          showMast={false}
-          valuePropsName="value"
-          labelName={<span>{texts.tenantEmailLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
-          isRequire
-          method="blur"
-          htmlType="email"
-          errorMessage={texts.tenantEmailError}
-          inline
-        >
+        <FormItem>
+          <label><span>{texts.tenantEmailLabel}<font color="red">&nbsp;*&nbsp;</font></span></label>
           <FormControl
             name="tenantEmail"
             value={tenantEmail || ''}
             onChange={(e) => { this.inputOnChange(e, 'tenantEmail'); }}
             placeholder={texts.tenantEmailPlace}
+            {...getFieldProps('tenantEmail', {
+              validateTrigger: 'onBlur',
+              rules: [{ required: true, type: 'email', message: texts.tenantEmailError, }],
+            })}
           />
+          <span className='error'>
+            {getFieldError('tenantEmail')}
+          </span>
         </FormItem>
-
-        <FormItem
-          // showMast={false}
-          labelName={<span>{texts.tenantTelLabel}<font color="red">&nbsp;*&nbsp;</font></span>}
-          // isRequire={false}
-          // valuePropsName="value"
-          inline
-          className={country}
-        >
+        <FormItem className={country}>
+          <label><span>{texts.tenantTelLabel}<font color="red">&nbsp;*&nbsp;</font></span></label>
           <Select
-            name="countryCode"
-            defaultValue={"86"}
-            value={countryCode}
-            style={{ width: 108 }}
-            onChange={(e) => { this.setOptherData({ name: 'countryCode', value: e }); }}
+            style={{ width: 112 }}
+            {
+            ...getFieldProps('countryCode', {
+              initialValue: countryCode,
+              rules: [{ required: true }]
+            })
+            }
           >
             {
               texts.country.map(({ countryCode, name }) =>
                 <Option value={countryCode}>{name}</Option>)
             }
           </Select>
+          <div className={tel}>
+            <div className={code}>{`+${countryCode}`}</div>
+            <FormControl
+              name="tenantTel"
+              type="tel"
+              value={tenantTel || ''}
+              onChange={(e) => { this.inputOnChange(e, 'tenantTel'); }}
+              placeholder={texts.tenantTelPlace}
+              {...getFieldProps('tenantTel', {
+                validateTrigger: 'onBlur',
+                rules: [{ required: true, message: texts.tenantTelError, }],
+              })}
+            >
+            </FormControl>
+          </div>
+          <span className='error'>
+            {getFieldError('tenantTel')}
+          </span>
         </FormItem>
-        <FormItem
-          className={inputPhone}
-          valuePropsName="value"
-          isRequire
-          method="blur"
-          errorMessage={texts.tenantTelError}
-        >
-          <FormControl
-            name="tenantTel"
-            value={tenantTel || ''}
-            onChange={(e) => { this.inputOnChange(e, 'tenantTel'); }}
-            placeholder={texts.tenantTelPlace}
-            maxLength={11}
-          >
-          </FormControl>
-        </FormItem>
-        <div className={code}>{`+${countryCode}`}</div>
         <div className="clear" style={{ clear: "both" }}></div>
         {
           startFlag ?
@@ -558,7 +513,7 @@ class EnterContent extends Component {
               />
             </div>
             : <SubmitBtn
-              isSubmit
+              onClick={this.clickFn}
               buttonText={buttonText}
               disabled={this.state.disabled}
             />
@@ -568,4 +523,4 @@ class EnterContent extends Component {
   }
 }
 
-export default EnterContent;
+export default Form.createForm()(EnterContent);

@@ -3,6 +3,55 @@
 .enterForm__style___3rLaN{
   padding-bottom: 30px;
 }
+.enterForm__style___3rLaN .u-form-item{
+  overflow: hidden;
+}
+.enterForm__style___3rLaN > div > label {
+  float: left;
+  width: 40%;
+  height: 32px;
+  text-align: right;
+  font-size: 14px;
+  line-height: 32px;
+}
+.enterForm__style___3rLaN input {
+  width: 338px;
+}
+.upload__style___1zxuY{
+  float: left;
+}
+
+.country__style___3E-Os{
+  
+} 
+.country__style___3E-Os .u-label {
+  width: auto;
+}
+.country__style___3E-Os .u-select{
+  float: left;
+}
+.country__style___3E-Os .u-select .u-select-selection{
+  border-radius: 3px 0 0 3px;
+  border-right: none;
+}
+
+.tel__style___2OXF9{
+  float: left;
+  position: relative;
+  overflow: hidden;
+}
+.code__style___1L3cM{
+  position: absolute;
+  top: 0;
+  left: 2px;
+  z-index: 2;
+  line-height: 32px;
+}
+.country__style___3E-Os .tel__style___2OXF9 input{
+  width: 226px;
+  padding-left: 44px;
+  border-radius: 0 3px 3px 0;
+}
 
 .enterForm__style___3rLaN .u-label {
   width: 40%;
@@ -108,46 +157,9 @@
   color: #fff;
 }
 
-.country__style___3E-Os{
-  float: left;
-  margin-left: 40%;
-  position: relative;
-  left: -56px;
-} 
-.country__style___3E-Os .u-label {
-  width: auto;
-}
-.country__style___3E-Os .u-select .u-select-selection{
-  border-radius: 3px 0 0 3px;
-  border-right: none;
-}
-.code__style___1L3cM{
-  float: left;
-  position: relative;
-  left: -280px;
-  z-index: 2;
-  line-height: 44px;
-  font-size: 14px;
-  color: #555555;
-}
-.inputPhone__style___1hlKj{
-  float: left;
-  position: relative;
-  left: -56px;
-}
 .enterForm__style___3rLaN .inputPhone__style___1hlKj .u-input-inner>input{
-  width: 230px !important;
+  width: 226px !important;
   border-radius: 0 3px 3px 0 !important;
-  /* border-left: none; */
-  padding-left: 44px;
-  height: 32px; 
-}
-.enterForm__style___3rLaN .u-form-item.u-form-inline .u-input-group-outer{
-  min-width: 108px !important;
-}
-.enterForm__style___3rLaN .u-form-error.show{
-  margin-left: 40% !important;
-}
-.enterForm__style___3rLaN .inputPhone__style___1hlKj .u-form-error.show{
-  margin-left: 0 !important;
+  border-left: none;
+  padding-left: 44px; 
 }

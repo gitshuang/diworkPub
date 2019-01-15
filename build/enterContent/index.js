@@ -52,11 +52,13 @@ require('./style.css');
 
 var _style = {
   'enterForm': 'enterForm__style___3rLaN',
+  'upload': 'upload__style___1zxuY',
+  'country': 'country__style___3E-Os',
+  'tel': 'tel__style___2OXF9',
+  'code': 'code__style___1L3cM',
   'line': 'line__style___1rbXZ',
   'infoTitle': 'infoTitle__style___15dG2',
   'progressBar': 'progressBar__style___kjcre',
-  'country': 'country__style___3E-Os',
-  'code': 'code__style___1L3cM',
   'inputPhone': 'inputPhone__style___1hlKj'
 };
 
@@ -84,142 +86,132 @@ var EnterContent = function (_Component) {
   function EnterContent(props) {
     _classCallCheck(this, EnterContent);
 
-    var _this = _possibleConstructorReturn(this, _Component.call(this, props));
+    var _this2 = _possibleConstructorReturn(this, _Component.call(this, props));
 
-    _this.onCityChange = function (obj) {
-      _this.setState({
+    _this2.onCityChange = function (obj) {
+      _this2.setState({
         address: _extends({}, obj)
       });
     };
 
-    _this.onChangeUpload = function (url) {
-      _this.setState({
+    _this2.onChangeUpload = function (url) {
+      _this2.setState({
         logo: url
       });
     };
 
-    _this.setOptherData = function (obj) {
+    _this2.setOptherData = function (obj) {
       var name = obj.name,
           value = obj.value;
 
-      _this.setState(_defineProperty({}, name, value));
+      _this2.setState(_defineProperty({}, name, value));
     };
 
-    _this.allowExitChange = function (value) {
-      _this.setState({
+    _this2.allowExitChange = function (value) {
+      _this2.setState({
         allowExit: value
       });
     };
 
-    _this.watermarkChange = function (value) {
-      _this.setState({
+    _this2.watermarkChange = function (value) {
+      _this2.setState({
         isWaterMark: value
       });
     };
 
-    _this.inputOnChange = function (e, name) {
-      _this.setState(_defineProperty({}, name, e));
+    _this2.inputOnChange = function (e, name) {
+      _this2.setState(_defineProperty({}, name, e));
     };
 
-    _this.checkForm = function (flag, data) {
-      var _this$props = _this.props,
-          handleClickFn = _this$props.handleClickFn,
-          _from = _this$props._from;
-      var _this$state = _this.state,
-          tenantId = _this$state.tenantId,
-          address = _this$state.address,
-          addressInput = _this$state.addressInput,
-          allowExit = _this$state.allowExit,
-          isWaterMark = _this$state.isWaterMark;
+    _this2.clickFn = function (e) {
+      e.preventDefault();
 
-
-      if (flag) {
-        _this.setState({
-          disabled: true
-        });
-        // 这个form表单组件有点坑， 还得自己完善兼容性  radio的两个 
-        if (_from !== "create") {
-          var AllowExit = data.find(function (da) {
-            return da.name === 'allowExit';
-          });
-          if (AllowExit && AllowExit.value === '') {
-            AllowExit.value = allowExit;
-          }
-          var Watermark = data.find(function (da) {
-            return da.name === 'isWaterMark';
-          });
-          if (Watermark && Watermark.value === '') {
-            Watermark.value = isWaterMark;
-          }
+      _this2.props.form.validateFields(function (err, values) {
+        if (err) {
+          console.log('校验失败', values);
+        } else {
+          console.log('提交成功', values);
+          console.log(_this2.state);
+          _this2.checkForm(values);
         }
-
-        // 将地址 组合  真实上传的参数
-        var TenantAddress = address.province + '|' + address.city + '|' + address.area + '|' + addressInput;
-        data.push({ name: 'tenantAddress', value: TenantAddress });
-        data.push({ name: 'tenantId', value: tenantId });
-        var param = data.reduce(function (obj, _ref) {
-          var value = _ref.value,
-              name = _ref.name;
-
-          if (name) {
-            obj[name] = value;
-          }
-          return obj;
-        }, {});
-        param.tenantTel = '' + param.countryCode + param.tenantTel;
-
-        handleClickFn(param, function (_ref2) {
-          var error = _ref2.error,
-              payload = _ref2.payload;
-
-          // 只要是回调都将按钮的disabled 设定为false
-          _this.setState({
-            disabled: false
-          });
-          // 创建
-          if (!error && _from === "create") {
-            _this.setState({
-              startFlag: true,
-              tenantId: payload.tenantId
-            }, function () {
-              (0, _checkTenantStatus.check)(payload.tenantId, _this.loadingFunc, _this.successFunc);
-            });
-            return false;
-          }
-          // 升级
-          if (!error && _from === "update") {
-            _this.setState({
-              startFlag: true
-            });
-            (0, _checkTenantStatus.check)(tenantId, _this.loadingFunc, _this.successFunc);
-          }
-        });
-      }
+      });
     };
 
-    _this.successLoading = function () {
-      var tenantId = _this.state.tenantId;
+    _this2.checkForm = function (data) {
+      var _this2$props = _this2.props,
+          handleClickFn = _this2$props.handleClickFn,
+          _from = _this2$props._from;
+      var _this2$state = _this2.state,
+          tenantId = _this2$state.tenantId,
+          address = _this2$state.address,
+          addressInput = _this2$state.addressInput,
+          logo = _this2$state.logo;
+
+
+      _this2.setState({
+        disabled: true
+      });
+      // 将地址 组合  真实上传的参数
+      var TenantAddress = address.province + '|' + address.city + '|' + address.area + '|' + addressInput;
+      data.tenantAddress = TenantAddress;
+      data.tenantId = tenantId;
+      data.tenantTel = '' + data.countryCode + data.tenantTel;
+      data.logo = logo;
+      handleClickFn(data, function (_ref) {
+        var error = _ref.error,
+            payload = _ref.payload;
+
+        // 只要是回调都将按钮的disabled 设定为false
+        _this2.setState({
+          disabled: false
+        });
+        // 创建
+        if (!error && _from === "create") {
+          _this2.setState({
+            startFlag: true,
+            tenantId: payload.tenantId
+          }, function () {
+            (0, _checkTenantStatus.check)(payload.tenantId, _this2.loadingFunc, _this2.successFunc);
+          });
+          return false;
+        }
+        // 升级
+        if (!error && _from === "update") {
+          _this2.setState({
+            startFlag: true
+          });
+          (0, _checkTenantStatus.check)(tenantId, _this2.loadingFunc, _this2.successFunc);
+        }
+      });
+    };
+
+    _this2.successLoading = function () {
+      var tenantId = _this2.state.tenantId;
 
       window.location.href = '/?tenantId=' + tenantId + '&switch=true';
     };
 
-    _this.loadingCallBack = function (loadingFunc, successFunc) {
-      _this.timer = setInterval(loadingFunc, 500);
-      _this.loadingFunc = loadingFunc;
-      _this.successFunc = successFunc;
+    _this2.loadingCallBack = function (loadingFunc, successFunc) {
+      _this2.timer = setInterval(loadingFunc, 500);
+      _this2.loadingFunc = loadingFunc;
+      _this2.successFunc = successFunc;
     };
 
-    _this.state = {
+    _this2.state = {
       disabled: false, // 按钮是否可点击， true为不可点击 
       startFlag: false, // process 0～1 
       tenantId: '', // 租户ID
-      address: null, // 企业地址 
+      address: {
+        province: '北京',
+        city: '北京',
+        area: '东城区'
+      }, // 企业地址 
       addressInput: '', // 企业地址 (60个字输入框)
 
       tenantName: '', // 企业名称
       logo: '', // logo
-      tenantIndustry: '', // 选中的行业
-      tenantSize: '', // 规模范围
+      tenantIndustry: 'A', // 选中的行业
+      tenantSize: 'A', // 规模范围
       tenantAddress: '', // 企业地址 + 60个字输入框显示
 
       invitePermission: '', // 邀请规则              string类型
@@ -232,14 +224,14 @@ var EnterContent = function (_Component) {
       countryCode: '86', // 国家代号
       tenantTel: '', // 手机号
       tenantEmail: '', // 邮箱
-      charged: false // new -  企业是否为付费
+      charged: true // new -  企业是否为付费
     };
 
     // progressbar
-    _this.loadingFunc = null;
-    _this.successFunc = null;
-    _this.timer = null;
-    return _this;
+    _this2.loadingFunc = null;
+    _this2.successFunc = null;
+    _this2.timer = null;
+    return _this2;
   }
 
   EnterContent.prototype.componentDidMount = function componentDidMount() {
@@ -253,16 +245,10 @@ var EnterContent = function (_Component) {
       this.setState({
         linkman: userInfo.userName,
         tenantEmail: userInfo.userEmail,
-        tenantTel: userInfo.userMobile,
-        address: {
-          province: '北京',
-          city: '北京',
-          area: '东城区'
-        }
+        tenantTel: userInfo.userMobile
       });
       return false;
     }
-
     var tenantAddress = data.tenantAddress;
     // 将 地址综合 赋值到 address 和 address和 addressInput 上
 
@@ -274,18 +260,10 @@ var EnterContent = function (_Component) {
         area: Addres[2] || '东城区'
       };
       data.addressInput = Addres[Addres.length - 1];
-    } else {
-      data.address = {
-        province: '北京',
-        city: '北京',
-        area: '东城区'
-      };
-      data.addressInput = '';
     }
-
     data.linkman = data.linkman || userInfo.userName;
     data.tenantEmail = data.tenantEmail || userInfo.userEmail;
-    data.countryCode = data.tenantTel && data.tenantTel.length > 11 ? data.tenantTel.substring(0, data.tenantTel.length - 11) : '86';
+    data.countryCode = data.tenantTel ? data.tenantTel.substring(0, data.tenantTel.length - 11) : '86';
     data.tenantTel = data.tenantTel ? data.tenantTel.substring(data.tenantTel.length - 11) : userInfo.userMobile;
     this.setState(_extends({}, data));
   };
@@ -309,14 +287,18 @@ var EnterContent = function (_Component) {
 
 
   EnterContent.prototype.render = function render() {
-    var _this2 = this;
+    var _this3 = this;
 
     var _props2 = this.props,
         buttonText = _props2.buttonText,
         _from = _props2._from,
         loadingDesc = _props2.loadingDesc,
-        texts = _props2.texts,
-        lang = _props2.lang;
+        texts = _props2.texts;
+    var _props$form = this.props.form,
+        getFieldProps = _props$form.getFieldProps,
+        getFieldError = _props$form.getFieldError;
+
+    var _this = this;
     var _state = this.state,
         address = _state.address,
         startFlag = _state.startFlag,
@@ -342,9 +324,11 @@ var EnterContent = function (_Component) {
       { submitCallBack: this.checkForm, showSubmit: false, className: _style.enterForm },
       _react2["default"].createElement(
         _form.FormItem,
-        {
-          showMast: false,
-          labelName: _react2["default"].createElement(
+        null,
+        _react2["default"].createElement(
+          'label',
+          null,
+          _react2["default"].createElement(
             'span',
             null,
             texts.tenantNameLabel,
@@ -353,51 +337,59 @@ var EnterContent = function (_Component) {
               { color: 'red' },
               '\xA0*\xA0'
             )
-          ),
-          isRequire: true,
-          valuePropsName: 'value',
-          errorMessage: texts.tenantNameError,
-          method: 'blur',
-          inline: true
-        },
-        _react2["default"].createElement(_formControl2["default"], {
+          )
+        ),
+        _react2["default"].createElement(_formControl2["default"], _extends({
           name: 'tenantName',
           value: tenantName || '',
           onChange: function onChange(e) {
-            _this2.inputOnChange(e, 'tenantName');
+            _this3.inputOnChange(e, 'tenantName');
           },
           placeholder: texts.placeholder1
-        })
+        }, getFieldProps('tenantName', {
+          validateTrigger: 'onBlur',
+          rules: [{ required: true, message: texts.tenantNameError }]
+        }))),
+        _react2["default"].createElement(
+          'span',
+          { className: 'error' },
+          getFieldError('tenantName')
+        )
       ),
       _react2["default"].createElement(
         _form.FormItem,
-        {
-          showMast: false,
-          labelName: _react2["default"].createElement(
+        null,
+        _react2["default"].createElement(
+          'label',
+          null,
+          _react2["default"].createElement(
             'span',
             null,
             texts.logoLabel,
             ' \xA0\xA0\xA0 '
-          ),
-          valuePropsName: 'value',
-          method: 'change',
-          inline: true
-        },
-        _react2["default"].createElement(_upload2["default"], {
-          name: 'logo',
-          logo: logo || '',
-          onChange: this.onChangeUpload,
-          tip: '',
-          logoError: texts.logoError,
-          logoError2: texts.logoError2,
-          uploadApplication: this.props.uploadApplication
-        })
+          )
+        ),
+        _react2["default"].createElement(
+          'div',
+          { className: _style.upload },
+          _react2["default"].createElement(_upload2["default"], {
+            name: 'logo',
+            logo: logo || '',
+            onChange: this.onChangeUpload,
+            tip: '',
+            logoError: texts.logoError,
+            logoError2: texts.logoError2,
+            uploadApplication: this.props.uploadApplication
+          })
+        )
       ),
       _react2["default"].createElement(
         _form.FormItem,
-        {
-          showMast: false,
-          labelName: _react2["default"].createElement(
+        null,
+        _react2["default"].createElement(
+          'label',
+          null,
+          _react2["default"].createElement(
             'span',
             null,
             texts.tenantIndustryLabel,
@@ -406,27 +398,20 @@ var EnterContent = function (_Component) {
               { color: 'red' },
               '\xA0*\xA0'
             )
-          ),
-          isRequire: true,
-          valuePropsName: 'value',
-          errorMessage: texts.tenantIndustryError,
-          method: 'blur',
-          inline: true
-        },
+          )
+        ),
         _react2["default"].createElement(
           _select2["default"],
-          {
+          _extends({
             name: 'tenantIndustry',
-            defaultValue: 'A',
-            value: tenantIndustry || 'A',
-            style: { width: 338, marginRight: 6 },
-            onChange: function onChange(e) {
-              _this2.setOptherData({ name: 'tenantIndustry', value: e });
-            }
-          },
-          texts.tenantIndustry.map(function (_ref3) {
-            var label = _ref3.label,
-                value = _ref3.value;
+            style: { width: 338, marginRight: 6 }
+          }, getFieldProps('tenantIndustry', {
+            initialValue: tenantIndustry || 'A',
+            rules: [{ required: true }]
+          })),
+          texts.tenantIndustry.map(function (_ref2) {
+            var label = _ref2.label,
+                value = _ref2.value;
             return _react2["default"].createElement(
               Option,
               { key: value, value: value },
@@ -437,9 +422,11 @@ var EnterContent = function (_Component) {
       ),
       _react2["default"].createElement(
         _form.FormItem,
-        {
-          showMast: false,
-          labelName: _react2["default"].createElement(
+        null,
+        _react2["default"].createElement(
+          'label',
+          null,
+          _react2["default"].createElement(
             'span',
             null,
             texts.tenantSizeLabel,
@@ -448,27 +435,19 @@ var EnterContent = function (_Component) {
               { color: 'red' },
               '\xA0*\xA0'
             )
-          ),
-          isRequire: true,
-          valuePropsName: 'value',
-          errorMessage: texts.tenantSizeError,
-          method: 'blur',
-          inline: true
-        },
+          )
+        ),
         _react2["default"].createElement(
           _select2["default"],
-          {
-            name: 'tenantSize',
-            defaultValue: 'A',
-            value: tenantSize || "A",
-            style: { width: 338, marginRight: 6 },
-            onChange: function onChange(e) {
-              _this2.setOptherData({ name: 'tenantSize', value: e });
-            }
-          },
-          texts.tenantSizeOption.map(function (_ref4) {
-            var label = _ref4.label,
-                value = _ref4.value;
+          _extends({
+            style: { width: 338, marginRight: 6 }
+          }, getFieldProps('tenantSize', {
+            initialValue: tenantSize || 'A',
+            rules: [{ required: true }]
+          })),
+          texts.tenantSizeOption.map(function (_ref3) {
+            var label = _ref3.label,
+                value = _ref3.value;
             return _react2["default"].createElement(
               Option,
               { key: '' + value, value: value },
@@ -477,48 +456,45 @@ var EnterContent = function (_Component) {
           })
         )
       ),
-      address ? _react2["default"].createElement(
+      _react2["default"].createElement(
         _form.FormItem,
-        {
-          showMast: false,
-          labelName: _react2["default"].createElement(
+        null,
+        _react2["default"].createElement(
+          'label',
+          null,
+          _react2["default"].createElement(
             'span',
             null,
             texts.addressLabel,
             '\xA0\xA0'
-          ),
-          isRequire: false,
-          valuePropsName: 'value',
-          errorMessage: texts.addressError,
-          method: 'blur',
-          inline: true
-        },
-        _react2["default"].createElement(_citySelect2["default"], { name: 'address', onChange: this.onCityChange, defaultValue: address, lang: lang })
-      ) : _react2["default"].createElement('div', null),
+          )
+        ),
+        _react2["default"].createElement(_citySelect2["default"], {
+          name: 'address',
+          onChange: this.onCityChange,
+          defaultValue: address
+        })
+      ),
       _react2["default"].createElement(
         _form.FormItem,
-        {
-          showMast: false,
-          isRequire: false,
-          valuePropsName: 'value',
-          errorMessage: texts.addressError,
-          method: 'blur',
-          inline: true
-        },
+        null,
+        _react2["default"].createElement('label', null),
         _react2["default"].createElement(_formControl2["default"], {
           name: 'addressInput',
           value: addressInput || '',
           onChange: function onChange(e) {
-            _this2.inputOnChange(e, 'addressInput');
+            _this3.inputOnChange(e, 'addressInput');
           },
           placeholder: texts.placeholder1
         })
       ),
-      _from === "create" || charged ? _react2["default"].createElement('div', null) : _react2["default"].createElement(
+      _from === "create" || !charged ? null : _react2["default"].createElement(
         _form.FormItem,
-        {
-          showMast: false,
-          labelName: _react2["default"].createElement(
+        null,
+        _react2["default"].createElement(
+          'label',
+          null,
+          _react2["default"].createElement(
             'span',
             null,
             texts.invitePermissionLabel,
@@ -527,22 +503,16 @@ var EnterContent = function (_Component) {
               { color: 'red' },
               '\xA0*\xA0'
             )
-          ),
-          isRequire: false,
-          valuePropsName: 'value',
-          inline: true
-        },
+          )
+        ),
         _react2["default"].createElement(
           _select2["default"],
-          {
-            name: 'invitePermission',
-            defaultValue: '1',
-            value: invitePermission || '1',
-            style: { width: 338, marginRight: 6 },
-            onChange: function onChange(e) {
-              _this2.setOptherData({ name: 'invitePermission', value: e });
-            }
-          },
+          _extends({
+            style: { width: 338, marginRight: 6 }
+          }, getFieldProps('invitePermission', {
+            initialValue: invitePermission || '1',
+            rules: [{ required: true }]
+          })),
           _react2["default"].createElement(
             Option,
             { value: '1' },
@@ -560,11 +530,13 @@ var EnterContent = function (_Component) {
           )
         )
       ),
-      _from === "create" ? _react2["default"].createElement('div', null) : _react2["default"].createElement(
+      _from === "create" ? null : _react2["default"].createElement(
         _form.FormItem,
-        {
-          showMast: false,
-          labelName: _react2["default"].createElement(
+        null,
+        _react2["default"].createElement(
+          'label',
+          null,
+          _react2["default"].createElement(
             'span',
             null,
             texts.joinPermissionLabel,
@@ -573,22 +545,16 @@ var EnterContent = function (_Component) {
               { color: 'red' },
               '\xA0*\xA0'
             )
-          ),
-          isRequire: false,
-          valuePropsName: 'value',
-          inline: true
-        },
+          )
+        ),
         _react2["default"].createElement(
           _select2["default"],
-          {
-            name: 'joinPermission',
-            defaultValue: '1',
-            value: joinPermission || '1',
-            style: { width: 338, marginRight: 6 },
-            onChange: function onChange(e) {
-              _this2.setOptherData({ name: 'joinPermission', value: e });
-            }
-          },
+          _extends({
+            style: { width: 338, marginRight: 6 }
+          }, getFieldProps('joinPermission', {
+            initialValue: joinPermission || '1',
+            rules: [{ required: true }]
+          })),
           _react2["default"].createElement(
             Option,
             { value: '0' },
@@ -601,11 +567,13 @@ var EnterContent = function (_Component) {
           )
         )
       ),
-      _from === "create" || charged ? _react2["default"].createElement('div', null) : _react2["default"].createElement(
+      _from === "create" || !charged ? null : _react2["default"].createElement(
         _form.FormItem,
-        {
-          showMast: false,
-          labelName: _react2["default"].createElement(
+        null,
+        _react2["default"].createElement(
+          'label',
+          null,
+          _react2["default"].createElement(
             'span',
             null,
             texts.allowExitLabel,
@@ -614,17 +582,21 @@ var EnterContent = function (_Component) {
               { color: 'red' },
               '\xA0*\xA0'
             )
-          ),
-          isRequire: false,
-          inline: true
-        },
+          )
+        ),
         _react2["default"].createElement(
           _radio2["default"].RadioGroup,
-          {
+          _extends({
             name: 'allowExit',
-            onChange: this.allowExitChange,
             selectedValue: allowExit || '0'
-          },
+          }, getFieldProps('allowExit', {
+            initialValue: allowExit || '0',
+            onChange: function onChange(value) {
+              _this.setState({ allowExit: value });
+            },
+
+            rules: [{ required: true }]
+          })),
           _react2["default"].createElement(
             _radio2["default"],
             { value: '0' },
@@ -637,11 +609,13 @@ var EnterContent = function (_Component) {
           )
         )
       ),
-      _from === "create" ? _react2["default"].createElement('div', null) : _react2["default"].createElement(
+      _from === "create" ? null : _react2["default"].createElement(
         _form.FormItem,
-        {
-          showMast: false,
-          labelName: _react2["default"].createElement(
+        null,
+        _react2["default"].createElement(
+          'label',
+          null,
+          _react2["default"].createElement(
             'span',
             null,
             texts.subordinateTypeLabel,
@@ -650,22 +624,16 @@ var EnterContent = function (_Component) {
               { color: 'red' },
               '\xA0*\xA0'
             )
-          ),
-          isRequire: false,
-          valuePropsName: 'value',
-          inline: true
-        },
+          )
+        ),
         _react2["default"].createElement(
           _select2["default"],
-          {
-            name: 'subordinateType',
-            defaultValue: 0,
-            value: subordinateType || 0,
-            style: { width: 338, marginRight: 6 },
-            onChange: function onChange(e) {
-              _this2.setOptherData({ name: 'subordinateType', value: e });
-            }
-          },
+          _extends({
+            style: { width: 338, marginRight: 6 }
+          }, getFieldProps('subordinateType', {
+            initialValue: subordinateType || 0,
+            rules: [{ required: true }]
+          })),
           _react2["default"].createElement(
             Option,
             { value: 0 },
@@ -679,11 +647,13 @@ var EnterContent = function (_Component) {
           )
         )
       ),
-      _from === "create" ? _react2["default"].createElement('div', null) : _react2["default"].createElement(
+      _from === "create" ? null : _react2["default"].createElement(
         _form.FormItem,
-        {
-          showMast: false,
-          labelName: _react2["default"].createElement(
+        null,
+        _react2["default"].createElement(
+          'label',
+          null,
+          _react2["default"].createElement(
             'span',
             null,
             texts.isWaterMarkLabel,
@@ -692,17 +662,21 @@ var EnterContent = function (_Component) {
               { color: 'red' },
               ' \xA0*\xA0'
             )
-          ),
-          isRequire: false,
-          inline: true
-        },
+          )
+        ),
         _react2["default"].createElement(
           _radio2["default"].RadioGroup,
-          {
+          _extends({
             name: 'isWaterMark',
-            onChange: this.watermarkChange,
             selectedValue: isWaterMark
-          },
+          }, getFieldProps('isWaterMark', {
+            initialValue: isWaterMark,
+            onChange: function onChange(value) {
+              _this.setState({ isWaterMark: value });
+            },
+
+            rules: [{ required: true }]
+          })),
           _react2["default"].createElement(
             _radio2["default"],
             { value: 0 },
@@ -724,9 +698,11 @@ var EnterContent = function (_Component) {
       ),
       _react2["default"].createElement(
         _form.FormItem,
-        {
-          showMast: false,
-          labelName: _react2["default"].createElement(
+        null,
+        _react2["default"].createElement(
+          'label',
+          null,
+          _react2["default"].createElement(
             'span',
             null,
             texts.linkmanLabel,
@@ -735,27 +711,32 @@ var EnterContent = function (_Component) {
               { color: 'red' },
               '\xA0*\xA0'
             )
-          ),
-          isRequire: true, valuePropsName: 'value',
-          errorMessage: texts.linkmanError,
-          method: 'blur',
-          inline: true
-        },
-        _react2["default"].createElement(_formControl2["default"], {
+          )
+        ),
+        _react2["default"].createElement(_formControl2["default"], _extends({
           name: 'linkman',
           value: linkman || '',
           placeholder: texts.linkmanError,
           onChange: function onChange(e) {
-            _this2.inputOnChange(e, 'linkman');
+            _this3.inputOnChange(e, 'linkman');
           }
-        })
+        }, getFieldProps('linkman', {
+          validateTrigger: 'onBlur',
+          rules: [{ required: true, message: texts.linkmanError }]
+        }))),
+        _react2["default"].createElement(
+          'span',
+          { className: 'error' },
+          getFieldError('linkman')
+        )
       ),
       _react2["default"].createElement(
         _form.FormItem,
-        {
-          showMast: false,
-          valuePropsName: 'value',
-          labelName: _react2["default"].createElement(
+        null,
+        _react2["default"].createElement(
+          'label',
+          null,
+          _react2["default"].createElement(
             'span',
             null,
             texts.tenantEmailLabel,
@@ -764,27 +745,32 @@ var EnterContent = function (_Component) {
               { color: 'red' },
               '\xA0*\xA0'
             )
-          ),
-          isRequire: true,
-          method: 'blur',
-          htmlType: 'email',
-          errorMessage: texts.tenantEmailError,
-          inline: true
-        },
-        _react2["default"].createElement(_formControl2["default"], {
+          )
+        ),
+        _react2["default"].createElement(_formControl2["default"], _extends({
           name: 'tenantEmail',
           value: tenantEmail || '',
           onChange: function onChange(e) {
-            _this2.inputOnChange(e, 'tenantEmail');
+            _this3.inputOnChange(e, 'tenantEmail');
           },
           placeholder: texts.tenantEmailPlace
-        })
+        }, getFieldProps('tenantEmail', {
+          validateTrigger: 'onBlur',
+          rules: [{ required: true, type: 'email', message: texts.tenantEmailError }]
+        }))),
+        _react2["default"].createElement(
+          'span',
+          { className: 'error' },
+          getFieldError('tenantEmail')
+        )
       ),
       _react2["default"].createElement(
-        _form.FormItem
-        // showMast={false}
-        ,
-        { labelName: _react2["default"].createElement(
+        _form.FormItem,
+        { className: _style.country },
+        _react2["default"].createElement(
+          'label',
+          null,
+          _react2["default"].createElement(
             'span',
             null,
             texts.tenantTelLabel,
@@ -794,56 +780,51 @@ var EnterContent = function (_Component) {
               '\xA0*\xA0'
             )
           )
-          // isRequire={false}
-          // valuePropsName="value"
-          , inline: true,
-          className: _style.country
-        },
+        ),
         _react2["default"].createElement(
           _select2["default"],
-          {
-            name: 'countryCode',
-            defaultValue: "86",
-            value: countryCode,
-            style: { width: 108 },
-            onChange: function onChange(e) {
-              _this2.setOptherData({ name: 'countryCode', value: e });
-            }
-          },
-          texts.country.map(function (_ref5) {
-            var countryCode = _ref5.countryCode,
-                name = _ref5.name;
+          _extends({
+            style: { width: 112 }
+          }, getFieldProps('countryCode', {
+            initialValue: countryCode,
+            rules: [{ required: true }]
+          })),
+          texts.country.map(function (_ref4) {
+            var countryCode = _ref4.countryCode,
+                name = _ref4.name;
             return _react2["default"].createElement(
               Option,
               { value: countryCode },
               name
             );
           })
+        ),
+        _react2["default"].createElement(
+          'div',
+          { className: _style.tel },
+          _react2["default"].createElement(
+            'div',
+            { className: _style.code },
+            '+' + countryCode
+          ),
+          _react2["default"].createElement(_formControl2["default"], _extends({
+            name: 'tenantTel',
+            type: 'tel',
+            value: tenantTel || '',
+            onChange: function onChange(e) {
+              _this3.inputOnChange(e, 'tenantTel');
+            },
+            placeholder: texts.tenantTelPlace
+          }, getFieldProps('tenantTel', {
+            validateTrigger: 'onBlur',
+            rules: [{ required: true, message: texts.tenantTelError }]
+          })))
+        ),
+        _react2["default"].createElement(
+          'span',
+          { className: 'error' },
+          getFieldError('tenantTel')
         )
-      ),
-      _react2["default"].createElement(
-        _form.FormItem,
-        {
-          className: _style.inputPhone,
-          valuePropsName: 'value',
-          isRequire: true,
-          method: 'blur',
-          errorMessage: texts.tenantTelError
-        },
-        _react2["default"].createElement(_formControl2["default"], {
-          name: 'tenantTel',
-          value: tenantTel || '',
-          onChange: function onChange(e) {
-            _this2.inputOnChange(e, 'tenantTel');
-          },
-          placeholder: texts.tenantTelPlace,
-          maxLength: 11
-        })
-      ),
-      _react2["default"].createElement(
-        'div',
-        { className: _style.code },
-        '+' + countryCode
       ),
       _react2["default"].createElement('div', { className: 'clear', style: { clear: "both" } }),
       startFlag ? _react2["default"].createElement(
@@ -856,7 +837,7 @@ var EnterContent = function (_Component) {
           loadingDesc: loadingDesc
         })
       ) : _react2["default"].createElement(_button2["default"], {
-        isSubmit: true,
+        onClick: this.clickFn,
         buttonText: buttonText,
         disabled: this.state.disabled
       })
@@ -877,9 +858,7 @@ EnterContent.propTypes = {
   _from: _propTypes2["default"].string,
   buttonText: _propTypes2["default"].string,
   uploadApplication: _propTypes2["default"].func,
-  loadingDesc: _propTypes2["default"].string,
-  texts: _propTypes2["default"].shape({}),
-  lang: _propTypes2["default"].string
+  loadingDesc: _propTypes2["default"].string
 };
 EnterContent.defaultProps = {
   userInfo: {}, // 用户信息
@@ -888,9 +867,7 @@ EnterContent.defaultProps = {
   _from: '', // 来源，（新建，设置，升级）
   buttonText: '', // 按钮显示文字
   uploadApplication: function uploadApplication() {}, // 上传事件
-  loadingDesc: '', // 滚动条 文字提示
-  texts: {},
-  lang: 'zh_CN'
+  loadingDesc: '' // 滚动条 文字提示
 };
-exports["default"] = EnterContent;
+exports["default"] = _form2["default"].createForm()(EnterContent);
 module.exports = exports['default'];

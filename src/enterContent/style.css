@@ -1,6 +1,55 @@
 .enterForm{
   padding-bottom: 30px;
 }
+.enterForm :global(.u-form-item){
+  overflow: hidden;
+}
+.enterForm > div > label {
+  float: left;
+  width: 40%;
+  height: 32px;
+  text-align: right;
+  font-size: 14px;
+  line-height: 32px;
+}
+.enterForm input {
+  width: 338px;
+}
+.upload{
+  float: left;
+}
+
+.country{
+  
+} 
+.country :global(.u-label) {
+  width: auto;
+}
+.country :global(.u-select){
+  float: left;
+}
+.country :global(.u-select .u-select-selection){
+  border-radius: 3px 0 0 3px;
+  border-right: none;
+}
+
+.tel{
+  float: left;
+  position: relative;
+  overflow: hidden;
+}
+.code{
+  position: absolute;
+  top: 0;
+  left: 2px;
+  z-index: 2;
+  line-height: 32px;
+}
+.country .tel input{
+  width: 226px;
+  padding-left: 44px;
+  border-radius: 0 3px 3px 0;
+}
 
 .enterForm :global(.u-label) {
   width: 40%;
@@ -106,46 +155,9 @@
   color: #fff;
 }
 
-.country{
-  float: left;
-  margin-left: 40%;
-  position: relative;
-  left: -56px;
-} 
-.country :global(.u-label) {
-  width: auto;
-}
-.country :global(.u-select .u-select-selection){
-  border-radius: 3px 0 0 3px;
-  border-right: none;
-}
-.code{
-  float: left;
-  position: relative;
-  left: -280px;
-  z-index: 2;
-  line-height: 44px;
-  font-size: 14px;
-  color: #555555;
-}
-.inputPhone{
-  float: left;
-  position: relative;
-  left: -56px;
-}
 .enterForm .inputPhone :global(.u-input-inner>input){
-  width: 230px !important;
+  width: 226px !important;
   border-radius: 0 3px 3px 0 !important;
-  /* border-left: none; */
-  padding-left: 44px;
-  height: 32px; 
-}
-.enterForm :global(.u-form-item.u-form-inline .u-input-group-outer){
-  min-width: 108px !important;
-}
-.enterForm :global(.u-form-error.show){
-  margin-left: 40% !important;
-}
-.enterForm .inputPhone :global(.u-form-error.show){
-  margin-left: 0 !important;
+  border-left: none;
+  padding-left: 44px; 
 }
