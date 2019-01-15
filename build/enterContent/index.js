@@ -694,6 +694,7 @@ var EnterContent = function (_Component) {
           }
         }, getFieldProps('linkman', {
           validateTrigger: 'onBlur',
+          initialValue: linkman || '',
           rules: [{ required: true, message: texts.linkmanError }]
         }))),
         _react2["default"].createElement(
@@ -728,6 +729,7 @@ var EnterContent = function (_Component) {
           placeholder: texts.tenantEmailPlace
         }, getFieldProps('tenantEmail', {
           validateTrigger: 'onBlur',
+          initialValue: tenantEmail || '',
           rules: [{ required: true, type: 'email', message: texts.tenantEmailError }]
         }))),
         _react2["default"].createElement(
@@ -789,6 +791,7 @@ var EnterContent = function (_Component) {
             placeholder: texts.tenantTelPlace
           }, getFieldProps('tenantTel', {
             validateTrigger: 'onBlur',
+            initialValue: tenantTel || '',
             rules: [{ required: true, message: texts.tenantTelError }]
           })))
         ),

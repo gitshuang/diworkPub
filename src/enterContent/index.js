@@ -420,6 +420,7 @@ class EnterContent extends Component {
             onChange={(e) => { this.inputOnChange(e, 'linkman'); }}
             {...getFieldProps('linkman', {
               validateTrigger: 'onBlur',
+              initialValue: linkman || '',
               rules: [{ required: true, message: texts.linkmanError, }],
             })}
           />
@@ -437,6 +438,7 @@ class EnterContent extends Component {
             placeholder={texts.tenantEmailPlace}
             {...getFieldProps('tenantEmail', {
               validateTrigger: 'onBlur',
+              initialValue: tenantEmail || '',
               rules: [{ required: true, type: 'email', message: texts.tenantEmailError, }],
             })}
           />
@@ -470,6 +472,7 @@ class EnterContent extends Component {
               placeholder={texts.tenantTelPlace}
               {...getFieldProps('tenantTel', {
                 validateTrigger: 'onBlur',
+                initialValue: tenantTel || '',
                 rules: [{ required: true, message: texts.tenantTelError, }],
               })}
             >
