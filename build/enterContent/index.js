@@ -130,8 +130,6 @@ var EnterContent = function (_Component) {
         if (err) {
           console.log('校验失败', values);
         } else {
-          console.log('提交成功', values);
-          console.log(_this2.state);
           _this2.checkForm(values);
         }
       });
