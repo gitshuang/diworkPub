@@ -100,25 +100,6 @@ var EnterContent = function (_Component) {
       });
     };
 
-    _this2.setOptherData = function (obj) {
-      var name = obj.name,
-          value = obj.value;
-
-      _this2.setState(_defineProperty({}, name, value));
-    };
-
-    _this2.allowExitChange = function (value) {
-      _this2.setState({
-        allowExit: value
-      });
-    };
-
-    _this2.watermarkChange = function (value) {
-      _this2.setState({
-        isWaterMark: value
-      });
-    };
-
     _this2.inputOnChange = function (e, name) {
       _this2.setState(_defineProperty({}, name, e));
     };
@@ -269,13 +250,6 @@ var EnterContent = function (_Component) {
 
 
   // 上传组件设置新的logo - url， 后期需要更改为方法传递到 
-
-
-  // select 更改
-
-  // 更改是否允许用户退出
-
-  // 通讯录显示水印
 
 
   // 更改输入框的值

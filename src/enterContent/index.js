@@ -122,26 +122,6 @@ class EnterContent extends Component {
     });
   }
 
-  // select 更改
-  setOptherData = (obj) => {
-    const { name, value } = obj;
-    this.setState({
-      [name]: value,
-    });
-  }
-  // 更改是否允许用户退出
-  allowExitChange = (value) => {
-    this.setState({
-      allowExit: value,
-    });
-  }
-  // 通讯录显示水印
-  watermarkChange = (value) => {
-    this.setState({
-      isWaterMark: value,
-    });
-  }
-
   // 更改输入框的值
   inputOnChange = (e, name) => {
     this.setState({
