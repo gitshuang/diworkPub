@@ -156,8 +156,6 @@ class EnterContent extends Component {
       if (err) {
         console.log('校验失败', values);
       } else {
-        console.log('提交成功', values)
-        console.log(this.state);
         this.checkForm(values);
       }
     });
