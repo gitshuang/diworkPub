@@ -1,29 +1,18 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?pmrzz3');
-  src:  url('fonts/icomoon.eot?pmrzz3#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.woff2?pmrzz3') format('woff2'),
-    url('fonts/icomoon.ttf?pmrzz3') format('truetype'),
-    url('fonts/icomoon.woff?pmrzz3') format('woff'),
-    url('fonts/icomoon.svg?pmrzz3#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?8ojxwx');
+  src:  url('fonts/icomoon.eot?8ojxwx#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.woff2?8ojxwx') format('woff2'),
+    url('fonts/icomoon.ttf?8ojxwx') format('truetype'),
+    url('fonts/icomoon.woff?8ojxwx') format('woff'),
+    url('fonts/icomoon.svg?8ojxwx#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-.iconfont {
-  /* use !important to prevent issues with browser extensions that change fonts
-  font-family: 'icomoon' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
-}
+.iconfont {}
 
-:global(.diworkiconfont){
+.diworkiconfont{
   font-family: 'icomoon' !important;
   speak: none;
   font-style: normal;
@@ -36,6 +25,46 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-Set-up:before {
+  content: "\ea17";
+  color: #555;
+}
+.icon-move-upward:before {
+  content: "\e988";
+  color: #555;
+}
+.icon-home-black:before {
+  content: "\ea0e";
+  color: #555;
+}
+.icon-move-down:before {
+  content: "\ea0f";
+  color: #555;
+}
+.icon-news:before {
+  content: "\ea10";
+  color: #555;
+}
+.icon-More:before {
+  content: "\ea11";
+  color: #555;
+}
+.icon-account-management:before {
+  content: "\ea13";
+  color: #555;
+}
+.icon-cancellation:before {
+  content: "\ea14";
+  color: #555;
+}
+.icon-language:before {
+  content: "\ea15";
+  color: #555;
+}
+.icon-History:before {
+  content: "\ea16";
+  color: #555;
+}
 .icon-Tree-plus-sign:before {
   content: "\e986";
   color: #555;

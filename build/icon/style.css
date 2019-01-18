@@ -2,30 +2,19 @@
 
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?pmrzz3');
-  src:  url('fonts/icomoon.eot?pmrzz3#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.woff2?pmrzz3') format('woff2'),
-    url('fonts/icomoon.ttf?pmrzz3') format('truetype'),
-    url('fonts/icomoon.woff?pmrzz3') format('woff'),
-    url('fonts/icomoon.svg?pmrzz3#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?8ojxwx');
+  src:  url('fonts/icomoon.eot?8ojxwx#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.woff2?8ojxwx') format('woff2'),
+    url('fonts/icomoon.ttf?8ojxwx') format('truetype'),
+    url('fonts/icomoon.woff?8ojxwx') format('woff'),
+    url('fonts/icomoon.svg?8ojxwx#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-.iconfont__style___LBvY- {
-  /* use !important to prevent issues with browser extensions that change fonts
-  font-family: 'icomoon' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
-}
+.iconfont__style___LBvY- {}
 
-.diworkiconfont{
+.diworkiconfont__style___IdfMZ{
   font-family: 'icomoon' !important;
   speak: none;
   font-style: normal;
@@ -38,6 +27,46 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-Set-up__style___1J5iR:before {
+  content: "\EA17";
+  color: #555;
+}
+.icon-move-upward__style___2DjZL:before {
+  content: "\E988";
+  color: #555;
+}
+.icon-home-black__style___2e_1H:before {
+  content: "\EA0E";
+  color: #555;
+}
+.icon-move-down__style___o_7wi:before {
+  content: "\EA0F";
+  color: #555;
+}
+.icon-news__style___m4L8N:before {
+  content: "\EA10";
+  color: #555;
+}
+.icon-More__style___h3MRO:before {
+  content: "\EA11";
+  color: #555;
+}
+.icon-account-management__style___1-vh6:before {
+  content: "\EA13";
+  color: #555;
+}
+.icon-cancellation__style___1tDsy:before {
+  content: "\EA14";
+  color: #555;
+}
+.icon-language__style___3_7uy:before {
+  content: "\EA15";
+  color: #555;
+}
+.icon-History__style___1WDyE:before {
+  content: "\EA16";
+  color: #555;
+}
 .icon-Tree-plus-sign__style___1gwJz:before {
   content: "\E986";
   color: #555;

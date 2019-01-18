@@ -22,6 +22,17 @@ require('./style.css');
 
 var types = {
   'iconfont': 'iconfont__style___LBvY-',
+  'diworkiconfont': 'diworkiconfont__style___IdfMZ',
+  'icon-Set-up': 'icon-Set-up__style___1J5iR',
+  'icon-move-upward': 'icon-move-upward__style___2DjZL',
+  'icon-home-black': 'icon-home-black__style___2e_1H',
+  'icon-move-down': 'icon-move-down__style___o_7wi',
+  'icon-news': 'icon-news__style___m4L8N',
+  'icon-More': 'icon-More__style___h3MRO',
+  'icon-account-management': 'icon-account-management__style___1-vh6',
+  'icon-cancellation': 'icon-cancellation__style___1tDsy',
+  'icon-language': 'icon-language__style___3_7uy',
+  'icon-History': 'icon-History__style___1WDyE',
   'icon-Tree-plus-sign': 'icon-Tree-plus-sign__style___1gwJz',
   'icon-Tree-minus-sign': 'icon-Tree-minus-sign__style___Hf4U1',
   'icon-Friends-space': 'icon-Friends-space__style___24yj2',
