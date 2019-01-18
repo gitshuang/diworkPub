@@ -12,7 +12,7 @@
 
 .iconfont {}
 
-.diworkiconfont{
+:global(.diworkiconfont){
   font-family: 'icomoon' !important;
   speak: none;
   font-style: normal;

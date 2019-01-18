@@ -22,7 +22,6 @@ require('./style.css');
 
 var types = {
   'iconfont': 'iconfont__style___LBvY-',
-  'diworkiconfont': 'diworkiconfont__style___IdfMZ',
   'icon-Set-up': 'icon-Set-up__style___1J5iR',
   'icon-move-upward': 'icon-move-upward__style___2DjZL',
   'icon-home-black': 'icon-home-black__style___2e_1H',
