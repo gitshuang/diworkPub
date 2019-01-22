@@ -100,6 +100,7 @@
     position: relative;
     cursor: pointer;
     background:rgba(255,255,255,1);
+    border-radius: 3px;
 }
 .list_item_content__style___jhSi9.item-checked{
     border:1px solid rgba(0,179,158,1);

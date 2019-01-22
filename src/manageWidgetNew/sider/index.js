@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { mapStateToProps } from '@u';
 import manageActions from 'store/root/manage/actions';
-const { changeSiderState, getAllMenuList,updateCheckedCardList } = manageActions;
+const { changeSiderState, getAllMenuList, updateCheckedCardList } = manageActions;
 import rootActions from 'store/root/actions';
 const { requestStart, requestSuccess, requestError } = rootActions;
 
@@ -54,6 +54,7 @@ export default class MySider extends Component {
                 requestError(payload);
                 return;
             }
+           
             payload.forEach(a => { //第一级
                 a.menuItems.forEach(b => {  //第二级
                     b.children.forEach(c => {//第三极
@@ -76,20 +77,20 @@ export default class MySider extends Component {
             })
             requestSuccess();
         })
-        
+
         this.setHeight();
-        window.addEventListener('resize',this.setHeight)
+        window.addEventListener('resize', this.setHeight)
     }
-    setHeight = ()=>{
-        if(this.serviceArea){
-            this.serviceArea.style.height = ((document.documentElement || document.body).clientHeight - 180) + "px"        
+    setHeight = () => {
+        if (this.serviceArea) {
+            this.serviceArea.style.height = ((document.documentElement || document.body).clientHeight - 180) + "px"
         }
     }
-    componentDidUpdate(){//解决隐藏后重新显示
-        this.setHeight();        
+    componentDidUpdate() {//解决隐藏后重新显示
+        this.setHeight();
     }
     componentWillUnmount() {
-        window.removeEventListener('resize',this.setHeight)
+        window.removeEventListener('resize', this.setHeight)
     }
     renderMenu = () => {
         const { menuList, isMenuListShow } = this.state;
@@ -124,7 +125,7 @@ export default class MySider extends Component {
             cardsList = this.state.menuList[0].menuItems[0].children
             inputValue = `${this.state.menuList[0].menuBarName}/${this.state.menuList[0].menuItems[0].menuItemName}`
         }
-       
+
         this.setState({
             cardsList,
             inputValue,
@@ -135,10 +136,10 @@ export default class MySider extends Component {
     }
 
     renderService = () => {
-        const {checkedCardList} = this.props;
+        const { checkedCardList } = this.props;
         let dom = '';
         dom = this.state.cardsList.map((a, b) => {
-            if (a.children&&a.children.length == 0) {
+            if (a.children && a.children.length == 0) {
                 const isContainInCheckCardList = checkedCardList.some(item => { return item.serviceId == a.serviceId })
                 a.checked = isContainInCheckCardList;
                 return <div key={a.menuItemId} className="result_app_list_3">
@@ -147,7 +148,7 @@ export default class MySider extends Component {
                     />
                     <hr />
                 </div>
-            }  
+            }
             return <CardsList
                 key={a.menuItemId}
                 list={a.children}
@@ -160,7 +161,7 @@ export default class MySider extends Component {
     onChangeChecked = (checked, parentId, menuItemId) => {
         const { cardsList } = this.state;
         //const newCardsList = JSON.parse(JSON.stringify(cardsList))
-        const {checkedCardList,updateCheckedCardList} = this.props;
+        const { checkedCardList, updateCheckedCardList } = this.props;
         let newCheckedCardList = JSON.parse(JSON.stringify(checkedCardList));
         if (checked) {//如果是选中，push checkedCardList
             cardsList.forEach((item) => {
@@ -191,7 +192,7 @@ export default class MySider extends Component {
                 if (item.children.length) {
                     item.children.forEach((a) => {
                         if (a.menuItemId == menuItemId) {
-                           // a.checked = checked;
+                            // a.checked = checked;
                             newCheckedCardList = newCheckedCardList.filter(item => {
                                 return item.menuItemId !== menuItemId
                             })
@@ -203,7 +204,6 @@ export default class MySider extends Component {
         this.setState({
             cardsList: cardsList,
         })
-        console.log(newCheckedCardList,'newCheckedCardList=======================')
         updateCheckedCardList(newCheckedCardList)
     }
 
@@ -248,10 +248,10 @@ export default class MySider extends Component {
     }
     render() {
 
-        const { inputValue, searchValue } = this.state;
+        const { inputValue, searchValue, ifSearchState } = this.state;
         const { isSiderDisplay, changeSiderState } = this.props;
         return (
-            <TransitionGroup component="div"  className={sider_container}>
+            <TransitionGroup component="div" className={sider_container}>
                 <CSSTransitionGroup
                     transitionName={{
                         enter: 'animated',
@@ -261,42 +261,44 @@ export default class MySider extends Component {
                     }}
                     transitionEnterTimeout={1300}
                     transitionLeaveTimeout={1300} >
-                      {
-                    isSiderDisplay ?
-                    <div  style={{ display: isSiderDisplay ? "block" : "none" }}>
-                    <div className="sider-container-fixed">
-                        <div className={add_item}>
-                            <span><Icon type="notice" />拖动下方磁贴至右侧所需位置</span>
-                            {/* <i className={toggleBar}
+                    {
+                        isSiderDisplay ?
+                            <div >
+                                <div className="sider-container-fixed">
+                                    <div className={add_item}>
+                                        <span><Icon type="notice" />拖动下方磁贴至右侧所需位置</span>
+                                        {/* <i className={toggleBar}
                                 onClick={changeSiderState}>
                                 {"<"}</i> */}
-                        </div>
+                                    </div>
 
-                       
-                        {this.state.ifSearchState ?
-                            <div className={selectServiceArea}>
-                                <input className={selectService}
-                                    onKeyUp={this.searchService}
-                                />
-                                <span onClick={this.switchFetchFn}>取消</span>
-                            </div> : <div className={selectServiceArea}>
-                                <input className={selectService}
-                                    onFocus={() => { this.setState({ isMenuListShow: true }) }}
-                                    value={inputValue}
-                                // onBlur={() => { this.setState({ isMenuListShow: false }) }}
-                                />
-                                <Icon type="search" onClick={this.switchFetchFn} />
-                            </div> }
 
-                        {this.renderMenu()}
-                        <div className="serviceArea" ref={ref => this.serviceArea = ref}>
-                            {this.renderService()}
-                        </div>
-                    </div>
-                    </div>:<div style={{width:20}}><i className={`${add_item} ${toggleBar}`}
-                            style={{position:"fixed"}}
-                            onClick={changeSiderState}>
-                            {">"}</i></div>}
+                                    {ifSearchState ?
+                                        <div className={selectServiceArea}>
+                                            <input className={selectService}
+                                                onKeyUp={this.searchService}
+                                                key="clickSearch"
+                                            />
+                                            <span onClick={this.switchFetchFn}>取消</span>
+                                        </div> : <div className={selectServiceArea}>
+                                            <input className={selectService}
+                                                onFocus={() => { this.setState({ isMenuListShow: true }) }}
+                                                value={inputValue}
+                                                key="menuSearch"
+                                            // onBlur={() => { this.setState({ isMenuListShow: false }) }}
+                                            />
+                                            <Icon type="search" onClick={this.switchFetchFn} />
+                                        </div>} 
+
+                                    {this.renderMenu()}
+                                    <div className="serviceArea" ref={ref => this.serviceArea = ref}>
+                                        {this.renderService()}
+                                    </div>
+                                </div>
+                            </div> : <div style={{ width: 20 }}><i className={`${add_item} ${toggleBar}`}
+                                style={{ position: "fixed" }}
+                                onClick={changeSiderState}>
+                                {">"}</i></div>}
                 </CSSTransitionGroup>
             </TransitionGroup>
 

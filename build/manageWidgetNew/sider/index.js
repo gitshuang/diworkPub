@@ -131,6 +131,7 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderD
                 requestError(payload);
                 return;
             }
+
             payload.forEach(function (a) {
                 //第一级
                 a.menuItems.forEach(function (b) {
@@ -173,7 +174,8 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderD
 
         var _state = this.state,
             inputValue = _state.inputValue,
-            searchValue = _state.searchValue;
+            searchValue = _state.searchValue,
+            ifSearchState = _state.ifSearchState;
         var _props2 = this.props,
             isSiderDisplay = _props2.isSiderDisplay,
             changeSiderState = _props2.changeSiderState;
@@ -194,7 +196,7 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderD
                     transitionLeaveTimeout: 1300 },
                 isSiderDisplay ? _react2["default"].createElement(
                     'div',
-                    { style: { display: isSiderDisplay ? "block" : "none" } },
+                    null,
                     _react2["default"].createElement(
                         'div',
                         { className: 'sider-container-fixed' },
@@ -208,11 +210,12 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderD
                                 '\u62D6\u52A8\u4E0B\u65B9\u78C1\u8D34\u81F3\u53F3\u4FA7\u6240\u9700\u4F4D\u7F6E'
                             )
                         ),
-                        this.state.ifSearchState ? _react2["default"].createElement(
+                        ifSearchState ? _react2["default"].createElement(
                             'div',
                             { className: _style.selectServiceArea },
                             _react2["default"].createElement('input', { className: _style.selectService,
-                                onKeyUp: this.searchService
+                                onKeyUp: this.searchService,
+                                key: 'clickSearch'
                             }),
                             _react2["default"].createElement(
                                 'span',
@@ -226,7 +229,8 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderD
                                 onFocus: function onFocus() {
                                     _this3.setState({ isMenuListShow: true });
                                 },
-                                value: inputValue
+                                value: inputValue,
+                                key: 'menuSearch'
                                 // onBlur={() => { this.setState({ isMenuListShow: false }) }}
                             }),
                             _react2["default"].createElement(_icon2["default"], { type: 'search', onClick: this.switchFetchFn })
@@ -394,7 +398,6 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderD
         _this4.setState({
             cardsList: cardsList
         });
-        console.log(newCheckedCardList, 'newCheckedCardList=======================');
         updateCheckedCardList(newCheckedCardList);
     };
 
