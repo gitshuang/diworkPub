@@ -1,4 +1,4 @@
-/* imported from style.css */
+/*  imported from style.css   */
 
 button.btn__style___37bsb{
   min-width: 80px;
@@ -18,6 +18,69 @@ button.btn__style___37bsb{
 .btn__style___37bsb>i{
   margin-right:8px;
 }
+/* u8c_primary  */
+button.btn__style___37bsb.u8c_primary__style___RFibc{
+  background:linear-gradient(45deg,rgba(252,76,47,1) 0%,rgba(238,34,35,1) 100%);
+  color: #ffffff;
+}
+button.btn__style___37bsb.u8c_primary__style___RFibc:hover{
+  background:linear-gradient(315deg,rgba(252,76,47,1) 0%,rgba(238,34,35,1) 100%);
+  color: #ffffff;
+}
+button.btn__style___37bsb.u8c_primary__style___RFibc:active{
+  background:linear-gradient(315deg,rgba(252,76,47,1) 0%,rgba(238,34,35,1) 100%);
+  color: #ffffff;
+}
+button.btn__style___37bsb.u8c_primary__style___RFibc:disabled,
+button.btn__style___37bsb.u8c_primary__style___RFibc:disabled:hover,
+button.btn__style___37bsb.u8c_primary__style___RFibc:disabled,
+button.btn__style___37bsb.u8c_primary__style___RFibc:disabled:hover{
+  background:linear-gradient(315deg,rgba(254,166,153,1) 0%,rgba(246,145,145,1) 100%);
+  color: #bfbfbf;
+}
+
+/* u8c_default  */
+button.btn__style___37bsb.u8c_default__style___1nNbC{
+  background:#DBE0E5;
+  color:#666666;
+}
+button.btn__style___37bsb.u8c_default__style___1nNbC:hover{
+  background: #E5E9EC;
+  color:#666666;
+}
+button.btn__style___37bsb.u8c_default__style___1nNbC:active{
+  background:#E5E9EC;
+  color:#666666;
+}
+button.btn__style___37bsb.u8c_default__style___1nNbC:disabled,
+button.btn__style___37bsb.u8c_default__style___1nNbC:disabled:hover,
+button.btn__style___37bsb.u8c_default__style___1nNbC:disabled,
+button.btn__style___37bsb.u8c_default__style___1nNbC:disabled:hover{
+  background:#F7F7F7;
+  color: #CCCCCC;
+}
+
+/* u8c  */
+button.btn__style___37bsb.u8c__style___2_wts{
+  background: #505766;
+  color: #ffffff;
+}
+button.btn__style___37bsb.u8c__style___2_wts:hover{
+  background:#616874;
+  color: #ffffff;
+}
+button.btn__style___37bsb.u8c__style___2_wts:active{
+  background:#616874;
+  color: #ffffff;
+}
+button.btn__style___37bsb.u8c__style___2_wts:disabled,
+button.btn__style___37bsb.u8c__style___2_wts:disabled:hover,
+button.btn__style___37bsb.u8c__style___2_wts:disabled,
+button.btn__style___37bsb.u8c__style___2_wts:disabled:hover{
+  background:#505766;
+  color: #ffffff;
+}
+
 
 /** 品牌红 **/
 button.btn__style___37bsb.brand_btn__style___2q2wL{
@@ -54,8 +117,6 @@ button.default_btn__style___ID6yW:active{
   color:#e14c46;
 }
 
-
-
 /** 默认带边框 **/
 button.default_line_btn__style___bm6bw {
   color:rgba(255,255,255,1);
@@ -75,15 +136,6 @@ button.default_line_btn__style___bm6bw:disabled{
   color:rgba(165,173,186,1);
   background:rgba(245,246,248,1);
 }
-/**
-.default_line_btn:visited{
- background:rgba(245,246,248,1);
- color:rgba(165,173,186,1);
- opacity:70;
- cursor: not-allowed;
-}
-**/
-
 
 /**  默认无背景色 **/
 button.default_alpha_btn__style___LfXeC {

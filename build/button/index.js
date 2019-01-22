@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ButtonSearchIcon = exports.ButtonDefaultWhite = exports.ButtonCheckSelected = exports.ButtonCheckClose = exports.ButtonWarning = exports.ButtonDefaultLine = exports.ButtonDefaultAlpha = exports.ButtonDefault = exports.ButtonBrand = exports.ButtonDanger = undefined;
+exports.ButtonU8cDefault = exports.ButtonU8cPrimary = exports.ButtonU8c = exports.Button = exports.ButtonSearchIcon = exports.ButtonDefaultWhite = exports.ButtonCheckSelected = exports.ButtonCheckClose = exports.ButtonWarning = exports.ButtonDefaultLine = exports.ButtonDefaultAlpha = exports.ButtonDefault = exports.ButtonBrand = exports.ButtonDanger = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -23,6 +23,9 @@ require('./style.css');
 
 var _style = {
   'btn': 'btn__style___37bsb',
+  'u8c_primary': 'u8c_primary__style___RFibc',
+  'u8c_default': 'u8c_default__style___1nNbC',
+  'u8c': 'u8c__style___2_wts',
   'brand_btn': 'brand_btn__style___2q2wL',
   'default_btn': 'default_btn__style___ID6yW',
   'default_line_btn': 'default_line_btn__style___bm6bw',
@@ -102,6 +105,10 @@ var ButtonDanger = buttonMaker(_style.danger_btn);
 var ButtonWarning = buttonMaker(_style.warning_btn);
 //搜索的button
 var ButtonSearchIcon = buttonMaker(_style.search_icon_btn);
+// u8c button
+var ButtonU8c = buttonMaker(_style.u8c);
+var ButtonU8cPrimary = buttonMaker(_style.u8c_primary);
+var ButtonU8cDefault = buttonMaker(_style.u8c_default);
 exports["default"] = ButtonDefault;
 exports.ButtonDanger = ButtonDanger;
 exports.ButtonBrand = ButtonBrand;
@@ -113,6 +120,10 @@ exports.ButtonCheckClose = ButtonCheckClose;
 exports.ButtonCheckSelected = ButtonCheckSelected;
 exports.ButtonDefaultWhite = ButtonDefaultWhite;
 exports.ButtonSearchIcon = ButtonSearchIcon;
+exports.Button = _button2["default"];
+exports.ButtonU8c = ButtonU8c;
+exports.ButtonU8cPrimary = ButtonU8cPrimary;
+exports.ButtonU8cDefault = ButtonU8cDefault;
 
 /**
 参数

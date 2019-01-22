@@ -12,7 +12,10 @@ import {
   danger_btn,
   warning_btn,
   default_white_btn,
-  search_icon_btn
+  search_icon_btn,
+  u8c,
+  u8c_primary,
+  u8c_default,
 } from './style.css';
 
 const buttonMaker = (btnType) => {
@@ -54,6 +57,10 @@ const ButtonDanger = buttonMaker(danger_btn);
 const ButtonWarning = buttonMaker(warning_btn);
 //搜索的button
 const ButtonSearchIcon = buttonMaker(search_icon_btn);
+// u8c button
+const ButtonU8c = buttonMaker(u8c);
+const ButtonU8cPrimary = buttonMaker(u8c_primary);
+const ButtonU8cDefault = buttonMaker(u8c_default);
 export default ButtonDefault;
 export {
   ButtonDanger,
@@ -67,6 +74,10 @@ export {
   ButtonDefaultWhite,
   //搜素的按钮
   ButtonSearchIcon,
+  Button,
+  ButtonU8c,
+  ButtonU8cPrimary,
+  ButtonU8cDefault,
 };
 
 /**
