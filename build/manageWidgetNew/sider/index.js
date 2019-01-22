@@ -29,7 +29,6 @@ var _style = {
     'add_item': 'add_item__style___1PdZH',
     'sider_container': 'sider_container__style___2shkw',
     'toggleBar': 'toggleBar__style___2sBTm',
-    'selectService': 'selectService__style___DydJQ',
     'menuListStyle': 'menuListStyle__style___1Olg4',
     'card': 'card__style___xZ9YD',
     'cardLevelFour': 'cardLevelFour__style___Xkhzf',
@@ -219,7 +218,7 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderD
                             }),
                             _react2["default"].createElement(
                                 'span',
-                                { onClick: this.switchFetchFn },
+                                { onClick: this.switchFetchFn, className: 'option' },
                                 '\u53D6\u6D88'
                             )
                         ) : _react2["default"].createElement(
@@ -233,7 +232,7 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderD
                                 key: 'menuSearch'
                                 // onBlur={() => { this.setState({ isMenuListShow: false }) }}
                             }),
-                            _react2["default"].createElement(_icon2["default"], { type: 'search', onClick: this.switchFetchFn })
+                            _react2["default"].createElement(_icon2["default"], { type: 'search', onClick: this.switchFetchFn, className: 'option' })
                         ),
                         this.renderMenu(),
                         _react2["default"].createElement(

@@ -39,13 +39,7 @@
 .toggleBar{
     cursor: pointer;
 }
-.selectService{
-    background: transparent;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid black;
-    width: 90%;
-}
+
 .menuListStyle{
     position: absolute;
     width: 140px;
@@ -160,7 +154,7 @@
     justify-content:space-between;
     height: 42px;
     background:rgba(255,255,255,1);
-    padding: 0 15px;
+    padding: 0 0 0 15px;
     align-items: center;
 }
 .selectServiceArea :global(input){
@@ -173,7 +167,12 @@
     font-weight:400;
     color:rgba(51,51,51,1);
     line-height:20px;
-    padding: 0 10px
+    padding: 0 10px;
+    width:258px;
+}
+.selectServiceArea :global(.option){
+    text-align: center;
+    flex: 1;
 }
 .sider_container :global(.serviceArea){
     padding: 20px 6px  20px 15px;

@@ -279,7 +279,7 @@ export default class MySider extends Component {
                                                 onKeyUp={this.searchService}
                                                 key="clickSearch"
                                             />
-                                            <span onClick={this.switchFetchFn}>取消</span>
+                                            <span onClick={this.switchFetchFn} className="option">取消</span>
                                         </div> : <div className={selectServiceArea}>
                                             <input className={selectService}
                                                 onFocus={() => { this.setState({ isMenuListShow: true }) }}
@@ -287,7 +287,7 @@ export default class MySider extends Component {
                                                 key="menuSearch"
                                             // onBlur={() => { this.setState({ isMenuListShow: false }) }}
                                             />
-                                            <Icon type="search" onClick={this.switchFetchFn} />
+                                            <Icon type="search" onClick={this.switchFetchFn} className="option"/>
                                         </div>} 
 
                                     {this.renderMenu()}

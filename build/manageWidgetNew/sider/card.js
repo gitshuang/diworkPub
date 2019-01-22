@@ -27,7 +27,6 @@ var _style = {
     'add_item': 'add_item__style___1PdZH',
     'sider_container': 'sider_container__style___2shkw',
     'toggleBar': 'toggleBar__style___2sBTm',
-    'selectService': 'selectService__style___DydJQ',
     'menuListStyle': 'menuListStyle__style___1Olg4',
     'card': 'card__style___xZ9YD',
     'cardLevelFour': 'cardLevelFour__style___Xkhzf',
