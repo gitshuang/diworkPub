@@ -32,6 +32,7 @@ var babelPresets = [
 var babelPlugins = [
   "add-module-exports",
   "transform-object-rest-spread",
+  "transform-decorators-legacy",
   [
     "css-modules-transform",
     {

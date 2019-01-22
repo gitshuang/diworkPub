@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _class, _temp;
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -55,22 +57,22 @@ var _manageWidgetList2 = _interopRequireDefault(_manageWidgetList);
 require('./style.css');
 
 var _style = {
-  'widgetTitle': 'widgetTitle__style___5B_lc',
-  'addBtn': 'addBtn__style___1pYRJ',
-  'addGroupBtn': 'addGroupBtn__style___3RkOC',
-  'titleInputArea': 'titleInputArea__style___3_qnw',
-  'input': 'input__style___1eXYC',
-  'newGroupName': 'newGroupName__style___gKFWe',
-  'newGroupName_focus': 'newGroupName_focus__style___2OcOs',
-  'newGroupName_blur': 'newGroupName_blur__style___1QJJD',
-  'btn': 'btn__style___1NAHM',
-  'icon': 'icon__style___3S22Q',
-  'groupArea': 'groupArea__style___3NyCg',
-  'selectedBackClass': 'selectedBackClass__style___QJZ17',
-  'iconBox': 'iconBox__style___CwgKm',
-  'widgetTitleInit': 'widgetTitleInit__style___3JKUO',
-  'check_group': 'check_group__style___2btKQ',
-  'noChildStyle': 'noChildStyle__style___1sFC6'
+  'widgetTitle': 'widgetTitle__style___8uu5O',
+  'addBtn': 'addBtn__style___2tL6d',
+  'addGroupBtn': 'addGroupBtn__style___1ttdG',
+  'titleInputArea': 'titleInputArea__style___2K6Ml',
+  'input': 'input__style___2J12Q',
+  'newGroupName': 'newGroupName__style___235V4',
+  'newGroupName_focus': 'newGroupName_focus__style___2zMCt',
+  'newGroupName_blur': 'newGroupName_blur__style___2B9Sn',
+  'btn': 'btn__style___rBTYb',
+  'icon': 'icon__style___19VqE',
+  'groupArea': 'groupArea__style___3bqWP',
+  'selectedBackClass': 'selectedBackClass__style___2DdUn',
+  'iconBox': 'iconBox__style___2sOu6',
+  'widgetTitleInit': 'widgetTitleInit__style___1jG_l',
+  'check_group': 'check_group__style___Gfw7r',
+  'noChildStyle': 'noChildStyle__style___3Fcw0'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -159,7 +161,7 @@ Array.prototype.distinct = function () {
   return result;
 };
 
-var ManageGroup = function (_Component) {
+var ManageGroup = (_temp = _class = function (_Component) {
   _inherits(ManageGroup, _Component);
 
   function ManageGroup(props) {
@@ -737,14 +739,12 @@ var ManageGroup = function (_Component) {
   };
 
   return ManageGroup;
-}(_react.Component);
-
-ManageGroup.propTypes = {
+}(_react.Component), _class.propTypes = {
   connectDragSource: _propTypes2["default"].func.isRequired,
   connectDropTarget: _propTypes2["default"].func.isRequired,
   index: _propTypes2["default"].number.isRequired,
   isDragging: _propTypes2["default"].bool.isRequired,
   id: _propTypes2["default"].any.isRequired
-};
+}, _temp);
 exports["default"] = (0, _reactDnd.DragSource)(type, itemSource, collectSource)((0, _reactDnd.DropTarget)(type, itemTarget, collectTaget)(ManageGroup));
 module.exports = exports['default'];

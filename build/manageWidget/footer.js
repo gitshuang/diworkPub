@@ -3,6 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = undefined;
+
+var _class, _temp;
 
 var _react = require('react');
 
@@ -13,16 +16,16 @@ var _button = require('../button');
 require('./style.css');
 
 var _style = {
-  'page_home': 'page_home__style___vsQOe',
-  'um_content': 'um_content__style___3a8jv',
-  'umBoxJustify': 'umBoxJustify__style___2tN2v',
-  'preserve': 'preserve__style___1CXeY',
-  'batchArea': 'batchArea__style___1mhxk',
-  'saveArea': 'saveArea__style___20m3j',
-  'um_footer': 'um_footer__style___3cr-t',
-  'addBtn': 'addBtn__style___3zZN2',
-  'addGroupBtn': 'addGroupBtn__style___3tnOQ',
-  'manager_save_pop': 'manager_save_pop__style___2tUW_'
+  'page_home': 'page_home__style___1oRdX',
+  'um_content': 'um_content__style___2jNLr',
+  'umBoxJustify': 'umBoxJustify__style___3WS8n',
+  'preserve': 'preserve__style___3iHsh',
+  'batchArea': 'batchArea__style___YigYP',
+  'saveArea': 'saveArea__style___3cmhi',
+  'um_footer': 'um_footer__style___1jTTP',
+  'addBtn': 'addBtn__style___1qo0W',
+  'addGroupBtn': 'addGroupBtn__style___1zW0a',
+  'manager_save_pop': 'manager_save_pop__style___3ojTq'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -35,7 +38,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
-var Footer = function (_Component) {
+var Footer = (_temp = _class = function (_Component) {
   _inherits(Footer, _Component);
 
   function Footer(props) {
@@ -94,8 +97,6 @@ var Footer = function (_Component) {
   };
 
   return Footer;
-}(_react.Component);
-
-Footer.defaultProps = {};
+}(_react.Component), _class.defaultProps = {}, _temp);
 exports["default"] = Footer;
 module.exports = exports['default'];

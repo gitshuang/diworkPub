@@ -4,6 +4,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _class, _temp;
+/*  style */
+
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -25,14 +29,14 @@ var _u = require('@u');
 require('./style.css');
 
 var _style = {
-  'container': 'container__style___3CvgR',
-  'title': 'title__style___YVWvc',
-  'borderBox': 'borderBox__style___1q8V0',
-  'u-menu-inline': 'u-menu-inline__style___1KbeC',
-  'u-menu-selected': 'u-menu-selected__style___2rj0p',
-  'footer': 'footer__style___33izj',
-  'selectedli': 'selectedli__style___6ub3B',
-  'saveBtn': 'saveBtn__style___2n4e3'
+  'container': 'container__style___2QKUW',
+  'title': 'title__style___3suWk',
+  'borderBox': 'borderBox__style___6ccEy',
+  'u-menu-inline': 'u-menu-inline__style___195s8',
+  'u-menu-selected': 'u-menu-selected__style___1xVBI',
+  'footer': 'footer__style___1e6dr',
+  'selectedli': 'selectedli__style___NnZPl',
+  'saveBtn': 'saveBtn__style___i-5bZ'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -44,12 +48,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
-/*  style */
-
 
 var Item = _menus2["default"].Item;
-
-var MoveToGroup = function (_Component) {
+var MoveToGroup = (_temp = _class = function (_Component) {
   _inherits(MoveToGroup, _Component);
 
   function MoveToGroup(props) {
@@ -334,21 +335,18 @@ var MoveToGroup = function (_Component) {
   };
 
   return MoveToGroup;
-}(_react.Component);
-
-MoveToGroup.propTypes = {
+}(_react.Component), _class.propTypes = {
   data: _propTypes2["default"].arrayOf(_propTypes2["default"].object),
   onAddGroup: _propTypes2["default"].func,
   onSave: _propTypes2["default"].func,
   onCancel: _propTypes2["default"].func,
   caller: _propTypes2["default"].string
-};
-MoveToGroup.defaultProps = {
+}, _class.defaultProps = {
   data: [],
   onAddGroup: function onAddGroup() {},
   onSave: function onSave() {},
   onCancel: function onCancel() {},
   caller: ''
-};
+}, _temp);
 exports["default"] = MoveToGroup;
 module.exports = exports['default'];

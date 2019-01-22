@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _class, _temp;
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -23,9 +25,9 @@ var _icon2 = _interopRequireDefault(_icon);
 require('./index.css');
 
 var _index = {
-  'searchPanel': 'searchPanel__index___29hZQ',
-  'serviceSearch': 'serviceSearch__index___1tqoZ',
-  'search_icon_con': 'search_icon_con__index___9tRAU'
+  'searchPanel': 'searchPanel__index___3ORSj',
+  'serviceSearch': 'serviceSearch__index___3spk9',
+  'search_icon_con': 'search_icon_con__index___2NVIi'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -38,7 +40,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
-var SearchInput = function (_Component) {
+var SearchInput = (_temp = _class = function (_Component) {
   _inherits(SearchInput, _Component);
 
   function SearchInput(props) {
@@ -93,9 +95,7 @@ var SearchInput = function (_Component) {
   };
 
   return SearchInput;
-}(_react.Component);
-
-SearchInput.propTypes = {
+}(_react.Component), _class.propTypes = {
   placeholder: _propTypes2["default"].string,
   btnText: _propTypes2["default"].string,
   keywords: _propTypes2["default"].string,
@@ -103,8 +103,7 @@ SearchInput.propTypes = {
   onChange: _propTypes2["default"].func,
   onClick: _propTypes2["default"].func,
   classname: _propTypes2["default"].string
-};
-SearchInput.defaultProps = {
+}, _class.defaultProps = {
   placeholder: '',
   btnText: '搜索',
   keywords: '',
@@ -112,6 +111,6 @@ SearchInput.defaultProps = {
   onChange: function onChange() {},
   onClick: function onClick() {},
   classname: ''
-};
+}, _temp);
 exports["default"] = SearchInput;
 module.exports = exports['default'];

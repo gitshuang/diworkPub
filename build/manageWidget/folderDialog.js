@@ -3,8 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports["default"] = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _class, _temp;
 
 var _react = require('react');
 
@@ -24,7 +27,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
-var FolderDialog = function (_Component) {
+var FolderDialog = (_temp = _class = function (_Component) {
   _inherits(FolderDialog, _Component);
 
   function FolderDialog(props) {
@@ -82,8 +85,6 @@ var FolderDialog = function (_Component) {
   };
 
   return FolderDialog;
-}(_react.Component);
-
-FolderDialog.defaultProps = {};
+}(_react.Component), _class.defaultProps = {}, _temp);
 exports["default"] = FolderDialog;
 module.exports = exports['default'];

@@ -7,6 +7,8 @@ exports.closeGlobalDialog = exports.openGlobalDialog = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _class, _temp2;
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -34,13 +36,13 @@ var _button2 = require('../button');
 require('./style.css');
 
 var _style = {
-  'btn': 'btn__style___20DQM',
-  'closeBtn': 'closeBtn__style___2Ow_p',
-  'pop_type': 'pop_type__style___7FzHT',
-  'error': 'error__style___3lAfZ',
-  'warning': 'warning__style___rOA-7',
-  'danger': 'danger__style___2dz2P',
-  'success': 'success__style___3B6OV'
+  'btn': 'btn__style___3snvj',
+  'closeBtn': 'closeBtn__style___39nWU',
+  'pop_type': 'pop_type__style___39Ruo',
+  'error': 'error__style___1RDeg',
+  'warning': 'warning__style___2qwlI',
+  'danger': 'danger__style___3vNqD',
+  'success': 'success__style___3fNXj'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -53,7 +55,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
-var PopDialog = function (_Component) {
+var PopDialog = (_temp2 = _class = function (_Component) {
   _inherits(PopDialog, _Component);
 
   function PopDialog() {
@@ -219,7 +221,14 @@ var PopDialog = function (_Component) {
   };
 
   return PopDialog;
-}(_react.Component);
+}(_react.Component), _class.propTypes = {
+  title: _propTypes2["default"].string,
+  show: _propTypes2["default"].bool.isRequired,
+  btns: _propTypes2["default"].array,
+  close: _propTypes2["default"].any,
+  data: _propTypes2["default"].any,
+  type: _propTypes2["default"].string
+}, _temp2);
 
 // const PopDialog = ({ ...props }) => {
 //   // const { children ,disabled} = props;
@@ -299,15 +308,6 @@ var PopDialog = function (_Component) {
 //     )
 //   }
 // }
-
-PopDialog.propTypes = {
-  title: _propTypes2["default"].string,
-  show: _propTypes2["default"].bool.isRequired,
-  btns: _propTypes2["default"].array,
-  close: _propTypes2["default"].any,
-  data: _propTypes2["default"].any,
-  type: _propTypes2["default"].string
-};
 
 var Dialog = function Dialog(options) {
   var _this2 = this;

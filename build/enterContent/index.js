@@ -6,6 +6,12 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _class, _temp;
+// 公共UI组件
+
+// diwork业务组件
+
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -51,15 +57,15 @@ var _button2 = _interopRequireDefault(_button);
 require('./style.css');
 
 var _style = {
-  'enterForm': 'enterForm__style___3rLaN',
-  'upload': 'upload__style___1zxuY',
-  'country': 'country__style___3E-Os',
-  'tel': 'tel__style___2OXF9',
-  'code': 'code__style___1L3cM',
-  'line': 'line__style___1rbXZ',
-  'infoTitle': 'infoTitle__style___15dG2',
-  'progressBar': 'progressBar__style___kjcre',
-  'inputPhone': 'inputPhone__style___1hlKj'
+  'enterForm': 'enterForm__style___1xirt',
+  'upload': 'upload__style___2sCEg',
+  'country': 'country__style___1_O_R',
+  'tel': 'tel__style___1UMKa',
+  'code': 'code__style___1KAx2',
+  'line': 'line__style___28K_Q',
+  'infoTitle': 'infoTitle__style___1OVxL',
+  'progressBar': 'progressBar__style___qLuEs',
+  'inputPhone': 'inputPhone__style___2wjuf'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -73,14 +79,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
-// 公共UI组件
-
-// diwork业务组件
-
 
 var Option = _select2["default"].Option;
-
-var EnterContent = function (_Component) {
+var EnterContent = (_temp = _class = function (_Component) {
   _inherits(EnterContent, _Component);
 
   function EnterContent(props) {
@@ -821,9 +822,7 @@ var EnterContent = function (_Component) {
   };
 
   return EnterContent;
-}(_react.Component);
-
-EnterContent.propTypes = {
+}(_react.Component), _class.propTypes = {
   userInfo: _propTypes2["default"].shape({
     userName: _propTypes2["default"].string,
     userEmail: _propTypes2["default"].string,
@@ -835,8 +834,7 @@ EnterContent.propTypes = {
   buttonText: _propTypes2["default"].string,
   uploadApplication: _propTypes2["default"].func,
   loadingDesc: _propTypes2["default"].string
-};
-EnterContent.defaultProps = {
+}, _class.defaultProps = {
   userInfo: {}, // 用户信息
   data: {}, // data ， 企业信息，新建为空
   handleClickFn: function handleClickFn() {}, // 按钮点击事件
@@ -844,6 +842,6 @@ EnterContent.defaultProps = {
   buttonText: '', // 按钮显示文字
   uploadApplication: function uploadApplication() {}, // 上传事件
   loadingDesc: '' // 滚动条 文字提示
-};
+}, _temp);
 exports["default"] = _form2["default"].createForm()(EnterContent);
 module.exports = exports['default'];
