@@ -113,7 +113,7 @@ export default class Card extends Component {
         const { menuItemId, parentId, checked } = this.props.data;
         this.props.onChangeChecked(!checked, parentId, menuItemId);
     };
-    render() {
+    render() { 
 
         const { connectDragSource, manageList} = this.props;
         const { serviceId, menuItemName, checked } = this.props.data;
@@ -129,10 +129,9 @@ export default class Card extends Component {
                         </div>
                         :
                         <div className={`${list_item_content} ${title} ${checked ? 'item-checked' : null}`}>
-                            <span className={title_name}>{menuItemName}</span>
+                            <span className={title_name}  title={menuItemName}>{menuItemName}</span>
                             {checked ? (
                                 <i
-                                    title="卡片已选中"
                                     className="selected"
                                     style={{ color: 'rgb(0, 122, 206)' }}
                                 ></i>

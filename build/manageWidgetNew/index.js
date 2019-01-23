@@ -68,11 +68,10 @@ var CreateManageModule = function (_Component) {
   }
 
   CreateManageModule.prototype.render = function render() {
-
     return _react2["default"].createElement(
       'div',
       { className: _style.management },
-      _react2["default"].createElement(_sider2["default"], null),
+      _react2["default"].createElement(_sider2["default"], { languagesJSON: this.props.languagesJSON }),
       _react2["default"].createElement(_content2["default"], this.props),
       _react2["default"].createElement(_customDragLayer2["default"], null)
     );

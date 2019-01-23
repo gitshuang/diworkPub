@@ -196,11 +196,10 @@ var Card = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('manageList'
                 { className: _style.list_item_content + ' ' + _style.title + ' ' + (checked ? 'item-checked' : null) },
                 _react2["default"].createElement(
                     'span',
-                    { className: _style.title_name },
+                    { className: _style.title_name, title: menuItemName },
                     menuItemName
                 ),
                 checked ? _react2["default"].createElement('i', {
-                    title: '\u5361\u7247\u5DF2\u9009\u4E2D',
                     className: 'selected',
                     style: { color: 'rgb(0, 122, 206)' }
                 }) : null

@@ -176,7 +176,8 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderD
             ifSearchState = _state.ifSearchState;
         var _props2 = this.props,
             isSiderDisplay = _props2.isSiderDisplay,
-            changeSiderState = _props2.changeSiderState;
+            changeSiderState = _props2.changeSiderState,
+            languagesJSON = _props2.languagesJSON;
 
         return _react2["default"].createElement(
             _reactTransitionGroup.TransitionGroup,
@@ -205,7 +206,7 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderD
                                 'span',
                                 null,
                                 _react2["default"].createElement(_icon2["default"], { type: 'notice' }),
-                                '\u62D6\u52A8\u4E0B\u65B9\u78C1\u8D34\u81F3\u53F3\u4FA7\u6240\u9700\u4F4D\u7F6E'
+                                languagesJSON.notice
                             )
                         ),
                         ifSearchState ? _react2["default"].createElement(

@@ -83,12 +83,12 @@ var Footer = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('selectLis
           'div',
           { className: _style.batchArea + '  horizontalParent' },
           _react2["default"].createElement(
-            _button.ButtonDefaultLine,
+            _button.ButtonU8c,
             { onClick: batchDelectFn, disabled: selectList.length ? false : true, className: 'horizontal' },
             languagesJSON["delete"]
           ),
           _react2["default"].createElement(
-            _button.ButtonDefaultLine,
+            _button.ButtonU8c,
             { onClick: openGroupTo, disabled: selectList.length ? false : true, className: 'horizontal' },
             languagesJSON.moveTo
           )
@@ -97,12 +97,12 @@ var Footer = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('selectLis
           'div',
           { className: _style.saveArea + '  horizontalParent' },
           _react2["default"].createElement(
-            _button.ButtonBrand,
+            _button.ButtonU8cPrimary,
             { disabled: !isEdit, onClick: save, className: 'save' },
             languagesJSON.save
           ),
           _react2["default"].createElement(
-            _button.ButtonDefaultLine,
+            _button.ButtonU8cDefault,
             { onClick: popOpenCancel, className: 'cancel' },
             languagesJSON.cancel
           )

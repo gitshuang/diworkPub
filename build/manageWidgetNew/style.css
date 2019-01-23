@@ -94,8 +94,8 @@
   color:rgba(204,204,204,1)  !important;
 }
 .um_footer__style___pr77c .horizontalParent .cancel:hover{
-  background:rgba(247,247,247,1);
-  color:rgba(204,204,204,1)  !important;
+  color:rgba(102,102,102,1) !important;
+  background:rgba(229,233,236,1);
 }
 /* :global(.cancelModal button){
   margin:0;

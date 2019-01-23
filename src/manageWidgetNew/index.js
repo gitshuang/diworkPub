@@ -16,10 +16,9 @@ class CreateManageModule extends Component {
   }
 
   render() {
-   
     return (
       <div className={management}>
-          <Sider />
+          <Sider languagesJSON={this.props.languagesJSON}/>
           <Content {...this.props} />
           <CustomDragLayer/>
           {/* <Simple /> */}

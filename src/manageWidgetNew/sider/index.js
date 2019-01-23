@@ -249,7 +249,7 @@ export default class MySider extends Component {
     render() {
 
         const { inputValue, searchValue, ifSearchState } = this.state;
-        const { isSiderDisplay, changeSiderState } = this.props;
+        const { isSiderDisplay, changeSiderState,languagesJSON } = this.props;
         return (
             <TransitionGroup component="div" className={sider_container}>
                 <CSSTransitionGroup
@@ -266,7 +266,7 @@ export default class MySider extends Component {
                             <div >
                                 <div className="sider-container-fixed">
                                     <div className={add_item}>
-                                        <span><Icon type="notice" />拖动下方磁贴至右侧所需位置</span>
+                                        <span><Icon type="notice" />{languagesJSON.notice}</span>
                                         {/* <i className={toggleBar}
                                 onClick={changeSiderState}>
                                 {"<"}</i> */}

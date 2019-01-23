@@ -10,7 +10,7 @@ import PopDialogComp from './popDialogComp';
 import {
   um_content, 
   addBtn,
-  addGroupBtn,
+  addGroupBtn, 
 } from './style.css';
 
 export default class Content extends Component{
