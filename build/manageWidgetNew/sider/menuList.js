@@ -25,7 +25,6 @@ var _style = {
     'card': 'card__style___xZ9YD',
     'cardLevelFour': 'cardLevelFour__style___Xkhzf',
     'cardLevelThree': 'cardLevelThree__style___1sbAZ',
-    'app_col': 'app_col__style___3sKUX',
     'list_item': 'list_item__style___3gd8f',
     'list_item_content': 'list_item_content__style___jhSi9',
     'unSelect': 'unSelect__style___2Q5VC',

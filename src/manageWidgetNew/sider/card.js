@@ -4,7 +4,7 @@ import { getEmptyImage } from 'react-dnd-html5-backend';
 import { connect } from 'react-redux';
 import { hasCardContainInGroups } from '../utils';
 import { mapStateToProps } from '@u';
-import { app_col, list_item_content, title, isAddColor, title_name } from './style.css'
+import { list_item_content, title, isAddColor, title_name } from './style.css'
 import manageActions from 'store/root/manage/actions';
 const { updateManageList } = manageActions;
 
@@ -119,7 +119,7 @@ export default class Card extends Component {
         const { serviceId, menuItemName, checked } = this.props.data;
         const isContainInGroups = hasCardContainInGroups(manageList, serviceId);
         return connectDragSource(
-            <div className={app_col} onClick={this.clickSiderCard}>
+            <div className="app_col" onClick={this.clickSiderCard}>
 
                 {
                     isContainInGroups

@@ -62,15 +62,15 @@
 }
 
 
-.app_col {
+.sider_container :global(.serviceArea .app_col){
     width: 140px;
     height:32px;
     /* background:rgba(255,255,255,1); */
     border-radius:3px;
     margin-bottom: 10px;
     /* border:1px solid rgba(255,255,255,1); */
-}
-.app_col:hover{
+} 
+.sider_container :global(.serviceArea .app_col:hover){
     /* border:1px solid rgba(0,179,158,1); */
 }
 .list_item {
@@ -86,7 +86,7 @@
 .list_item_content {
     padding: 3px 10px;
     border:1px solid rgba(255,255,255,1);
-    height: 30px;
+    height: 32px;
     display: flex;
     align-items: center;
     position: relative;
@@ -146,8 +146,13 @@
     display: block;
     max-width: 100%;
     flex-shrink: 1;
-    font-size: 13px;
-    line-height: 14px;
+    font-size: 14px;
+    color: #555;
+    font-weight: 400;
+    width: 98px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .selectServiceArea{
     display: flex;
@@ -165,7 +170,7 @@
     font-size:14px;
     font-family:PingFangSC-Regular;
     font-weight:400;
-    color:rgba(51,51,51,1);
+    color: #333;
     line-height:20px;
     padding: 0 10px;
     width:258px;
@@ -174,17 +179,28 @@
     text-align: center;
     flex: 1;
 }
+.selectServiceArea :global(span.option){
+    font-size: 14px;
+}
+.selectServiceArea :global(i.option){
+    font-size: 20px;
+    font-weight: bold;
+    color: #757F8C;
+}
 .sider_container :global(.serviceArea){
-    padding: 20px 6px  20px 15px;
+    padding: 0 6px  20px 15px;
     margin-right: -11px;
 }
 .sider_container :global(.serviceArea .serviceTitle){
-    margin: 10px 0;
+    margin: 20px 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .sider_container :global(.serviceArea .serviceTitle i){
     cursor: pointer;
+    position: relative;
+    right: 3px;
 }
 .sider_container :global(.serviceArea .serviceTitle i:after){
     content: '';
@@ -201,7 +217,10 @@
     transform: rotateZ(-45deg);
     
 }
-.sider_container :global(.serviceArea .result_app_list_4){
+.sider_container :global(.serviceArea .result_app_list_4 .app_col){
+    margin-bottom: 10px;
+}
+.sider_container :global(.serviceArea .result_app_list_4 ){
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -210,15 +229,22 @@
 }
 .sider_container :global(.serviceArea .result_app_list_3){
     width: 100%;
-   
+    display: flex;
+    height: 62px;
+    align-items: center;
+    border-bottom: 1px solid rgba(208,208,208,1)
 }
+.sider_container :global(.serviceArea .result_app_list_3 .app_col){
+    margin-bottom: 0
+} 
  :global(.serviceArea>.result_app_list){
      border-bottom:1px solid #333
  }
 
  .sider_container :global(.sider-container-fixed .u-menu-vertical > .u-menu-submenu > .u-menu-submenu-title){
-     height: 28px;
-     line-height: 28px
+     height: 32px;
+     line-height: 32px;
+     font-size: 14px;
  }
  .sider_container :global(.sider-container-fixed>.u-menu){
      background: rgb(255, 255, 255,1);
@@ -228,6 +254,8 @@
     color:rgba(66,75,90,1);
     margin-left: 15px;
     padding: 4px 0;
+    border: none;
+    margin-top: -4px;
  }
  .sider_container :global(.u-menu-submenu-selected){
     background:rgba(216,216,216,1);
@@ -238,14 +266,21 @@
  }
  .sider_container :global(.u-menu-vertical > .u-menu-item){
      padding: 0 12px;
-     height: 28px;
-     line-height: 28px;
+     height: 32px;
+     line-height: 32px;
+ }
+ .sider_container :global(.u-menu-submenu-vertical > .u-menu){
+    min-width: 140px;
+    width:140px;
+    margin-left: 0px;
+    font-size: 14px
  }
  .sider_container :global(.u-menu-vertical > .u-menu-submenu > .u-menu-submenu-title){
      padding: 0 12px;
  }
  .sider_container :global(.u-menu .u-menu-vertical.u-menu-sub){
     padding: 4px 0;
+    border: none
  }
  .sider_container :global(.u-menu-item-active){
      background:rgba(216,216,216,1);

@@ -31,7 +31,6 @@ var _style = {
     'card': 'card__style___xZ9YD',
     'cardLevelFour': 'cardLevelFour__style___Xkhzf',
     'cardLevelThree': 'cardLevelThree__style___1sbAZ',
-    'app_col': 'app_col__style___3sKUX',
     'list_item': 'list_item__style___3gd8f',
     'list_item_content': 'list_item_content__style___jhSi9',
     'unSelect': 'unSelect__style___2Q5VC',
@@ -183,7 +182,7 @@ var Card = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('manageList'
         var isContainInGroups = (0, _utils.hasCardContainInGroups)(manageList, serviceId);
         return connectDragSource(_react2["default"].createElement(
             'div',
-            { className: _style.app_col, onClick: this.clickSiderCard },
+            { className: 'app_col', onClick: this.clickSiderCard },
             isContainInGroups ? _react2["default"].createElement(
                 'div',
                 { className: _style.list_item_content + ' ' + _style.title + ' ' + _style.isAddColor },
