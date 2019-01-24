@@ -43,7 +43,6 @@ const noteSource = {
         const { manageList, updateManageList } = props;
         if (!monitor.didDrop()) {
             //debugger
-            if (hasCardContainInGroups(manageList, DraggedItem.id)) {
 
                 manageList.forEach(item => {
                     item.children.forEach((a, b) => {
@@ -52,7 +51,6 @@ const noteSource = {
                         }
                     })
                 })
-            }
             updateManageList(manageList)
         } else {
             console.log("正常拖拽")//

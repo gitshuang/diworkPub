@@ -99,12 +99,11 @@ var itemSource = {
 var itemTarget = {
 	hover: function hover(props, monitor, component) {
 		var draggedId = monitor.getItem().id;
-
-		if (draggedId !== props.id) {
+		var preType = monitor.getItem().type;
+		if (draggedId !== props.id && preType !== 1) {
 			//如果被拖拽元素与被hover元素的id不一致，交换位置
 
 			var previousParentId = monitor.getItem().parentId;
-			var preType = monitor.getItem().type;
 
 			var draggedSize = preType == "cardlist" ? 1 : monitor.getItem().props.data.size;
 			var hoveredSize = props.data.size;

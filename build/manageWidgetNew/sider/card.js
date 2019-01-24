@@ -98,16 +98,14 @@ var noteSource = {
 
         if (!monitor.didDrop()) {
             //debugger
-            if ((0, _utils.hasCardContainInGroups)(manageList, DraggedItem.id)) {
 
-                manageList.forEach(function (item) {
-                    item.children.forEach(function (a, b) {
-                        if (a.widgetId == DraggedItem.id) {
-                            item.children.splice(b, 1);
-                        }
-                    });
+            manageList.forEach(function (item) {
+                item.children.forEach(function (a, b) {
+                    if (a.widgetId == DraggedItem.id) {
+                        item.children.splice(b, 1);
+                    }
                 });
-            }
+            });
             updateManageList(manageList);
         } else {
             console.log("正常拖拽"); //
