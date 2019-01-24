@@ -158,6 +158,9 @@ export default class MySider extends Component {
         })
         return dom
     }
+    componentWillReceiveProps(props){
+        console.log(props,'propsprops===============');
+    }
     onChangeChecked = (checked, parentId, menuItemId) => {
         const { cardsList } = this.state;
         //const newCardsList = JSON.parse(JSON.stringify(cardsList))

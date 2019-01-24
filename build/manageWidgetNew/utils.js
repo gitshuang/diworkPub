@@ -31,7 +31,7 @@ var hasCardContainInGroups = exports.hasCardContainInGroups = function hasCardCo
   var flag = false;
   groups.forEach(function (g) {
     g.children.forEach(function (a) {
-      if (a.widgetId === cardID) {
+      if (a.serviceId === cardID) {
         flag = true;
         return false;
       }

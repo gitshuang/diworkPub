@@ -35,10 +35,10 @@ var _style = {
     'list_item_content': 'list_item_content__style___jhSi9',
     'unSelect': 'unSelect__style___2Q5VC',
     'isAddColor': 'isAddColor__style___377J0',
+    'title_name': 'title_name__style___2rK4_',
     'iconlocation': 'iconlocation__style___2obxk',
     'triangle_bottom_right': 'triangle_bottom_right__style___2jSJr',
     'title': 'title__style___2rOJE',
-    'title_name': 'title_name__style___2rK4_',
     'selectServiceArea': 'selectServiceArea__style___2aYgt'
 };
 
@@ -115,7 +115,11 @@ var noteSource = {
     },
     canDrag: function canDrag(props, monitor) {
         // debugger
-        if (props.hasBeenDragged) {
+        var manageList = props.manageList,
+            data = props.data;
+
+
+        if (props.hasBeenDragged || (0, _utils.hasCardContainInGroups)(manageList, data.service.serviceId)) {
             return false;
         }
         return true;
@@ -182,29 +186,36 @@ var Card = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('manageList'
         var isContainInGroups = (0, _utils.hasCardContainInGroups)(manageList, serviceId);
         return connectDragSource(_react2["default"].createElement(
             'div',
-            { className: 'app_col', onClick: this.clickSiderCard },
+            null,
             isContainInGroups ? _react2["default"].createElement(
                 'div',
-                { className: _style.list_item_content + ' ' + _style.title + ' ' + _style.isAddColor },
+                { className: 'app_col' },
                 _react2["default"].createElement(
-                    'span',
-                    { className: _style.title_name },
-                    menuItemName
+                    'div',
+                    { className: _style.list_item_content + ' ' + _style.title + ' ' + _style.isAddColor },
+                    _react2["default"].createElement(
+                        'span',
+                        { className: _style.title_name },
+                        menuItemName
+                    )
                 )
             ) : _react2["default"].createElement(
                 'div',
-                { className: _style.list_item_content + ' ' + _style.title + ' ' + (checked ? 'item-checked' : null) },
+                { className: 'app_col', onClick: this.clickSiderCard },
                 _react2["default"].createElement(
-                    'span',
-                    { className: _style.title_name, title: menuItemName },
-                    menuItemName
-                ),
-                checked ? _react2["default"].createElement('i', {
-                    className: 'selected',
-                    style: { color: 'rgb(0, 122, 206)' }
-                }) : null
-            ),
-            isContainInGroups
+                    'div',
+                    { className: _style.list_item_content + ' ' + _style.title + ' ' + (checked ? 'item-checked' : null) },
+                    _react2["default"].createElement(
+                        'span',
+                        { className: _style.title_name, title: menuItemName },
+                        menuItemName
+                    ),
+                    checked ? _react2["default"].createElement('i', {
+                        className: 'selected',
+                        style: { color: 'rgb(0, 122, 206)' }
+                    }) : null
+                )
+            )
         ));
     };
 

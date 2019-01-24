@@ -29,10 +29,10 @@ var _style = {
     'list_item_content': 'list_item_content__style___jhSi9',
     'unSelect': 'unSelect__style___2Q5VC',
     'isAddColor': 'isAddColor__style___377J0',
+    'title_name': 'title_name__style___2rK4_',
     'iconlocation': 'iconlocation__style___2obxk',
     'triangle_bottom_right': 'triangle_bottom_right__style___2jSJr',
     'title': 'title__style___2rOJE',
-    'title_name': 'title_name__style___2rK4_',
     'selectServiceArea': 'selectServiceArea__style___2aYgt'
 };
 

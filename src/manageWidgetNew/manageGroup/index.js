@@ -47,7 +47,6 @@ const itemTarget = {
   },
   drop(props, monitor) {
     const isJustOverThisOne = monitor.isOver({ shallow: true });
-
     const draggedId = monitor.getItem().id;
     const preParentId = monitor.getItem().parentId;
     const draggedType = monitor.getItem().type;
@@ -64,8 +63,8 @@ const itemTarget = {
       }
     }
     else if (draggedType == "cardlist" && props.data.type === 1 && isJustOverThisOne) {//左侧cards向组内非widget位置拖拽
+      //if(preParentId!=props.data.widgetId&&preParentId!=2)  return//这里还要删除shadowcard
       const cardList = monitor.getItem().cardList;
-
       const siderCardPops = {
         id: draggedId,
         preParentId: preParentId,

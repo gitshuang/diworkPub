@@ -25,7 +25,7 @@ export const hasCardContainInGroups = (groups, cardID) => {
   let flag = false;
   groups.forEach(g => {
     g.children.forEach(a => {
-          if (a.widgetId === cardID) {
+          if (a.serviceId === cardID) {
               flag = true;
               return false;
           }

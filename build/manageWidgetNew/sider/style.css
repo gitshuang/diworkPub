@@ -113,10 +113,12 @@
 }
 .isAddColor__style___377J0 {
     cursor:not-allowed;
-    color:rgba(165,173,186,1);
     background:rgba(243,243,243,1);
     box-shadow:0px 0px 2px 0px rgba(0,0,0,0.15),0px 2px 4px 0px rgba(0,0,0,0.15);
     border:1px solid rgba(227,231,233,1)!important;
+}
+.isAddColor__style___377J0 .title_name__style___2rK4_{
+    color:#A5ADBA !important;
 }
 .iconlocation__style___2obxk {
     position: absolute;

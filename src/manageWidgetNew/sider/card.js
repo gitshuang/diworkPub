@@ -60,7 +60,9 @@ const noteSource = {
     },
     canDrag(props, monitor) {
         // debugger
-        if (props.hasBeenDragged) {
+        const { manageList, data } = props;
+
+        if (props.hasBeenDragged||hasCardContainInGroups(manageList, data.service.serviceId)) {
             return false
         }
         return true
@@ -119,15 +121,17 @@ export default class Card extends Component {
         const { serviceId, menuItemName, checked } = this.props.data;
         const isContainInGroups = hasCardContainInGroups(manageList, serviceId);
         return connectDragSource(
-            <div className="app_col" onClick={this.clickSiderCard}>
-
+            <div>
                 {
                     isContainInGroups
                         ?
+                        <div className="app_col" >
                         <div className={`${list_item_content} ${title} ${isAddColor}`}>
                             <span className={title_name} >{menuItemName}</span>
                         </div>
+                        </div>
                         :
+                        <div className="app_col" onClick={this.clickSiderCard}>
                         <div className={`${list_item_content} ${title} ${checked ? 'item-checked' : null}`}>
                             <span className={title_name}  title={menuItemName}>{menuItemName}</span>
                             {checked ? (
@@ -137,10 +141,11 @@ export default class Card extends Component {
                                 ></i>
                             ) : null}
                         </div>
+                        </div>
 
                 }
 
-                {isContainInGroups}
+               
             </div>
         );
     }

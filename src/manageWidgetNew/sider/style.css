@@ -111,10 +111,12 @@
 }
 .isAddColor {
     cursor:not-allowed;
-    color:rgba(165,173,186,1);
     background:rgba(243,243,243,1);
     box-shadow:0px 0px 2px 0px rgba(0,0,0,0.15),0px 2px 4px 0px rgba(0,0,0,0.15);
     border:1px solid rgba(227,231,233,1)!important;
+}
+.isAddColor .title_name{
+    color:#A5ADBA !important;
 }
 .iconlocation {
     position: absolute;
