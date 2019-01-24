@@ -170,9 +170,9 @@ class WidgetList extends Component {
 
     return (<ul className={`${widgetList} ${clearfix}`} >
         {list}
-        <div className={addModule} onClick={this.openSelectWidget} >
+        {/* <div className={addModule} onClick={this.openSelectWidget} >
           <Icon title={languagesJSON.addQuick_to_home} type="add"  />
-        </div>
+        </div> */}
 
         <PopDialog className={pop_dialog_widge_list} type="info" title={languagesJSON.addQuick_to_home} close={this.popClose} backdrop={false} show = { this.state.showModal } data={_da} >
             <SelectWidgetList close={this.popClose} parentId={this.props.parentId}

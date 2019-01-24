@@ -234,11 +234,6 @@ var WidgetList = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)("manag
       { className: _style.widgetList + ' ' + _style.clearfix },
       list,
       _react2["default"].createElement(
-        'div',
-        { className: _style.addModule, onClick: this.openSelectWidget },
-        _react2["default"].createElement(_icon2["default"], { title: languagesJSON.addQuick_to_home, type: 'add' })
-      ),
-      _react2["default"].createElement(
         _pop2["default"],
         { className: _style.pop_dialog_widge_list, type: 'info', title: languagesJSON.addQuick_to_home, close: this.popClose, backdrop: false, show: this.state.showModal, data: _da },
         _react2["default"].createElement(_manageSelectWidgetList2["default"], _extends({ close: this.popClose, parentId: this.props.parentId
