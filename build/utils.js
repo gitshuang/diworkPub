@@ -40,7 +40,7 @@ var noop = exports.noop = function noop() {};
 var getLocaleIndex = function getLocaleIndex() {
   var pathname = window.location.pathname;
   var currLocal = '';
-  if (pathname.includes('/manager/')) {
+  if (pathname.length > 1) {
     window.jDiwork && window.jDiwork.getContext(function (data) {
       currLocal = data.locale;
     });

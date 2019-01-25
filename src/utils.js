@@ -6,7 +6,7 @@ export const noop = () => { };
 const getLocaleIndex = () => {
   const pathname = window.location.pathname;
   let currLocal = '';
-  if (pathname.includes('/manager/')) {
+  if (pathname.length > 1) {
     window.jDiwork && window.jDiwork.getContext((data) => {
       currLocal = data.locale;
     });
