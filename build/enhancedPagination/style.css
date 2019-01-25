@@ -1,6 +1,6 @@
 /*  imported from style.css  */
 
-.enhanced_pagination__style___3adls{
+.enhanced_pagination__style___3LhAI{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -10,14 +10,14 @@
     -webkit-box-pack: center;
     justify-content: center;
 }
-.enhanced_pagination__style___3adls .u_float_pagination__style___1w2E-{
+.enhanced_pagination__style___3LhAI .u_float_pagination__style___2mZ3V{
     float: left;
 }
-.data_per_select__style___3LK_h{
+.data_per_select__style___3VIUY{
     margin: 5px;
     float: left;
 }
-.data_select__style___3IIDe {
+.data_select__style___1N0jE {
     outline: none;
     -webkit-appearance: none;
     height: 28px;
@@ -31,12 +31,12 @@
     margin: 0 6px;
    
 }
-.page_jump__style___2UQbq {
+.page_jump__style___3AeGw {
     font-size: 14px;
     float: left;
     margin: 5px;
 }
-input.page_jump_value__style___2gtGd {
+input.page_jump_value__style___15gy0 {
     outline: none;
     -webkit-appearance:  none;
     background: rgba(9,30,66,.04);
