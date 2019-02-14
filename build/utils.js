@@ -38,7 +38,15 @@ function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
 var noop = exports.noop = function noop() {};
 
 var getLocaleIndex = function getLocaleIndex() {
-  var currLocal = window.self === window.top ? getContext().locale : window.top.diworkContext().locale;
+  var pathname = window.location.pathname;
+  var currLocal = '';
+  if (pathname.length > 1) {
+    window.jDiwork && window.jDiwork.getContext(function (data) {
+      currLocal = data.locale;
+    });
+  } else {
+    currLocal = getContext().locale;
+  }
   var index = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(function (value) {
     return value === currLocal;
   });

@@ -4,7 +4,15 @@ import ReactDOM from 'react-dom';
 export const noop = () => { };
 
 const getLocaleIndex = () => {
-  const currLocal = window.self === window.top ? getContext().locale : window.top.diworkContext().locale
+  const pathname = window.location.pathname;
+  let currLocal = '';
+  if (pathname.length > 1) {
+    window.jDiwork && window.jDiwork.getContext((data) => {
+      currLocal = data.locale;
+    });
+  } else {
+    currLocal = getContext().locale;
+  }
   const index = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(value => {
     return value === currLocal;
   });
@@ -203,7 +211,7 @@ const fetchTools = {
               // 赋值_data
               if (index > -1 && typeof data === "object") {
                 _data = _diff(index + 2, data, "set");
-              }else{
+              } else {
                 _data = data;
               }
               return Promise.resolve(_data);
@@ -571,7 +579,7 @@ const _diff = (_index, _data, type) => {
         const currKey2 = item + _index;
         if (dataKeys.includes(currKey)) {
           const currItem = data[currKey];
-          if(!currItem){
+          if (!currItem) {
             return;
           }
           // 判断是设置 新属性  还是读取新属性的
@@ -585,7 +593,7 @@ const _diff = (_index, _data, type) => {
           }
         } else if (dataKeys.includes(currKey2)) {
           const currItem = data[currKey2];
-          if(!currItem){
+          if (!currItem) {
             return;
           }
           if (type == "set") {
