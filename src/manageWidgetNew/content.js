@@ -16,9 +16,12 @@ import {
 export default class Content extends Component{
   constructor(props){
     super(props);
+    
   }
 
-
+  static defaultProps = {
+		isFooterDisplay: true
+	  };
   renderContent() {
     var {
       manageList,
@@ -169,6 +172,7 @@ export default class Content extends Component{
       cancel,
       popCloseCancel,
       languagesJSON,
+      isFooterDisplay
     } = this.props;
   
     var footerProps = {
@@ -207,7 +211,7 @@ export default class Content extends Component{
     return(
       <div className={um_content}>
           {this.renderContent()}
-          <Footer {...footerProps} languagesJSON={languagesJSON}/>
+          {isFooterDisplay?<Footer {...footerProps} languagesJSON={languagesJSON}/>:null}
           <BatchMove {...batchMoveRedux} languagesJSON={languagesJSON}/>
           <PopDialogComp {...popDialogOuter} languagesJSON={languagesJSON}/>
       </div>
