@@ -1,10 +1,10 @@
 /*  imported from style.css  */
 
-.upload_page__style___zYQWv{
+.upload_page__style___cAxny{
   position: relative;
 }
 
-.uploadImg__style___BN5PM {
+.uploadImg__style___3BV_- {
   width: 87px;
   height: 26px;
   background: rgba(225, 76, 70, 1);
@@ -15,7 +15,7 @@
   font-size: 14px;
 }
 
-.appImg__style___45bj3{
+.appImg__style___3DQcw{
   background: rgba(190,193,200,1) url("./uploadImg.svg") no-repeat;
   width:64px;
   height:64px; 
@@ -23,15 +23,15 @@
   background-position: 1px;
 }
 
-.appValidate__style___1Ukr7{
+.appValidate__style___38soW{
   color: rgb(244, 67, 54);
 }
 
-.upload_page__style___zYQWv .u-button{
+.upload_page__style___cAxny .u-button{
   padding: 0;
 }
 
-.edit__style___1G3e-{
+.edit__style___1I0te{
   width:24px;
   height:24px; 
   background:rgba(0,0,0,0.6);
@@ -45,7 +45,7 @@
   cursor: pointer;
 }
 
-.edit__style___1G3e- i{
+.edit__style___1I0te i{
   color: #fff;
   font-size: 18px;
   text-align: center;
@@ -53,7 +53,7 @@
   display: block;
 }
 
-.titlp_lab__style___39ui_{
+.titlp_lab__style___28N2d{
   position: absolute;
   width: 150px;
   top: 34px;
@@ -63,7 +63,7 @@
   font-size: 14px;
 }
 
-.form_btnFile__style___TCnEm{
+.form_btnFile__style___QUjlp{
   position: absolute;
   left: 0;
   top: 0px;
@@ -74,7 +74,7 @@
   opacity: 0;
 }
 
-.ie9_form__style___IpeSX{ 
+.ie9_form__style___1Log3{ 
   position: absolute;
   top: 0px;
   right: 0px;
@@ -85,10 +85,10 @@
   padding-right: 3px;
 }
 
-.hidden_form__style___3RZCb{
+.hidden_form__style___o7Dl7{
   position: relative;
 }
 
-.icon__style___2YinQ{
+.icon__style___1lpuT{
   color: #fff;
 }

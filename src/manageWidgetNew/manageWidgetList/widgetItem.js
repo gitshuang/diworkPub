@@ -187,7 +187,6 @@ export default class WidgetItem extends WidgetItemFather {
 				<div className={widgetItemCont}>
 				</div>
 				{isDragging?null:<div className={`${clearfix} ${footer}`}>
-					{this.props.type == "pop" ? null : <Checkbox className="test" checked={checkType} onChange={this.onHandChange} />}
 					<div className={`${editDele} ${clearfix}`}>
 						<div onClick={() => { this.popSave(this.props.data) }}><Icon title={languagesJSON.deleteService} type="dustbin" /></div>
 					</div>

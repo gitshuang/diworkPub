@@ -54,22 +54,22 @@ var _actions2 = _interopRequireDefault(_actions);
 require('./style.css');
 
 var _style = {
-  'widgetTitle': 'widgetTitle__style___2XNZQ',
-  'addBtn': 'addBtn__style___1X8ee',
-  'addGroupBtn': 'addGroupBtn__style___WlDlh',
-  'titleInputArea': 'titleInputArea__style___1zYq0',
-  'input': 'input__style___1UwF9',
-  'newGroupName': 'newGroupName__style___1fVPF',
-  'newGroupName_focus': 'newGroupName_focus__style___1wLJz',
-  'newGroupName_blur': 'newGroupName_blur__style___1haHz',
-  'btn': 'btn__style___1rIEA',
-  'icon': 'icon__style___3_Yw6',
-  'groupArea': 'groupArea__style___2I1Qe',
-  'selectedBackClass': 'selectedBackClass__style___14l1x',
-  'iconBox': 'iconBox__style___1KxJ4',
-  'widgetTitleInit': 'widgetTitleInit__style___dcWOv',
-  'check_group': 'check_group__style___1jk6N',
-  'noChildStyle': 'noChildStyle__style___yNKYo'
+  'widgetTitle': 'widgetTitle__style___aR3h-',
+  'addBtn': 'addBtn__style___227X0',
+  'addGroupBtn': 'addGroupBtn__style___3G0A4',
+  'titleInputArea': 'titleInputArea__style___25OnD',
+  'input': 'input__style___2GLRL',
+  'newGroupName': 'newGroupName__style___1aGvh',
+  'newGroupName_focus': 'newGroupName_focus__style___32AnG',
+  'newGroupName_blur': 'newGroupName_blur__style___3yKqh',
+  'btn': 'btn__style___3SSFI',
+  'icon': 'icon__style___17WjZ',
+  'groupArea': 'groupArea__style___3vqIh',
+  'selectedBackClass': 'selectedBackClass__style___1uJiy',
+  'iconBox': 'iconBox__style___14qlN',
+  'widgetTitleInit': 'widgetTitleInit__style___TOFWF',
+  'check_group': 'check_group__style___2TXZ_',
+  'noChildStyle': 'noChildStyle__style___2YuJS'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
