@@ -214,7 +214,7 @@ export default class MySider extends Component {
         //根据cardsList变化来render
         if (e.keyCode == 13) {
             const value = e.target.value
-            const cardsList = [];
+            let cardsList = [];
             this.state.menuList.forEach((a, b) => {
                 a.menuItems.forEach((c, d) => {
                     c.children.forEach((e, f) => {
@@ -230,7 +230,17 @@ export default class MySider extends Component {
                     })
                 })
             })
-            this.setState({ cardsList: cardsList });
+            //给手动搜索到的cardList去重
+            const deduplicatedList = [];
+            cardsList.forEach((item,index)=>{
+                var isContain = deduplicatedList.some(d=>{
+                   return d.serviceId==item.serviceId
+                })
+                if(!isContain){
+                    deduplicatedList.push(item);
+                }
+            })  
+            this.setState({ cardsList: deduplicatedList });
         }
 
     }

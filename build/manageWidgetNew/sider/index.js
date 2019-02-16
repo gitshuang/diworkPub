@@ -424,7 +424,17 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderD
                     });
                 });
             });
-            _this4.setState({ cardsList: cardsList });
+            //给手动搜索到的cardList去重
+            var deduplicatedList = [];
+            cardsList.forEach(function (item, index) {
+                var isContain = deduplicatedList.some(function (d) {
+                    return d.serviceId == item.serviceId;
+                });
+                if (!isContain) {
+                    deduplicatedList.push(item);
+                }
+            });
+            _this4.setState({ cardsList: deduplicatedList });
         }
     };
 
