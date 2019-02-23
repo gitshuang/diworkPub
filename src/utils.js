@@ -5,18 +5,23 @@ export const noop = () => { };
 
 const getLocaleIndex = () => {
   const pathname = window.location.pathname;
-  let currLocal = '';
+  const lanArr = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"];
+  
   if (pathname.length > 1) {
-    window.jDiwork && window.jDiwork.getContext((data) => {
-      currLocal = data.locale;
+    return window.jDiwork && window.jDiwork.getContext((data) => {
+      const currLocal = data.locale;
+      const index = lanArr.findIndex(value => {
+        return value === currLocal;
+      });
+      return index;
     });
   } else {
-    currLocal = getContext().locale;
+    const currLocal = getContext().locale;
+    const index = lanArr.findIndex(value => {
+      return value === currLocal;
+    });
+    return index;
   }
-  const index = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(value => {
-    return value === currLocal;
-  });
-  return index;
 }
 
 export const mergeReducers = (...reducers) =>

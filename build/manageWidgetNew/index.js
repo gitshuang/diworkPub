@@ -29,17 +29,17 @@ var _sider2 = _interopRequireDefault(_sider);
 require('./style.css');
 
 var _style = {
-  'management': 'management__style___ind3u',
-  'page_home': 'page_home__style___1xxtQ',
-  'um_content': 'um_content__style___WVdPG',
-  'umBoxJustify': 'umBoxJustify__style___2gLN3',
-  'preserve': 'preserve__style___1rCbH',
-  'batchArea': 'batchArea__style___3-eiG',
-  'saveArea': 'saveArea__style___3lTER',
-  'um_footer': 'um_footer__style___pr77c',
-  'addBtn': 'addBtn__style___26MPc',
-  'addGroupBtn': 'addGroupBtn__style___3kp-Y',
-  'manager_save_pop': 'manager_save_pop__style___PCRTH'
+  'management': 'management__style___1VA_-',
+  'page_home': 'page_home__style___1TGg1',
+  'um_content': 'um_content__style___2jxWf',
+  'umBoxJustify': 'umBoxJustify__style___38ezk',
+  'preserve': 'preserve__style___18zdq',
+  'batchArea': 'batchArea__style___2Kez5',
+  'saveArea': 'saveArea__style___mmapj',
+  'um_footer': 'um_footer__style___2zW7n',
+  'addBtn': 'addBtn__style___dv2TN',
+  'addGroupBtn': 'addGroupBtn__style___3pqek',
+  'manager_save_pop': 'manager_save_pop__style___XqtTi'
 };
 
 var _customDragLayer = require('./dragLayer/customDragLayer.js');
