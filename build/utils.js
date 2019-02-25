@@ -39,18 +39,23 @@ var noop = exports.noop = function noop() {};
 
 var getLocaleIndex = function getLocaleIndex() {
   var pathname = window.location.pathname;
-  var currLocal = '';
+  var lanArr = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"];
+
   if (pathname.length > 1) {
-    window.jDiwork && window.jDiwork.getContext(function (data) {
-      currLocal = data.locale;
+    return window.jDiwork && window.jDiwork.getContext(function (data) {
+      var currLocal = data.locale;
+      var index = lanArr.findIndex(function (value) {
+        return value === currLocal;
+      });
+      return index;
     });
   } else {
-    currLocal = getContext().locale;
+    var currLocal = getContext().locale;
+    var index = lanArr.findIndex(function (value) {
+      return value === currLocal;
+    });
+    return index;
   }
-  var index = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"].findIndex(function (value) {
-    return value === currLocal;
-  });
-  return index;
 };
 
 var mergeReducers = exports.mergeReducers = function mergeReducers() {
