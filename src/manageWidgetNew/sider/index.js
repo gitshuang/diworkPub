@@ -47,9 +47,9 @@ export default class MySider extends Component {
         };
     }
     componentDidMount() {
-        const { getAllMenuList, requestStart, requestError, requestSuccess, manageList } = this.props;
+        const { getAllMenuList, requestStart, requestError, requestSuccess, manageList,roleId } = this.props;
         requestStart()
-        getAllMenuList().then(({ error, payload }) => {
+        getAllMenuList(roleId).then(({ error, payload }) => {
             if (error) {
                 requestError(payload);
                 return;

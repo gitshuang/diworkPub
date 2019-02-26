@@ -118,10 +118,11 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderD
             requestStart = _props.requestStart,
             requestError = _props.requestError,
             requestSuccess = _props.requestSuccess,
-            manageList = _props.manageList;
+            manageList = _props.manageList,
+            roleId = _props.roleId;
 
         requestStart();
-        getAllMenuList().then(function (_ref) {
+        getAllMenuList(roleId).then(function (_ref) {
             var error = _ref.error,
                 payload = _ref.payload;
 
