@@ -415,10 +415,6 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('mana
       className: ""
     }];
 
-    if (isDragging) {
-      //return null
-    }
-
     var _props5 = this.props,
         isOver = _props5.isOver,
         getItemType = _props5.getItemType;
@@ -431,6 +427,7 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('mana
         'borderRadius': '0'
       };
     }
+    //console.log(layout,'layout======================================in manageGroup================in manageGroup');
     var containerHeight = utilService.getContainerMaxHeight(cards, layout.rowHeight, layout.margin);
     var _html = _react2["default"].createElement(
       'div',

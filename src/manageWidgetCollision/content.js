@@ -5,7 +5,6 @@ import ManageGroup from './manageGroup';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { mapStateToProps } from '@u';
-import { calGridXY,checkCardContainInGroup } from './utils'
 import manageActions from 'store/root/manage/actions';
 const { updateShadowCard, addGroup,updateGroupList,updateLayout} = manageActions;
 import { layoutCheck } from './collision';
@@ -155,7 +154,7 @@ export default class Content extends Component{
 	onCardDropInGroupItem = (dragItem, dropItem) => {
 		let { manageList } = this.props;
 		manageList = _.cloneDeep(manageList);
-		//将所有分组内的阴影卡片设为非阴影
+		//将所有分组内的阴影卡片设为非阴影  
 		utilService.setPropertyValueForCards(manageList, 'isShadow', false);
 		//目标组内重新横向压缩布局
 		_.forEach(manageList, (g, targetGroupIndex) => {
@@ -163,8 +162,8 @@ export default class Content extends Component{
 			manageList[targetGroupIndex].children = compactedLayout;
 		});
 
-		this.props.updateGroupList(manageList);
-		this.props.updateShadowCard({});
+		this.props.updateGroupList({manageList,isEdit:true});
+		this.props.updateShadowCard({});  
   };
   
   /**
@@ -197,7 +196,7 @@ export default class Content extends Component{
 		let compactedLayout = compactLayoutHorizontal(manageList[targetGroupIndex].children, layout.col);
 		
 		manageList[targetGroupIndex].children = compactedLayout;
-		this.props.updateGroupList(manageList);
+		this.props.updateGroupList({manageList,isEdit:true});
 	};
 
   componentWillUnmount() {

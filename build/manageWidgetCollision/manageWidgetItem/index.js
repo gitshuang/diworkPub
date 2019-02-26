@@ -142,7 +142,7 @@ var Item = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)("manageList"
 
 			var compactedLayout = (0, _compact.compactLayoutHorizontal)(manageList[groupIndex].children, _this.props.layout.col);
 			manageList[groupIndex].children = compactedLayout;
-			_this.props.updateGroupList(manageList);
+			_this.props.updateGroupList({ manageList: manageList, isEdit: true });
 		};
 
 		_this.onCheckboxChange = function (flag) {

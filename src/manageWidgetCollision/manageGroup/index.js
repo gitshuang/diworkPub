@@ -333,9 +333,7 @@ export default class ManageGroup extends GroupItem {
       }
     ]
 
-    if (isDragging) {
-      //return null
-    }
+   
 
     var { isOver, getItemType } = this.props;
     var overStyle = {};
@@ -345,7 +343,8 @@ export default class ManageGroup extends GroupItem {
         'boxShadow': '0 0 0 3px #ddd,0 0 0 6px rgba(0,205,195,1)',
         'borderRadius': '0',
       }
-		}
+    }
+    //console.log(layout,'layout======================================in manageGroup================in manageGroup');
 		const containerHeight = utilService.getContainerMaxHeight(cards, layout.rowHeight, layout.margin);
     let _html = (<div className={`${groupArea} animated zoomIn`} style={{ ...overStyle }}>
       <section style={{ ...opacity }} className={inFoucs ? selectedBackClass : ""} >

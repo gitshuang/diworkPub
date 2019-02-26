@@ -20,7 +20,7 @@ var _cardListDragPreview2 = _interopRequireDefault(_cardListDragPreview);
 require('./style.css');
 
 var _style = {
-	'desk_setting_layer': 'desk_setting_layer__style___3xqem'
+	'desk_setting_layer': 'desk_setting_layer__style___1d32B'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

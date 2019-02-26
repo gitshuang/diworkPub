@@ -10,7 +10,7 @@ import background_card from 'assets/image/default.png';
 import {card_shadow,card,card_mid,card_footer} from "./style.css"
 import manageActions from 'store/root/manage/actions';
 import Icon from 'pub-comp/icon';
-import Checkbox from 'bee/checkbox';
+import Checkbox from 'bee/checkbox';  
 
 
 const { updateShadowCard,updateGroupList} = manageActions;
@@ -85,7 +85,7 @@ export default class Item extends Component {
 
 		let compactedLayout = compactLayoutHorizontal(manageList[groupIndex].children, this.props.layout.col);
 		manageList[groupIndex].children = compactedLayout;
-		this.props.updateGroupList(manageList);
+		this.props.updateGroupList({manageList,isEdit:true});
 	};
 	//选中卡片
 	onCheckboxChange = (flag) => {

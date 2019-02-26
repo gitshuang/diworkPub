@@ -31,10 +31,6 @@ var _reactRedux = require('react-redux');
 
 var _u = require('@u');
 
-var _utils = require('./utils');
-
-var utilService = _interopRequireWildcard(_utils);
-
 var _actions = require('store/root/manage/actions');
 
 var _actions2 = _interopRequireDefault(_actions);
@@ -42,6 +38,10 @@ var _actions2 = _interopRequireDefault(_actions);
 var _collision = require('./collision');
 
 var _compact = require('./compact');
+
+var _utils = require('./utils');
+
+var utilService = _interopRequireWildcard(_utils);
 
 require('./style.css');
 
@@ -198,7 +198,7 @@ var Content = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)("manageLi
       var manageList = _this.props.manageList;
 
       manageList = _lodash2["default"].cloneDeep(manageList);
-      //将所有分组内的阴影卡片设为非阴影
+      //将所有分组内的阴影卡片设为非阴影  
       utilService.setPropertyValueForCards(manageList, 'isShadow', false);
       //目标组内重新横向压缩布局
       _lodash2["default"].forEach(manageList, function (g, targetGroupIndex) {
@@ -206,7 +206,7 @@ var Content = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)("manageLi
         manageList[targetGroupIndex].children = compactedLayout;
       });
 
-      _this.props.updateGroupList(manageList);
+      _this.props.updateGroupList({ manageList: manageList, isEdit: true });
       _this.props.updateShadowCard({});
     };
 
@@ -239,7 +239,7 @@ var Content = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)("manageLi
       var compactedLayout = (0, _compact.compactLayoutHorizontal)(manageList[targetGroupIndex].children, layout.col);
 
       manageList[targetGroupIndex].children = compactedLayout;
-      _this.props.updateGroupList(manageList);
+      _this.props.updateGroupList({ manageList: manageList, isEdit: true });
     };
 
     return _this;
