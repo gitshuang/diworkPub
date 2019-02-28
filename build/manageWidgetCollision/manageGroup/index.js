@@ -62,22 +62,22 @@ var _groupTitle2 = _interopRequireDefault(_groupTitle);
 require('./style.css');
 
 var _style = {
-  'widgetTitle': 'widgetTitle__style___1G4sk',
-  'addBtn': 'addBtn__style___2PSoL',
-  'addGroupBtn': 'addGroupBtn__style___32Owe',
-  'titleInputArea': 'titleInputArea__style___3dmOD',
-  'input': 'input__style___2fWlF',
-  'newGroupName': 'newGroupName__style___3_zD8',
-  'newGroupName_focus': 'newGroupName_focus__style___18_2w',
-  'newGroupName_blur': 'newGroupName_blur__style___2u9zP',
-  'btn': 'btn__style___2-N4_',
-  'icon': 'icon__style___ySdY1',
-  'groupArea': 'groupArea__style___2cmoz',
-  'selectedBackClass': 'selectedBackClass__style___1JCfe',
-  'iconBox': 'iconBox__style___1Kdc4',
-  'widgetTitleInit': 'widgetTitleInit__style___mFFAr',
-  'check_group': 'check_group__style___qQUeU',
-  'noChildStyle': 'noChildStyle__style___2fdfk'
+  'widgetTitle': 'widgetTitle__style___2j5oO',
+  'addBtn': 'addBtn__style___3czkk',
+  'addGroupBtn': 'addGroupBtn__style___1l9Lk',
+  'titleInputArea': 'titleInputArea__style___Xn32m',
+  'input': 'input__style___1SqZ1',
+  'newGroupName': 'newGroupName__style___3zjlf',
+  'newGroupName_focus': 'newGroupName_focus__style___c_o_p',
+  'newGroupName_blur': 'newGroupName_blur__style___3ih13',
+  'btn': 'btn__style___1XekA',
+  'icon': 'icon__style___1FLUN',
+  'groupArea': 'groupArea__style___1r1pI',
+  'selectedBackClass': 'selectedBackClass__style___X9npf',
+  'iconBox': 'iconBox__style___3dgJC',
+  'widgetTitleInit': 'widgetTitleInit__style___1uhzz',
+  'check_group': 'check_group__style___Dyz8n',
+  'noChildStyle': 'noChildStyle__style___1LGRc'
 };
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }

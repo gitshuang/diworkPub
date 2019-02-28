@@ -46,16 +46,16 @@ var utilService = _interopRequireWildcard(_utils);
 require('./style.css');
 
 var _style = {
-  'page_home': 'page_home__style___Ztech',
-  'um_content': 'um_content__style___2T_uL',
-  'umBoxJustify': 'umBoxJustify__style___3lRFq',
-  'preserve': 'preserve__style___1Yuxj',
-  'batchArea': 'batchArea__style___1G2AQ',
-  'saveArea': 'saveArea__style___3NZF9',
-  'um_footer': 'um_footer__style___2-cQ0',
-  'addBtn': 'addBtn__style___S3Plr',
-  'addGroupBtn': 'addGroupBtn__style___3cIa3',
-  'manager_save_pop': 'manager_save_pop__style___2Tz9H'
+  'page_home': 'page_home__style___1SzCo',
+  'um_content': 'um_content__style___2DmPd',
+  'umBoxJustify': 'umBoxJustify__style___2NeGy',
+  'preserve': 'preserve__style___2tDtJ',
+  'batchArea': 'batchArea__style___2tAI5',
+  'saveArea': 'saveArea__style___3zQKI',
+  'um_footer': 'um_footer__style___D4ujK',
+  'addBtn': 'addBtn__style___2_xJA',
+  'addGroupBtn': 'addGroupBtn__style___7s2Td',
+  'manager_save_pop': 'manager_save_pop__style___3lEfm'
 };
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
