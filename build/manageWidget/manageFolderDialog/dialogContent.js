@@ -21,7 +21,7 @@ var _widgetItem2 = _interopRequireDefault(_widgetItem);
 require('./style.css');
 
 var _style = {
-  'content': 'content__style___23Jeg'
+  'content': 'content__style___3zVXI'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
