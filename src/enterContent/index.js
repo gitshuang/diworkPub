@@ -45,9 +45,9 @@ class EnterContent extends Component {
       startFlag: false,                // process 0～1 
       tenantId: '',                   // 租户ID
       address: {
-        province: '北京',
-        city: '北京',
-        area: '东城区',
+        province: '',
+        city: '',
+        area: '',
       },                // 企业地址 
       addressInput: '',               // 企业地址 (60个字输入框)
 
