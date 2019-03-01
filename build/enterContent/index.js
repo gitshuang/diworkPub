@@ -91,12 +91,10 @@ var EnterContent = (_temp = _class = function (_Component) {
 
     _this2.onCityChange = function (obj) {
       // if(obj.area == this.state.address.area) return;
-      // this.setState({
-      //   address: {
-      //     ...obj,
-      //   },
-      // });
-      _this2.address = obj;
+      _this2.setState({
+        address: _extends({}, obj)
+      });
+      // this.address = obj;
     };
 
     _this2.onChangeUpload = function (url) {
@@ -128,12 +126,13 @@ var EnterContent = (_temp = _class = function (_Component) {
       var _this2$state = _this2.state,
           tenantId = _this2$state.tenantId,
           addressInput = _this2$state.addressInput,
-          logo = _this2$state.logo;
+          logo = _this2$state.logo,
+          address = _this2$state.address;
+      // const address = this.address.area !== this.state.address.area ? this.address : this.state.address;
 
-      var address = _this2.address.area !== _this2.state.address.area ? _this2.address : _this2.state.address;
       _this2.setState({
-        disabled: true,
-        address: address
+        disabled: true
+        // address
       });
       // 将地址 组合  真实上传的参数
       var TenantAddress = address.province + '|' + address.city + '|' + address.area + '|' + addressInput;
@@ -226,7 +225,12 @@ var EnterContent = (_temp = _class = function (_Component) {
       this.setState({
         linkman: userInfo.userName,
         tenantEmail: userInfo.userEmail,
-        tenantTel: userInfo.userMobile
+        tenantTel: userInfo.userMobile,
+        address: {
+          province: '北京',
+          city: '北京',
+          area: '东城区'
+        }
       });
       return false;
     }
@@ -241,6 +245,12 @@ var EnterContent = (_temp = _class = function (_Component) {
         area: Addres[2] || '东城区'
       };
       data.addressInput = Addres[Addres.length - 1];
+    } else {
+      data.address = {
+        province: '北京',
+        city: '北京',
+        area: '东城区'
+      };
     }
     data.linkman = data.linkman || userInfo.userName;
     data.tenantEmail = data.tenantEmail || userInfo.userEmail;
@@ -431,7 +441,7 @@ var EnterContent = (_temp = _class = function (_Component) {
           })
         )
       ),
-      _react2["default"].createElement(
+      address ? _react2["default"].createElement(
         _form.FormItem,
         null,
         _react2["default"].createElement(
@@ -446,13 +456,11 @@ var EnterContent = (_temp = _class = function (_Component) {
         ),
         _react2["default"].createElement(_citySelect2["default"], {
           name: 'address',
-          onChange: function onChange(e) {
-            _this3.onCityChange(e);
-          },
-          defaultValue: { province: '北京', city: '北京', area: '东城区' },
-          value: address
+          onChange: this.onCityChange,
+          defaultValue: address
+          // value={address}
         })
-      ),
+      ) : null,
       _react2["default"].createElement(
         _form.FormItem,
         null,

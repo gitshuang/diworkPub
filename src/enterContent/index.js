@@ -81,6 +81,11 @@ class EnterContent extends Component {
         linkman: userInfo.userName,
         tenantEmail: userInfo.userEmail,
         tenantTel: userInfo.userMobile,
+        address: {
+          province: '北京',
+          city: '北京',
+          area: '东城区',
+        }
       });
       return false;
     }
@@ -94,6 +99,12 @@ class EnterContent extends Component {
         area: Addres[2] || '东城区',
       };
       data.addressInput = Addres[Addres.length - 1];
+    }else{
+      data.address = {
+        province: '北京',
+        city: '北京',
+        area: '东城区',
+      }
     }
     data.linkman = data.linkman || userInfo.userName;
     data.tenantEmail = data.tenantEmail || userInfo.userEmail;
@@ -106,12 +117,12 @@ class EnterContent extends Component {
   // 切换企业地址
   onCityChange = (obj) => {
     // if(obj.area == this.state.address.area) return;
-    // this.setState({
-    //   address: {
-    //     ...obj,
-    //   },
-    // });
-    this.address = obj;
+    this.setState({
+      address: {
+        ...obj,
+      },
+    });
+    // this.address = obj;
   }
 
   // 上传组件设置新的logo - url， 后期需要更改为方法传递到 
@@ -147,11 +158,12 @@ class EnterContent extends Component {
       tenantId,
       addressInput,
       logo,
+      address,
     } = this.state;
-    const address = this.address.area !== this.state.address.area ? this.address : this.state.address;
+    // const address = this.address.area !== this.state.address.area ? this.address : this.state.address;
     this.setState({
       disabled: true,
-      address
+      // address
     });
     // 将地址 组合  真实上传的参数
     const TenantAddress = `${address.province}|${address.city}|${address.area}|${addressInput}`;
@@ -294,15 +306,17 @@ class EnterContent extends Component {
           </Select>
         </FormItem>
         {
+          address ? 
           <FormItem>
             <label><span>{texts.addressLabel}&nbsp;&nbsp;</span></label>
             <CitySelect
               name="address"
-              onChange={(e)=>{this.onCityChange(e)}}
-              defaultValue={{ province:'北京',city:'北京',area:'东城区'}}
-              value={address}
+              onChange={this.onCityChange}
+              defaultValue={address}
+              // value={address}
             />
           </FormItem>
+          : null
         }
         <FormItem>
           <label></label>
