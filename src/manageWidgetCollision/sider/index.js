@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { mapStateToProps } from '@u';
-import manageActions from 'store/root/manage/actions';
+import manageActions from '../core/action';
 const { changeSiderState, getAllMenuList, updateCheckedCardList } = manageActions;
-import rootActions from 'store/root/actions';
-const { requestStart, requestSuccess, requestError } = rootActions;
+//import rootActions from 'store/root/actions';
+//const { requestStart, requestSuccess, requestError } = rootActions;
 
 import { add_item, sider_container, toggleBar, selectService, selectServiceArea } from './style.css'
 import { TransitionGroup, CSSTransitionGroup } from 'react-transition-group';
@@ -14,6 +12,8 @@ import Icon from "pub-comp/icon";
 import { hasCardContainInGroups } from '../utils'
 import CardsList from './cardList';
 
+import { connect } from 'react-redux';
+import { mapStateToProps } from '../core/util';
 
 @connect(
     mapStateToProps(
@@ -22,14 +22,14 @@ import CardsList from './cardList';
         'allMenuList',
         'checkedCardList',
         {
-            namespace: 'manage',
+            namespace: 'managewidget',
         },
     ),
     {
         getAllMenuList,
-        requestStart,
-        requestSuccess,
-        requestError,
+        //requestStart,
+        //requestSuccess,
+        //requestError,
         changeSiderState,
         updateCheckedCardList
     }
@@ -47,11 +47,11 @@ export default class MySider extends Component {
         };
     }
     componentDidMount() {
-        const { getAllMenuList, requestStart, requestError, requestSuccess, manageList } = this.props;
-        requestStart()
-        getAllMenuList().then(({ error, payload }) => {
+        const { getAllMenuList, manageList,menuListUrl } = this.props;
+        //requestStart()
+        getAllMenuList(menuListUrl).then(({ error, payload }) => {
             if (error) {
-                requestError(payload);
+                //requestError(payload);
                 return;
             }
            
@@ -75,7 +75,7 @@ export default class MySider extends Component {
             }, () => {
                 this.showServiceAndChangeInput()
             })
-            requestSuccess();
+            //requestSuccess();
         })
 
         this.setHeight();

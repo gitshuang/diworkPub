@@ -44,9 +44,9 @@ var _reactRedux = require('react-redux');
 
 var _u = require('@u');
 
-var _actions = require('store/root/manage/actions');
+var _action = require('../core/action');
 
-var _actions2 = _interopRequireDefault(_actions);
+var _action2 = _interopRequireDefault(_action);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -59,9 +59,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
 var SubMenu = _menus2["default"].SubMenu;
-var updateCheckedCardList = _actions2["default"].updateCheckedCardList;
+var updateCheckedCardList = _action2["default"].updateCheckedCardList;
 var MenuList = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('checkedCardList', {
-    namespace: 'manage'
+    namespace: 'managewidget'
 }), {
     updateCheckedCardList: updateCheckedCardList
 }), _dec(_class = (0, _reactOnclickoutside2["default"])(_class = function (_React$Component) {

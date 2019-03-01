@@ -39,12 +39,6 @@ var _checkbox = require('../../bee/checkbox');
 
 var _checkbox2 = _interopRequireDefault(_checkbox);
 
-var _reactRedux = require('react-redux');
-
-var _actions = require('store/root/manage/actions');
-
-var _actions2 = _interopRequireDefault(_actions);
-
 var _manageWidgetItem = require('../manageWidgetItem');
 
 var _manageWidgetItem2 = _interopRequireDefault(_manageWidgetItem);
@@ -55,9 +49,13 @@ var utilService = _interopRequireWildcard(_utils);
 
 var _reactDom = require('react-dom');
 
-var _groupTitle = require('./groupTitle.js');
+var _reactRedux = require('react-redux');
 
-var _groupTitle2 = _interopRequireDefault(_groupTitle);
+var _util = require('../core/util');
+
+var _action = require('../core/action');
+
+var _action2 = _interopRequireDefault(_action);
 
 require('./style.css');
 
@@ -92,8 +90,14 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
-var dropSideCards = _actions2["default"].dropSideCards,
-    dropSideCardsInGroup = _actions2["default"].dropSideCardsInGroup;
+var dropSideCards = _action2["default"].dropSideCards,
+    dropSideCardsInGroup = _action2["default"].dropSideCardsInGroup,
+    setEditonlyId = _action2["default"].setEditonlyId,
+    moveBottomGroup = _action2["default"].moveBottomGroup,
+    moveTopGroup = _action2["default"].moveTopGroup,
+    delectGroup = _action2["default"].delectGroup,
+    addGroup = _action2["default"].addGroup,
+    renameGroup = _action2["default"].renameGroup;
 
 
 var itemSource = {
@@ -105,7 +109,6 @@ var itemSource = {
 var itemTarget = {
   hover: function hover(props, monitor, component) {
     var dragItem = monitor.getItem();
-
     if (dragItem.type === 1) {
       //1是group
       //组hover到组
@@ -167,11 +170,17 @@ var itemTarget = {
   }
 };
 
-var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('manageList', 'layout', 'defaultLayout', {
-  namespace: 'manage'
+var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('manageList', 'layout', 'defaultLayout', 'currEditonlyId', {
+  namespace: 'managewidget'
 }), {
   dropSideCards: dropSideCards,
-  dropSideCardsInGroup: dropSideCardsInGroup
+  dropSideCardsInGroup: dropSideCardsInGroup,
+  setEditonlyId: setEditonlyId,
+  moveBottomGroup: moveBottomGroup,
+  moveTopGroup: moveTopGroup,
+  delectGroup: delectGroup,
+  addGroup: addGroup,
+  renameGroup: renameGroup
 }), _dec2 = (0, _reactDnd.DragSource)("item", itemSource, function (connect, monitor) {
   return {
     connectDragSource: connect.dragSource(),
@@ -224,8 +233,9 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('mana
         _this2.setState({
           groupName: newGroupName
         });
-        _this2.refs.groupName.focus();
-        _this2.refs.groupName.select();
+        console.log("^^^^^^^^^^^^^^^*****************+++++++++++++++++", _this2.refs);
+        _this2.groupName.focus();
+        _this2.groupName.select();
 
         var _props2 = _this2.props,
             checkFun = _props2.checkFun,
@@ -338,7 +348,9 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('mana
             onBlur: this.handleBlur
             // placeholder="分组名称,最多4个字符"
             , placeholder: languagesJSON.groupName_max_words_four,
-            ref: 'groupName' })
+            ref: function ref(_ref2) {
+              return _this3.groupName = _ref2;
+            } })
         ),
         _react2["default"].createElement(
           _button.ButtonCheckSelected,

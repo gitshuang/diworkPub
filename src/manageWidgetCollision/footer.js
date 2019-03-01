@@ -1,16 +1,38 @@
 import React, { Component } from 'react';
 import {ButtonDefaultLine,ButtonBrand,ButtonDefaultAlpha} from 'pub-comp/button';
-import { um_footer, umBoxJustify, batchArea, saveArea } from './style.css'
+import { um_footer, umBoxJustify, batchArea, saveArea } from './style.css';
+
+import { connect } from 'react-redux';
+
+import manageActions from './core/action';
+const { returnDefaultState,updateGroupList,setManageList,emptySelectGroup } = manageActions;
+import { mapStateToProps } from './core/util';
+
+//import rootActions from 'store/root/actions';
+//const { requestStart, requestSuccess, requestError } = rootActions;
+@connect(
+  mapStateToProps(  
+    'manageList',
+    'isEdit',
+      {
+          namespace: 'managewidget',
+      },
+  ),
+  {
+      returnDefaultState,
+      updateGroupList,
+      setManageList,
+      emptySelectGroup
+  }
+)
 export default class Footer extends Component{
   constructor(props){
     super(props);
+ 
   }
-  static defaultProps = {
-
-  }
+  
   render(){
     var {
-      batchDelectFn,
       selectList,
       openGroupTo,
       isEdit,

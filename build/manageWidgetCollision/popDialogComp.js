@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = undefined;
 
-var _class, _temp;
+var _dec, _class, _class2, _temp;
 
 var _react = require('react');
 
@@ -30,6 +30,14 @@ var _style = {
   'manager_save_pop': 'manager_save_pop__style___3lEfm'
 };
 
+var _reactRedux = require('react-redux');
+
+var _action = require('./core/action');
+
+var _action2 = _interopRequireDefault(_action);
+
+var _util = require('./core/util');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -40,7 +48,22 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
-var PopDialogComp = (_temp = _class = function (_Component) {
+var returnDefaultState = _action2["default"].returnDefaultState,
+    updateGroupList = _action2["default"].updateGroupList,
+    setManageList = _action2["default"].setManageList,
+    emptySelectGroup = _action2["default"].emptySelectGroup;
+
+
+//import rootActions from 'store/root/actions';
+//const { requestStart, requestSuccess, requestError } = rootActions;
+var PopDialogComp = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('manageList', 'isEdit', {
+  namespace: 'managewidget'
+}), {
+  returnDefaultState: returnDefaultState,
+  updateGroupList: updateGroupList,
+  setManageList: setManageList,
+  emptySelectGroup: emptySelectGroup
+}), _dec(_class = (_temp = _class2 = function (_Component) {
   _inherits(PopDialogComp, _Component);
 
   function PopDialogComp(props) {
@@ -87,6 +110,6 @@ var PopDialogComp = (_temp = _class = function (_Component) {
   };
 
   return PopDialogComp;
-}(_react.Component), _class.defaultProps = {}, _temp);
+}(_react.Component), _class2.defaultProps = {}, _temp)) || _class);
 exports["default"] = PopDialogComp;
 module.exports = exports['default'];

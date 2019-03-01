@@ -52,8 +52,8 @@ var GroupItem = function (_Component) {
 
       setEditonlyId(id);
       setTimeout(function () {
-        _this.refs.groupName.focus();
-        _this.refs.groupName.select();
+        _this.groupName.focus();
+        _this.groupName.select();
       }, 0);
       _this.setState({
         inFoucs: false

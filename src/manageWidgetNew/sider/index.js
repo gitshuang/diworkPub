@@ -73,7 +73,9 @@ export default class MySider extends Component {
             this.setState({
                 menuList: payload,
             }, () => {
-                this.showServiceAndChangeInput()
+                if(payload.length){
+                    this.showServiceAndChangeInput()
+                }
             })
             requestSuccess();
         })
@@ -94,6 +96,7 @@ export default class MySider extends Component {
     }
     renderMenu = () => {
         const { menuList, isMenuListShow } = this.state;
+        
         const props = {
             isMenuListShow,
             menuList,
@@ -105,9 +108,10 @@ export default class MySider extends Component {
         // 通过keyPath，获得一二级
         var inputValue = '';
         let cardsList = [];
-
+        const {menuList} = this.state;
+        if(!menuList.length) return
         if (keyPath.length) {
-            this.state.menuList.forEach((item) => {
+            menuList.forEach((item) => {
                 if (item.menuBarId == keyPath[1]) {
                     inputValue += item.menuBarName + '/';
                     item.menuItems.forEach((a) => {
@@ -122,8 +126,8 @@ export default class MySider extends Component {
         }
 
         if (!keyPath.length) {
-            cardsList = this.state.menuList[0].menuItems[0].children
-            inputValue = `${this.state.menuList[0].menuBarName}/${this.state.menuList[0].menuItems[0].menuItemName}`
+            cardsList = menuList[0].menuItems[0].children
+            inputValue = `${menuList[0].menuBarName}/${menuList[0].menuItems[0].menuItemName}`
         }
 
         this.setState({

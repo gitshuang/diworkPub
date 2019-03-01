@@ -27,13 +27,9 @@ var _lodash = require('lodash');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-var _reactRedux = require('react-redux');
+var _action = require('./core/action');
 
-var _u = require('@u');
-
-var _actions = require('store/root/manage/actions');
-
-var _actions2 = _interopRequireDefault(_actions);
+var _action2 = _interopRequireDefault(_action);
 
 var _collision = require('./collision');
 
@@ -58,6 +54,10 @@ var _style = {
   'manager_save_pop': 'manager_save_pop__style___3lEfm'
 };
 
+var _reactRedux = require('react-redux');
+
+var _util = require('./core/util');
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -70,17 +70,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
-var updateShadowCard = _actions2["default"].updateShadowCard,
-    addGroup = _actions2["default"].addGroup,
-    updateGroupList = _actions2["default"].updateGroupList,
-    updateLayout = _actions2["default"].updateLayout;
-var Content = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)("manageList", "shadowCard", "layout", "defaultLayout", {
-  namespace: 'manage'
+var updateShadowCard = _action2["default"].updateShadowCard,
+    addGroup = _action2["default"].addGroup,
+    updateGroupList = _action2["default"].updateGroupList,
+    updateLayout = _action2["default"].updateLayout,
+    getManageList = _action2["default"].getManageList;
+var Content = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)("manageList", "shadowCard", "layout", "defaultLayout", 'selectGroup', 'dragState', {
+  namespace: 'managewidget'
 }), {
   updateShadowCard: updateShadowCard,
   addGroup: addGroup,
   updateGroupList: updateGroupList,
-  updateLayout: updateLayout
+  updateLayout: updateLayout,
+  getManageList: getManageList
 }), _dec(_class = function (_Component) {
   _inherits(Content, _Component);
 
@@ -282,43 +284,63 @@ var Content = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)("manageLi
 
   Content.prototype.componentDidMount = function componentDidMount() {
     window.addEventListener('resize', this.handleLoad);
-    //初始化时默认执行新增分组的方法
-    // setTimeout(() => {
-    // 	if (this.props.groups.length === 0) {
-    // 		this.addFirstGroupItem();
-    // 		document.getElementsByClassName('ant-input')[1].select();//初始化选中input
-    // 	}
-    // },1500);
+    var _props = this.props,
+        getManageList = _props.getManageList,
+        updateGroupList = _props.updateGroupList,
+        manageListUrl = _props.manageListUrl;
+
+    return getManageList(manageListUrl).then(function (_ref) {
+      var error = _ref.error,
+          payload = _ref.payload;
+
+      if (error) {
+        //requestError(payload);
+      }
+      _lodash2["default"].forEach(payload.workList, function (g) {
+        _lodash2["default"].forEach(g.children, function (a) {
+          a.isShadow = false;
+          a.isChecked = false;
+          a.gridx = undefined; //Number(a.gridx);
+          a.gridy = undefined; //Number(a.gridy);
+          switch (a.size) {
+            case 1:
+              a.height = 1;
+              a.width = 1;
+              break;
+            case 2:
+              a.height = 1;
+              a.width = 2;
+              break;
+            case 3:
+              a.height = 2;
+              a.width = 2;
+              break;
+            default:
+              a.height = 1;
+              a.width = 1;
+          }
+        });
+      });
+      //updateGroupList(payload.workList);
+    });
   };
 
   Content.prototype.renderContent = function renderContent() {
     var _this2 = this;
 
-    var _props = this.props,
-        manageList = _props.manageList,
-        selectGroup = _props.selectGroup,
-        selectList = _props.selectList,
-        currEditonlyId = _props.currEditonlyId,
-        dragState = _props.dragState,
-        requestStart = _props.requestStart,
-        requestSuccess = _props.requestSuccess,
-        requestError = _props.requestError,
-        delectGroup = _props.delectGroup,
-        renameGroup = _props.renameGroup,
-        moveGroup = _props.moveGroup,
-        moveTopGroup = _props.moveTopGroup,
-        moveBottomGroup = _props.moveBottomGroup,
-        selectListActions = _props.selectListActions,
-        selectGroupActions = _props.selectGroupActions,
-        setEditonlyId = _props.setEditonlyId,
-        setDragInputState = _props.setDragInputState,
-        applicationsMap = _props.applicationsMap,
-        allServicesByLabelGroup = _props.allServicesByLabelGroup,
-        getAllServicesByLabelGroup = _props.getAllServicesByLabelGroup,
-        setCurrentSelectWidgetMap = _props.setCurrentSelectWidgetMap,
-        moveGroupDrag = _props.moveGroupDrag,
-        moveItemDrag = _props.moveItemDrag,
-        languagesJSON = _props.languagesJSON;
+    var _props2 = this.props,
+        manageList = _props2.manageList,
+        selectGroup = _props2.selectGroup,
+        selectList = _props2.selectList,
+        currEditonlyId = _props2.currEditonlyId,
+        dragState = _props2.dragState,
+        moveGroup = _props2.moveGroup,
+        selectListActions = _props2.selectListActions,
+        selectGroupActions = _props2.selectGroupActions,
+        setDragInputState = _props2.setDragInputState,
+        moveGroupDrag = _props2.moveGroupDrag,
+        moveItemDrag = _props2.moveItemDrag,
+        languagesJSON = _props2.languagesJSON;
 
     var manageProps = {
       manageList: manageList,
@@ -326,37 +348,30 @@ var Content = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)("manageLi
       selectList: selectList,
       currEditonlyId: currEditonlyId,
       dragState: dragState,
-      requestStart: requestStart,
-      requestSuccess: requestSuccess,
-      requestError: requestError,
-      delectGroup: delectGroup,
-      renameGroup: renameGroup,
+      //requestStart,
+      //requestSuccess,
+      // requestError,
       moveGroup: moveGroup,
-      moveTopGroup: moveTopGroup,
-      moveBottomGroup: moveBottomGroup,
       selectListActions: selectListActions,
       selectGroupActions: selectGroupActions,
-      setEditonlyId: setEditonlyId,
       setDragInputState: setDragInputState
     };
-    var _props2 = this.props,
-        manageList = _props2.manageList,
-        drag = _props2.drag,
-        dragState = _props2.dragState,
-        selectList = _props2.selectList,
-        selectGroup = _props2.selectGroup,
-        currEditonlyId = _props2.currEditonlyId,
-        currGroupIndex = _props2.currGroupIndex,
-        title = _props2.title,
-        moveService = _props2.moveService,
-        setCurrGroupIndex = _props2.setCurrGroupIndex,
-        editTitle = _props2.editTitle,
-        selectListActions = _props2.selectListActions,
-        selectGroupActions = _props2.selectGroupActions,
-        setEditonlyId = _props2.setEditonlyId,
-        setDragInputState = _props2.setDragInputState,
-        delectService = _props2.delectService,
-        addDesk = _props2.addDesk;
+    var _props3 = this.props,
+        manageList = _props3.manageList,
+        drag = _props3.drag,
+        dragState = _props3.dragState,
+        selectList = _props3.selectList,
+        selectGroup = _props3.selectGroup,
+        currEditonlyId = _props3.currEditonlyId,
+        currGroupIndex = _props3.currGroupIndex,
+        title = _props3.title,
+        moveService = _props3.moveService,
+        setCurrGroupIndex = _props3.setCurrGroupIndex,
+        editTitle = _props3.editTitle,
+        selectListActions = _props3.selectListActions,
+        selectGroupActions = _props3.selectGroupActions,
+        setDragInputState = _props3.setDragInputState,
+        delectService = _props3.delectService;
 
     var widgetListProps = {
       manageList: manageList,
@@ -372,21 +387,12 @@ var Content = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)("manageLi
       editTitle: editTitle,
       selectListActions: selectListActions,
       selectGroupActions: selectGroupActions,
-      setEditonlyId: setEditonlyId,
       setDragInputState: setDragInputState,
       delectService: delectService
     };
-    var widgetSelectListProps = {
-      applicationsMap: applicationsMap,
-      manageList: manageList,
-      allServicesByLabelGroup: allServicesByLabelGroup,
-      getAllServicesByLabelGroup: getAllServicesByLabelGroup,
-      setCurrentSelectWidgetMap: setCurrentSelectWidgetMap,
-      addDesk: addDesk,
-      requestSuccess: requestSuccess,
-      requestError: requestError
-    };
+
     var list = [];
+
     if (manageList.length == 0) {
       return _react2["default"].createElement(
         'div',
@@ -413,7 +419,7 @@ var Content = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)("manageLi
           moveGroupDrag: moveGroupDrag,
           moveItemDrag: moveItemDrag,
           checkFun: _this2.checkFun
-        }, manageProps, widgetListProps, widgetSelectListProps, {
+        }, manageProps, widgetListProps, {
           languagesJSON: languagesJSON,
           moveCardInGroupItem: _this2.moveCardInGroupItem,
           handleLoad: _this2.handleLoad,

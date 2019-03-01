@@ -150,7 +150,9 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderD
             _this2.setState({
                 menuList: payload
             }, function () {
-                _this2.showServiceAndChangeInput();
+                if (payload.length) {
+                    _this2.showServiceAndChangeInput();
+                }
             });
             requestSuccess();
         });
@@ -278,6 +280,7 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderD
             menuList = _state2.menuList,
             isMenuListShow = _state2.isMenuListShow;
 
+
         var props = {
             isMenuListShow: isMenuListShow,
             menuList: menuList,
@@ -292,9 +295,11 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderD
         // 通过keyPath，获得一二级
         var inputValue = '';
         var cardsList = [];
+        var menuList = _this4.state.menuList;
 
+        if (!menuList.length) return;
         if (keyPath.length) {
-            _this4.state.menuList.forEach(function (item) {
+            menuList.forEach(function (item) {
                 if (item.menuBarId == keyPath[1]) {
                     inputValue += item.menuBarName + '/';
                     item.menuItems.forEach(function (a) {
@@ -309,8 +314,8 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderD
         }
 
         if (!keyPath.length) {
-            cardsList = _this4.state.menuList[0].menuItems[0].children;
-            inputValue = _this4.state.menuList[0].menuBarName + '/' + _this4.state.menuList[0].menuItems[0].menuItemName;
+            cardsList = menuList[0].menuItems[0].children;
+            inputValue = menuList[0].menuBarName + '/' + menuList[0].menuItems[0].menuItemName;
         }
 
         _this4.setState({

@@ -11,17 +11,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = require('react-redux');
+var _action = require('../core/action');
 
-var _u = require('@u');
-
-var _actions = require('store/root/manage/actions');
-
-var _actions2 = _interopRequireDefault(_actions);
-
-var _actions3 = require('store/root/actions');
-
-var _actions4 = _interopRequireDefault(_actions3);
+var _action2 = _interopRequireDefault(_action);
 
 require('./style.css');
 
@@ -64,6 +56,10 @@ var _cardList = require('./cardList');
 
 var _cardList2 = _interopRequireDefault(_cardList);
 
+var _reactRedux = require('react-redux');
+
+var _util = require('../core/util');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -74,19 +70,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
-var changeSiderState = _actions2["default"].changeSiderState,
-    getAllMenuList = _actions2["default"].getAllMenuList,
-    updateCheckedCardList = _actions2["default"].updateCheckedCardList;
-var requestStart = _actions4["default"].requestStart,
-    requestSuccess = _actions4["default"].requestSuccess,
-    requestError = _actions4["default"].requestError;
-var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderDisplay', 'manageList', 'allMenuList', 'checkedCardList', {
-    namespace: 'manage'
+var changeSiderState = _action2["default"].changeSiderState,
+    getAllMenuList = _action2["default"].getAllMenuList,
+    updateCheckedCardList = _action2["default"].updateCheckedCardList;
+//import rootActions from 'store/root/actions';
+//const { requestStart, requestSuccess, requestError } = rootActions;
+
+var MySider = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('isSiderDisplay', 'manageList', 'allMenuList', 'checkedCardList', {
+    namespace: 'managewidget'
 }), {
     getAllMenuList: getAllMenuList,
-    requestStart: requestStart,
-    requestSuccess: requestSuccess,
-    requestError: requestError,
+    //requestStart,
+    //requestSuccess,
+    //requestError,
     changeSiderState: changeSiderState,
     updateCheckedCardList: updateCheckedCardList
 }), _dec(_class = (_temp = _class2 = function (_Component) {
@@ -115,18 +111,16 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderD
 
         var _props = this.props,
             getAllMenuList = _props.getAllMenuList,
-            requestStart = _props.requestStart,
-            requestError = _props.requestError,
-            requestSuccess = _props.requestSuccess,
-            manageList = _props.manageList;
+            manageList = _props.manageList,
+            menuListUrl = _props.menuListUrl;
+        //requestStart()
 
-        requestStart();
-        getAllMenuList().then(function (_ref) {
+        getAllMenuList(menuListUrl).then(function (_ref) {
             var error = _ref.error,
                 payload = _ref.payload;
 
             if (error) {
-                requestError(payload);
+                //requestError(payload);
                 return;
             }
 
@@ -151,7 +145,7 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('isSiderD
             }, function () {
                 _this2.showServiceAndChangeInput();
             });
-            requestSuccess();
+            //requestSuccess();
         });
 
         this.setHeight();

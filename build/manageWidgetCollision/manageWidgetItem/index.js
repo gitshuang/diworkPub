@@ -13,10 +13,6 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDnd = require('react-dnd');
 
-var _reactRedux = require('react-redux');
-
-var _u = require('@u');
-
 var _compact = require('../compact');
 
 var _utils = require('../utils');
@@ -64,10 +60,6 @@ var _style = {
 	'card_delete': 'card_delete__style___1drZm'
 };
 
-var _actions = require('store/root/manage/actions');
-
-var _actions2 = _interopRequireDefault(_actions);
-
 var _icon = require('pub-comp/icon');
 
 var _icon2 = _interopRequireDefault(_icon);
@@ -75,6 +67,14 @@ var _icon2 = _interopRequireDefault(_icon);
 var _checkbox = require('../../bee/checkbox');
 
 var _checkbox2 = _interopRequireDefault(_checkbox);
+
+var _reactRedux = require('react-redux');
+
+var _util = require('../core/util');
+
+var _action = require('../core/action');
+
+var _action2 = _interopRequireDefault(_action);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
 
@@ -88,8 +88,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
-var updateShadowCard = _actions2["default"].updateShadowCard,
-    updateGroupList = _actions2["default"].updateGroupList;
+var updateShadowCard = _action2["default"].updateShadowCard,
+    updateGroupList = _action2["default"].updateGroupList;
+
 
 var noteSource = {
 	//开始拖拽，设置isShadow属性，shadowCard对象，更新groups
@@ -115,8 +116,8 @@ var noteSource = {
 };
 
 //卡片组件类
-var Item = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)("manageList", "shadowCard", "layout", {
-	namespace: 'manage'
+var Item = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)("manageList", "shadowCard", "layout", {
+	namespace: 'managewidget'
 }), {
 	updateShadowCard: updateShadowCard,
 	updateGroupList: updateGroupList

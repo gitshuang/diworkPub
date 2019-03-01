@@ -3,10 +3,8 @@ import {ButtonDefaultAlpha} from 'pub-comp/button';
 import Icon from 'pub-comp/icon';
 import ManageGroup from './manageGroup';
 import _ from 'lodash';
-import { connect } from 'react-redux';
-import { mapStateToProps } from '@u';
-import manageActions from 'store/root/manage/actions';
-const { updateShadowCard, addGroup,updateGroupList,updateLayout} = manageActions;
+import manageActions from './core/action';
+const { updateShadowCard, addGroup,updateGroupList,updateLayout,getManageList} = manageActions;
 import { layoutCheck } from './collision';
 import { compactLayout, compactLayoutHorizontal } from './compact';
 import * as utilService from './utils';
@@ -17,20 +15,26 @@ import {
   addGroupBtn,
 } from './style.css';
 
+import { connect } from 'react-redux';
+import { mapStateToProps } from './core/util';
+
 @connect(
 	mapStateToProps(
     "manageList",
     "shadowCard",
     "layout",
     "defaultLayout",
+    'selectGroup',
+    'dragState',
 		{
-			namespace: 'manage',
+			namespace: 'managewidget',
     },
 	),{
     updateShadowCard,
     addGroup,
     updateGroupList,
-    updateLayout
+    updateLayout,
+    getManageList
   }
 )
 export default class Content extends Component{
@@ -205,13 +209,40 @@ export default class Content extends Component{
 	//组件渲染完毕时，添加resize事件
 	componentDidMount() {
 		window.addEventListener('resize', this.handleLoad);
-		//初始化时默认执行新增分组的方法
-		// setTimeout(() => {
-		// 	if (this.props.groups.length === 0) {
-		// 		this.addFirstGroupItem();
-		// 		document.getElementsByClassName('ant-input')[1].select();//初始化选中input
-		// 	}
-		// },1500);
+      const { getManageList,updateGroupList,manageListUrl } = this.props;
+      return getManageList(manageListUrl).then(({ error, payload }) => {
+        if (error) {
+          //requestError(payload);
+        }
+        _.forEach(payload.workList, (g) => {
+          _.forEach(g.children,(a)=>{
+            a.isShadow = false;
+            a.isChecked = false;
+            a.gridx = undefined;//Number(a.gridx);
+            a.gridy = undefined;//Number(a.gridy);
+            switch(a.size){
+              case 1:
+              a.height = 1;
+              a.width = 1;
+              break;
+              case 2:
+              a.height = 1;
+              a.width = 2;
+              break
+              case 3:
+              a.height = 2;
+              a.width = 2;
+              break
+              default:
+              a.height = 1;
+              a.width = 1;
+            }
+            
+          })
+          
+        });
+        //updateGroupList(payload.workList);
+      });
 	}
   renderContent() {
     var {
@@ -220,22 +251,13 @@ export default class Content extends Component{
       selectList,
       currEditonlyId,
       dragState,
-      requestStart,
-      requestSuccess,
-      requestError,
-      delectGroup,
-      renameGroup,
+      //requestStart,
+      //requestSuccess,
+      //requestError,
       moveGroup,
-      moveTopGroup,
-      moveBottomGroup,
       selectListActions,
       selectGroupActions,
-      setEditonlyId,
       setDragInputState,
-      applicationsMap,
-      allServicesByLabelGroup,
-      getAllServicesByLabelGroup,
-      setCurrentSelectWidgetMap,
       moveGroupDrag,
       moveItemDrag,
       languagesJSON,
@@ -246,17 +268,12 @@ export default class Content extends Component{
       selectList,
       currEditonlyId,
       dragState,
-      requestStart,
-      requestSuccess,
-      requestError,
-      delectGroup,
-      renameGroup,
+      //requestStart,
+      //requestSuccess,
+     // requestError,
       moveGroup,
-      moveTopGroup,
-      moveBottomGroup,
       selectListActions,
       selectGroupActions,
-      setEditonlyId,
       setDragInputState,
     }
     var {
@@ -273,10 +290,8 @@ export default class Content extends Component{
       editTitle,
       selectListActions,
       selectGroupActions,
-      setEditonlyId,
       setDragInputState,
       delectService,
-      addDesk,
     } = this.props;
     var widgetListProps = {
       manageList,
@@ -292,21 +307,12 @@ export default class Content extends Component{
       editTitle,
       selectListActions,
       selectGroupActions,
-      setEditonlyId,
       setDragInputState,
       delectService,
     }
-    var widgetSelectListProps={
-      applicationsMap,
-      manageList,
-      allServicesByLabelGroup,
-      getAllServicesByLabelGroup,
-      setCurrentSelectWidgetMap,
-      addDesk,
-      requestSuccess,
-      requestError,
-    }
+ 
     let list = [];
+    
     if(manageList.length == 0){
       return (
         <div className={addBtn} id="first-add">
@@ -332,7 +338,6 @@ export default class Content extends Component{
             checkFun={this.checkFun}
             {...manageProps}
             {...widgetListProps}
-            {...widgetSelectListProps}
             languagesJSON={languagesJSON}
             moveCardInGroupItem = {this.moveCardInGroupItem}
             handleLoad = {this.handleLoad}

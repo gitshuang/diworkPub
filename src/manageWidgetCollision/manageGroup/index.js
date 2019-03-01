@@ -8,14 +8,15 @@ import { ButtonCheckClose, ButtonCheckSelected, ButtonDefaultWhite } from 'pub-c
 import { avoidSameName } from '@u';
 import Icon from 'pub-comp/icon';
 import Checkbox from 'bee/checkbox';
-import { connect } from 'react-redux';
-import { mapStateToProps } from '@u';
-import manageActions from 'store/root/manage/actions';
-const { dropSideCards, dropSideCardsInGroup } = manageActions;
+
 import WidgetItem from '../manageWidgetItem';
 import * as utilService from '../utils';
 import { findDOMNode } from 'react-dom';
-import GroupTitle from './groupTitle.js'
+
+import { connect } from 'react-redux';
+import { mapStateToProps } from '../core/util';
+import manageActions from '../core/action';
+const { dropSideCards, dropSideCardsInGroup,setEditonlyId,moveBottomGroup,moveTopGroup,delectGroup,addGroup,renameGroup } = manageActions;
 
 import {
   widgetTitle,
@@ -45,7 +46,6 @@ const itemSource = {
 const itemTarget = {
   hover(props, monitor, component) {
 		const dragItem = monitor.getItem();
-         
 		if (dragItem.type === 1) { //1是group
 			//组hover到组
 			const dragIndex = monitor.getItem().index;
@@ -104,17 +104,23 @@ const itemTarget = {
   mapStateToProps(
 		'manageList',
 		'layout',
-		'defaultLayout',
+    'defaultLayout',
+    'currEditonlyId',
     {
-      namespace: 'manage',
+      namespace: 'managewidget',
     },
   ),
   {
     dropSideCards,
-    dropSideCardsInGroup
+    dropSideCardsInGroup,
+    setEditonlyId,
+    moveBottomGroup,
+    moveTopGroup,
+    delectGroup,
+    addGroup,
+    renameGroup
   }
 )
-
 @DragSource("item", itemSource, (connect, monitor) => {
   return {
     connectDragSource: connect.dragSource(),
@@ -166,8 +172,9 @@ export default class ManageGroup extends GroupItem {
         this.setState({
           groupName: newGroupName,
         });
-        this.refs.groupName.focus();
-        this.refs.groupName.select();
+        console.log("^^^^^^^^^^^^^^^*****************+++++++++++++++++",this.refs);
+        this.groupName.focus();
+        this.groupName.select();
 
         const { checkFun, currEditonlyId } = this.props;
         checkFun(currEditonlyId + "_btn");
@@ -280,7 +287,7 @@ export default class ManageGroup extends GroupItem {
               onBlur={this.handleBlur}
               // placeholder="分组名称,最多4个字符"
               placeholder={languagesJSON.groupName_max_words_four}
-              ref="groupName" />
+              ref={ref=>this.groupName=ref} />
           </div>
           <ButtonCheckSelected id={`${widgetId}_btn`} className={btn} onClick={() => { this.renameGroupFn(index) }}><Icon type="right"></Icon></ButtonCheckSelected>
           <ButtonCheckClose className={btn} onClick={() => { this.renameGroupCancel(index) }}><Icon type="cancel"></Icon></ButtonCheckClose>

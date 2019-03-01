@@ -5,7 +5,7 @@ import {menuListStyle} from './style.css';
 import onClickOutside from 'react-onclickoutside';
 import { connect } from 'react-redux';
 import { mapStateToProps } from '@u';
-import manageActions from 'store/root/manage/actions';
+import manageActions from '../core/action';
 const { updateCheckedCardList } = manageActions;
 
 
@@ -13,7 +13,7 @@ const { updateCheckedCardList } = manageActions;
     mapStateToProps(
         'checkedCardList',
         {
-            namespace: 'manage',
+            namespace: 'managewidget',
         },
     ),
     {
