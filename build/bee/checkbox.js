@@ -27,6 +27,8 @@ require('bee-checkbox/build/Checkbox.css');
 
 require('./checkbox.css');
 
+require('bee-icon/build/Icon.css');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 module.exports = exports['default'];

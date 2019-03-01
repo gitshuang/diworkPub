@@ -1,11 +1,11 @@
 /*  imported from style.css  */
 
-.btn__style___3snvj {
+.btn__style___20DQM {
   margin-right: 10px;
   display: inline-block;
 }
 
-.closeBtn__style___39nWU {
+.closeBtn__style___2Ow_p {
   position: absolute;
   font-size: 18px;
   color: #757F8C;
@@ -18,7 +18,7 @@
   text-align: center;
   line-height: 32px;
 }
-.closeBtn__style___39nWU .iconfont{
+.closeBtn__style___2Ow_p .iconfont{
   color: #888888;
 }
 .u-modal.fade {
@@ -54,7 +54,7 @@
 
 /************************ error *************************/
 
-.pop_type__style___39Ruo.error__style___1RDeg .u-modal-title > .iconfont {
+.pop_type__style___7FzHT.error__style___3lAfZ .u-modal-title > .iconfont {
   margin-right: 8px;
   color: #BD3646;
   font-weight: 900;
@@ -64,13 +64,13 @@
   top: 37px;
 }
 
-.pop_type__style___39Ruo.error__style___1RDeg .u-modal-dialog .u-modal-title {
+.pop_type__style___7FzHT.error__style___3lAfZ .u-modal-dialog .u-modal-title {
   font-size: 19px;
     line-height: 24px;
     color: #111111;
 }
 
-.pop_type__style___39Ruo.error__style___1RDeg .u-modal-body {
+.pop_type__style___7FzHT.error__style___3lAfZ .u-modal-body {
  font-size: 14px;
  /* padding: 0px;
  padding-left: 60px;
@@ -81,7 +81,7 @@
 
 }
 
-.pop_type__style___39Ruo.error__style___1RDeg .u-modal-header {
+.pop_type__style___7FzHT.error__style___3lAfZ .u-modal-header {
     padding-top: 40px;
     padding-bottom: 0;
     padding-left: 60px;
@@ -95,7 +95,7 @@
 
 /************************ warning *************************/
 
-.pop_type__style___39Ruo.warning__style___2qwlI .u-modal-title > .iconfont {
+.pop_type__style___7FzHT.warning__style___rOA-7 .u-modal-title > .iconfont {
   margin-right: 8px;
   color: #FF8B00;
   font-weight: 900;
@@ -105,12 +105,12 @@
   top: 37px;
 }
 
-.pop_type__style___39Ruo.warning__style___2qwlI .u-modal-dialog .u-modal-title {
+.pop_type__style___7FzHT.warning__style___rOA-7 .u-modal-dialog .u-modal-title {
   font-size: 19px;
     line-height: 24px;
 }
 
-.pop_type__style___39Ruo.warning__style___2qwlI .u-modal-body {
+.pop_type__style___7FzHT.warning__style___rOA-7 .u-modal-body {
   font-size: 14px;
   /* padding: 0px;
   padding-left: 60px;
@@ -120,13 +120,13 @@
   line-height: 26px;
 }
 
-.pop_type__style___39Ruo.warning__style___2qwlI .u-modal-header {
+.pop_type__style___7FzHT.warning__style___rOA-7 .u-modal-header {
     padding-top: 40px;
     padding-bottom: 0;
     padding-left: 60px;
     padding-right: 52px;
 }
-.pop_type__style___39Ruo.warning__style___2qwlI .u-modal.in .u-modal-dialog >div{
+.pop_type__style___7FzHT.warning__style___rOA-7 .u-modal.in .u-modal-dialog >div{
   border: 1px dashed rgba(0, 0, 0, 0.4);
 }
 /* .pop_type.warning :global(.u-modal-footer .brand){
@@ -136,7 +136,7 @@
 
 /************************ danger *************************/
 
-.pop_type__style___39Ruo.danger__style___3vNqD .u-modal-title > .iconfont {
+.pop_type__style___7FzHT.danger__style___2dz2P .u-modal-title > .iconfont {
   margin-right: 8px;
   color: #108EE9;
   font-weight: 900;
@@ -146,12 +146,12 @@
   top: 37px;
 }
 
-.pop_type__style___39Ruo.danger__style___3vNqD .u-modal-dialog .u-modal-title {
+.pop_type__style___7FzHT.danger__style___2dz2P .u-modal-dialog .u-modal-title {
   font-size: 19px;
     line-height: 24px;
 }
 
-.pop_type__style___39Ruo.danger__style___3vNqD .u-modal-body {
+.pop_type__style___7FzHT.danger__style___2dz2P .u-modal-body {
   font-size: 14px;
   padding: 0px;
   padding-left: 60px;
@@ -159,18 +159,18 @@
   line-height: 26px;
 }
 
-.pop_type__style___39Ruo.danger__style___3vNqD .u-modal-header {
+.pop_type__style___7FzHT.danger__style___2dz2P .u-modal-header {
     padding-top: 40px;
     padding-bottom: 0;
     padding-left: 60px;
     padding-right: 52px;
 }
-.pop_type__style___39Ruo.danger__style___3vNqD .u-modal.in .u-modal-dialog >div{
+.pop_type__style___7FzHT.danger__style___2dz2P .u-modal.in .u-modal-dialog >div{
   border: 1px dashed rgba(0, 0, 0, 0.4);
 }
 /************************ success *************************/
 
-.pop_type__style___39Ruo.success__style___3fNXj .u-modal-title > .iconfont {
+.pop_type__style___7FzHT.success__style___3B6OV .u-modal-title > .iconfont {
   margin-right: 8px;
   color: #00B39E;
   font-weight: 900;
@@ -180,12 +180,12 @@
   top: 37px;
 }
 
-.pop_type__style___39Ruo.success__style___3fNXj .u-modal-dialog .u-modal-title {
+.pop_type__style___7FzHT.success__style___3B6OV .u-modal-dialog .u-modal-title {
   font-size: 19px;
     line-height: 24px;
 }
 
-.pop_type__style___39Ruo.success__style___3fNXj .u-modal-body {
+.pop_type__style___7FzHT.success__style___3B6OV .u-modal-body {
   font-size: 14px;
   padding: 0px;
   padding-left: 60px;
@@ -193,17 +193,17 @@
   line-height: 26px;
 }
 
-.pop_type__style___39Ruo.success__style___3fNXj .u-modal-header {
+.pop_type__style___7FzHT.success__style___3B6OV .u-modal-header {
     padding-top: 40px;
     padding-bottom: 0;
     padding-left: 60px;
     padding-right: 52px;
 }
-.pop_type__style___39Ruo.success__style___3fNXj .u-modal.in .u-modal-dialog >div{
+.pop_type__style___7FzHT.success__style___3B6OV .u-modal.in .u-modal-dialog >div{
   border: 1px dashed rgba(0, 0, 0, 0.4);
 }
 
-.pop_type__style___39Ruo .u-modal-dialog .u-modal-footer {
+.pop_type__style___7FzHT .u-modal-dialog .u-modal-footer {
   padding-top: 32px ;
   padding-bottom: 18px ;
 }

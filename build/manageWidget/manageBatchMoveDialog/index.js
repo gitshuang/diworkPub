@@ -19,7 +19,7 @@ var _moveToGroup2 = _interopRequireDefault(_moveToGroup);
 require('./style.css');
 
 var _style = {
-  'pin': 'pin__style___2xgwr'
+  'pin': 'pin__style___1J8c8'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
