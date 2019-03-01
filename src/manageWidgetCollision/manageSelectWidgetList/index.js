@@ -30,10 +30,10 @@ class SelectWidgetList extends Component {
   }
 
   getServices() {
-    const { requestError, requestSuccess, getAllServicesByLabelGroup, languagesJSON } = this.props;
+    const {  getAllServicesByLabelGroup, languagesJSON } = this.props;
     getAllServicesByLabelGroup().then(({ error, payload }) => {
       if (error) {
-        requestError(payload);
+        //requestError(payload);
       }
       const { labelGroups } = payload;
       labelGroups.forEach((da, i) => {
@@ -45,7 +45,7 @@ class SelectWidgetList extends Component {
         data: payload,
         applications: payload.applications
       })
-      requestSuccess();
+      //requestSuccess();
     });
   }
 
@@ -134,7 +134,7 @@ class SelectWidgetList extends Component {
 
   btnSave = () => {
     const { applications } = this.state;
-    const { requestError, requestSuccess, addDesk, parentId } = this.props;
+    const {  addDesk, parentId } = this.props;
     let selectedList = [];
     applications.forEach((da, index) => {
       if (da.selected == "3") {

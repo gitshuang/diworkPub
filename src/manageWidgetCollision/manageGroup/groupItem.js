@@ -4,14 +4,16 @@ import Message from 'bee/message';
 import Icon from 'pub-comp/icon';
 import Dropdown from 'bee/dropdown';
 
+
+
 export default class GroupItem extends Component {
     // 打开编辑分组形态
   openRenameGroupFn = (id) => {
     const { setEditonlyId } = this.props;
     setEditonlyId(id);
     setTimeout(() => {
-      this.refs.groupName.focus();
-      this.refs.groupName.select();
+      this.groupName.focus();
+      this.groupName.select();
     }, 0);
     this.setState({
       inFoucs: false,

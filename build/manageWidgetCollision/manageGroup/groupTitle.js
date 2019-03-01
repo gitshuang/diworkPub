@@ -33,9 +33,9 @@ var _button = require('pub-comp/button');
 
 var _u = require('@u');
 
-var _actions = require('store/root/manage/actions');
+var _action = require('../core/action');
 
-var _actions2 = _interopRequireDefault(_actions);
+var _action2 = _interopRequireDefault(_action);
 
 var _languages = require('yutils/languages');
 
@@ -76,18 +76,18 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
-var addGroup = _actions2["default"].addGroup,
-    updateGroupList = _actions2["default"].updateGroupList,
-    selectGroupActions = _actions2["default"].selectGroupActions,
-    selectListActions = _actions2["default"].selectListActions,
-    delectGroup = _actions2["default"].delectGroup,
-    setEditonlyId = _actions2["default"].setEditonlyId,
-    setDragInputState = _actions2["default"].setDragInputState,
-    renameGroup = _actions2["default"].renameGroup,
-    moveBottomGroup = _actions2["default"].moveBottomGroup,
-    moveTopGroup = _actions2["default"].moveTopGroup;
+var addGroup = _action2["default"].addGroup,
+    updateGroupList = _action2["default"].updateGroupList,
+    selectGroupActions = _action2["default"].selectGroupActions,
+    selectListActions = _action2["default"].selectListActions,
+    delectGroup = _action2["default"].delectGroup,
+    setEditonlyId = _action2["default"].setEditonlyId,
+    setDragInputState = _action2["default"].setDragInputState,
+    renameGroup = _action2["default"].renameGroup,
+    moveBottomGroup = _action2["default"].moveBottomGroup,
+    moveTopGroup = _action2["default"].moveTopGroup;
 var GroupTitle = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)("manageList", "layout", "selectGroup", "currEditonlyId", "selectList", {
-  namespace: 'manage'
+  namespace: 'managewidget'
 }), {
   addGroup: addGroup,
   updateGroupList: updateGroupList,

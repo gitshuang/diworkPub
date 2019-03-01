@@ -6,7 +6,7 @@ import Menu, { Item as MenuItem } from 'bee/menus';
 import Dropdown from 'bee/dropdown';
 import { ButtonCheckClose, ButtonCheckSelected } from 'pub-comp/button';
 import { mapStateToProps } from '@u';
-import manageActions from 'store/root/manage/actions';
+import manageActions from '../core/action';
 const { addGroup,
   updateGroupList,
   selectGroupActions,
@@ -40,7 +40,7 @@ import {
     "currEditonlyId",
     "selectList",
     {
-      namespace: 'manage',
+      namespace: 'managewidget',
     },
   ),
   {

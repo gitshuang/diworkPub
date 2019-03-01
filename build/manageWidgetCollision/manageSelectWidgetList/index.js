@@ -165,8 +165,6 @@ var SelectWidgetList = function (_Component) {
     _this.btnSave = function () {
       var applications = _this.state.applications;
       var _this$props = _this.props,
-          requestError = _this$props.requestError,
-          requestSuccess = _this$props.requestSuccess,
           addDesk = _this$props.addDesk,
           parentId = _this$props.parentId;
 
@@ -267,8 +265,6 @@ var SelectWidgetList = function (_Component) {
     var _this2 = this;
 
     var _props = this.props,
-        requestError = _props.requestError,
-        requestSuccess = _props.requestSuccess,
         getAllServicesByLabelGroup = _props.getAllServicesByLabelGroup,
         languagesJSON = _props.languagesJSON;
 
@@ -277,7 +273,7 @@ var SelectWidgetList = function (_Component) {
           payload = _ref.payload;
 
       if (error) {
-        requestError(payload);
+        //requestError(payload);
       }
       var labelGroups = payload.labelGroups;
 
@@ -291,7 +287,7 @@ var SelectWidgetList = function (_Component) {
         data: payload,
         applications: payload.applications
       });
-      requestSuccess();
+      //requestSuccess();
     });
   };
 

@@ -1,8 +1,7 @@
 import React from 'react';
 import Card from './card';
 import classNames from 'classnames';
-//import { check } from '../../../../../../../tw/workbench/pc/containers/createTeam/checkTenantStatus';
-//import { TransitionGroup, CSSTransitionGroup } from 'react-transition-group';
+
 
 
 export default class CardsList extends React.Component {

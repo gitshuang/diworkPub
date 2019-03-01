@@ -42,9 +42,9 @@ var _style = {
     'selectServiceArea': 'selectServiceArea__style___1guLK'
 };
 
-var _actions = require('store/root/manage/actions');
+var _action = require('../core/action');
 
-var _actions2 = _interopRequireDefault(_actions);
+var _action2 = _interopRequireDefault(_action);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -56,22 +56,15 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
-var updateManageList = _actions2["default"].updateManageList,
-    updateShadowCard = _actions2["default"].updateShadowCard;
+var updateManageList = _action2["default"].updateManageList,
+    updateShadowCard = _action2["default"].updateShadowCard;
 
 
 var noteSource = {
     beginDrag: function beginDrag(props, monitor, component) {
 
         var data = props.data;
-        // data.size = 1;
-        // data.type = 3;
-        // data.widgetId = data.service.serviceId;
-        // data.widgetName = data.service.serviceName;
-        // data.serviceCode = data.service.serviceCode;
-        // data.icon = data.service.serviceIcon;
-        // data.size = data.widgetTemplate.size;
-        // data.serviceType = data.widgetTemplate.serviceType
+
         if (!data.checked) {
             //拖拽没被选择上的元素时，元素被push进checkedCardList
             props.checkedCardList.push(data);
@@ -149,7 +142,7 @@ var noteSource = {
 };
 
 var Card = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('manageList', 'checkedCardList', {
-    namespace: 'manage'
+    namespace: 'managewidget'
 }), {
     updateManageList: updateManageList,
     updateShadowCard: updateShadowCard

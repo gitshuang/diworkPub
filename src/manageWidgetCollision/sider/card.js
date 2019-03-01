@@ -5,22 +5,14 @@ import { connect } from 'react-redux';
 import { hasCardContainInGroups } from '../utils';
 import { mapStateToProps } from '@u';
 import { list_item_content, title, isAddColor, title_name } from './style.css'
-import manageActions from 'store/root/manage/actions';
+import manageActions from '../core/action';
 const { updateManageList,updateShadowCard } = manageActions;
 
 const noteSource = {
     beginDrag(props, monitor, component) {
         
-        
         const data = props.data;
-        // data.size = 1;
-        // data.type = 3;
-        // data.widgetId = data.service.serviceId;
-        // data.widgetName = data.service.serviceName;
-        // data.serviceCode = data.service.serviceCode;
-        // data.icon = data.service.serviceIcon;
-        // data.size = data.widgetTemplate.size;
-        // data.serviceType = data.widgetTemplate.serviceType
+        
         if (!data.checked) {//拖拽没被选择上的元素时，元素被push进checkedCardList
             props.checkedCardList.push(data);
             ///component.clickSiderCard(true, data.parentId, data.menuItemId);
@@ -96,7 +88,7 @@ const noteSource = {
         'manageList',
         'checkedCardList',
         {
-            namespace: 'manage',
+            namespace: 'managewidget',
         },
     ),
     {

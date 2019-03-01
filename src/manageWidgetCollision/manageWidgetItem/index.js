@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import { DragSource } from 'react-dnd';
-import { connect } from 'react-redux';
-import { mapStateToProps } from '@u';
 
 import { compactLayoutHorizontal } from '../compact';
 import * as utilService from '../utils';
 import _ from 'lodash';
 import background_card from 'assets/image/default.png';
 import {card_shadow,card,card_mid,card_footer} from "./style.css"
-import manageActions from 'store/root/manage/actions';
 import Icon from 'pub-comp/icon';
 import Checkbox from 'bee/checkbox';  
 
 
+
+import { connect } from 'react-redux';
+import { mapStateToProps } from '../core/util';
+import manageActions from '../core/action';
 const { updateShadowCard,updateGroupList} = manageActions;
+
+
 const noteSource = {
 	//开始拖拽，设置isShadow属性，shadowCard对象，更新groups
 	beginDrag(props, monitor, component) {
@@ -42,7 +45,7 @@ const noteSource = {
     "shadowCard",
     "layout",
 		{
-			namespace: 'manage',
+			namespace: 'managewidget',
     },
 	),{
     updateShadowCard,

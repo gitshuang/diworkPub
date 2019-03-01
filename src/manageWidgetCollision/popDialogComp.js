@@ -2,6 +2,29 @@ import React, { Component } from 'react';
 import PopDialog from 'pub-comp/pop';
 import { manager_save_pop } from './style.css';
 
+import { connect } from 'react-redux';
+
+import manageActions from './core/action';
+const { returnDefaultState,updateGroupList,setManageList,emptySelectGroup } = manageActions;
+import { mapStateToProps } from './core/util';
+
+//import rootActions from 'store/root/actions';
+//const { requestStart, requestSuccess, requestError } = rootActions;
+@connect(
+  mapStateToProps(  
+    'manageList',
+    'isEdit',
+      {
+          namespace: 'managewidget',
+      },
+  ),
+  {
+      returnDefaultState,
+      updateGroupList,
+      setManageList,
+      emptySelectGroup
+  }
+)
 export default class PopDialogComp extends Component{
   constructor(props){
     super(props);

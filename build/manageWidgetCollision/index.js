@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _dec, _class;
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -44,6 +46,18 @@ var _customDragLayer = require('./dragLayer/customDragLayer.js');
 
 var _customDragLayer2 = _interopRequireDefault(_customDragLayer);
 
+var _reactRedux = require('react-redux');
+
+var _index = require('./core/index');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _action = require('./core/action');
+
+var _action2 = _interopRequireDefault(_action);
+
+var _util = require('./core/util');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -54,152 +68,214 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
-var CreateManageModule = function (_Component) {
+var returnDefaultState = _action2["default"].returnDefaultState,
+    updateGroupList = _action2["default"].updateGroupList,
+    emptySelectGroup = _action2["default"].emptySelectGroup,
+    setManageList = _action2["default"].setManageList,
+    setEditState = _action2["default"].setEditState;
+
+
+//import rootActions from 'store/root/actions';
+//const { requestStart, requestSuccess, requestError } = rootActions;
+
+var CreateManageModule = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('manageList', 'isEdit', {
+  namespace: 'managewidget'
+}), {
+  returnDefaultState: returnDefaultState,
+  updateGroupList: updateGroupList,
+  emptySelectGroup: emptySelectGroup,
+  setManageList: setManageList,
+  setEditState: setEditState
+}), _dec(_class = function (_Component) {
   _inherits(CreateManageModule, _Component);
 
   function CreateManageModule(props) {
     _classCallCheck(this, CreateManageModule);
 
-    return _possibleConstructorReturn(this, _Component.call(this, props));
+    var _this = _possibleConstructorReturn(this, _Component.call(this, props));
+
+    _this.moveGroupDrag = function (id, afterId) {
+      var moveGroup = _this.props.moveGroup;
+
+      moveGroup({ id: id, afterId: afterId });
+    };
+
+    _this.batchDelectFn = function () {
+      var batchDelect = _this.props.batchDelect;
+
+      batchDelect();
+      _this.popClose();
+    };
+
+    _this.openGroupTo = function () {
+      var openBatchMove = _this.props.openBatchMove;
+
+      openBatchMove();
+    };
+
+    _this.popOpen = function () {
+      _this.setState({
+        showModal: true
+      });
+    };
+
+    _this.popClose = function () {
+      _this.setState({
+        showModal: false
+      });
+    };
+
+    _this.save = function () {
+      var _this$props = _this.props,
+          setManageList = _this$props.setManageList,
+          manageList = _this$props.manageList;
+
+      if (_this.checkBtn) {
+        _this.checkBtn.click();
+      }
+      setManageList(manageList).then(function (_ref) {
+        var error = _ref.error,
+            payload = _ref.payload;
+
+        if (error) {
+          //requestError(payload);
+
+        } else {
+          _this.goBack();
+        }
+        _this.popCloseCancel();
+      });
+    };
+
+    _this.cancel = function () {
+      var setEditState = _this.props.setEditState;
+
+      setEditState(false);
+      _this.popCloseCancel();
+      _this.goBack();
+    };
+
+    _this.goBack = function () {
+      _this.configBack = true;
+      var emptySelectGroup = _this.props.emptySelectGroup;
+
+      emptySelectGroup();
+      _this.props.history.replace(_this.goToLocation);
+    };
+
+    _this.popOpenCancel = function () {
+      //const { isEdit } = this.props;
+      var sta = _index2["default"].getState();
+      var isEdit = sta.isEdit;
+
+      if (isEdit) {
+        _this.setState({
+          showCancelModal: true
+        });
+      } else {
+        _this.goBack();
+      }
+    };
+
+    _this.popCloseCancel = function () {
+      _this.setState({
+        showCancelModal: false
+      });
+    };
+
+    _this.state = {
+      showModal: false,
+      showCancelModal: false
+    };
+    _this.goToLocation = '';
+    _this.configBack = false;
+    return _this;
   }
+
+  CreateManageModule.prototype.componentWillUnmount = function componentWillUnmount() {
+    var returnDefaultState = this.props.returnDefaultState;
+
+    returnDefaultState();
+  };
+
+  // 批量删除
+
+  // 打开删除的弹窗
+
+  // 关闭删除的弹窗
+
+
+  CreateManageModule.prototype.componentDidMount = function componentDidMount() {
+    var _this2 = this;
+
+    var history = this.props.history;
+
+
+    history.block(function (location) {
+      //const { isEdit } = this.props;
+      var sta = _index2["default"].getState();
+      var isEdit = sta.isEdit;
+
+      _this2.goToLocation = location.pathname;
+      if (location.pathname !== _this2.props.match.path && isEdit && !_this2.configBack) {
+        _this2.setState({
+          showCancelModal: true
+        });
+      }
+    });
+  };
+  //  保存
+
+  // 取消
+
+  // 返回操作
+
+
+  // 打开取消的弹窗
+
+  // 关闭取消的弹窗
+
 
   CreateManageModule.prototype.render = function render() {
     var _props = this.props,
-        selectGroup = _props.selectGroup,
-        currEditonlyId = _props.currEditonlyId,
-        requestStart = _props.requestStart,
-        requestSuccess = _props.requestSuccess,
-        requestError = _props.requestError,
-        delectGroup = _props.delectGroup,
-        renameGroup = _props.renameGroup,
-        moveGroup = _props.moveGroup,
-        moveTopGroup = _props.moveTopGroup,
-        moveBottomGroup = _props.moveBottomGroup,
-        selectListActions = _props.selectListActions,
-        selectGroupActions = _props.selectGroupActions,
-        setEditonlyId = _props.setEditonlyId,
-        setDragInputState = _props.setDragInputState,
-        manageList = _props.manageList,
-        drag = _props.drag,
-        dragState = _props.dragState,
-        selectList = _props.selectList,
-        currGroupIndex = _props.currGroupIndex,
-        title = _props.title,
-        moveService = _props.moveService,
-        setCurrGroupIndex = _props.setCurrGroupIndex,
-        editTitle = _props.editTitle,
-        delectService = _props.delectService,
-        batchDelectFn = _props.batchDelectFn,
-        openGroupTo = _props.openGroupTo,
-        isEdit = _props.isEdit,
-        save = _props.save,
-        popOpenCancel = _props.popOpenCancel,
-        batchMoveModalDisplay = _props.batchMoveModalDisplay,
-        moveData = _props.moveData,
-        closeBatchMove = _props.closeBatchMove,
-        batchMove = _props.batchMove,
-        showModal = _props.showModal,
-        showCancelModal = _props.showCancelModal,
-        popClose = _props.popClose,
-        cancel = _props.cancel,
-        popCloseCancel = _props.popCloseCancel,
-        applicationsMap = _props.applicationsMap,
-        allServicesByLabelGroup = _props.allServicesByLabelGroup,
-        getAllServicesByLabelGroup = _props.getAllServicesByLabelGroup,
-        setCurrentSelectWidgetMap = _props.setCurrentSelectWidgetMap,
-        addDesk = _props.addDesk,
-        moveGroupDrag = _props.moveGroupDrag,
-        moveItemDrag = _props.moveItemDrag,
-        languagesJSON = _props.languagesJSON;
+        languagesJSON = _props.languagesJSON,
+        isEdit = _props.isEdit;
+    var _state = this.state,
+        showModal = _state.showModal,
+        showCancelModal = _state.showCancelModal;
 
-    var manageProps = {
-      manageList: manageList,
-      selectGroup: selectGroup,
-      selectList: selectList,
-      currEditonlyId: currEditonlyId,
-      dragState: dragState,
-      requestStart: requestStart,
-      requestSuccess: requestSuccess,
-      requestError: requestError,
-      delectGroup: delectGroup,
-      renameGroup: renameGroup,
-      moveGroup: moveGroup,
-      moveTopGroup: moveTopGroup,
-      moveBottomGroup: moveBottomGroup,
-      selectListActions: selectListActions,
-      selectGroupActions: selectGroupActions,
-      setEditonlyId: setEditonlyId,
-      setDragInputState: setDragInputState,
-      moveGroupDrag: moveGroupDrag,
-      moveItemDrag: moveItemDrag
-    };
-    var widgetListProps = {
-      manageList: manageList,
-      drag: drag,
-      dragState: dragState,
-      selectList: selectList,
-      selectGroup: selectGroup,
-      currEditonlyId: currEditonlyId,
-      currGroupIndex: currGroupIndex,
-      title: title,
-      moveService: moveService,
-      setCurrGroupIndex: setCurrGroupIndex,
-      editTitle: editTitle,
-      selectListActions: selectListActions,
-      selectGroupActions: selectGroupActions,
-      setEditonlyId: setEditonlyId,
-      setDragInputState: setDragInputState,
-      delectService: delectService
-    };
-    var widgetSelectListProps = {
-      applicationsMap: applicationsMap,
-      manageList: manageList,
-      allServicesByLabelGroup: allServicesByLabelGroup,
-      getAllServicesByLabelGroup: getAllServicesByLabelGroup,
-      setCurrentSelectWidgetMap: setCurrentSelectWidgetMap,
-      addDesk: addDesk,
-      requestSuccess: requestSuccess,
-      requestError: requestError
-    };
-    var footerProps = {
-      batchDelectFn: batchDelectFn,
-      selectList: selectList,
-      openGroupTo: openGroupTo,
-      isEdit: isEdit,
-      save: save,
-      popOpenCancel: popOpenCancel
-    };
-    var batchMoveRedux = {
-      batchMoveModalDisplay: batchMoveModalDisplay,
-      manageList: manageList,
-      moveData: moveData,
-      closeBatchMove: closeBatchMove,
-      batchMove: batchMove
-    };
-    var popDialogOuter = {
+    var popDialogProps = {
+      save: this.save,
       showModal: showModal,
       showCancelModal: showCancelModal,
-      popClose: popClose,
-      batchDelectFn: batchDelectFn,
-      cancel: cancel,
-      save: save,
-      popCloseCancel: popCloseCancel
+      popClose: this.popClose,
+      batchDelectFn: this.batchDelectFn,
+      cancel: this.cancel,
+      popCloseCancel: this.popCloseCancel
     };
-
+    var footerProps = {
+      batchDelectFn: this.batchDelectFn,
+      openGroupTo: this.openGroupTo,
+      isEdit: isEdit,
+      save: this.save,
+      popOpenCancel: this.popOpenCancel
+    };
     return _react2["default"].createElement(
-      'div',
-      { style: { display: 'flex' } },
-      _react2["default"].createElement(_sider2["default"], { languagesJSON: languagesJSON }),
-      _react2["default"].createElement(_content2["default"], _extends({}, manageProps, widgetListProps, widgetSelectListProps, { languagesJSON: languagesJSON })),
-      _react2["default"].createElement(_footer2["default"], _extends({}, footerProps, { languagesJSON: languagesJSON })),
-      _react2["default"].createElement(_batchMove2["default"], _extends({}, batchMoveRedux, { languagesJSON: languagesJSON })),
-      _react2["default"].createElement(_popDialogComp2["default"], _extends({}, popDialogOuter, { languagesJSON: languagesJSON })),
-      _react2["default"].createElement(_customDragLayer2["default"], null)
+      _reactRedux.Provider,
+      { store: _index2["default"] },
+      _react2["default"].createElement(
+        'div',
+        { style: { display: 'flex' } },
+        _react2["default"].createElement(_sider2["default"], { languagesJSON: languagesJSON, menuListUrl: this.props.menuListUrl }),
+        _react2["default"].createElement(_content2["default"], { languagesJSON: languagesJSON, manageListUrl: this.props.manageListUrl }),
+        _react2["default"].createElement(_footer2["default"], _extends({ languagesJSON: languagesJSON }, footerProps)),
+        _react2["default"].createElement(_popDialogComp2["default"], _extends({}, popDialogProps, { languagesJSON: languagesJSON })),
+        _react2["default"].createElement(_customDragLayer2["default"], null)
+      )
     );
   };
 
   return CreateManageModule;
-}(_react.Component);
-
+}(_react.Component)) || _class);
 exports["default"] = (0, _reactDnd.DragDropContext)(_backend2["default"])(CreateManageModule);
 module.exports = exports['default'];
