@@ -44,11 +44,7 @@ class EnterContent extends Component {
       disabled: false,                // 按钮是否可点击， true为不可点击 
       startFlag: false,                // process 0～1 
       tenantId: '',                   // 租户ID
-      address: {
-        province: '',
-        city: '',
-        area: '',
-      },                // 企业地址 
+      address: null,                // 企业地址 
       addressInput: '',               // 企业地址 (60个字输入框)
 
       tenantName: '',                 // 企业名称
@@ -74,6 +70,7 @@ class EnterContent extends Component {
     this.loadingFunc = null;
     this.successFunc = null;
     this.timer = null;
+    this.address = {};
   }
 
   componentDidMount() {
@@ -108,11 +105,13 @@ class EnterContent extends Component {
   }
   // 切换企业地址
   onCityChange = (obj) => {
-    this.setState({
-      address: {
-        ...obj,
-      },
-    });
+    // if(obj.area == this.state.address.area) return;
+    // this.setState({
+    //   address: {
+    //     ...obj,
+    //   },
+    // });
+    this.address = obj;
   }
 
   // 上传组件设置新的logo - url， 后期需要更改为方法传递到 
@@ -146,13 +145,13 @@ class EnterContent extends Component {
     const { handleClickFn, _from } = this.props;
     const {
       tenantId,
-      address,
       addressInput,
       logo,
     } = this.state;
-
+    const address = this.address.area !== this.state.address.area ? this.address : this.state.address;
     this.setState({
       disabled: true,
+      address
     });
     // 将地址 组合  真实上传的参数
     const TenantAddress = `${address.province}|${address.city}|${address.area}|${addressInput}`;
@@ -299,8 +298,9 @@ class EnterContent extends Component {
             <label><span>{texts.addressLabel}&nbsp;&nbsp;</span></label>
             <CitySelect
               name="address"
-              onChange={this.onCityChange}
-              defaultValue={address}
+              onChange={(e)=>{this.onCityChange(e)}}
+              defaultValue={{ province:'北京',city:'北京',area:'东城区'}}
+              value={address}
             />
           </FormItem>
         }

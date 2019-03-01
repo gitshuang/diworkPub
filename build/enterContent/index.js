@@ -90,9 +90,13 @@ var EnterContent = (_temp = _class = function (_Component) {
     var _this2 = _possibleConstructorReturn(this, _Component.call(this, props));
 
     _this2.onCityChange = function (obj) {
-      _this2.setState({
-        address: _extends({}, obj)
-      });
+      // if(obj.area == this.state.address.area) return;
+      // this.setState({
+      //   address: {
+      //     ...obj,
+      //   },
+      // });
+      _this2.address = obj;
     };
 
     _this2.onChangeUpload = function (url) {
@@ -123,13 +127,13 @@ var EnterContent = (_temp = _class = function (_Component) {
           _from = _this2$props._from;
       var _this2$state = _this2.state,
           tenantId = _this2$state.tenantId,
-          address = _this2$state.address,
           addressInput = _this2$state.addressInput,
           logo = _this2$state.logo;
 
-
+      var address = _this2.address.area !== _this2.state.address.area ? _this2.address : _this2.state.address;
       _this2.setState({
-        disabled: true
+        disabled: true,
+        address: address
       });
       // 将地址 组合  真实上传的参数
       var TenantAddress = address.province + '|' + address.city + '|' + address.area + '|' + addressInput;
@@ -181,11 +185,7 @@ var EnterContent = (_temp = _class = function (_Component) {
       disabled: false, // 按钮是否可点击， true为不可点击 
       startFlag: false, // process 0～1 
       tenantId: '', // 租户ID
-      address: {
-        province: '',
-        city: '',
-        area: ''
-      }, // 企业地址 
+      address: null, // 企业地址 
       addressInput: '', // 企业地址 (60个字输入框)
 
       tenantName: '', // 企业名称
@@ -211,6 +211,7 @@ var EnterContent = (_temp = _class = function (_Component) {
     _this2.loadingFunc = null;
     _this2.successFunc = null;
     _this2.timer = null;
+    _this2.address = {};
     return _this2;
   }
 
@@ -445,8 +446,11 @@ var EnterContent = (_temp = _class = function (_Component) {
         ),
         _react2["default"].createElement(_citySelect2["default"], {
           name: 'address',
-          onChange: this.onCityChange,
-          defaultValue: address
+          onChange: function onChange(e) {
+            _this3.onCityChange(e);
+          },
+          defaultValue: { province: '北京', city: '北京', area: '东城区' },
+          value: address
         })
       ),
       _react2["default"].createElement(
