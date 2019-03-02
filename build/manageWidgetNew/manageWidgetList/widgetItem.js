@@ -46,27 +46,27 @@ var _reactDom = require('react-dom');
 require('./style.css');
 
 var _style = {
-	'widgetItem': 'widgetItem__style___1TZRU',
-	'widgetFileItem': 'widgetFileItem__style___3aYXU',
-	'title': 'title__style___3mTID',
-	'title_right': 'title_right__style___2_nSB',
-	'file_title_right': 'file_title_right__style___d4ef_',
-	'widget_node': 'widget_node__style___3KtrV',
-	'content': 'content__style___2IGI-',
-	'context': 'context__style___mKQQ2',
-	'bottom': 'bottom__style___qEihN',
-	'file_context': 'file_context__style___3qf7s',
-	'footer': 'footer__style___IlBvD',
-	'editDele': 'editDele__style___2b3y7',
-	'title_cont': 'title_cont__style___3oqUh',
-	'edit_cont': 'edit_cont__style___3vuV1',
-	'edit_btn': 'edit_btn__style___HLMAv',
-	'title_edit': 'title_edit__style___1fShV',
-	'clearfix': 'clearfix__style___2UztU',
-	'addModule': 'addModule__style___241SG',
-	'widgetList': 'widgetList__style___1m_e4',
-	'pop_dialog_widge_list': 'pop_dialog_widge_list__style___bJ5Eb',
-	'btn': 'btn__style___3vqT7'
+	'widgetItem': 'widgetItem__style___3m4Rg',
+	'widgetFileItem': 'widgetFileItem__style___28Ur-',
+	'title': 'title__style___3W7Xx',
+	'title_right': 'title_right__style___1rgbQ',
+	'file_title_right': 'file_title_right__style___3SM6P',
+	'widget_node': 'widget_node__style___28n9h',
+	'content': 'content__style___2S3AY',
+	'context': 'context__style___1rxUc',
+	'bottom': 'bottom__style___Tgxw-',
+	'file_context': 'file_context__style___3Be-x',
+	'footer': 'footer__style___2CZC2',
+	'editDele': 'editDele__style___2sJk7',
+	'title_cont': 'title_cont__style___3jQC-',
+	'edit_cont': 'edit_cont__style___2-vsC',
+	'edit_btn': 'edit_btn__style___3FMJi',
+	'title_edit': 'title_edit__style___2gZwc',
+	'clearfix': 'clearfix__style___33fmq',
+	'addModule': 'addModule__style___2DYhQ',
+	'widgetList': 'widgetList__style___2Qmz0',
+	'pop_dialog_widge_list': 'pop_dialog_widge_list__style___3Zflc',
+	'btn': 'btn__style___wXdcO'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

@@ -29,14 +29,14 @@ var _u = require('@u');
 require('./style.css');
 
 var _style = {
-  'container': 'container__style___3CvgR',
-  'title': 'title__style___YVWvc',
-  'borderBox': 'borderBox__style___1q8V0',
-  'u-menu-inline': 'u-menu-inline__style___1KbeC',
-  'u-menu-selected': 'u-menu-selected__style___2rj0p',
-  'footer': 'footer__style___33izj',
-  'selectedli': 'selectedli__style___6ub3B',
-  'saveBtn': 'saveBtn__style___2n4e3'
+  'container': 'container__style___2QKUW',
+  'title': 'title__style___3suWk',
+  'borderBox': 'borderBox__style___6ccEy',
+  'u-menu-inline': 'u-menu-inline__style___195s8',
+  'u-menu-selected': 'u-menu-selected__style___1xVBI',
+  'footer': 'footer__style___1e6dr',
+  'selectedli': 'selectedli__style___NnZPl',
+  'saveBtn': 'saveBtn__style___i-5bZ'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

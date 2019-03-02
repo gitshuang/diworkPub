@@ -116,7 +116,7 @@ export default class Card extends Component {
     render() { 
 
         const { connectDragSource, manageList} = this.props;
-        const { serviceId, menuItemName, checked } = this.props.data;
+        const { serviceId, service:{serviceName}, checked } = this.props.data;
         const isContainInGroups = hasCardContainInGroups(manageList, serviceId);
         return connectDragSource(
             <div>
@@ -125,13 +125,13 @@ export default class Card extends Component {
                         ?
                         <div className="app_col" >
                         <div className={`${list_item_content} ${title} ${isAddColor}`}>
-                            <span className={title_name} >{menuItemName}</span>
+                            <span className={title_name} >{serviceName}</span>
                         </div>
                         </div>
                         :
                         <div className="app_col" onClick={this.clickSiderCard}>
                         <div className={`${list_item_content} ${title} ${checked ? 'item-checked' : null}`}>
-                            <span className={title_name}  title={menuItemName}>{menuItemName}</span>
+                            <span className={title_name}  title={serviceName}>{serviceName}</span>
                             {checked ? (
                                 <i
                                     className="selected"

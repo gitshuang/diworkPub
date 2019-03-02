@@ -33,21 +33,21 @@ var _u = require('@u');
 require('./style.css');
 
 var _style = {
-  'select_widget_list': 'select_widget_list__style___3nqTE',
-  'widget_left': 'widget_left__style___qaYvI',
-  'widget_right': 'widget_right__style___1ruuy',
-  'title': 'title__style___3LGlM',
-  'searchPanel': 'searchPanel__style___2xKCl',
-  'form_control': 'form_control__style___38kVJ',
-  'search_icon_con': 'search_icon_con__style___3WiPT',
-  'panel': 'panel__style___2Z7in',
-  'panel_left': 'panel_left__style___1T0nG',
-  'panel_right': 'panel_right__style___2w1b4',
-  'btn_type': 'btn_type__style___3vnB2',
-  'server_type': 'server_type__style___Vl5ie',
-  'footer_btn': 'footer_btn__style___31NY7',
-  'btn_active': 'btn_active__style___3SCGC',
-  'u-button-group-vertical': 'u-button-group-vertical__style___2w1J3'
+  'select_widget_list': 'select_widget_list__style___Tm8K-',
+  'widget_left': 'widget_left__style___1tdV-',
+  'widget_right': 'widget_right__style___3_Cbm',
+  'title': 'title__style___2UjV5',
+  'searchPanel': 'searchPanel__style___1bowg',
+  'form_control': 'form_control__style___2CczA',
+  'search_icon_con': 'search_icon_con__style___1l4mh',
+  'panel': 'panel__style___21Py5',
+  'panel_left': 'panel_left__style___2iZ2Z',
+  'panel_right': 'panel_right__style___25VlS',
+  'btn_type': 'btn_type__style___3FdZb',
+  'server_type': 'server_type__style___1UzsJ',
+  'footer_btn': 'footer_btn__style___1h5-k',
+  'btn_active': 'btn_active__style___3Rnx3',
+  'u-button-group-vertical': 'u-button-group-vertical__style___1TmUm'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

@@ -15,16 +15,16 @@ var _icon3 = _interopRequireDefault(_icon2);
 require('./style.css');
 
 var _style = {
-  'upload_page': 'upload_page__style___zYQWv',
-  'uploadImg': 'uploadImg__style___BN5PM',
-  'appImg': 'appImg__style___45bj3',
-  'appValidate': 'appValidate__style___1Ukr7',
-  'edit': 'edit__style___1G3e-',
-  'titlp_lab': 'titlp_lab__style___39ui_',
-  'form_btnFile': 'form_btnFile__style___TCnEm',
-  'ie9_form': 'ie9_form__style___IpeSX',
-  'hidden_form': 'hidden_form__style___3RZCb',
-  'icon': 'icon__style___2YinQ'
+  'upload_page': 'upload_page__style___cAxny',
+  'uploadImg': 'uploadImg__style___3BV_-',
+  'appImg': 'appImg__style___3DQcw',
+  'appValidate': 'appValidate__style___38soW',
+  'edit': 'edit__style___1I0te',
+  'titlp_lab': 'titlp_lab__style___28N2d',
+  'form_btnFile': 'form_btnFile__style___QUjlp',
+  'ie9_form': 'ie9_form__style___1Log3',
+  'hidden_form': 'hidden_form__style___o7Dl7',
+  'icon': 'icon__style___1lpuT'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
