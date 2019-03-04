@@ -309,14 +309,19 @@ var fetchTools = {
 
     var _options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
+    var withEc = arguments[2];
+
+    var headers = withEc ? {
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    } : {
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+      'isAjax': 1
+    };
     return _extends({
       method: method.toUpperCase(),
       credentials: 'include',
       cache: 'no-cache',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-        'isAjax': 1
-      }
+      headers: headers
     }, _options);
   },
   url: function url(_url) {
@@ -377,6 +382,7 @@ function postFileCros(oriUrl, file) {
 
 function get(oriUrl) {
   var oriParams = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var withEc = arguments[2];
   var params = fetchTools.params,
       fetch = fetchTools.fetch,
       options = fetchTools.options,
@@ -402,7 +408,7 @@ function get(oriUrl) {
   }
   var fh = url.indexOf("?") == -1 ? "?" : "&";
   url += fh + "tm=" + new Date().getTime();
-  return fetch(url, options());
+  return fetch(url, options("get", {}, withEc));
 }
 
 function jsonp(options) {

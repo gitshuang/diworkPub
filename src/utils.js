@@ -6,7 +6,7 @@ export const noop = () => { };
 const getLocaleIndex = () => {
   const pathname = window.location.pathname;
   const lanArr = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"];
-  
+
   if (pathname.length > 1) {
     return window.jDiwork && window.jDiwork.getContext((data) => {
       const currLocal = data.locale;
@@ -237,15 +237,20 @@ const fetchTools = {
       return Promise.reject(new Error('请求失败'));
     });
   },
-  options(method = 'get', options = {}) {
+  options(method = 'get', options = {}, withEc) {
+    const headers = withEc ?
+      {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+      } :
+      {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        'isAjax': 1,
+      }
     return {
       method: method.toUpperCase(),
       credentials: 'include',
       cache: 'no-cache',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-        'isAjax': 1,
-      },
+      headers: headers,
       ...options,
     };
   },
@@ -308,7 +313,7 @@ export function postFileCros(oriUrl, file) {
   return fetch(url(oriUrl), options);
 }
 
-export function get(oriUrl, oriParams = {}) {
+export function get(oriUrl, oriParams = {}, withEc) {
   const {
     params,
     fetch,
@@ -336,7 +341,7 @@ export function get(oriUrl, oriParams = {}) {
   }
   let fh = url.indexOf("?") == -1 ? "?" : "&";
   url += fh + "tm=" + new Date().getTime();
-  return fetch(url, options());
+  return fetch(url, options("get", {}, withEc));
 }
 
 function jsonp(options) {
