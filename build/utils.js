@@ -244,7 +244,7 @@ var fetchTools = {
     }
   },
   fetch: function (_fetch) {
-    function fetch(_x2, _x3) {
+    function fetch(_x2, _x3, _x4) {
       return _fetch.apply(this, arguments);
     }
 
@@ -253,7 +253,7 @@ var fetchTools = {
     };
 
     return fetch;
-  }(function (url, options) {
+  }(function (url, options, withEc) {
     return fetch(url, options).then(function (response) {
       if (response.ok) {
         return response.text().then(function (text) {
@@ -277,7 +277,7 @@ var fetchTools = {
             // 获取隔离的接口没有status,data这一项
             if (url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1) {
               return Promise.resolve(result);
-            } else if (status && status !== '0') {
+            } else if (status && status !== '0' || withEc && result.code === 0) {
               // 获取语种索引
               var index = getLocaleIndex();
               // 赋值_data
@@ -408,7 +408,7 @@ function get(oriUrl) {
   }
   var fh = url.indexOf("?") == -1 ? "?" : "&";
   url += fh + "tm=" + new Date().getTime();
-  return fetch(url, options("get", {}, withEc));
+  return fetch(url, options("get", {}, withEc), withEc);
 }
 
 function jsonp(options) {
