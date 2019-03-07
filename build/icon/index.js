@@ -309,28 +309,46 @@ var sizes = {
   'md': 'md__index___3HmlR'
 };
 
+require('./font/iconfont.css');
+
+var fonts = {
+  'icon-shaixuan': 'icon-shaixuan__iconfont___c-VGV',
+  'icon-wenjianjia': 'icon-wenjianjia__iconfont___2DQcb',
+  'icon-yuyanshezhi': 'icon-yuyanshezhi__iconfont___p8M0Z',
+  'icon-shangyi': 'icon-shangyi__iconfont___l6RuZ',
+  'icon-xiayi': 'icon-xiayi__iconfont___1M0ic',
+  'icon-morendenglu': 'icon-morendenglu__iconfont___2Tv-D',
+  'icon-jiantizhongwen': 'icon-jiantizhongwen__iconfont___p3Bof',
+  'icon-fantizhongwen': 'icon-fantizhongwen__iconfont___2pjOL',
+  'icon-English': 'icon-English__iconfont___2s01l',
+  'icon-zhuxiao': 'icon-zhuxiao__iconfont___1mBfW'
+};
+
 
 var propTypes = {
   type: _propTypes2["default"].string,
   className: _propTypes2["default"].string,
-  style: _propTypes2["default"].object
+  style: _propTypes2["default"].object,
+  font: _propTypes2["default"].string
 };
 var defaultProps = {
   className: '',
   type: '',
-  size: 'md'
+  size: 'md',
+  font: ''
 };
 
 function Icon(props) {
   var type = props.type,
       className = props.className,
       size = props.size,
-      ret = _objectWithoutProperties(props, ['type', 'className', 'size']);
+      font = props.font,
+      ret = _objectWithoutProperties(props, ['type', 'className', 'size', 'font']);
 
   var sizeClassName = sizes[size] || '';
-  var typeClassName = types['icon-' + type] || '';
+  var typeClassName = font ? fonts['icon-' + font] : types['icon-' + type] || '';
   return _react2["default"].createElement('i', _extends({
-    className: 'iconfont diworkiconfont ' + typeClassName + ' ' + sizeClassName + ' ' + className
+    className: 'iconfont ' + (font ? 'u8ciconfont' : 'diworkiconfont') + ' ' + typeClassName + ' ' + sizeClassName + ' ' + className
   }, ret));
 }
 

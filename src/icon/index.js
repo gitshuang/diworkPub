@@ -1,26 +1,30 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import types from './style.css';//font字体库
 import sizes from './index.css';
+
+import fonts from './font/iconfont.css';
 
 const propTypes = {
   type: PropTypes.string,
   className: PropTypes.string,
   style: PropTypes.object,
+  font: PropTypes.string,
 };
 const defaultProps = {
   className: '',
   type: '',
-  size: 'md'
+  size: 'md',
+  font: '',
 };
 
 function Icon(props) {
-  let {type, className, size, ...ret} = props;
+  let { type, className, size, font, ...ret } = props;
   const sizeClassName = sizes[size] || '';
-  const typeClassName = types[`icon-${type}`] || '';
+  const typeClassName = font ? fonts[`icon-${font}`] : types[`icon-${type}`] || '';
   return (
     <i
-      className={`iconfont diworkiconfont ${typeClassName} ${sizeClassName} ${className}`}
+      className={`iconfont ${font ? 'u8ciconfont' : 'diworkiconfont'} ${typeClassName} ${sizeClassName} ${className}`}
       {...ret}
     />
   )
