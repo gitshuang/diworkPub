@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Button from 'bee/button';
 import Menu, { SubMenu } from 'bee/menus';
 import { findPath, avoidSameName } from '@u';
+import Icon from '../icon';
 /*  style */
 import {
   container,
@@ -137,6 +138,7 @@ class MoveToGroup extends Component {
       } else {
         const pushOb = (
           <Item key={widgetId} className={classname}>
+            <Icon font="wenjianjia" />
             <span
               style={{ display: "block" }}
               onClick={() => { this.handlerClick(widgetId); }}
@@ -232,7 +234,10 @@ class MoveToGroup extends Component {
           {
             onAddGroup ? (
               <div>
-                <Button style={{ float: 'left' }} onClick={this.addGroup} disabled={inAddGroup}>{languagesJSON.addGroup}</Button>
+                <Button style={{ float: 'left', position: 'relative' }} onClick={this.addGroup} disabled={inAddGroup}>
+                  <Icon type="add" />
+                  {languagesJSON.addGroup}
+                </Button>
               </div>
             ) : null
           }

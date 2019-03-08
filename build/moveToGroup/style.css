@@ -1,20 +1,24 @@
 /*  imported from style.css  */
 
 .container__style___3CvgR{
-
+  padding-bottom: 16px;
 }
 
 .title__style___YVWvc{
-  margin-top: 16px;
-  height:16px;
+  height:40px;
   font-size:14px;
   font-family:MicrosoftYaHei;
   color:rgba(102,102,102,1);
-  line-height:16px;
+  line-height:40px;
+  padding-left: 15px;
+  background: #F3F3F3;
+  margin-bottom: 20px; 
 }
 
 .borderBox__style___1q8V0{
   margin-top: 8px;
+  margin-left: 16px;
+  margin-right: 16px;
   height: 170px;
   background: #FFFFFF;
   border:1px solid rgb(210,210,210);
@@ -37,27 +41,27 @@
   padding:5px;
 }
 .borderBox__style___1q8V0 .u-menu .u-menu-item-active{
-  background: #f3f3f3;
-  color: #E14C46;
+  background: #F3F5F9;
+  color: #505766;
 }
 
 .u-menu-inline__style___1KbeC .u-menu-selected__style___2rj0p {
   border: none;
-  color: #E14C46;
+  color: #505766;
 }
 .borderBox__style___1q8V0 .u-menu-inline > .u-menu-submenu-active{
-  background: #f3f3f3;
-  color: #E14C46 ;
+  background: #F3F5F9;
+  color: #505766 ;
 }
 .borderBox__style___1q8V0 .u-menu .u-menu-submenu-active > .u-menu-submenu-title{
-  background: #f3f3f3;
-  color: #E14C46;
+  background: #F3F5F9;
+  color: #505766;
 }
 .borderBox__style___1q8V0 .u-menu-submenu-selected{
   background: none;
 }
 .borderBox__style___1q8V0 .u-menu-inline .u-menu-item-selected{
-  background: #e4e4e4;
+  background: #FFF7E7;
   color: #555555;
 }
 .borderBox__style___1q8V0 input{
@@ -79,19 +83,29 @@
   outline: 0;
   transition: all ease .1s;
 }
+.borderBox__style___1q8V0 .u-menu-inline > .u-menu-item{
+  position: relative;
+  padding-left: 30px !important;
+}
+.borderBox__style___1q8V0 .iconfont{
+  position: absolute;
+  left: 5px;
+  font-size: 16px;
+  font-weight: 100;
+}
 
 .footer__style___33izj{
-  padding-top: 9px;
+  padding-top: 10px;
+  padding-right: 16px;
 }
 .footer__style___33izj .u-button{
-  height: 22px;
+  height: 30px;
   font-size:14px;
   min-width: 0;
   font-family:MicrosoftYaHei;
   line-height:21px;
   padding: 0 12px;
   border-radius: 3px ;
-  background:#fff;
 }
 .footer__style___33izj .u-button-danger[disabled]{
   cursor: not-allowed;
@@ -103,15 +117,23 @@
   background-color: #e0e0e0;
   border: none;
 }
+.footer__style___33izj div:first-child > button{
+  background:#fff;
+}
 .footer__style___33izj .u-button-danger{
   background:#E14C46;
 }
 
 .selectedli__style___6ub3B{
-  color: #E14C46 !important;
+  color: #505766 !important;
 }
 
 .saveBtn__style___2n4e3{
   margin-right: 5px;
 }
 
+.footer__style___33izj .iconfont{
+  font-weight: 100;
+  position: relative;
+  top: 3px;
+}

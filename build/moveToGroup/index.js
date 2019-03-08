@@ -26,6 +26,10 @@ var _menus2 = _interopRequireDefault(_menus);
 
 var _u = require('@u');
 
+var _icon = require('../icon');
+
+var _icon2 = _interopRequireDefault(_icon);
+
 require('./style.css');
 
 var _style = {
@@ -193,6 +197,7 @@ var MoveToGroup = (_temp = _class = function (_Component) {
         var pushOb = _react2["default"].createElement(
           Item,
           { key: widgetId, className: classname },
+          _react2["default"].createElement(_icon2["default"], { font: 'wenjianjia' }),
           _react2["default"].createElement(
             'span',
             {
@@ -304,7 +309,8 @@ var MoveToGroup = (_temp = _class = function (_Component) {
           null,
           _react2["default"].createElement(
             _button2["default"],
-            { style: { "float": 'left' }, onClick: this.addGroup, disabled: inAddGroup },
+            { style: { "float": 'left', position: 'relative' }, onClick: this.addGroup, disabled: inAddGroup },
+            _react2["default"].createElement(_icon2["default"], { type: 'add' }),
             languagesJSON.addGroup
           )
         ) : null,
