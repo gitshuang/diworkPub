@@ -10,12 +10,17 @@ import { btn, closeBtn, pop_type, error, warning, danger, success } from './styl
 class PopDialog extends Component {
   static propTypes = {
     title: PropTypes.string,
-    show: PropTypes.bool.isRequired,
+    show: PropTypes.bool,
     btns: PropTypes.array,
     close: PropTypes.any,
     data: PropTypes.any,
     type: PropTypes.string,
+    backdrop: PropTypes.bool
   }
+
+  static defaultProps = {
+    backdrop: false
+  };
 
   btnClick = (evt, da) => {
     let e = evt || window.event;
@@ -92,7 +97,7 @@ class PopDialog extends Component {
   }
 
   render() {
-    const { type } = this.props;
+    const { type, backdrop } = this.props;
     let _btns = this.getButtonList();
 
     // if(this.props.btns){
@@ -112,7 +117,7 @@ class PopDialog extends Component {
 
     // this.props.backdrop?false:true
     return (
-      <Modal className={`${IS_IE ? 'ie9_pop' : ''} ${this.props.className ? `pop_dialog ${this.props.className}` : "pop_dialog"} ${pop_type} ${this.getTypeClass(this.props.type)}`} backdrop={false} show={this.props.show} onHide={this.props.close} animation={false}>
+      <Modal className={`${IS_IE ? 'ie9_pop' : ''} ${this.props.className ? `pop_dialog ${this.props.className}` : "pop_dialog"} ${pop_type} ${this.getTypeClass(this.props.type)}`} backdrop={backdrop} show={this.props.show} onHide={this.props.close} animation={false}>
         <Modal.Header>
           <Modal.Title>
             {type ? <Icon type={this.getTypeIcon(type)} /> : ""}

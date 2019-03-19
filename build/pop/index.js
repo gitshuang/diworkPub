@@ -165,7 +165,9 @@ var PopDialog = (_temp2 = _class = function (_Component) {
 
 
   PopDialog.prototype.render = function render() {
-    var type = this.props.type;
+    var _props = this.props,
+        type = _props.type,
+        backdrop = _props.backdrop;
 
     var _btns = this.getButtonList();
 
@@ -187,7 +189,7 @@ var PopDialog = (_temp2 = _class = function (_Component) {
     // this.props.backdrop?false:true
     return _react2["default"].createElement(
       _modal2["default"],
-      { className: (_utils.IS_IE ? 'ie9_pop' : '') + ' ' + (this.props.className ? 'pop_dialog ' + this.props.className : "pop_dialog") + ' ' + _style.pop_type + ' ' + this.getTypeClass(this.props.type), backdrop: false, show: this.props.show, onHide: this.props.close, animation: false },
+      { className: (_utils.IS_IE ? 'ie9_pop' : '') + ' ' + (this.props.className ? 'pop_dialog ' + this.props.className : "pop_dialog") + ' ' + _style.pop_type + ' ' + this.getTypeClass(this.props.type), backdrop: backdrop, show: this.props.show, onHide: this.props.close, animation: false },
       _react2["default"].createElement(
         _modal2["default"].Header,
         null,
@@ -223,11 +225,14 @@ var PopDialog = (_temp2 = _class = function (_Component) {
   return PopDialog;
 }(_react.Component), _class.propTypes = {
   title: _propTypes2["default"].string,
-  show: _propTypes2["default"].bool.isRequired,
+  show: _propTypes2["default"].bool,
   btns: _propTypes2["default"].array,
   close: _propTypes2["default"].any,
   data: _propTypes2["default"].any,
-  type: _propTypes2["default"].string
+  type: _propTypes2["default"].string,
+  backdrop: _propTypes2["default"].bool
+}, _class.defaultProps = {
+  backdrop: false
 }, _temp2);
 
 // const PopDialog = ({ ...props }) => {
