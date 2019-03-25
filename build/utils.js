@@ -316,7 +316,14 @@ var fetchTools = {
     } : {
       'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
       'isAjax': 1
+      // 判断当前登录的是portal 则增加header头
     };
+    var _getContext = getContext(),
+        defaultDesktop = _getContext.defaultDesktop;
+
+    if (defaultDesktop === "portal") {
+      headers.isPortal = true;
+    }
     return _extends({
       method: method.toUpperCase(),
       credentials: 'include',

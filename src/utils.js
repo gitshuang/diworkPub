@@ -210,7 +210,7 @@ const fetchTools = {
             // 获取隔离的接口没有status,data这一项
             if ((url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1)) {
               return Promise.resolve(result);
-            } else if (status && status !== '0' || withEc && result.code === 0 ) {
+            } else if (status && status !== '0' || withEc && result.code === 0) {
               // 获取语种索引
               const index = getLocaleIndex();
               // 赋值_data
@@ -246,6 +246,11 @@ const fetchTools = {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
         'isAjax': 1,
       }
+      // 判断当前登录的是portal 则增加header头
+    const { defaultDesktop } = getContext();
+    if (defaultDesktop === "portal") {
+      headers.isPortal = true;
+    }
     return {
       method: method.toUpperCase(),
       credentials: 'include',
