@@ -135,6 +135,16 @@ var getHost = exports.getHost = function getHost() {
       development: process.env.HOST || '',
       daily: process.env.HOST || ''
     },
+    workbench: {
+      production: 'https://www.diwork.com',
+      development: 'http://workbench.yyuap.com',
+      daily: 'https://workbench-daily.yyuap.com'
+    },
+    u8c: {
+      production: 'https://u8c.diwork.com',
+      development: 'http://u8c-test.yyuap.com',
+      daily: 'https://u8c-daily.yyuap.com'
+    },
     yzone: {
       production: 'https://ec.diwork.com',
       development: 'http://web.yyuap.com:91',
