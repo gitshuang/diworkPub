@@ -146,9 +146,9 @@ var getHost = exports.getHost = function getHost() {
       daily: 'https://u8c-daily.yyuap.com'
     },
     yzone: {
-      production: 'https://ec.diwork.com',
-      development: 'http://web.yyuap.com:91',
-      daily: 'https://ec-daily.yyuap.com'
+      production: 'https://ec.diwork.com/portal/home/index',
+      development: 'http://web.yyuap.com:91/portal/home/index',
+      daily: 'https://ec-daily.yyuap.com/portal/home/index'
     },
     manageTeamEnter: {
       production: 'https://nec.diwork.com/static/home.html#/spaceList/joined?target=pc',
@@ -330,8 +330,10 @@ var fetchTools = {
     };
     var _getContext = getContext(),
         defaultDesktop = _getContext.defaultDesktop;
+    // !withEc 主要是为了判断他们自己跨域请求的， 不增加判断是否工作台还是权限， 是因为权限获取不到getContext 
 
-    if (defaultDesktop === "portal") {
+
+    if (defaultDesktop === "portal" && !withEc) {
       headers.isPortal = true;
     }
     return _extends({

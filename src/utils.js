@@ -94,9 +94,9 @@ export const getHost = (key = 'api') => {
       daily: 'https://u8c-daily.yyuap.com',
     },
     yzone: {
-      production: 'https://ec.diwork.com',
-      development: 'http://web.yyuap.com:91',
-      daily: 'https://ec-daily.yyuap.com',
+      production: 'https://ec.diwork.com/portal/home/index',
+      development: 'http://web.yyuap.com:91/portal/home/index',
+      daily: 'https://ec-daily.yyuap.com/portal/home/index',
     },
     manageTeamEnter: {
       production: 'https://nec.diwork.com/static/home.html#/spaceList/joined?target=pc',
