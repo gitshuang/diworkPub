@@ -28,7 +28,21 @@
 .loading_modal .loading_icon{
     font-size :48px;
     color:#fff;
+    animation: rotating 2s linear infinite;
+    display: inline-block;
 }
 .loading_content{
     padding-top: 10px;
 }
+@keyframes rotating{
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn);
+    }
+}
+
+

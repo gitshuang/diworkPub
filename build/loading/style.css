@@ -1,6 +1,6 @@
 /*  imported from style.css  */
 
-.loading_modal__style___1hpun {
+.loading_modal__style___1FL1Z {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -9,7 +9,7 @@
     background: transparent;
     z-index: 2001;
 }
-.loading_body__style___3gRno{
+.loading_body__style___2ay4M{
     width:110px;
     height:110px;
     background:rgba(0,0,0,0.7);
@@ -27,10 +27,24 @@
     padding: 22px;
     box-sizing: border-box;
 }
-.loading_modal__style___1hpun .loading_icon__style___30rw_{
+.loading_modal__style___1FL1Z .loading_icon__style___1W9Qd{
     font-size :48px;
     color:#fff;
+    animation: rotating__style___3xMSX 2s linear infinite;
+    display: inline-block;
 }
-.loading_content__style___bM_-v{
+.loading_content__style___1yh3T{
     padding-top: 10px;
 }
+@keyframes rotating__style___3xMSX{
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn);
+    }
+}
+
+

@@ -27,15 +27,15 @@ var _button2 = _interopRequireDefault(_button);
 require('./style.css');
 
 var _style2 = {
-  'serviceItem': 'serviceItem__style___3tlB-',
-  'serviceItemTitle': 'serviceItemTitle__style___2v1_0',
-  'item_li_top': 'item_li_top__style___1nTd2',
-  'item_footer': 'item_footer__style___xlmJH',
-  'item_left': 'item_left__style___UTd8-',
-  'item_right': 'item_right__style___w4FvV',
-  'item_footer_app': 'item_footer_app__style___2kGHp',
-  'icon': 'icon__style___MLuln',
-  'up_icon': 'up_icon__style___Tkgqd'
+  'serviceItem': 'serviceItem__style___2FTwH',
+  'serviceItemTitle': 'serviceItemTitle__style___13woB',
+  'item_li_top': 'item_li_top__style___3x6sW',
+  'item_footer': 'item_footer__style___1mq3W',
+  'item_left': 'item_left__style___63YhQ',
+  'item_right': 'item_right__style___2fsLJ',
+  'item_footer_app': 'item_footer_app__style___iYXol',
+  'icon': 'icon__style___A_x1O',
+  'up_icon': 'up_icon__style___21PO0'
 };
 
 var _default = require('../default.svg');

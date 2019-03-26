@@ -19,10 +19,11 @@ var _icon2 = _interopRequireDefault(_icon);
 require('./style.css');
 
 var _style = {
-  'loading_modal': 'loading_modal__style___1hpun',
-  'loading_body': 'loading_body__style___3gRno',
-  'loading_icon': 'loading_icon__style___30rw_',
-  'loading_content': 'loading_content__style___bM_-v'
+  'loading_modal': 'loading_modal__style___1FL1Z',
+  'loading_body': 'loading_body__style___2ay4M',
+  'loading_icon': 'loading_icon__style___1W9Qd',
+  'rotating': 'rotating__style___3xMSX',
+  'loading_content': 'loading_content__style___1yh3T'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

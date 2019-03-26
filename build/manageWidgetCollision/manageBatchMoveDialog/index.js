@@ -23,7 +23,7 @@ var _moveToGroup2 = _interopRequireDefault(_moveToGroup);
 require('./style.css');
 
 var _style = {
-  'pin': 'pin__style___1waNj'
+  'pin': 'pin__style___2H429'
 };
 
 var _actions = require('store/root/manage/actions');
