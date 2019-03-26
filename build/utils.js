@@ -345,7 +345,10 @@ var fetchTools = {
     if (!_url) {
       throw new Error('has no url!');
     } else if (_url.indexOf('http') !== 0) {
-      _url = '' + getHost() + _url;
+      var _getContext2 = getContext(),
+          defaultDesktop = _getContext2.defaultDesktop;
+
+      _url = defaultDesktop === "portal" ? '' + getHost('workbench') + _url : '' + getHost() + _url;
     }
     return _url;
   }

@@ -256,9 +256,10 @@ const fetchTools = {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
         'isAjax': 1,
       }
-      // 判断当前登录的是portal 则增加header头
+    // 判断当前登录的是portal 则增加header头
     const { defaultDesktop } = getContext();
-    if (defaultDesktop === "portal") {
+    // !withEc 主要是为了判断他们自己跨域请求的， 不增加判断是否工作台还是权限， 是因为权限获取不到getContext 
+    if (defaultDesktop === "portal" && !withEc) {
       headers.isPortal = true;
     }
     return {
@@ -273,7 +274,8 @@ const fetchTools = {
     if (!url) {
       throw new Error('has no url!');
     } else if (url.indexOf('http') !== 0) {
-      url = `${getHost()}${url}`;
+      const { defaultDesktop } = getContext();
+      url = defaultDesktop === "portal" ? `${getHost('workbench')}${url}` : `${getHost()}${url}`;
     }
     return url;
   },
