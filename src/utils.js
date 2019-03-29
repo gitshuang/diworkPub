@@ -220,7 +220,7 @@ const fetchTools = {
             // 获取隔离的接口没有status,data这一项
             if ((url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1)) {
               return Promise.resolve(result);
-            } else if (status && status !== '0' || withEc && result.code === 0) {
+            } else if (status && status !== '0' || withEc && result.code === 0) { // withEc && result.code === 0 为了兼容友空间数据返回格式
               // 获取语种索引
               const index = getLocaleIndex();
               // 赋值_data
@@ -275,6 +275,7 @@ const fetchTools = {
       throw new Error('has no url!');
     } else if (url.indexOf('http') !== 0) {
       const { defaultDesktop } = getContext();
+      // 当前如果是友空间， 则固定url   workbench.yyuap.com +
       url = defaultDesktop === "portal" ? `${getHost('workbench')}${url}` : `${getHost()}${url}`;
     }
     return url;
@@ -294,12 +295,14 @@ export function post(oriUrl, oriParams = {}, isExt) {
   // const data = params(oriParams);
   let data = {};
   const index = getLocaleIndex();
-  if (index > -1 && typeof oriParams === "object" || isExt) {
+  // TOdo忘记后边判断是为了啥了。 先注释， isExt 当初也是为了多语言， 现在暂时换成 支持
+  // if (index > -1 && typeof oriParams === "object" || isExt) {
+  if (index > -1) {
     data = _diff(index + 2, oriParams, "get");
   } else {
     data = oriParams;
   }
-  const options = optionsMaker('post');
+  const options = optionsMaker('post', {}, isExt);
   options.headers['Content-Type'] = 'application/json;charset=UTF-8';
 
   try {
@@ -307,7 +310,7 @@ export function post(oriUrl, oriParams = {}, isExt) {
   } catch (e) {
     return Promise.reject(e);
   }
-  return fetch(url(oriUrl), options);
+  return fetch(url(oriUrl), options, isExt);
 }
 
 export function postFileCros(oriUrl, file) {
