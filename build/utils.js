@@ -288,6 +288,7 @@ var fetchTools = {
             if (url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1) {
               return Promise.resolve(result);
             } else if (status && status !== '0' || withEc && result.code === 0) {
+              // withEc && result.code === 0 为了兼容友空间数据返回格式
               // 获取语种索引
               var index = getLocaleIndex();
               // 赋值_data
@@ -349,6 +350,8 @@ var fetchTools = {
     } else if (_url.indexOf('http') !== 0) {
       var _getContext2 = getContext(),
           defaultDesktop = _getContext2.defaultDesktop;
+      // 当前如果是友空间， 则固定url   workbench.yyuap.com +
+
 
       _url = defaultDesktop === "portal" ? '' + getHost('workbench') + _url : '' + getHost() + _url;
     }
@@ -367,12 +370,14 @@ function post(oriUrl) {
 
   var data = {};
   var index = getLocaleIndex();
-  if (index > -1 && (typeof oriParams === 'undefined' ? 'undefined' : _typeof(oriParams)) === "object" || isExt) {
+  // TOdo忘记后边判断是为了啥了。 先注释， isExt 当初也是为了多语言， 现在暂时换成 支持
+  // if (index > -1 && typeof oriParams === "object" || isExt) {
+  if (index > -1) {
     data = _diff(index + 2, oriParams, "get");
   } else {
     data = oriParams;
   }
-  var options = optionsMaker('post');
+  var options = optionsMaker('post', {}, isExt);
   options.headers['Content-Type'] = 'application/json;charset=UTF-8';
 
   try {
@@ -380,7 +385,7 @@ function post(oriUrl) {
   } catch (e) {
     return Promise.reject(e);
   }
-  return fetch(url(oriUrl), options);
+  return fetch(url(oriUrl), options, isExt);
 }
 
 function postFileCros(oriUrl, file) {
