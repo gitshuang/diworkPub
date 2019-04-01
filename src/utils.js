@@ -310,7 +310,15 @@ export function post(oriUrl, oriParams = {}, isExt) {
   }
 
   try {
-    options.body = JSON.stringify(data);
+    if (defaultDesktop === "workbench") {
+      options.body = JSON.stringify(data);
+    } else if (defaultDesktop === "portal") {
+      let reset = '';
+      for (let it in data) {
+        reset += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+      }
+      options.body = reset;
+    }
   } catch (e) {
     return Promise.reject(e);
   }

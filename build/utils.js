@@ -389,7 +389,15 @@ function post(oriUrl) {
   }
 
   try {
-    options.body = JSON.stringify(data);
+    if (defaultDesktop === "workbench") {
+      options.body = JSON.stringify(data);
+    } else if (defaultDesktop === "portal") {
+      var reset = '';
+      for (var it in data) {
+        reset += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
+      }
+      options.body = reset;
+    }
   } catch (e) {
     return Promise.reject(e);
   }
