@@ -303,7 +303,11 @@ export function post(oriUrl, oriParams = {}, isExt) {
     data = oriParams;
   }
   const options = optionsMaker('post', {}, isExt);
-  options.headers['Content-Type'] = 'application/json;charset=UTF-8';
+  // 判断当工作台post 请求增加header 类型， 门户默认不加类型
+  const { defaultDesktop } = getContext();
+  if (defaultDesktop === "workbench") {
+    options.headers['Content-Type'] = 'application/json;charset=UTF-8';
+  }
 
   try {
     options.body = JSON.stringify(data);

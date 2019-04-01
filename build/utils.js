@@ -378,7 +378,14 @@ function post(oriUrl) {
     data = oriParams;
   }
   var options = optionsMaker('post', {}, isExt);
-  options.headers['Content-Type'] = 'application/json;charset=UTF-8';
+  // 判断当工作台post 请求增加header 类型， 门户默认不加类型
+
+  var _getContext3 = getContext(),
+      defaultDesktop = _getContext3.defaultDesktop;
+
+  if (defaultDesktop === "workbench") {
+    options.headers['Content-Type'] = 'application/json;charset=UTF-8';
+  }
 
   try {
     options.body = JSON.stringify(data);
