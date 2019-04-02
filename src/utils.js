@@ -305,19 +305,19 @@ export function post(oriUrl, oriParams = {}, isExt) {
   const options = optionsMaker('post', {}, isExt);
   // 判断当工作台post 请求增加header 类型， 门户默认不加类型
   const { defaultDesktop } = getContext();
-  if (defaultDesktop === "workbench") {
+  if (defaultDesktop !== "portal") {
     options.headers['Content-Type'] = 'application/json;charset=UTF-8';
   }
 
   try {
-    if (defaultDesktop === "workbench") {
-      options.body = JSON.stringify(data);
-    } else if (defaultDesktop === "portal") {
+    if (defaultDesktop === "portal") {
       let reset = '';
       for (let it in data) {
         reset += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
       }
       options.body = reset;
+    } else {
+      options.body = JSON.stringify(data);
     }
   } catch (e) {
     return Promise.reject(e);

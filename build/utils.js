@@ -384,19 +384,19 @@ function post(oriUrl) {
   var _getContext3 = getContext(),
       defaultDesktop = _getContext3.defaultDesktop;
 
-  if (defaultDesktop === "workbench") {
+  if (defaultDesktop !== "portal") {
     options.headers['Content-Type'] = 'application/json;charset=UTF-8';
   }
 
   try {
-    if (defaultDesktop === "workbench") {
-      options.body = JSON.stringify(data);
-    } else if (defaultDesktop === "portal") {
+    if (defaultDesktop === "portal") {
       var reset = '';
       for (var it in data) {
         reset += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
       }
       options.body = reset;
+    } else {
+      options.body = JSON.stringify(data);
     }
   } catch (e) {
     return Promise.reject(e);
