@@ -276,14 +276,11 @@ const fetchTools = {
     } else if (url.indexOf('http') !== 0) {
       const { defaultDesktop } = getContext();
       // 当前如果是友空间， 则固定url   workbench.yyuap.com +
-      url = defaultDesktop === "portal" ? `${getHost('workbench')}${url}` : `${getHost()}${url}`;
+      url = defaultDesktop === "portal" && window.location.port !== "3000" ? `${getHost('workbench')}${url}` : `${getHost()}${url}`;
     }
     return url;
   },
 };
-
-
-
 
 export function post(oriUrl, oriParams = {}, isExt) {
   const {
@@ -365,8 +362,6 @@ export function get(oriUrl, oriParams = {}, withEc) {
       objData[curr[0]] = curr[1];
     }
     return jsonp({ url, data: objData });
-    return false;
-
   }
   if (data) {
     url = `${url}?${data}`;
