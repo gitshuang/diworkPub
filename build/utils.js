@@ -364,15 +364,13 @@ var fetchTools = {
 function post(oriUrl) {
   var oriParams = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   var isExt = arguments[2];
-  var params = fetchTools.params,
-      fetch = fetchTools.fetch,
+  var fetch = fetchTools.fetch,
       optionsMaker = fetchTools.options,
       url = fetchTools.url;
-  // const data = params(oriParams);
 
   var data = {};
   var index = getLocaleIndex();
-  // TOdo忘记后边判断是为了啥了。 先注释， isExt 当初也是为了多语言， 现在暂时换成 支持
+  // TOdo忘记后边判断是为了啥了。 先注释， isExt 当初也是为了多语言， 现在暂时换成 支持门户
   // if (index > -1 && typeof oriParams === "object" || isExt) {
   if (index > -1) {
     data = _diff(index + 2, oriParams, "get");
@@ -380,24 +378,14 @@ function post(oriUrl) {
     data = oriParams;
   }
   var options = optionsMaker('post', {}, isExt);
-  // 判断当工作台post 请求增加header 类型， 门户默认不加类型
-
-  var _getContext3 = getContext(),
-      defaultDesktop = _getContext3.defaultDesktop,
-      productLine = _getContext3.productLine;
-  // productLine:      defaultDesktop:
-  // diwork,           workbench     ok
-  // diwork            portal        ok
-  // u8c               workbench     ok
-  // undefined         undefined     ok
-  // u8c               portal        no
-
-  if (productLine !== "u8c" || defaultDesktop !== "portal") {
+  // 当不是门户发起的请求， content-type 
+  if (!isExt) {
     options.headers['Content-Type'] = 'application/json;charset=UTF-8';
   }
 
   try {
-    if (defaultDesktop === "portal" && productLine === "u8c") {
+    // 是不是门户发起的请求， body 
+    if (isExt) {
       var reset = '';
       for (var it in data) {
         reset += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
