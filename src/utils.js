@@ -302,9 +302,16 @@ export function post(oriUrl, oriParams = {}, isExt) {
   const options = optionsMaker('post', {}, isExt);
   // 判断当工作台post 请求增加header 类型， 门户默认不加类型
   const { defaultDesktop, productLine } = getContext();
-  if (defaultDesktop !== "portal" && productLine !== "u8c") {
+  // productLine:      defaultDesktop:
+  // diwork,           workbench     ok
+  // diwork            portal        ok
+  // u8c               workbench     ok
+  // undefined         undefined     ok
+  // u8c               portal        no
+
+  if (productLine !== "u8c" || defaultDesktop !== "portal") {
     options.headers['Content-Type'] = 'application/json;charset=UTF-8';
-  }
+  } 
 
   try {
     if (defaultDesktop === "portal" && productLine === "u8c") {

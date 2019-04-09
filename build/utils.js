@@ -385,8 +385,14 @@ function post(oriUrl) {
   var _getContext3 = getContext(),
       defaultDesktop = _getContext3.defaultDesktop,
       productLine = _getContext3.productLine;
+  // productLine:      defaultDesktop:
+  // diwork,           workbench     ok
+  // diwork            portal        ok
+  // u8c               workbench     ok
+  // undefined         undefined     ok
+  // u8c               portal        no
 
-  if (defaultDesktop !== "portal" && productLine !== "u8c") {
+  if (productLine !== "u8c" || defaultDesktop !== "portal") {
     options.headers['Content-Type'] = 'application/json;charset=UTF-8';
   }
 
