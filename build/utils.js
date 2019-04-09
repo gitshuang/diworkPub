@@ -331,11 +331,12 @@ var fetchTools = {
       // 判断当前登录的是portal 则增加header头
     };
     var _getContext = getContext(),
-        defaultDesktop = _getContext.defaultDesktop;
+        defaultDesktop = _getContext.defaultDesktop,
+        productLine = _getContext.productLine;
     // !withEc 主要是为了判断他们自己跨域请求的， 不增加判断是否工作台还是权限， 是因为权限获取不到getContext 
 
 
-    if (defaultDesktop === "portal" && !withEc) {
+    if (defaultDesktop === "portal" && productLine === 'u8c' && !withEc) {
       headers.isPortal = true;
     }
     return _extends({
@@ -382,14 +383,15 @@ function post(oriUrl) {
   // 判断当工作台post 请求增加header 类型， 门户默认不加类型
 
   var _getContext3 = getContext(),
-      defaultDesktop = _getContext3.defaultDesktop;
+      defaultDesktop = _getContext3.defaultDesktop,
+      productLine = _getContext3.productLine;
 
-  if (defaultDesktop !== "portal") {
+  if (defaultDesktop !== "portal" && productLine !== "u8c") {
     options.headers['Content-Type'] = 'application/json;charset=UTF-8';
   }
 
   try {
-    if (defaultDesktop === "portal") {
+    if (defaultDesktop === "portal" && productLine === "u8c") {
       var reset = '';
       for (var it in data) {
         reset += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';

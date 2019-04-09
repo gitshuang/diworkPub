@@ -257,9 +257,9 @@ const fetchTools = {
         'isAjax': 1,
       }
     // 判断当前登录的是portal 则增加header头
-    const { defaultDesktop } = getContext();
+    const { defaultDesktop, productLine } = getContext();
     // !withEc 主要是为了判断他们自己跨域请求的， 不增加判断是否工作台还是权限， 是因为权限获取不到getContext 
-    if (defaultDesktop === "portal" && !withEc) {
+    if (defaultDesktop === "portal" && productLine === 'u8c' && !withEc) {
       headers.isPortal = true;
     }
     return {
@@ -301,13 +301,13 @@ export function post(oriUrl, oriParams = {}, isExt) {
   }
   const options = optionsMaker('post', {}, isExt);
   // 判断当工作台post 请求增加header 类型， 门户默认不加类型
-  const { defaultDesktop } = getContext();
-  if (defaultDesktop !== "portal") {
+  const { defaultDesktop, productLine } = getContext();
+  if (defaultDesktop !== "portal" && productLine !== "u8c") {
     options.headers['Content-Type'] = 'application/json;charset=UTF-8';
   }
 
   try {
-    if (defaultDesktop === "portal") {
+    if (defaultDesktop === "portal" && productLine === "u8c") {
       let reset = '';
       for (let it in data) {
         reset += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
