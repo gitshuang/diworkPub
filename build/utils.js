@@ -10,6 +10,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 exports.post = post;
+exports.deleteRequest = deleteRequest;
 exports.postFileCros = postFileCros;
 exports.get = get;
 exports.mapStateToProps = mapStateToProps;
@@ -22,6 +23,7 @@ exports.browserRedirect = browserRedirect;
 exports.postMessageToWin = postMessageToWin;
 exports.GetQueryString = GetQueryString;
 exports.getNewEvent = getNewEvent;
+exports.equals = equals;
 
 var _reduxActions = require('redux-actions');
 
@@ -148,7 +150,7 @@ var getHost = exports.getHost = function getHost() {
     yzone: {
       production: 'https://ec.diwork.com/portal/home/index',
       development: 'http://web.yyuap.com:91/portal/home/index',
-      daily: 'https://ec-daily.yyuap.com/portal/home/index'
+      daily: 'https://ec-daily.yyuap.com/static/home.html'
     },
     manageTeamEnter: {
       production: 'https://nec.diwork.com/static/home.html#/spaceList/joined?target=pc',
@@ -288,6 +290,7 @@ var fetchTools = {
             if (url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1) {
               return Promise.resolve(result);
             } else if (status && status !== '0' || withEc && result.code === 0) {
+              // withEc && result.code === 0 为了兼容友空间数据返回格式
               // 获取语种索引
               var index = getLocaleIndex();
               // 赋值_data
@@ -329,11 +332,12 @@ var fetchTools = {
       // 判断当前登录的是portal 则增加header头
     };
     var _getContext = getContext(),
-        defaultDesktop = _getContext.defaultDesktop;
+        defaultDesktop = _getContext.defaultDesktop,
+        productLine = _getContext.productLine;
     // !withEc 主要是为了判断他们自己跨域请求的， 不增加判断是否工作台还是权限， 是因为权限获取不到getContext 
 
 
-    if (defaultDesktop === "portal" && !withEc) {
+    if (defaultDesktop === "portal" && productLine === 'u8c' && !withEc) {
       headers.isPortal = true;
     }
     return _extends({
@@ -349,8 +353,10 @@ var fetchTools = {
     } else if (_url.indexOf('http') !== 0) {
       var _getContext2 = getContext(),
           defaultDesktop = _getContext2.defaultDesktop;
+      // 当前如果是友空间， 则固定url   workbench.yyuap.com +
 
-      _url = defaultDesktop === "portal" ? '' + getHost('workbench') + _url : '' + getHost() + _url;
+
+      _url = defaultDesktop === "portal" && window.location.port !== "3000" ? '' + getHost('workbench') + _url : '' + getHost() + _url;
     }
     return _url;
   }
@@ -359,28 +365,61 @@ var fetchTools = {
 function post(oriUrl) {
   var oriParams = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   var isExt = arguments[2];
-  var params = fetchTools.params,
-      fetch = fetchTools.fetch,
+  var fetch = fetchTools.fetch,
       optionsMaker = fetchTools.options,
       url = fetchTools.url;
-  // const data = params(oriParams);
 
   var data = {};
   var index = getLocaleIndex();
-  if (index > -1 && (typeof oriParams === 'undefined' ? 'undefined' : _typeof(oriParams)) === "object" || isExt) {
+  // TOdo忘记后边判断是为了啥了。 先注释， isExt 当初也是为了多语言， 现在暂时换成 支持门户
+  // if (index > -1 && typeof oriParams === "object" || isExt) {
+  if (index > -1) {
     data = _diff(index + 2, oriParams, "get");
   } else {
     data = oriParams;
   }
-  var options = optionsMaker('post');
-  options.headers['Content-Type'] = 'application/json;charset=UTF-8';
+  var options = optionsMaker('post', {}, isExt);
+  // 当不是门户发起的请求， content-type 
+  if (!isExt) {
+    options.headers['Content-Type'] = 'application/json;charset=UTF-8';
+  }
 
   try {
-    options.body = JSON.stringify(data);
+    // 是不是门户发起的请求， body 
+    if (isExt) {
+      var reset = '';
+      for (var it in data) {
+        reset += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
+      }
+      options.body = reset;
+    } else {
+      options.body = JSON.stringify(data);
+    }
   } catch (e) {
     return Promise.reject(e);
   }
-  return fetch(url(oriUrl), options);
+  return fetch(url(oriUrl), options, isExt);
+}
+
+function deleteRequest(oriUrl) {
+  var oriParams = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var fetch = fetchTools.fetch,
+      optionsMaker = fetchTools.options,
+      url = fetchTools.url;
+
+  var options = optionsMaker('delete', {}, true);
+
+  try {
+    // 是不是门户发起的请求， body 
+    var reset = '';
+    for (var it in oriParams) {
+      reset += encodeURIComponent(it) + '=' + encodeURIComponent(oriParams[it]) + '&';
+    }
+    options.body = reset;
+  } catch (e) {
+    return Promise.reject(e);
+  }
+  return fetch(url(oriUrl), options, true);
 }
 
 function postFileCros(oriUrl, file) {
@@ -423,7 +462,6 @@ function get(oriUrl) {
       objData[curr[0]] = curr[1];
     }
     return jsonp({ url: url, data: objData });
-    return false;
   }
   if (data) {
     url = url + '?' + data;
@@ -672,6 +710,32 @@ function getNewEvent(name) {
       bubbles: true
     });
   }
+}
+
+function equals(x, y) {
+  var f1 = x instanceof Object;
+  var f2 = y instanceof Object;
+  if (!f1 || !f2) {
+    return x === y;
+  }
+  if (Object.keys(x).length !== Object.keys(y).length) {
+    return false;
+  }
+  var newX = Object.keys(x);
+  for (var p in newX) {
+    p = newX[p];
+    var a = x[p] instanceof Object;
+    var b = y[p] instanceof Object;
+    if (a && b) {
+      var equal = equals(x[p], y[p]);
+      if (!equal) {
+        return equal;
+      }
+    } else if (x[p] != y[p]) {
+      return false;
+    }
+  }
+  return true;
 }
 
 var _diff = function _diff(_index, _data, type) {

@@ -29,16 +29,16 @@ var _manageGroup2 = _interopRequireDefault(_manageGroup);
 require('./style.css');
 
 var _style = {
-  'page_home': 'page_home__style___1oRdX',
-  'um_content': 'um_content__style___2jNLr',
-  'umBoxJustify': 'umBoxJustify__style___3WS8n',
-  'preserve': 'preserve__style___3iHsh',
-  'batchArea': 'batchArea__style___YigYP',
-  'saveArea': 'saveArea__style___3cmhi',
-  'um_footer': 'um_footer__style___1jTTP',
-  'addBtn': 'addBtn__style___1qo0W',
-  'addGroupBtn': 'addGroupBtn__style___1zW0a',
-  'manager_save_pop': 'manager_save_pop__style___3ojTq'
+  'page_home': 'page_home__style___vsQOe',
+  'um_content': 'um_content__style___3a8jv',
+  'umBoxJustify': 'umBoxJustify__style___2tN2v',
+  'preserve': 'preserve__style___1CXeY',
+  'batchArea': 'batchArea__style___1mhxk',
+  'saveArea': 'saveArea__style___20m3j',
+  'um_footer': 'um_footer__style___3cr-t',
+  'addBtn': 'addBtn__style___3zZN2',
+  'addGroupBtn': 'addGroupBtn__style___3tnOQ',
+  'manager_save_pop': 'manager_save_pop__style___2tUW_'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

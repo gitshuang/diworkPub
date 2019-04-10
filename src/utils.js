@@ -96,7 +96,7 @@ export const getHost = (key = 'api') => {
     yzone: {
       production: 'https://ec.diwork.com/portal/home/index',
       development: 'http://web.yyuap.com:91/portal/home/index',
-      daily: 'https://ec-daily.yyuap.com/portal/home/index',
+      daily: 'https://ec-daily.yyuap.com/static/home.html',
     },
     manageTeamEnter: {
       production: 'https://nec.diwork.com/static/home.html#/spaceList/joined?target=pc',
@@ -220,7 +220,7 @@ const fetchTools = {
             // 获取隔离的接口没有status,data这一项
             if ((url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1)) {
               return Promise.resolve(result);
-            } else if (status && status !== '0' || withEc && result.code === 0) {
+            } else if (status && status !== '0' || withEc && result.code === 0) { // withEc && result.code === 0 为了兼容友空间数据返回格式
               // 获取语种索引
               const index = getLocaleIndex();
               // 赋值_data
@@ -257,9 +257,9 @@ const fetchTools = {
         'isAjax': 1,
       }
     // 判断当前登录的是portal 则增加header头
-    const { defaultDesktop } = getContext();
+    const { defaultDesktop, productLine } = getContext();
     // !withEc 主要是为了判断他们自己跨域请求的， 不增加判断是否工作台还是权限， 是因为权限获取不到getContext 
-    if (defaultDesktop === "portal" && !withEc) {
+    if (defaultDesktop === "portal" && productLine === 'u8c' && !withEc) {
       headers.isPortal = true;
     }
     return {
@@ -275,39 +275,70 @@ const fetchTools = {
       throw new Error('has no url!');
     } else if (url.indexOf('http') !== 0) {
       const { defaultDesktop } = getContext();
-      url = defaultDesktop === "portal" ? `${getHost('workbench')}${url}` : `${getHost()}${url}`;
+      // 当前如果是友空间， 则固定url   workbench.yyuap.com +
+      url = defaultDesktop === "portal" && window.location.port !== "3000" ? `${getHost('workbench')}${url}` : `${getHost()}${url}`;
     }
     return url;
   },
 };
 
-
-
-
 export function post(oriUrl, oriParams = {}, isExt) {
   const {
-    params,
     fetch,
     options: optionsMaker,
     url,
   } = fetchTools;
-  // const data = params(oriParams);
   let data = {};
   const index = getLocaleIndex();
-  if (index > -1 && typeof oriParams === "object" || isExt) {
+  // TOdo忘记后边判断是为了啥了。 先注释， isExt 当初也是为了多语言， 现在暂时换成 支持门户
+  // if (index > -1 && typeof oriParams === "object" || isExt) {
+  if (index > -1) {
     data = _diff(index + 2, oriParams, "get");
   } else {
     data = oriParams;
   }
-  const options = optionsMaker('post');
-  options.headers['Content-Type'] = 'application/json;charset=UTF-8';
+  const options = optionsMaker('post', {}, isExt);
+  // 当不是门户发起的请求， content-type 
+  if (!isExt) {
+    options.headers['Content-Type'] = 'application/json;charset=UTF-8';
+  }
 
   try {
-    options.body = JSON.stringify(data);
+    // 是不是门户发起的请求， body 
+    if (isExt) {
+      let reset = '';
+      for (let it in data) {
+        reset += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+      }
+      options.body = reset;
+    } else {
+      options.body = JSON.stringify(data);
+    }
   } catch (e) {
     return Promise.reject(e);
   }
-  return fetch(url(oriUrl), options);
+  return fetch(url(oriUrl), options, isExt);
+}
+
+export function deleteRequest(oriUrl, oriParams = {}) {
+  const {
+    fetch,
+    options: optionsMaker,
+    url,
+  } = fetchTools;
+  const options = optionsMaker('delete', {}, true);
+
+  try {
+    // 是不是门户发起的请求， body 
+    let reset = '';
+    for (let it in oriParams) {
+      reset += encodeURIComponent(it) + '=' + encodeURIComponent(oriParams[it]) + '&'
+    }
+    options.body = reset;
+  } catch (e) {
+    return Promise.reject(e);
+  }
+  return fetch(url(oriUrl), options, true);
 }
 
 export function postFileCros(oriUrl, file) {
@@ -350,8 +381,6 @@ export function get(oriUrl, oriParams = {}, withEc) {
       objData[curr[0]] = curr[1];
     }
     return jsonp({ url, data: objData });
-    return false;
-
   }
   if (data) {
     url = `${url}?${data}`;
@@ -586,6 +615,32 @@ export function getNewEvent(name) {
       bubbles: true,
     });
   }
+}
+
+export function equals(x, y) {
+  var f1 = x instanceof Object;
+  var f2 = y instanceof Object;
+  if (!f1 || !f2) {
+    return x === y
+  }
+  if (Object.keys(x).length !== Object.keys(y).length) {
+    return false
+  }
+  var newX = Object.keys(x);
+  for (var p in newX) {
+    p = newX[p];
+    var a = x[p] instanceof Object;
+    var b = y[p] instanceof Object;
+    if (a && b) {
+      let equal = equals(x[p], y[p])
+      if (!equal) {
+        return equal
+      }
+    } else if (x[p] != y[p]) {
+      return false;
+    }
+  }
+  return true;
 }
 
 
