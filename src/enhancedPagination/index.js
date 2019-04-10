@@ -82,9 +82,9 @@ const EnhancedPagination = WrappedComponent => {
             maxButtons:5,
             boundaryLinks:true
         }
-        const {onDataNumSelect,dataNumSelect,dataNum, enhancedPaginationText, ...restProps} = this.props
+        const {onDataNumSelect,dataNumSelect,dataNum, enhancedPaginationText,className, ...restProps} = this.props
         return (
-            <div className={enhanced_pagination}>
+            <div className={`${enhanced_pagination} ${className}`}>
                 <WrappedComponent  {...newProps} {...restProps}  className={u_float_pagination}/>
                 <div className={data_per_select}>
                     <select  name="data-select" id="" className={data_select}  value={dataNum===undefined?this.state.dataNum:dataNum} onChange={e=>this.dataNumSelect(e)}>

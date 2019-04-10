@@ -109,11 +109,12 @@ var EnhancedPagination = function EnhancedPagination(WrappedComponent) {
           dataNumSelect = _props.dataNumSelect,
           dataNum = _props.dataNum,
           enhancedPaginationText = _props.enhancedPaginationText,
-          restProps = _objectWithoutProperties(_props, ['onDataNumSelect', 'dataNumSelect', 'dataNum', 'enhancedPaginationText']);
+          className = _props.className,
+          restProps = _objectWithoutProperties(_props, ['onDataNumSelect', 'dataNumSelect', 'dataNum', 'enhancedPaginationText', 'className']);
 
       return _react2["default"].createElement(
         'div',
-        { className: _style.enhanced_pagination },
+        { className: _style.enhanced_pagination + ' ' + className },
         _react2["default"].createElement(WrappedComponent, _extends({}, newProps, restProps, { className: _style.u_float_pagination })),
         _react2["default"].createElement(
           'div',
