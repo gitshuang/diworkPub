@@ -320,6 +320,27 @@ export function post(oriUrl, oriParams = {}, isExt) {
   return fetch(url(oriUrl), options, isExt);
 }
 
+export function deleteRequest(oriUrl, oriParams = {}) {
+  const {
+    fetch,
+    options: optionsMaker,
+    url,
+  } = fetchTools;
+  const options = optionsMaker('delete', {}, true);
+
+  try {
+    // 是不是门户发起的请求， body 
+    let reset = '';
+    for (let it in oriParams) {
+      reset += encodeURIComponent(it) + '=' + encodeURIComponent(oriParams[it]) + '&'
+    }
+    options.body = reset;
+  } catch (e) {
+    return Promise.reject(e);
+  }
+  return fetch(url(oriUrl), options, true);
+}
+
 export function postFileCros(oriUrl, file) {
   const {
     params,

@@ -10,6 +10,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 exports.post = post;
+exports.deleteRequest = deleteRequest;
 exports.postFileCros = postFileCros;
 exports.get = get;
 exports.mapStateToProps = mapStateToProps;
@@ -398,6 +399,27 @@ function post(oriUrl) {
     return Promise.reject(e);
   }
   return fetch(url(oriUrl), options, isExt);
+}
+
+function deleteRequest(oriUrl) {
+  var oriParams = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var fetch = fetchTools.fetch,
+      optionsMaker = fetchTools.options,
+      url = fetchTools.url;
+
+  var options = optionsMaker('delete', {}, true);
+
+  try {
+    // 是不是门户发起的请求， body 
+    var reset = '';
+    for (var it in oriParams) {
+      reset += encodeURIComponent(it) + '=' + encodeURIComponent(oriParams[it]) + '&';
+    }
+    options.body = reset;
+  } catch (e) {
+    return Promise.reject(e);
+  }
+  return fetch(url(oriUrl), options, true);
 }
 
 function postFileCros(oriUrl, file) {
