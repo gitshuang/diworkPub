@@ -150,7 +150,7 @@ var getHost = exports.getHost = function getHost() {
     yzone: {
       production: 'https://ec.diwork.com/portal/home/index',
       development: 'http://web.yyuap.com:91/portal/home/index',
-      daily: 'https://ec-daily.yyuap.com/static/home.html'
+      daily: 'https://ec-daily.yyuap.com/portal/home.html'
     },
     manageTeamEnter: {
       production: 'https://nec.diwork.com/static/home.html#/spaceList/joined?target=pc',
