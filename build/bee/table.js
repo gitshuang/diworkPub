@@ -25,6 +25,8 @@ Object.defineProperty(exports, 'default', {
 
 require('bee-table/build/Table.css');
 
+require('./table.css');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 module.exports = exports['default'];
