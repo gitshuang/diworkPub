@@ -197,7 +197,12 @@ class EnterContent extends Component {
   }
 
   successLoading = () => {
+    const {  _from, switchSpace } = this.props;
     const { tenantId } = this.state;
+    if(_from === "create"){
+      switchSpace(tenantId);
+      return false;
+    }
     window.location.href = `/?tenantId=${tenantId}&switch=true`;
   }
 

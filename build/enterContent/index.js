@@ -169,8 +169,15 @@ var EnterContent = (_temp = _class = function (_Component) {
     };
 
     _this2.successLoading = function () {
+      var _this2$props2 = _this2.props,
+          _from = _this2$props2._from,
+          switchSpace = _this2$props2.switchSpace;
       var tenantId = _this2.state.tenantId;
 
+      if (_from === "create") {
+        switchSpace(tenantId);
+        return false;
+      }
       window.location.href = '/?tenantId=' + tenantId + '&switch=true';
     };
 

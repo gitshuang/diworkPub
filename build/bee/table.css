@@ -1,45 +1,46 @@
-/*  imported from table.css  */
-.u-table .u-table-content {
+/* imported from table.css */
+
+.u-table__table___31lCW .u-table-content__table___1_FQD {
   border: none;
   border-top: 1px solid #505766;
 }
-.u-table .u-table-thead th {
+.u-table__table___31lCW .u-table-thead__table___14cbC th {
   padding: 9px 8px 8px 20px;
   background-color: #F7F9FD;
   font-size: 12px;
   line-height: 17px;
   color: #333333;
 }
-.u-table .u-table-tbody tr {
+.u-table__table___31lCW .u-table-tbody__table___O4B6l tr {
   background-color: #FFFFFF;
 }
-.u-table .u-table-tbody tr:hover {
+.u-table__table___31lCW .u-table-tbody__table___O4B6l tr:hover {
   background-color: #F7F9FD!important;
 }
-.u-table .u-table-tbody tr.selected {
+.u-table__table___31lCW .u-table-tbody__table___O4B6l tr.selected__table___1RUGs {
   background-color: #FFF7E7!important;
 }
 
-.u-table .u-table-tbody td {
+.u-table__table___31lCW .u-table-tbody__table___O4B6l td {
   padding: 7px 8px 7px 20px;
   font-size: 12px;
   line-height: 26px;
   color: #333333;
 }
 /*action-btn*/
-.u-table .u-table-tbody .action-btns-container {
+.u-table__table___31lCW .u-table-tbody__table___O4B6l .action-btns-container__table___KiLrj {
   display: block;
 }
-.u-table .u-table-tbody .action-btns-container:before{
+.u-table__table___31lCW .u-table-tbody__table___O4B6l .action-btns-container__table___KiLrj:before{
   display: table;
   content:'';
 }
-.u-table .u-table-tbody .action-btns-container:after {
+.u-table__table___31lCW .u-table-tbody__table___O4B6l .action-btns-container__table___KiLrj:after {
   display: table;
   content: '';
   clear: both;
 }
-.u-table .u-table-tbody .action-btns-container .action-btn {
+.u-table__table___31lCW .u-table-tbody__table___O4B6l .action-btns-container__table___KiLrj .action-btn__table___2bTc_ {
   float: left;
   height: 26px;
   line-height: 26px;
@@ -51,6 +52,6 @@
   margin-right: 12px;
   visibility: hidden;
 }
-.u-table .u-table-tbody tr:hover .action-btns-container .action-btn {
+.u-table__table___31lCW .u-table-tbody__table___O4B6l tr:hover .action-btns-container__table___KiLrj .action-btn__table___2bTc_ {
   visibility: visible;
 }
