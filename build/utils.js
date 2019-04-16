@@ -125,7 +125,7 @@ var logout = exports.logout = function logout() {
   var _window = window,
       origin = _window.location.origin;
 
-  window.location.href = '/logout?service=' + encodeURIComponent((origin ? origin : '') + '/');
+  window.location.href = origin + ('/logout?service=' + encodeURIComponent((origin ? origin : '') + '/'));
 };
 
 var getHost = exports.getHost = function getHost() {

@@ -73,7 +73,7 @@ export const logout = () => {
       origin
     }
   } = window;
-  window.location.href = `/logout?service=${encodeURIComponent(`${origin ? origin : ''}/`)}`;
+  window.location.href = origin + `/logout?service=${encodeURIComponent(`${origin ? origin : ''}/`)}`;
 }
 
 export const getHost = (key = 'api') => {
