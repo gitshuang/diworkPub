@@ -67,14 +67,23 @@ export const createActions = (namespaceObj, ...args) => {
   }
 }
 
-export const logoutworkbench = () => {
-  const {
-    location: {
-      origin
-    }
-  } = window;
-  window.location.href = `/logout?service=${encodeURIComponent(`${origin ? origin : ''}/`)}`;
+export const logout = () => {
+  const { defaultDesktop } = getContext();
+  if (defaultDesktop === "portal") {
+    const ajaxUrl = `${getHost('u8cportal')}/user/logOut?v=1.0`;
+    deleteRequest(ajaxUrl).then(( payload ) => {
+      window.location = payload.url;
+    });
+  } else {
+    const {
+      location: {
+        origin
+      }
+    } = window;
+    window.location.href = `/logout?service=${encodeURIComponent(`${origin ? origin : ''}/`)}`;
+  }
 }
+
 
 export const getHost = (key = 'api') => {
   const hosts = {
@@ -97,6 +106,11 @@ export const getHost = (key = 'api') => {
       production: 'https://ec.diwork.com/portal/home/index',
       development: 'http://web.yyuap.com:91/portal/home/index',
       daily: 'https://ec-daily.yyuap.com/portal/home/index',
+    },
+    u8cportal: {
+      production: 'https://dwweb-api.diwork.com',
+      development: 'http://dwweb.api.yyuap.com:6062',
+      daily: 'https://dwweb-api.yyuap.com',
     },
     manageTeamEnter: {
       production: 'https://nec.diwork.com/static/home.html#/spaceList/joined?target=pc',

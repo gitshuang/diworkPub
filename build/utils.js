@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.IS_IE = exports.getHost = exports.logoutworkbench = exports.createActions = exports.createTypes = exports.mergeReducers = exports.noop = undefined;
+exports.IS_IE = exports.getHost = exports.logout = exports.createActions = exports.createTypes = exports.mergeReducers = exports.noop = undefined;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -121,11 +121,21 @@ var createActions = exports.createActions = function createActions(namespaceObj)
   }
 };
 
-var logoutworkbench = exports.logoutworkbench = function logoutworkbench() {
-  var _window = window,
-      origin = _window.location.origin;
+var logout = exports.logout = function logout() {
+  var _getContext = getContext(),
+      defaultDesktop = _getContext.defaultDesktop;
 
-  window.location.href = '/logout?service=' + encodeURIComponent((origin ? origin : '') + '/');
+  if (defaultDesktop === "portal") {
+    var ajaxUrl = getHost('u8cportal') + '/user/logOut?v=1.0';
+    deleteRequest(ajaxUrl).then(function (payload) {
+      window.location = payload.url;
+    });
+  } else {
+    var _window = window,
+        origin = _window.location.origin;
+
+    window.location.href = '/logout?service=' + encodeURIComponent((origin ? origin : '') + '/');
+  }
 };
 
 var getHost = exports.getHost = function getHost() {
@@ -151,6 +161,11 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://ec.diwork.com/portal/home/index',
       development: 'http://web.yyuap.com:91/portal/home/index',
       daily: 'https://ec-daily.yyuap.com/portal/home/index'
+    },
+    u8cportal: {
+      production: 'https://dwweb-api.diwork.com',
+      development: 'http://dwweb.api.yyuap.com:6062',
+      daily: 'https://dwweb-api.yyuap.com'
     },
     manageTeamEnter: {
       production: 'https://nec.diwork.com/static/home.html#/spaceList/joined?target=pc',
@@ -331,9 +346,9 @@ var fetchTools = {
       'isAjax': 1
       // 判断当前登录的是portal 则增加header头
     };
-    var _getContext = getContext(),
-        defaultDesktop = _getContext.defaultDesktop,
-        productLine = _getContext.productLine;
+    var _getContext2 = getContext(),
+        defaultDesktop = _getContext2.defaultDesktop,
+        productLine = _getContext2.productLine;
     // !withEc 主要是为了判断他们自己跨域请求的， 不增加判断是否工作台还是权限， 是因为权限获取不到getContext 
 
 
@@ -351,8 +366,8 @@ var fetchTools = {
     if (!_url) {
       throw new Error('has no url!');
     } else if (_url.indexOf('http') !== 0) {
-      var _getContext2 = getContext(),
-          defaultDesktop = _getContext2.defaultDesktop;
+      var _getContext3 = getContext(),
+          defaultDesktop = _getContext3.defaultDesktop;
       // 当前如果是友空间， 则固定url   workbench.yyuap.com +
 
 
