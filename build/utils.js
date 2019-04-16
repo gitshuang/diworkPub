@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.IS_IE = exports.getHost = exports.logout = exports.createActions = exports.createTypes = exports.mergeReducers = exports.noop = undefined;
+exports.IS_IE = exports.getHost = exports.logoutworkbench = exports.createActions = exports.createTypes = exports.mergeReducers = exports.noop = undefined;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -121,11 +121,11 @@ var createActions = exports.createActions = function createActions(namespaceObj)
   }
 };
 
-var logout = exports.logout = function logout() {
+var logoutworkbench = exports.logoutworkbench = function logoutworkbench() {
   var _window = window,
       origin = _window.location.origin;
 
-  window.location.href = origin + ('/logout?service=' + encodeURIComponent((origin ? origin : '') + '/'));
+  window.location.href = '/logout?service=' + encodeURIComponent((origin ? origin : '') + '/');
 };
 
 var getHost = exports.getHost = function getHost() {

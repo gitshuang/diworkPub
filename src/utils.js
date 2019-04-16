@@ -67,13 +67,13 @@ export const createActions = (namespaceObj, ...args) => {
   }
 }
 
-export const logout = () => {
+export const logoutworkbench = () => {
   const {
     location: {
       origin
     }
   } = window;
-  window.location.href = origin + `/logout?service=${encodeURIComponent(`${origin ? origin : ''}/`)}`;
+  window.location.href = `/logout?service=${encodeURIComponent(`${origin ? origin : ''}/`)}`;
 }
 
 export const getHost = (key = 'api') => {
