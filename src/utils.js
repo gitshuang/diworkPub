@@ -72,7 +72,7 @@ export const logout = () => {
   if (defaultDesktop === "portal") {
     const ajaxUrl = `${getHost('u8cportal')}/user/logOut?v=1.0`;
     deleteRequest(ajaxUrl).then(( payload ) => {
-      window.location = payload.url;
+      window.location.href = payload.url;
     });
   } else {
     const {
