@@ -1,13 +1,17 @@
 import { createActions as createReduxActions } from 'redux-actions';
-import ReactDOM from 'react-dom';
 
 export const noop = () => { };
 
 const getLocaleIndex = () => {
-  const pathname = window.location.pathname;
+  // const pathname = window.location.pathname;
   const lanArr = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"];
-
-  if (pathname.length > 1) {
+  const { locale } = getContext();
+  if (locale) {
+    const index = lanArr.findIndex(value => {
+      return value === locale;
+    });
+    return index;
+  } else {
     return window.jDiwork && window.jDiwork.getContext((data) => {
       const currLocal = data.locale;
       const index = lanArr.findIndex(value => {
@@ -15,12 +19,6 @@ const getLocaleIndex = () => {
       });
       return index;
     });
-  } else {
-    const currLocal = getContext().locale;
-    const index = lanArr.findIndex(value => {
-      return value === currLocal;
-    });
-    return index;
   }
 }
 
@@ -72,7 +70,7 @@ export const logout = () => {
   if (defaultDesktop === "portal") {
     const ajaxUrl = `${getHost('u8cportal')}/user/logOut?v=1.0`;
     console.log(ajaxUrl);
-    deleteRequest(ajaxUrl).then(( payload ) => {
+    deleteRequest(ajaxUrl).then((payload) => {
       console.log(payload)
       window.location.href = payload.url;
     }, (err) => {
@@ -238,7 +236,7 @@ const fetchTools = {
             // 获取隔离的接口没有status,data这一项
             if ((url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1)) {
               return Promise.resolve(result);
-            // } else if (status && status !== '0' || withEc && (result.code === 0 || result.code ===100010001 || result.code === 8000030001)) { 
+              // } else if (status && status !== '0' || withEc && (result.code === 0 || result.code ===100010001 || result.code === 8000030001)) { 
             } else if (status && status !== '0' || withEc && result.code === 0) { // withEc && result.code === 0 为了兼容友空间数据返回格式
               // 获取语种索引
               const index = getLocaleIndex();

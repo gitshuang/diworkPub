@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -25,13 +25,7 @@ exports.GetQueryString = GetQueryString;
 exports.getNewEvent = getNewEvent;
 exports.equals = equals;
 
-var _reduxActions = require('redux-actions');
-
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+var _reduxActions = require("redux-actions");
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
@@ -40,10 +34,18 @@ function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
 var noop = exports.noop = function noop() {};
 
 var getLocaleIndex = function getLocaleIndex() {
-  var pathname = window.location.pathname;
+  // const pathname = window.location.pathname;
   var lanArr = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"];
 
-  if (pathname.length > 1) {
+  var _getContext = getContext(),
+      locale = _getContext.locale;
+
+  if (locale) {
+    var index = lanArr.findIndex(function (value) {
+      return value === locale;
+    });
+    return index;
+  } else {
     return window.jDiwork && window.jDiwork.getContext(function (data) {
       var currLocal = data.locale;
       var index = lanArr.findIndex(function (value) {
@@ -51,12 +53,6 @@ var getLocaleIndex = function getLocaleIndex() {
       });
       return index;
     });
-  } else {
-    var currLocal = getContext().locale;
-    var index = lanArr.findIndex(function (value) {
-      return value === currLocal;
-    });
-    return index;
   }
 };
 
@@ -89,7 +85,7 @@ var createActions = exports.createActions = function createActions(namespaceObj)
   }
 
   var namespace = [];
-  if ((typeof namespaceObj === 'undefined' ? 'undefined' : _typeof(namespaceObj)) === 'object' && namespaceObj.namespace) {
+  if ((typeof namespaceObj === "undefined" ? "undefined" : _typeof(namespaceObj)) === 'object' && namespaceObj.namespace) {
     var _args = args,
         _args2 = _toArray(_args),
         actionMap = _args2[0],
@@ -102,7 +98,7 @@ var createActions = exports.createActions = function createActions(namespaceObj)
       obj[name] = {};
       return obj[name];
     }, result);
-    if ((typeof actionMap === 'undefined' ? 'undefined' : _typeof(actionMap)) === 'object') {
+    if ((typeof actionMap === "undefined" ? "undefined" : _typeof(actionMap)) === 'object') {
       _extends(space, actionMap);
     } else {
       identityActions = [actionMap].concat(identityActions);
@@ -122,11 +118,11 @@ var createActions = exports.createActions = function createActions(namespaceObj)
 };
 
 var logout = exports.logout = function logout() {
-  var _getContext = getContext(),
-      defaultDesktop = _getContext.defaultDesktop;
+  var _getContext2 = getContext(),
+      defaultDesktop = _getContext2.defaultDesktop;
 
   if (defaultDesktop === "portal") {
-    var ajaxUrl = getHost('u8cportal') + '/user/logOut?v=1.0';
+    var ajaxUrl = getHost('u8cportal') + "/user/logOut?v=1.0";
     console.log(ajaxUrl);
     deleteRequest(ajaxUrl).then(function (payload) {
       console.log(payload);
@@ -138,7 +134,7 @@ var logout = exports.logout = function logout() {
     var _window = window,
         origin = _window.location.origin;
 
-    window.location.href = '/logout?service=' + encodeURIComponent((origin ? origin : '') + '/');
+    window.location.href = "/logout?service=" + encodeURIComponent((origin ? origin : '') + "/");
   }
 };
 
@@ -257,7 +253,7 @@ var fetchTools = {
     try {
       return Object.keys(_params).map(function (key) {
         var param = _params[key];
-        switch (typeof param === 'undefined' ? 'undefined' : _typeof(param)) {
+        switch (typeof param === "undefined" ? "undefined" : _typeof(param)) {
           case 'object':
             param = escape(JSON.stringify(param));
             break;
@@ -267,7 +263,7 @@ var fetchTools = {
           default:
             break;
         }
-        return key + '=' + param;
+        return key + "=" + param;
       }).join('&');
     } catch (e) {
       console.log('error in urlParams');
@@ -314,7 +310,7 @@ var fetchTools = {
               // 获取语种索引
               var index = getLocaleIndex();
               // 赋值_data
-              if (index > -1 && (typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object") {
+              if (index > -1 && (typeof data === "undefined" ? "undefined" : _typeof(data)) === "object") {
                 _data = _diff(index + 2, data, "set");
               } else {
                 _data = data;
@@ -351,9 +347,9 @@ var fetchTools = {
       'isAjax': 1
       // 判断当前登录的是portal 则增加header头
     };
-    var _getContext2 = getContext(),
-        defaultDesktop = _getContext2.defaultDesktop,
-        productLine = _getContext2.productLine;
+    var _getContext3 = getContext(),
+        defaultDesktop = _getContext3.defaultDesktop,
+        productLine = _getContext3.productLine;
     // !withEc 主要是为了判断他们自己跨域请求的， 不增加判断是否工作台还是权限， 是因为权限获取不到getContext 
 
 
@@ -371,12 +367,12 @@ var fetchTools = {
     if (!_url) {
       throw new Error('has no url!');
     } else if (_url.indexOf('http') !== 0) {
-      var _getContext3 = getContext(),
-          defaultDesktop = _getContext3.defaultDesktop;
+      var _getContext4 = getContext(),
+          defaultDesktop = _getContext4.defaultDesktop;
       // 当前如果是友空间， 则固定url   workbench.yyuap.com +
 
 
-      _url = defaultDesktop === "portal" && window.location.port !== "3000" ? '' + getHost('workbench') + _url : '' + getHost() + _url;
+      _url = defaultDesktop === "portal" && window.location.port !== "3000" ? "" + getHost('workbench') + _url : "" + getHost() + _url;
     }
     return _url;
   }
@@ -484,7 +480,7 @@ function get(oriUrl) {
     return jsonp({ url: url, data: objData });
   }
   if (data) {
-    url = url + '?' + data;
+    url = url + "?" + data;
   }
   var fh = url.indexOf("?") == -1 ? "?" : "&";
   url += fh + "tm=" + new Date().getTime();
@@ -493,7 +489,7 @@ function get(oriUrl) {
 
 function jsonp(options) {
   return new Promise(function (resolve, reject) {
-    var callbackID = 'jsonp_' + Date.now(),
+    var callbackID = "jsonp_" + Date.now(),
         container = document.getElementsByTagName('head')[0],
         scriptNode = document.createElement("script"),
         data = options.data || {},
@@ -554,7 +550,7 @@ function mapStateToProps() {
       return keys.reduce(function (obj, key) {
         if (typeof key === 'string') {
           obj[key] = state[key];
-        } else if ((typeof key === 'undefined' ? 'undefined' : _typeof(key)) === 'object' && typeof key.key === 'string' && typeof key.value === 'function') {
+        } else if ((typeof key === "undefined" ? "undefined" : _typeof(key)) === 'object' && typeof key.key === 'string' && typeof key.value === 'function') {
           obj[key.key] = key.value(state, ownProps, rootState);
         }
         return obj;
@@ -571,7 +567,7 @@ function guid() {
   function S4() {
     return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
   }
-  return 'LS-' + (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
+  return "LS-" + (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
 }
 
 function findPath(datas, childrenKey, compareKey, compareValue) {
@@ -608,7 +604,7 @@ function findPath(datas, childrenKey, compareKey, compareValue) {
 }
 
 function avoidSameName(namaArr, name) {
-  var reg = new RegExp('^' + name + '(\\((\\d+)\\)){0,1}$');
+  var reg = new RegExp("^" + name + "(\\((\\d+)\\)){0,1}$");
   var num = 0;
   namaArr.forEach(function (item) {
     if (reg.test(item)) {
@@ -624,7 +620,7 @@ function avoidSameName(namaArr, name) {
     }
   });
   if (num) {
-    return name + '(' + num + ')';
+    return name + "(" + num + ")";
   } else {
     return name;
   }
@@ -645,7 +641,7 @@ function getContext() {
 function getStrLenSubstr(str, zh_len, cn_len, sl) {
   if (!str) return "";
   var newStr = "";
-  var reg = new RegExp('[\\u4E00-\\u9FFF]+', "g");
+  var reg = new RegExp("[\\u4E00-\\u9FFF]+", "g");
   if (reg.test(str)) {
     if (str.length == zh_len) {
       newStr = str;
@@ -761,13 +757,13 @@ function equals(x, y) {
 var _diff = function _diff(_index, _data, type) {
   var data = JSON.parse(JSON.stringify(_data));
   var loop = function loop(data) {
-    if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object" && Array.isArray(data) && data.length) {
+    if ((typeof data === "undefined" ? "undefined" : _typeof(data)) === "object" && Array.isArray(data) && data.length) {
       data.forEach(function (item) {
-        if ((typeof item === 'undefined' ? 'undefined' : _typeof(item)) === "object" && (item.length !== 0 || Object.keys(item).length)) {
+        if ((typeof item === "undefined" ? "undefined" : _typeof(item)) === "object" && (item.length !== 0 || Object.keys(item).length)) {
           loop(item);
         }
       });
-    } else if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === "object" && Object.keys(data).length) {
+    } else if ((typeof data === "undefined" ? "undefined" : _typeof(data)) === "object" && Object.keys(data).length) {
       // 获取 JSON VALUE  数组   [a,a1,b,c]
       var dataKeys = Object.keys(data);
       dataKeys.forEach(function (item, index) {
@@ -803,7 +799,7 @@ var _diff = function _diff(_index, _data, type) {
         }
         var currData = data[item];
         if (!currData) return;
-        if ((typeof currData === 'undefined' ? 'undefined' : _typeof(currData)) === "object" && (currData.length !== 0 || Object.keys(currData).length)) {
+        if ((typeof currData === "undefined" ? "undefined" : _typeof(currData)) === "object" && (currData.length !== 0 || Object.keys(currData).length)) {
           loop(currData);
         }
       });
