@@ -199,7 +199,7 @@ class EnterContent extends Component {
   successLoading = () => {
     const {  _from, switchSpace } = this.props;
     const { tenantId } = this.state;
-    if(_from === "create"){
+    if(_from === "create" && switchSpace){
       switchSpace(tenantId);
       return false;
     }

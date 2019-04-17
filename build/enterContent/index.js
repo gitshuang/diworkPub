@@ -174,7 +174,7 @@ var EnterContent = (_temp = _class = function (_Component) {
           switchSpace = _this2$props2.switchSpace;
       var tenantId = _this2.state.tenantId;
 
-      if (_from === "create") {
+      if (_from === "create" && switchSpace) {
         switchSpace(tenantId);
         return false;
       }
