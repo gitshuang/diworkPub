@@ -353,7 +353,7 @@ var fetchTools = {
     // !withEc 主要是为了判断他们自己跨域请求的， 不增加判断是否工作台还是权限， 是因为权限获取不到getContext 
 
 
-    if (defaultDesktop === "portal" && productLine === 'u8c' && !withEc) {
+    if (defaultDesktop === "portal" && !withEc) {
       headers.isPortal = true;
     }
     return _extends({
