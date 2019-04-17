@@ -128,7 +128,11 @@ var logout = exports.logout = function logout() {
   if (defaultDesktop === "portal") {
     var ajaxUrl = getHost('u8cportal') + '/user/logOut?v=1.0';
     deleteRequest(ajaxUrl).then(function (payload) {
+      debugger;
+      console.log(payload);
       window.location.href = payload.url;
+    }, function (err) {
+      console.log(err);
     });
   } else {
     var _window = window,
