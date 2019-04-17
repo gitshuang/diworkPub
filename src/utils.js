@@ -71,8 +71,8 @@ export const logout = () => {
   const { defaultDesktop } = getContext();
   if (defaultDesktop === "portal") {
     const ajaxUrl = `${getHost('u8cportal')}/user/logOut?v=1.0`;
+    console.log(ajaxUrl);
     deleteRequest(ajaxUrl).then(( payload ) => {
-      debugger;
       console.log(payload)
       window.location.href = payload.url;
     }, (err) => {
@@ -238,7 +238,8 @@ const fetchTools = {
             // 获取隔离的接口没有status,data这一项
             if ((url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1)) {
               return Promise.resolve(result);
-            } else if (status && status !== '0' || withEc && result.code === 0) { // withEc && result.code === 0 为了兼容友空间数据返回格式
+            } else if (status && status !== '0' || withEc && (result.code === 0 || result.code ===100010001)) { 
+            // } else if (status && status !== '0' || withEc && result.code === 0) { // withEc && result.code === 0 为了兼容友空间数据返回格式
               // 获取语种索引
               const index = getLocaleIndex();
               // 赋值_data
