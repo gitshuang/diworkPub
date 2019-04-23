@@ -69,9 +69,7 @@ export const logout = () => {
   const { defaultDesktop } = getContext();
   if (defaultDesktop === "portal") {
     const ajaxUrl = `${getHost('u8cportal')}/user/logOut?v=1.0`;
-    console.log(ajaxUrl);
     deleteRequest(ajaxUrl).then((payload) => {
-      console.log(payload)
       window.location.href = payload.url;
     }, (err) => {
       console.log(err);
@@ -274,7 +272,7 @@ const fetchTools = {
         'isAjax': 1,
       }
     // 判断当前登录的是portal 则增加header头
-    const { defaultDesktop, productLine } = getContext();
+    const { defaultDesktop } = getContext();
     // !withEc 主要是为了判断他们自己跨域请求的， 不增加判断是否工作台还是权限， 是因为权限获取不到getContext 
     if (defaultDesktop === "portal" && !withEc) {
       headers.isPortal = true;

@@ -123,9 +123,7 @@ var logout = exports.logout = function logout() {
 
   if (defaultDesktop === "portal") {
     var ajaxUrl = getHost('u8cportal') + "/user/logOut?v=1.0";
-    console.log(ajaxUrl);
     deleteRequest(ajaxUrl).then(function (payload) {
-      console.log(payload);
       window.location.href = payload.url;
     }, function (err) {
       console.log(err);
@@ -348,8 +346,7 @@ var fetchTools = {
       // 判断当前登录的是portal 则增加header头
     };
     var _getContext3 = getContext(),
-        defaultDesktop = _getContext3.defaultDesktop,
-        productLine = _getContext3.productLine;
+        defaultDesktop = _getContext3.defaultDesktop;
     // !withEc 主要是为了判断他们自己跨域请求的， 不增加判断是否工作台还是权限， 是因为权限获取不到getContext 
 
 
