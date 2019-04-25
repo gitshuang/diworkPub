@@ -57,15 +57,15 @@ var _button2 = _interopRequireDefault(_button);
 require('./style.css');
 
 var _style = {
-  'enterForm': 'enterForm__style___3rLaN',
-  'upload': 'upload__style___1zxuY',
-  'country': 'country__style___3E-Os',
-  'tel': 'tel__style___2OXF9',
-  'code': 'code__style___1L3cM',
-  'line': 'line__style___1rbXZ',
-  'infoTitle': 'infoTitle__style___15dG2',
-  'progressBar': 'progressBar__style___kjcre',
-  'inputPhone': 'inputPhone__style___1hlKj'
+  'enterForm': 'enterForm__style___1xirt',
+  'upload': 'upload__style___2sCEg',
+  'country': 'country__style___1_O_R',
+  'tel': 'tel__style___1UMKa',
+  'code': 'code__style___1KAx2',
+  'line': 'line__style___28K_Q',
+  'infoTitle': 'infoTitle__style___1OVxL',
+  'progressBar': 'progressBar__style___qLuEs',
+  'inputPhone': 'inputPhone__style___2wjuf'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
