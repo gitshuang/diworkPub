@@ -126,6 +126,13 @@ export const getHost = (key = 'api') => {
       daily: 'https://ec-daily.yyuap.com/static/home.html#/spaceList/joined?target=pc',
       combine: 'https://ec-u8c-daily.yyuap.com/static/home.html#/spaceList/joined?target=pc'
     },
+    // 帐号 登录
+    login: {
+      production: 'https://euc.diwork.com',
+      development: 'https://idtest.yyuap.com',
+      daily: "https://sso-daily.yyuap.com",
+      combine: "https://u8c-sso-daily.yyuap.com",
+    },
     // 帐号 友互通
     euc: {
       production: 'https://euc.diwork.com',
@@ -146,32 +153,6 @@ export const getHost = (key = 'api') => {
       development: 'https://uastest.yyuap.com/market/index#/shopping/orderlist',
       daily: 'https://market-daily.yyuap.com/market/index#/shopping/orderlist',
       combine: 'https://market-daily.yyuap.com/market/index#/shopping/orderlist'
-    },
-    // 工单和用友云官网  u8c没有  2
-    order: {
-      production: 'https://ticket.yonyoucloud.com',
-      development: 'https://ticket.yonyoucloud.com',
-      daily: 'https://ticket.yonyoucloud.com',
-      combine: 'https://ticket.yonyoucloud.com',
-    },
-    // 工单和用友云官网 u8c没有  2
-    cloundyy: {
-      production: 'https://www.yonyoucloud.com',
-      development: 'https://cloudtest.yyuap.com',
-      daily: 'https://www.yonyoucloud.com',
-      combine: 'https://www.yonyoucloud.com',
-    },
-    // 参照
-    ref: {
-      production: 'https://ms.diwork.com',
-      development: 'http://workbench.yyuap.com',
-      daily: 'https://ms-daily.yyuap.com',
-    },
-    // 参照组织
-    org: {
-      production: 'https://cdn.yonyoucloud.com/pro/diwork',
-      development: 'http://workbenchdev.yyuap.com/fe',
-      daily: 'https://cdn.yonyoucloud.com/pro/diwork',
     },
     // 上传
     upload: {
@@ -214,7 +195,33 @@ export const getHost = (key = 'api') => {
       development: 'http://172.20.9.47:8000/ticket/query',
       daily: 'http://ticket.app.yyuap.com/ticket/query',
       combine: 'http://ticket.app.yyuap.com/ticket/query',
-    }
+    },
+    // 工单和用友云官网  u8c没有  2
+    order: {
+      production: 'https://ticket.yonyoucloud.com',
+      development: 'https://ticket.yonyoucloud.com',
+      daily: 'https://ticket.yonyoucloud.com',
+      combine: 'https://ticket.yonyoucloud.com',
+    },
+    // 工单和用友云官网 u8c没有  2
+    cloundyy: {
+      production: 'https://www.yonyoucloud.com',
+      development: 'https://cloudtest.yyuap.com',
+      daily: 'https://www.yonyoucloud.com',
+      combine: 'https://www.yonyoucloud.com',
+    },
+    // 参照
+    ref: {
+      production: 'https://ms.diwork.com',
+      development: 'http://workbench.yyuap.com',
+      daily: 'https://ms-daily.yyuap.com',
+    },
+    // 参照组织
+    org: {
+      production: 'https://cdn.yonyoucloud.com/pro/diwork',
+      development: 'http://workbenchdev.yyuap.com/fe',
+      daily: 'https://cdn.yonyoucloud.com/pro/diwork',
+    },
   };
   return hosts[key][process.env.NODE_ENV];
 };
