@@ -147,17 +147,19 @@ export const getHost = (key = 'api') => {
       daily: 'https://market-daily.yyuap.com/market/index#/shopping/orderlist',
       combine: 'https://market-daily.yyuap.com/market/index#/shopping/orderlist'
     },
-    // 工单和用友云官网  u8c没有
+    // 工单和用友云官网  u8c没有  2
     order: {
       production: 'https://ticket.yonyoucloud.com',
       development: 'https://ticket.yonyoucloud.com',
       daily: 'https://ticket.yonyoucloud.com',
+      combine: 'https://ticket.yonyoucloud.com',
     },
-    // 工单和用友云官网 u8c没有
+    // 工单和用友云官网 u8c没有  2
     cloundyy: {
       production: 'https://www.yonyoucloud.com',
       development: 'https://cloudtest.yyuap.com',
       daily: 'https://www.yonyoucloud.com',
+      combine: 'https://www.yonyoucloud.com',
     },
     // 参照
     ref: {
@@ -190,24 +192,28 @@ export const getHost = (key = 'api') => {
       production: 'https://ec.diwork.com/static/home.html#/myspeech/index?index=0&target=pc',
       development: 'http://web.yyuap.com:91/static/home.html#/myspeech/index?index=0&target=pc',
       daily: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/index?index=0&target=pc',
+      combine: 'https://ec-u8c-daily.yyuap.com/static/home.html#/myspeech/index?index=0&target=pc',
     },
-    // 荣耀
+    // 荣耀    2
     honor: {
       production: '//wsbs.diwork.com/pc/modules/honorZone/ph/index.html',
       development: '//wsbs.app.yyuap.com/pc/modules/honorZone/ph/index.html',
       daily: '//wsbs-daily.yyuap.com/pc/modules/honorZone/ph/index.html',
+      combine: '//wsbs-daily.yyuap.com/pc/modules/honorZone/ph/index.html',
     },
-    // 发荣耀
+    // 发荣耀     2
     sendHonor: {
       production: '//wsbs.diwork.com/pc/modules/honorZone/send/index.html',
       development: '//wsbs.app.yyuap.com/pc/modules/honorZone/send/index.html',
       daily: '//wsbs-daily.yyuap.com/pc/modules/honorZone/send/index.html',
+      combine: '//wsbs-daily.yyuap.com/pc/modules/honorZone/send/index.html',
     },
-    // 工单   - u8c没有
+    // 工单   - u8c没有     2
     ticket: {
       production: 'http://wo.diwork.com/ticket/query',
       development: 'http://172.20.9.47:8000/ticket/query',
       daily: 'http://ticket.app.yyuap.com/ticket/query',
+      combine: 'http://ticket.app.yyuap.com/ticket/query',
     }
   };
   return hosts[key][process.env.NODE_ENV];
