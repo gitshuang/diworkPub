@@ -24,22 +24,22 @@ var _u = require('@u');
 require('./style.css');
 
 var _style = {
-    'add_item': 'add_item__style___1PdZH',
-    'sider_container': 'sider_container__style___2shkw',
-    'toggleBar': 'toggleBar__style___2sBTm',
-    'menuListStyle': 'menuListStyle__style___1Olg4',
-    'card': 'card__style___xZ9YD',
-    'cardLevelFour': 'cardLevelFour__style___Xkhzf',
-    'cardLevelThree': 'cardLevelThree__style___1sbAZ',
-    'list_item': 'list_item__style___3gd8f',
-    'list_item_content': 'list_item_content__style___jhSi9',
-    'unSelect': 'unSelect__style___2Q5VC',
-    'isAddColor': 'isAddColor__style___377J0',
-    'title_name': 'title_name__style___2rK4_',
-    'iconlocation': 'iconlocation__style___2obxk',
-    'triangle_bottom_right': 'triangle_bottom_right__style___2jSJr',
-    'title': 'title__style___2rOJE',
-    'selectServiceArea': 'selectServiceArea__style___2aYgt'
+    'add_item': 'add_item__style___33Wyp',
+    'sider_container': 'sider_container__style___1L4Ic',
+    'toggleBar': 'toggleBar__style___2EItX',
+    'menuListStyle': 'menuListStyle__style___13ktw',
+    'card': 'card__style___3NQiR',
+    'cardLevelFour': 'cardLevelFour__style___XWUVD',
+    'cardLevelThree': 'cardLevelThree__style___2vCJy',
+    'list_item': 'list_item__style___15jnV',
+    'list_item_content': 'list_item_content__style___3oXP9',
+    'unSelect': 'unSelect__style___1lSvW',
+    'isAddColor': 'isAddColor__style___xOtdw',
+    'title_name': 'title_name__style___yIeE9',
+    'iconlocation': 'iconlocation__style___28d9d',
+    'triangle_bottom_right': 'triangle_bottom_right__style___2l_cC',
+    'title': 'title__style___2S1uq',
+    'selectServiceArea': 'selectServiceArea__style___3REIN'
 };
 
 var _actions = require('store/root/manage/actions');

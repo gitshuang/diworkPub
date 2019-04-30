@@ -143,98 +143,120 @@ var getHost = exports.getHost = function getHost() {
     api: {
       production: process.env.HOST || '',
       development: process.env.HOST || '',
-      daily: process.env.HOST || ''
+      daily: process.env.HOST || '',
+      combine: process.env.HOST || ''
     },
     workbench: {
       production: 'https://www.diwork.com',
       development: 'http://workbench.yyuap.com',
-      daily: 'https://workbench-daily.yyuap.com'
+      daily: 'https://workbench-daily.yyuap.com',
+      combine: 'https://u8c-daily.yyuap.com'
     },
     u8c: {
       production: 'https://u8c.diwork.com',
       development: 'http://u8c-test.yyuap.com',
-      daily: 'https://u8c-daily.yyuap.com'
+      daily: 'https://workbench-daily.yyuap.com',
+      combine: 'https://u8c-daily.yyuap.com'
     },
+    // 门户地址
     yzone: {
       production: 'https://ec.diwork.com/portal/home/index',
       development: 'http://web.yyuap.com:91/portal/home/index',
-      daily: 'https://ec-daily.yyuap.com/portal/home/index'
+      daily: 'https://ec-daily.yyuap.com/portal/home/index',
+      combine: 'https://ec-u8c-daily.yyuap.com/portal/home/index'
     },
+    // 门户请求地址
     u8cportal: {
       production: 'https://dwweb-api.diwork.com',
       development: 'http://dwweb.api.yyuap.com:6062',
-      daily: 'https://dwweb-api.yyuap.com'
+      daily: 'https://dwweb-api.yyuap.com',
+      combine: 'https://dwweb-api-u8c-daily.yyuap.com'
     },
+    // 空间管理
     manageTeamEnter: {
       production: 'https://nec.diwork.com/static/home.html#/spaceList/joined?target=pc',
       development: 'http://web.yyuap.com:91/static/home.html#/spaceList/joined?target=pc',
-      daily: 'https://ec-daily.yyuap.com/static/home.html#/spaceList/joined?target=pc'
+      daily: 'https://ec-daily.yyuap.com/static/home.html#/spaceList/joined?target=pc',
+      combine: 'https://ec-u8c-daily.yyuap.com/static/home.html#/spaceList/joined?target=pc'
     },
-    // dynamic: {
-    //   production: 'https://nec.diwork.com/app/app/appredirect?appid=15',
-    //   development: 'http://web.yyuap.com:91/app/app/appredirect?appid=15',
-    //   daily:'https://ec-daily.yyuap.com/app/app/appredirect?appid=15',
-    // },
+    // 帐号 友互通
     euc: {
       production: 'https://euc.diwork.com',
       development: 'https://idtest.yyuap.com',
-      daily: "https://user-daily.yyuap.com"
+      daily: "https://user-daily.yyuap.com",
+      combine: "https://u8c-user-daily.yyuap.com"
     },
+    // 员工信息
     user: {
       production: 'https://hr.diwork.com',
       development: 'http://hrcloud.yyuap.com',
-      daily: 'https://hr-daily.yyuap.com'
+      daily: 'https://hr-daily.yyuap.com',
+      combine: 'https://hr-u8c-daily.yyuap.com'
     },
+    // 应用市场
     market: {
       production: 'https://market.yonyoucloud.com/market/index#/shopping/orderlist',
       development: 'https://uastest.yyuap.com/market/index#/shopping/orderlist',
-      daily: 'https://market-daily.yyuap.com/market/index#/shopping/orderlist'
+      daily: 'https://market-daily.yyuap.com/market/index#/shopping/orderlist',
+      combine: 'https://market-daily.yyuap.com/market/index#/shopping/orderlist'
     },
+    // 工单和用友云官网  u8c没有
     order: {
       production: 'https://ticket.yonyoucloud.com',
       development: 'https://ticket.yonyoucloud.com',
       daily: 'https://ticket.yonyoucloud.com'
     },
+    // 工单和用友云官网 u8c没有
     cloundyy: {
       production: 'https://www.yonyoucloud.com',
       development: 'https://cloudtest.yyuap.com',
       daily: 'https://www.yonyoucloud.com'
     },
+    // 参照
     ref: {
       production: 'https://ms.diwork.com',
       development: 'http://workbench.yyuap.com',
       daily: 'https://ms-daily.yyuap.com'
     },
+    // 参照组织
     org: {
       production: 'https://cdn.yonyoucloud.com/pro/diwork',
       development: 'http://workbenchdev.yyuap.com/fe',
       daily: 'https://cdn.yonyoucloud.com/pro/diwork'
     },
+    // 上传
     upload: {
       production: 'https://bd.diwork.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
       development: 'http://workbenchdev.yyuap.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
-      daily: 'http://workbenchdev.yyuap.com/manager/file/upload/oss/workbench-image-path-applicationIcon'
+      daily: 'http://workbenchdev.yyuap.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
+      combine: 'https://u8c-daily.com/manager/file/upload/oss/workbench-image-path-applicationIcon'
     },
+    // 门户个人信息
     info: {
       production: 'https://ec.diwork.com/static/home.html#/myspeech/personInfo?target=pc',
       development: 'http://web.yyuap.com:91/static/home.html#/myspeech/personInfo?target=pc',
-      daily: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/personInfo?target=pc'
+      daily: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/personInfo?target=pc',
+      combine: 'https://ec-u8c-daily.yyuap.com/static/home.html#/myspeech/personInfo?target=pc'
     },
+    // 门户发言
     speak: {
       production: 'https://ec.diwork.com/static/home.html#/myspeech/index?index=0&target=pc',
       development: 'http://web.yyuap.com:91/static/home.html#/myspeech/index?index=0&target=pc',
       daily: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/index?index=0&target=pc'
     },
+    // 荣耀
     honor: {
       production: '//wsbs.diwork.com/pc/modules/honorZone/ph/index.html',
       development: '//wsbs.app.yyuap.com/pc/modules/honorZone/ph/index.html',
       daily: '//wsbs-daily.yyuap.com/pc/modules/honorZone/ph/index.html'
     },
+    // 发荣耀
     sendHonor: {
       production: '//wsbs.diwork.com/pc/modules/honorZone/send/index.html',
       development: '//wsbs.app.yyuap.com/pc/modules/honorZone/send/index.html',
       daily: '//wsbs-daily.yyuap.com/pc/modules/honorZone/send/index.html'
     },
+    // 工单   - u8c没有
     ticket: {
       production: 'http://wo.diwork.com/ticket/query',
       development: 'http://172.20.9.47:8000/ticket/query',
