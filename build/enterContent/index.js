@@ -210,7 +210,7 @@ var EnterContent = (_temp = _class = function (_Component) {
       countryCode: '86', // 国家代号
       tenantTel: '', // 手机号
       tenantEmail: '', // 邮箱
-      charged: true // new -  企业是否为付费
+      charged: true // new -  企业是否为付费   true为收费
     };
 
     // progressbar
@@ -481,7 +481,7 @@ var EnterContent = (_temp = _class = function (_Component) {
           placeholder: texts.placeholder1
         })
       ),
-      _from === "create" || !charged ? null : _react2["default"].createElement(
+      _from === "create" || charged ? null : _react2["default"].createElement(
         _form.FormItem,
         null,
         _react2["default"].createElement(
@@ -560,7 +560,7 @@ var EnterContent = (_temp = _class = function (_Component) {
           )
         )
       ),
-      _from === "create" || !charged ? null : _react2["default"].createElement(
+      _from === "create" || charged ? null : _react2["default"].createElement(
         _form.FormItem,
         null,
         _react2["default"].createElement(
