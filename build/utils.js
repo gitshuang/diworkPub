@@ -118,6 +118,11 @@ var createActions = exports.createActions = function createActions(namespaceObj)
 };
 
 var logout = exports.logout = function logout() {
+  // 退出之前清下tabs_data
+  if (window.sessionStorage.getItem('TABS_DATA')) {
+    window.sessionStorage.removeItem('TABS_DATA');
+  }
+
   var _getContext2 = getContext(),
       defaultDesktop = _getContext2.defaultDesktop;
 

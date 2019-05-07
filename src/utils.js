@@ -66,6 +66,10 @@ export const createActions = (namespaceObj, ...args) => {
 }
 
 export const logout = () => {
+  // 退出之前清下tabs_data
+  if (window.sessionStorage.getItem('TABS_DATA')) {
+    window.sessionStorage.removeItem('TABS_DATA');
+  }
   const { defaultDesktop } = getContext();
   if (defaultDesktop === "portal") {
     const ajaxUrl = `${getHost('u8cportal')}/user/logOut?v=1.0`;
