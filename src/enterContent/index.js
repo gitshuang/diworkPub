@@ -63,7 +63,7 @@ class EnterContent extends Component {
       countryCode: '86',              // 国家代号
       tenantTel: '',                  // 手机号
       tenantEmail: '',                // 邮箱
-      charged: true,                 // new -  企业是否为付费
+      charged: true,                 // new -  企业是否为付费   true为收费
     };
 
     // progressbar
@@ -333,7 +333,7 @@ class EnterContent extends Component {
           />
         </FormItem>
 
-        {_from === "create" || !charged ? null :
+        {_from === "create" || charged ? null :
           <FormItem>
             <label><span>{texts.invitePermissionLabel}<font color="red">&nbsp;*&nbsp;</font></span></label>
             <Select
@@ -368,7 +368,7 @@ class EnterContent extends Component {
             </Select>
           </FormItem>
         }
-        {_from === "create" || !charged ? null :
+        {_from === "create" || charged ? null :
           <FormItem>
             <label><span>{texts.allowExitLabel}<font color="red">&nbsp;*&nbsp;</font></span></label>
             <Radio.RadioGroup

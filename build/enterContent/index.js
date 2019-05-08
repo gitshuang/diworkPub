@@ -57,15 +57,15 @@ var _button2 = _interopRequireDefault(_button);
 require('./style.css');
 
 var _style = {
-  'enterForm': 'enterForm__style___1xirt',
-  'upload': 'upload__style___2sCEg',
-  'country': 'country__style___1_O_R',
-  'tel': 'tel__style___1UMKa',
-  'code': 'code__style___1KAx2',
-  'line': 'line__style___28K_Q',
-  'infoTitle': 'infoTitle__style___1OVxL',
-  'progressBar': 'progressBar__style___qLuEs',
-  'inputPhone': 'inputPhone__style___2wjuf'
+  'enterForm': 'enterForm__style___3rLaN',
+  'upload': 'upload__style___1zxuY',
+  'country': 'country__style___3E-Os',
+  'tel': 'tel__style___2OXF9',
+  'code': 'code__style___1L3cM',
+  'line': 'line__style___1rbXZ',
+  'infoTitle': 'infoTitle__style___15dG2',
+  'progressBar': 'progressBar__style___kjcre',
+  'inputPhone': 'inputPhone__style___1hlKj'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -210,7 +210,7 @@ var EnterContent = (_temp = _class = function (_Component) {
       countryCode: '86', // 国家代号
       tenantTel: '', // 手机号
       tenantEmail: '', // 邮箱
-      charged: true // new -  企业是否为付费
+      charged: true // new -  企业是否为付费   true为收费
     };
 
     // progressbar
@@ -481,7 +481,7 @@ var EnterContent = (_temp = _class = function (_Component) {
           placeholder: texts.placeholder1
         })
       ),
-      _from === "create" || !charged ? null : _react2["default"].createElement(
+      _from === "create" || charged ? null : _react2["default"].createElement(
         _form.FormItem,
         null,
         _react2["default"].createElement(
@@ -560,7 +560,7 @@ var EnterContent = (_temp = _class = function (_Component) {
           )
         )
       ),
-      _from === "create" || !charged ? null : _react2["default"].createElement(
+      _from === "create" || charged ? null : _react2["default"].createElement(
         _form.FormItem,
         null,
         _react2["default"].createElement(

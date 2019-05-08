@@ -1,6 +1,6 @@
 /*  imported from style.css  */
 
-.desk_setting_layer__style___1d32B {
+.desk_setting_layer__style___3xqem {
     position: fixed;
     pointer-events: none;
     z-index: 100;
@@ -8,7 +8,7 @@
     top: -20px;
     
 }
-.desk_setting_layer__style___1d32B .desk_setting_layer_card_list .layer-card {
+.desk_setting_layer__style___3xqem .desk_setting_layer_card_list .layer-card {
    
     position: absolute;
     display: flex;
@@ -17,7 +17,7 @@
     width:176px;
     height:176px;    
 }
-.desk_setting_layer__style___1d32B .layer-card-span {
+.desk_setting_layer__style___3xqem .layer-card-span {
     position: absolute;
     background:rgba(225,76,70,1);
     color: #fff;
