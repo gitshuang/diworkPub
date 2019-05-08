@@ -223,6 +223,7 @@ class MoveToGroup extends Component {
                     ref={(c) => { this.newGroupName = c; }}
                     value={newGroupName}
                     onChange={this.setNewGroupName}
+                    maxLength="4"
                   />
                 </div>
               )
