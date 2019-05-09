@@ -1,13 +1,13 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.hasCardContainInGroups = exports.removeCardByGroupIndexAndCardID = exports.calColWidth = exports.calColCount = exports.isContained = exports.checkCardContainInGroup = exports.checkInContainer = exports.setPropertyValueForCards = exports.calWHtoPx = exports.calGridItemPosition = exports.calGridXY = exports.getCardByGroupIDAndCardID = exports.layoutBottom = exports.getContainerMaxHeight = undefined;
+exports.IS_IE = exports.hasCardContainInGroups = exports.removeCardByGroupIndexAndCardID = exports.calColWidth = exports.calColCount = exports.isContained = exports.checkCardContainInGroup = exports.checkInContainer = exports.setPropertyValueForCards = exports.calWHtoPx = exports.calGridItemPosition = exports.calGridXY = exports.getCardByGroupIDAndCardID = exports.layoutBottom = exports.getContainerMaxHeight = undefined;
 exports.findItemById = findItemById;
 exports.DeferFn = DeferFn;
 
-var _lodash = require('lodash');
+var _lodash = require("lodash");
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
@@ -272,7 +272,7 @@ var hasCardContainInGroups = exports.hasCardContainInGroups = function hasCardCo
     var flag = false;
     groups.forEach(function (g) {
         g.children.forEach(function (a) {
-            if (a.serviceId === cardID) {
+            if (a.serviceCode === cardID) {
                 flag = true;
                 return false;
             }
@@ -283,3 +283,5 @@ var hasCardContainInGroups = exports.hasCardContainInGroups = function hasCardCo
     });
     return flag;
 };
+//ie11的window.ActiveXObject返回undefined，
+var IS_IE = exports.IS_IE = !!window.ActiveXObject || "ActiveXObject" in window;

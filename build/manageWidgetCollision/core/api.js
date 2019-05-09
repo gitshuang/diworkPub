@@ -20,5 +20,6 @@ var getAllServicesByLabelGroup = exports.getAllServicesByLabelGroup = function g
     return (0, _util.get)('/service/getAllServicesByLabelGroup?serviceName=' + serviceName);
 };
 var getAllMenuList = exports.getAllMenuList = function getAllMenuList(menuListUrl) {
+    ///menubar/v2/get4Edit
     return (0, _util.get)(menuListUrl); // eslint-disable-line
 };

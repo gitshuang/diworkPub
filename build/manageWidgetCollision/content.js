@@ -98,7 +98,7 @@ var Content = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)("manag
       var dragCard = manageList[dragIndex];
       manageList.splice(dragIndex, 1);
       manageList.splice(hoverIndex, 0, dragCard);
-      _this.props.updateGroupList(manageList);
+      _this.props.updateGroupList({ manageList: manageList, isEdit: true });
     };
 
     _this.moveCardInGroupItem = function (dragItem, hoverItem, x, y) {
@@ -156,43 +156,85 @@ var Content = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)("manag
     };
 
     _this.handleLoad = function () {
-      var fn = function fn() {
-        var clientWidth = void 0;
-        var containerDom = document.querySelector('#widget-container');
-        if (containerDom) {
-          clientWidth = containerDom.clientWidth;
-        } else {
-          var firstAddButton = document.querySelector('#first-add');
-          if (firstAddButton) {
-            clientWidth = firstAddButton.clientWidth - 10;
+      var fn = void 0;
+      if (_this.props.roleEdit) {
+        //当用在角色编辑时
+        fn = function fn() {
+          var clientWidth = void 0;
+          var containerDom = document.querySelector('#widget-container');
+          if (containerDom) {
+            clientWidth = containerDom.clientWidth;
           } else {
-            return;
+            var firstAddButton = document.querySelector('#first-add');
+            if (firstAddButton) {
+              clientWidth = firstAddButton.clientWidth - 10;
+            } else {
+              return;
+            }
           }
-        }
-        var defaultCalWidth = _this.props.defaultLayout.calWidth;
-        var _this$props$layout2 = _this.props.layout,
-            containerPadding = _this$props$layout2.containerPadding,
-            margin = _this$props$layout2.margin;
+          var defaultCalWidth = _this.props.defaultLayout.calWidth;
+          var _this$props$layout2 = _this.props.layout,
+              containerPadding = _this$props$layout2.containerPadding,
+              margin = _this$props$layout2.margin;
 
-        var layout = _lodash2["default"].cloneDeep(_this.props.layout);
-        var windowWidth = window.innerWidth - 60 * 2;
-        var col = utilService.calColCount(defaultCalWidth, windowWidth, containerPadding, margin);
-        var calWidth = utilService.calColWidth(clientWidth, col, containerPadding, margin);
+          var layout = _lodash2["default"].cloneDeep(_this.props.layout);
+          var col = utilService.calColCount(148, clientWidth, containerPadding, margin); //取148是为了和左侧拖拽时的阴影对应
+          var calWidth = 148;
 
-        var manageList = _this.props.manageList;
+          var manageList = _this.props.manageList;
 
-        manageList = _lodash2["default"].cloneDeep(manageList);
-        _lodash2["default"].forEach(manageList, function (g) {
-          var compactedLayout = (0, _compact.compactLayoutHorizontal)(g.children, col);
-          g.children = compactedLayout;
-        });
+          manageList = _lodash2["default"].cloneDeep(manageList);
+          _lodash2["default"].forEach(manageList, function (g) {
+            var compactedLayout = (0, _compact.compactLayoutHorizontal)(g.children, col);
+            g.children = compactedLayout;
+          });
 
-        layout.calWidth = layout.rowHeight = calWidth;
-        layout.col = col;
-        layout.containerWidth = clientWidth;
-        _this.props.updateGroupList(manageList);
-        _this.props.updateLayout(layout);
-      };
+          layout.calWidth = layout.rowHeight = calWidth;
+          layout.col = col;
+          layout.containerWidth = clientWidth;
+          _this.props.updateGroupList(manageList);
+          _this.props.updateLayout(layout);
+        };
+      } else {
+        fn = function fn() {
+          var clientWidth = void 0;
+          var containerDom = document.querySelector('#widget-container');
+          if (containerDom) {
+            clientWidth = containerDom.clientWidth;
+          } else {
+            var firstAddButton = document.querySelector('#first-add');
+            if (firstAddButton) {
+              clientWidth = firstAddButton.clientWidth - 10;
+            } else {
+              return;
+            }
+          }
+          var defaultCalWidth = _this.props.defaultLayout.calWidth;
+          var _this$props$layout3 = _this.props.layout,
+              containerPadding = _this$props$layout3.containerPadding,
+              margin = _this$props$layout3.margin;
+
+          var layout = _lodash2["default"].cloneDeep(_this.props.layout);
+          var windowWidth = window.innerWidth - 60 * 2;
+          var col = utilService.calColCount(defaultCalWidth, windowWidth, containerPadding, margin);
+          var calWidth = utilService.calColWidth(clientWidth, col, containerPadding, margin);
+
+          var manageList = _this.props.manageList;
+
+          manageList = _lodash2["default"].cloneDeep(manageList);
+          _lodash2["default"].forEach(manageList, function (g) {
+            var compactedLayout = (0, _compact.compactLayoutHorizontal)(g.children, col);
+            g.children = compactedLayout;
+          });
+
+          layout.calWidth = layout.rowHeight = calWidth;
+          layout.col = col;
+          layout.containerWidth = clientWidth;
+          _this.props.updateGroupList(manageList);
+          _this.props.updateLayout(layout);
+        };
+      }
+
       utilService.DeferFn(fn);
     };
 
@@ -220,11 +262,16 @@ var Content = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)("manag
 
       manageList = _lodash2["default"].cloneDeep(manageList);
       var targetGroupIndex = dropItem.index;
-      var cardList = dragItem.cardList;
+      var cardList = _lodash2["default"].cloneDeep(dragItem.cardList);
       //拖拽卡片和目标组内卡片合并、去重
       cardList.forEach(function (item) {
         item.gridx = shadowCard.gridx;
         item.gridy = shadowCard.gridy;
+        for (var key in item) {
+          if (/^menu/.test(key) || /^service$/.test(key)) {
+            delete item[key];
+          }
+        }
       });
 
       //删除阴影的卡片
@@ -285,44 +332,35 @@ var Content = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)("manag
   Content.prototype.componentDidMount = function componentDidMount() {
     window.addEventListener('resize', this.handleLoad);
     var _props = this.props,
-        getManageList = _props.getManageList,
         updateGroupList = _props.updateGroupList,
-        manageListUrl = _props.manageListUrl;
+        groupList = _props.groupList;
 
-    return getManageList(manageListUrl).then(function (_ref) {
-      var error = _ref.error,
-          payload = _ref.payload;
-
-      if (error) {
-        //requestError(payload);
-      }
-      _lodash2["default"].forEach(payload.workList, function (g) {
-        _lodash2["default"].forEach(g.children, function (a) {
-          a.isShadow = false;
-          a.isChecked = false;
-          a.gridx = undefined; //Number(a.gridx);
-          a.gridy = undefined; //Number(a.gridy);
-          switch (a.size) {
-            case 1:
-              a.height = 1;
-              a.width = 1;
-              break;
-            case 2:
-              a.height = 1;
-              a.width = 2;
-              break;
-            case 3:
-              a.height = 2;
-              a.width = 2;
-              break;
-            default:
-              a.height = 1;
-              a.width = 1;
-          }
-        });
+    _lodash2["default"].forEach(groupList, function (g) {
+      _lodash2["default"].forEach(g.children, function (a) {
+        a.isShadow = false;
+        a.isChecked = false;
+        a.gridx = undefined; //Number(a.gridx);
+        a.gridy = undefined; //Number(a.gridy);
+        switch (a.size) {
+          case 1:
+            a.height = 1;
+            a.width = 1;
+            break;
+          case 2:
+            a.height = 1;
+            a.width = 2;
+            break;
+          case 3:
+            a.height = 2;
+            a.width = 2;
+            break;
+          default:
+            a.height = 1;
+            a.width = 1;
+        }
       });
-      //updateGroupList(payload.workList);
     });
+    updateGroupList(groupList); //把外界传入的数据，作为自己的状态数据，自己的状态是manageList
   };
 
   Content.prototype.renderContent = function renderContent() {
@@ -348,9 +386,6 @@ var Content = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)("manag
       selectList: selectList,
       currEditonlyId: currEditonlyId,
       dragState: dragState,
-      //requestStart,
-      //requestSuccess,
-      // requestError,
       moveGroup: moveGroup,
       selectListActions: selectListActions,
       selectGroupActions: selectGroupActions,
@@ -370,8 +405,7 @@ var Content = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)("manag
         editTitle = _props3.editTitle,
         selectListActions = _props3.selectListActions,
         selectGroupActions = _props3.selectGroupActions,
-        setDragInputState = _props3.setDragInputState,
-        delectService = _props3.delectService;
+        setDragInputState = _props3.setDragInputState;
 
     var widgetListProps = {
       manageList: manageList,
@@ -387,8 +421,7 @@ var Content = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)("manag
       editTitle: editTitle,
       selectListActions: selectListActions,
       selectGroupActions: selectGroupActions,
-      setDragInputState: setDragInputState,
-      delectService: delectService
+      setDragInputState: setDragInputState
     };
 
     var list = [];

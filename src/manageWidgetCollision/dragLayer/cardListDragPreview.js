@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import background_card from 'assets/image/background_card.png';
+import background_card from '../assets/background_card.svg';
+import single_background_card from '../assets/single-background.svg';
 //拖拽预览组件类
 export default class CardListDragPreview extends Component {
 	constructor(props) {
@@ -20,10 +21,10 @@ export default class CardListDragPreview extends Component {
 						className='layer-card'
 					>
 						<span className='layer-card-span'>＋{cardListLength}</span>
-						<img 
+						{cardListLength==1?<img src={single_background_card} alt='logo'/>:<img 
 							src={background_card}
 							alt='logo'
-						/>
+						/>}
 					</div>
 			
 		

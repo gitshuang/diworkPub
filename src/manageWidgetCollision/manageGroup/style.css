@@ -9,6 +9,60 @@
   font-size: 30px;
   margin-right: 20px;
   cursor:pointer;
+  color: #505766
+}
+.widgetTitle :global(button){
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  font-weight: bold;
+  background: #fff;
+}
+.widgetTitle :global(button:hover){
+  border: 1px solid 505766;
+  box-sizing: border-box;
+  font-weight: bold;
+  background: #fff;
+}
+.widgetTitle :global(button i){
+  color: #505766!important;
+  border-color: #505766;
+  font-size: 16px !important;
+}
+.widgetTitle :global(button:hover i::before){
+  color: #353C4A!important;
+  border-color: #353C4A;
+}
+.widgetTitle :global(button:hover){
+  color: #353C4A!important;
+  border-color: #353C4A;
+}
+.widgetTitle :global(button){
+  border-color: #505766;
+}
+.widgetTitle :global(button i::before){
+  position: relative;
+  top: -3px;
+  left: 2px;
+}
+.widgetTitle :global(button.right i){
+  color: #18b681!important;
+  border-color: #18b681
+}
+
+.widgetTitle :global(button.right i::before){
+  color: #18b681!important;
+  border-color: #18b681;
+  left: 1px;
+}
+.widgetTitle :global(button.right:hover){
+  border-color: #0E9E6E;
+}
+.widgetTitle :global(button.right:hover i::before){
+  color: #0E9E6E!important;
+}
+.widgetTitle :global(button.right){
+  border-color: #18b681;
+  margin: 0 4px;
 }
 /* .widgetTitle :global(.u-checkbox input[type=checkbox]){
   top:18px;
@@ -31,6 +85,12 @@
 .addGroupBtn{
   font-size:14px;
   color:rgba(71,77,84,1);
+}
+.addBtn :global(.diworkiconfont ){
+  font-size: 17px;
+  font-weight: bold;
+  vertical-align: -3px;
+  color: #505766; 
 }
 /**
 .addGroupBtn{
@@ -91,6 +151,8 @@
 	font-size:12px;
   color:#111111;
   float: left;
+  color: #505766;
+  border-radius: 3px;
 }
 .newGroupName:global(.input){
   width:176px;
@@ -98,7 +160,7 @@
 }
 
 .newGroupName_focus{
-	border:2px solid rgba(0,205,195,1);
+	border:1px solid #18b681;
 }
 .newGroupName_blur{
   border:1px solid #878B94;
@@ -110,7 +172,7 @@
 	font-weight: bold;
 }
 .widgetTitle :global(.iconfont):hover{
-	color:#111111;
+	color:#353c4a;
 }
 .widgetTitle .btn{
   display: inline-block;
@@ -155,8 +217,11 @@
   padding: 0.5rem 2rem 2.5rem 2rem;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;
-  background:rgba(79,86,98,0.1);
+  background:rgba(247, 249, 253, .3);
   cursor: move;
+}
+.groupArea :global(#widget-container){
+  position: relative;
 }
 .addBtn :global(.u-button){
   width: 100%;
@@ -166,11 +231,17 @@
   background: rgba(255,255,255,0.6);
 }
 .selectedBackClass{
-  background:rgba(255,255,255,1) !important;
-  border:2px solid rgba(0,205,195,1) !important;
+  background:#dee0e3 !important;
+  border:2px solid #588CE9 !important;
 }
 .iconBox{
   position: relative;
+}
+.iconBox :global(.diworkiconfont.disabled::before) {
+  color: #999
+}
+.iconBox :global(.u8ciconfont.disabled::before) {
+  color: rgb(80, 87, 102,0.3)
 }
 .iconBox p{
   top:34px;
@@ -198,13 +269,23 @@
   width: 100%;
 }
 .widgetTitleInit>div:nth-child(2){
-  width: 141px;
+  width: 182px;
 }
 .widgetTitleInit>div:nth-child(2)>div{
   display: inline-table;
 }
+.widgetTitleInit :global(.u-checkbox .u-checkbox-label:before){
+  top:-14px;
+}
+.widgetTitleInit :global(.u-checkbox .u-checkbox-label:after){
+  top:-13px;
+}
 .check_group :global(.u-checkbox){
   display:inline;
+}
+.check_group :global(.titleText){
+  margin-left:10px;
+  color:#111111
 }
 .noChildStyle{
   margin-left: 18px;

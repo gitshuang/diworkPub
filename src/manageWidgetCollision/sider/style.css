@@ -19,18 +19,23 @@
     font-weight: bold;
 }
 .sider_container{
-  
+    min-width: 320px;
     width: 320px;
     background:rgba(243,243,243,1);
+    overflow-y: scroll;
+    overflow-x: hidden
+}
+.sider_container::-webkit-scrollbar{
+    display: block
 }
 .sider_container :global(.sider-container-fixed){
-    width: 320px;
-    position:fixed;
-    overflow: hidden;
+    width: 100%;
+    /* position:fixed; */
+    /* overflow: hidden; */
     background:rgba(255,255,255,1);
 }
 .sider_container :global(.serviceArea){
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     background:rgba(243,243,243,1);
 }
 .sider_container :global(.serviceArea hr){
@@ -80,7 +85,7 @@
     margin-bottom: 4px;
 }
 .list_item_content:hover{
-    border:1px solid rgba(0,179,158,1);
+    border:1px solid #dee0e3;
 }
 .unSelect {
     color: #ccc
@@ -97,13 +102,31 @@
     border-radius: 3px;
 }
 .list_item_content:global(.item-checked){
-    border:1px solid rgba(0,179,158,1);
+    border:1px solid #588CE9;
+    background: #f6f9fe;
+}
+.list_item_content :global(i::after){
+    content: '';
+    width: 10px;
+    height: 5px;
+    border:2px solid transparent;
+    display: block;
+    transform: rotateZ(-45deg);
+    border-top: none;
+    border-right: none;
+}
+.list_item_content:hover :global(i::after){
+    
+    border:2px solid #c4cad2;
+    border-top: none;
+    border-right: none;
+    
 }
 .list_item_content:global(.item-checked .selected::after){
     content: '';
     width: 10px;
     height: 5px;
-    border:2px solid rgba(0,179,158,1);
+    border:2px solid #588CE9;
     display: block;
     transform: rotateZ(-45deg);
     border-top: none;
@@ -165,6 +188,29 @@
     background:rgba(255,255,255,1);
     padding: 0 0 0 15px;
     align-items: center;
+    position: relative;
+}
+.selectServiceArea :global(.arrow){
+    position: absolute;
+    right: 54px;
+    font-weight: bold;
+    top:13px;
+    transform-origin: 50% 40%;
+}
+.selectServiceArea :global(.arrow.reverse){
+    transform: rotate(180deg);
+    
+}
+.selectServiceArea :global(.frontSearchIcon){
+    position: absolute;
+    left: 24px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #757F8C;
+    top:11px
+}
+.selectServiceArea :global(input.searchInput){
+    padding: 0 18px 0 36px;
 }
 .selectServiceArea :global(input){
     height:32px;
@@ -178,6 +224,8 @@
     line-height:20px;
     padding: 0 10px;
     width:258px;
+    z-index: 999;
+    background: transparent;
 }
 .selectServiceArea :global(.option){
     text-align: center;
@@ -185,16 +233,43 @@
 }
 .selectServiceArea :global(span.option){
     font-size: 14px;
+
+}
+.selectServiceArea :global(span.option:hover){
+    font-size: 14px;
+    color: #e14c46;
+    cursor: pointer;
 }
 .selectServiceArea :global(i.option){
     font-size: 20px;
     font-weight: bold;
     color: #757F8C;
 }
-.sider_container :global(.serviceArea){
-    padding: 0 6px  20px 15px;
-    margin-right: -11px;
+.selectServiceArea :global(i.option:hover){
+    color: #e14c46;
+    cursor: pointer;
 }
+.selectServiceArea :global(.inputMask){
+    position: absolute;
+    width: 258px;
+    height: 32px;
+    z-index: 999999;
+    background: transparent;
+    cursor: pointer;
+    left: 15px;
+    top:5px;
+}
+.sider_container :global(.serviceArea){
+    padding: 0 0  52px 15px;
+    /* margin-right: -11px; */
+    padding-top:82px
+}
+.sider_container :global(.serviceArea .emptyDom){
+    text-align: center;
+    margin-top: 100px;
+    font-size: 14px;
+}
+
 .sider_container :global(.serviceArea .serviceTitle){
     margin: 20px 0;
     display: flex;
@@ -251,7 +326,7 @@
      font-size: 14px;
  }
  .sider_container :global(.sider-container-fixed>.u-menu){
-     background: rgb(255, 255, 255,1);
+     background: #fff;
      font-size:12px;
     font-family:PingFangSC-Regular;
     font-weight:400;
@@ -260,12 +335,13 @@
     padding: 4px 0;
     border: none;
     margin-top: -4px;
+    top:82px
  }
  .sider_container :global(.u-menu-submenu-selected){
-    background:rgba(216,216,216,1);
+    background:#fff7e7
  }
  .sider_container :global( .u-menu-submenu-active > .u-menu-submenu-title){
-     background:rgba(216,216,216,1);
+     background:#f3f5f9;
      color: #424B5A
  }
  .sider_container :global(.u-menu-vertical > .u-menu-item){
@@ -287,5 +363,5 @@
     border: none
  }
  .sider_container :global(.u-menu-item-active){
-     background:rgba(216,216,216,1);
+     background:#f3f5f9;
  }

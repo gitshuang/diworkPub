@@ -97,7 +97,10 @@ var dropSideCards = _action2["default"].dropSideCards,
     moveTopGroup = _action2["default"].moveTopGroup,
     delectGroup = _action2["default"].delectGroup,
     addGroup = _action2["default"].addGroup,
-    renameGroup = _action2["default"].renameGroup;
+    renameGroup = _action2["default"].renameGroup,
+    selectGroupActions = _action2["default"].selectGroupActions,
+    selectListActions = _action2["default"].selectListActions,
+    setDragInputState = _action2["default"].setDragInputState;
 
 
 var itemSource = {
@@ -170,7 +173,7 @@ var itemTarget = {
   }
 };
 
-var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('manageList', 'layout', 'defaultLayout', 'currEditonlyId', {
+var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('manageList', 'layout', 'defaultLayout', 'currEditonlyId', 'selectList', {
   namespace: 'managewidget'
 }), {
   dropSideCards: dropSideCards,
@@ -180,7 +183,10 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('m
   moveTopGroup: moveTopGroup,
   delectGroup: delectGroup,
   addGroup: addGroup,
-  renameGroup: renameGroup
+  renameGroup: renameGroup,
+  selectGroupActions: selectGroupActions,
+  selectListActions: selectListActions,
+  setDragInputState: setDragInputState
 }), _dec2 = (0, _reactDnd.DragSource)("item", itemSource, function (connect, monitor) {
   return {
     connectDragSource: connect.dragSource(),
@@ -233,7 +239,6 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('m
         _this2.setState({
           groupName: newGroupName
         });
-        console.log("^^^^^^^^^^^^^^^*****************+++++++++++++++++", _this2.refs);
         _this2.groupName.focus();
         _this2.groupName.select();
 
@@ -354,17 +359,17 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('m
         ),
         _react2["default"].createElement(
           _button.ButtonCheckSelected,
-          { id: widgetId + '_btn', className: _style.btn, onClick: function onClick() {
+          { id: widgetId + '_btn', className: _style.btn + ' right', onClick: function onClick() {
               _this3.renameGroupFn(index);
             } },
-          _react2["default"].createElement(_icon2["default"], { type: 'right' })
+          _react2["default"].createElement(_icon2["default"], { type: 'Determine' })
         ),
         _react2["default"].createElement(
           _button.ButtonCheckClose,
-          { className: _style.btn, onClick: function onClick() {
+          { className: _style.btn + ' error', onClick: function onClick() {
               _this3.renameGroupCancel(index);
             } },
-          _react2["default"].createElement(_icon2["default"], { type: 'cancel' })
+          _react2["default"].createElement(_icon2["default"], { type: 'error3' })
         )
       );
     } else {
@@ -377,10 +382,8 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('m
           'div',
           { className: _style.check_group },
           _react2["default"].createElement(
-            _checkbox2["default"],
-            { checked: checkType, onChange: function onChange(e) {
-                _this3.selectFn(e, index);
-              } },
+            'div',
+            { className: 'titleText' },
             widgetName
           ),
           languagesJSON.noDataGroup && children.length === 0 ? _react2["default"].createElement(
@@ -402,14 +405,14 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('m
             _react2["default"].createElement(_icon2["default"], { title: languagesJSON["delete"], type: 'dustbin', onClick: function onClick() {
                 _this3.delectGroupFn(index);
               } }),
-            index ? _react2["default"].createElement(_icon2["default"], { title: languagesJSON.move_up, type: 'move-upward', onClick: function onClick() {
+            index ? _react2["default"].createElement(_icon2["default"], { title: languagesJSON.move_up, font: 'shangyi', onClick: function onClick() {
                 _this3.moveTopFn(index);
-              } }) : _react2["default"].createElement(_icon2["default"], { title: languagesJSON.move_up, type: 'move-upward', className: 'disabled', onClick: function onClick() {
+              } }) : _react2["default"].createElement(_icon2["default"], { title: languagesJSON.move_up, font: 'shangyi', className: 'disabled', onClick: function onClick() {
                 return false;
               } }),
-            index !== manageList.length - 1 ? _react2["default"].createElement(_icon2["default"], { title: languagesJSON.move_down, type: 'move-down', onClick: function onClick() {
+            index !== manageList.length - 1 ? _react2["default"].createElement(_icon2["default"], { title: languagesJSON.move_down, font: 'xiayi', onClick: function onClick() {
                 _this3.moveBottomFn(index);
-              } }) : _react2["default"].createElement(_icon2["default"], { title: languagesJSON.move_down, type: 'move-down', className: 'disabled', onClick: function onClick() {
+              } }) : _react2["default"].createElement(_icon2["default"], { title: languagesJSON.move_down, font: 'xiayi', className: 'disabled', onClick: function onClick() {
                 return false;
               } })
           )

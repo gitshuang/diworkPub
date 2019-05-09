@@ -83,11 +83,11 @@ var MenuList = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('checked
     }
 
     MenuList.prototype.handleClickOutside = function handleClickOutside(evt) {
-        // debugger
         var _props = this.props,
             showServiceAndChangeInput = _props.showServiceAndChangeInput,
             isMenuListShow = _props.isMenuListShow;
 
+        if (evt.target.className == 'inputMask') return;
         if (isMenuListShow) {
             showServiceAndChangeInput();
         }
@@ -103,15 +103,10 @@ var MenuList = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('checked
             { defaultOpenKeys: ["0"], className: _style.menuListStyle, onClick: this.handleClick, style: { display: isMenuListShow ? "block" : "none" } },
             menuList.map(function (item, index) {
                 return _react2["default"].createElement(
-                    SubMenu,
-                    { title: item.menuBarName, key: item.menuBarId },
-                    item.menuItems.map(function (a, g) {
-                        return _react2["default"].createElement(
-                            _menus2["default"].Item,
-                            { key: a.menuItemId },
-                            a.menuItemName
-                        );
-                    })
+                    _menus2["default"].Item,
+                    { key: item.menuBarCode },
+                    '  ',
+                    item.menuBarName
                 );
             })
         );

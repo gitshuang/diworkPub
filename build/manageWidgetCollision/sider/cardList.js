@@ -77,14 +77,14 @@ var CardsList = function (_React$Component) {
         };
         list.forEach(function (element) {
             var isContainInCheckCardList = checkedCardList.some(function (a) {
-                return a.serviceId == element.serviceId;
+                return a.serviceCode == element.serviceCode;
             });
 
             element.checked = isContainInCheckCardList;
         });
         return _react2["default"].createElement(
             'div',
-            null,
+            { style: { width: "100%" } },
             _react2["default"].createElement(
                 'div',
                 { className: 'serviceTitle' },
@@ -102,7 +102,9 @@ var CardsList = function (_React$Component) {
                     } },
                 list.map(function (item, c) {
 
-                    return _react2["default"].createElement(_card2["default"], { data: item, key: item.menuItemId, index: c,
+                    return _react2["default"].createElement(_card2["default"], { data: JSON.parse(JSON.stringify(item)),
+                        key: item.menuItemId + '-' + c,
+                        index: c,
                         onChangeChecked: onChangeChecked,
                         checkedCardList: checkedCardList
                     }); //{item.menuItemName}

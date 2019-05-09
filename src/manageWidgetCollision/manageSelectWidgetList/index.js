@@ -34,7 +34,7 @@ class SelectWidgetList extends Component {
     getAllServicesByLabelGroup().then(({ error, payload }) => {
       if (error) {
         //requestError(payload);
-      }
+      }    
       const { labelGroups } = payload;
       labelGroups.forEach((da, i) => {
         i === 0 ? da.active = true : da.active = false;

@@ -10,10 +10,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _reduxActions = require('redux-actions');
 
-var _update = require('react/lib/update');
-
-var _update2 = _interopRequireDefault(_update);
-
 var _action = require('./action');
 
 var _action2 = _interopRequireDefault(_action);
@@ -39,14 +35,11 @@ var updateShadowCard = _action2["default"].updateShadowCard,
     addGroup = _action2["default"].addGroup,
     delectGroup = _action2["default"].delectGroup,
     renameGroup = _action2["default"].renameGroup,
-    moveGroup = _action2["default"].moveGroup,
     stickGroup = _action2["default"].stickGroup,
     moveTopGroup = _action2["default"].moveTopGroup,
     moveBottomGroup = _action2["default"].moveBottomGroup,
     splitFolder = _action2["default"].splitFolder,
     addService = _action2["default"].addService,
-    delectService = _action2["default"].delectService,
-    moveService = _action2["default"].moveService,
     getAllServicesByLabelGroup = _action2["default"].getAllServicesByLabelGroup,
     setCurrentSelectWidgetMap = _action2["default"].setCurrentSelectWidgetMap,
     openBatchMove = _action2["default"].openBatchMove,
@@ -192,16 +185,15 @@ var reducer = (0, _reduxActions.handleActions)((_handleActions = {}, _defineProp
     layout: layout
   });
 }), _defineProperty(_handleActions, updateGroupList, function (state, _ref4) {
-  var groupList = _ref4.payload;
+  var payload = _ref4.payload;
 
-  console.log(groupList, 'isEdit=================================isEdit==================isEdit');
-
-  if (Object.prototype.toString.call(groupList) == "[object Object]" && groupList.isEdit) {
-    state.isEdit = groupList.isEdit;
-    groupList = groupList.manageList;
+  if (Object.prototype.toString.call(payload) == "[object Object]" && payload.isEdit) {
+    //有些update不需要激活edit，所以传入的参数不同
+    state.isEdit = payload.isEdit;
+    payload = payload.manageList;
   }
   return _extends({}, state, {
-    manageList: groupList,
+    manageList: payload,
     checkedCardList: [],
     isEdit: state.isEdit
   });
@@ -446,38 +438,8 @@ var reducer = (0, _reduxActions.handleActions)((_handleActions = {}, _defineProp
     isEdit: true,
     currEditonlyId: currEditonlyId
   });
-}), _defineProperty(_handleActions, moveGroup, function (state, _ref22) {
-  var _ref22$payload = _ref22.payload,
-      id = _ref22$payload.id,
-      afterId = _ref22$payload.afterId;
-
-  var manageList = state.manageList;
-  var item = manageList.filter(function (_ref23) {
-    var widgetId = _ref23.widgetId;
-    return widgetId === id;
-  })[0];
-  var afterItem = manageList.filter(function (_ref24) {
-    var widgetId = _ref24.widgetId;
-    return widgetId === afterId;
-  })[0];
-  var itemIndex = manageList.indexOf(item);
-  var afterIndex = manageList.indexOf(afterItem);
-
-  manageList = (0, _update2["default"])(manageList, {
-    $splice: [[itemIndex, 1], [afterIndex, 0, item]]
-  });
-  // 深拷贝
-  // manageList = JSON.parse(JSON.stringify(manageList));
-
-  return _extends({}, state, {
-    isEdit: true,
-    selectGroup: [],
-    selectList: [],
-    manageList: manageList,
-    currEditonlyId: ''
-  });
-}), _defineProperty(_handleActions, stickGroup, function (state, _ref25) {
-  var index = _ref25.payload;
+}), _defineProperty(_handleActions, stickGroup, function (state, _ref22) {
+  var index = _ref22.payload;
 
   var manageList = state.manageList;
   var curr = manageList[index];
@@ -490,8 +452,8 @@ var reducer = (0, _reduxActions.handleActions)((_handleActions = {}, _defineProp
     isEdit: true,
     currEditonlyId: ''
   });
-}), _defineProperty(_handleActions, moveTopGroup, function (state, _ref26) {
-  var index = _ref26.payload;
+}), _defineProperty(_handleActions, moveTopGroup, function (state, _ref23) {
+  var index = _ref23.payload;
 
   var manageList = state.manageList;
   var newList = swapItems(manageList, index, index - 1);
@@ -502,8 +464,8 @@ var reducer = (0, _reduxActions.handleActions)((_handleActions = {}, _defineProp
     isEdit: true,
     currEditonlyId: ''
   });
-}), _defineProperty(_handleActions, moveBottomGroup, function (state, _ref27) {
-  var index = _ref27.payload;
+}), _defineProperty(_handleActions, moveBottomGroup, function (state, _ref24) {
+  var index = _ref24.payload;
 
   var manageList = state.manageList;
   var newList = swapItems(manageList, index, index + 1);
@@ -514,16 +476,16 @@ var reducer = (0, _reduxActions.handleActions)((_handleActions = {}, _defineProp
     isEdit: true,
     currEditonlyId: ''
   });
-}), _defineProperty(_handleActions, splitFolder, function (state, _ref28) {
-  var manageList = _ref28.payload;
+}), _defineProperty(_handleActions, splitFolder, function (state, _ref25) {
+  var manageList = _ref25.payload;
   return _extends({}, state, {
     manageList: manageList,
     currEditonlyId: ''
   });
-}), _defineProperty(_handleActions, addService, function (state, _ref29) {
-  var _ref29$payload = _ref29.payload,
-      groupIndex = _ref29$payload.index,
-      service = _ref29$payload.service;
+}), _defineProperty(_handleActions, addService, function (state, _ref26) {
+  var _ref26$payload = _ref26.payload,
+      groupIndex = _ref26$payload.index,
+      service = _ref26$payload.service;
   var manageList = state.manageList;
 
   var group = manageList[groupIndex];
@@ -534,40 +496,10 @@ var reducer = (0, _reduxActions.handleActions)((_handleActions = {}, _defineProp
     manageList: [].concat(_toConsumableArray(manageList)),
     currEditonlyId: ''
   });
-}), _defineProperty(_handleActions, delectService, function (state, _ref30) {
-  var folderId = _ref30.payload;
-  var manageList = state.manageList,
-      allMenuList = state.allMenuList;
-
-  var groupIndex = void 0;
-  var widgetIndex = void 0;
-  if (!manageList.some(function (group, i) {
-    groupIndex = i;
-    return group.children.some(function (_ref31, j) {
-      var widgetId = _ref31.widgetId;
-
-      widgetIndex = j;
-      return folderId === widgetId;
-    });
-  })) {
-    return state;
-  }
-  var group = manageList[groupIndex];
-  group.children.splice(widgetIndex, 1);
-  group.children = [].concat(_toConsumableArray(group.children));
-  manageList.splice(groupIndex, 1, _extends({}, group));
-  delete state.currentSelectWidgetMap[folderId];
-  (0, _util.updateAllMenuList)(allMenuList, manageList);
-  return _extends({}, state, {
-    isEdit: true,
-    manageList: [].concat(_toConsumableArray(manageList)),
-    currEditonlyId: '',
-    currentSelectWidgetMap: state.currentSelectWidgetMap
-  });
-}), _defineProperty(_handleActions, editTitle, function (state, _ref32) {
-  var _ref32$payload = _ref32.payload,
-      id = _ref32$payload.id,
-      name = _ref32$payload.name;
+}), _defineProperty(_handleActions, editTitle, function (state, _ref27) {
+  var _ref27$payload = _ref27.payload,
+      id = _ref27$payload.id,
+      name = _ref27$payload.name;
 
   var manageList = state.manageList;
   // manageList = JSON.parse(JSON.stringify(manageList));
@@ -579,86 +511,6 @@ var reducer = (0, _reduxActions.handleActions)((_handleActions = {}, _defineProp
     currEditonlyId: ''
     // manageList: [...manageList],
   });
-}), _defineProperty(_handleActions, moveService, function (state, _ref33) {
-  var _ref33$payload = _ref33.payload,
-      id = _ref33$payload.id,
-      preParentId = _ref33$payload.preParentId,
-      preType = _ref33$payload.preType,
-      afterId = _ref33$payload.afterId,
-      parentId = _ref33$payload.parentId,
-      afterType = _ref33$payload.afterType,
-      monitor = _ref33$payload.monitor;
-
-  var manageAllList = state.manageList;
-  var manageList = manageAllList;
-
-  var sourceData = preParentId && findById(manageAllList, preParentId); // 拖拽前 父级源对象
-  var targetData = parentId && findById(manageAllList, parentId); // 拖拽后 父级目标对象
-  var preParentType = sourceData.type;
-  var afterParentType = targetData.type;
-  // 判断是否为文件夹里面元素拖拽
-  var itemIn = findById(manageAllList, id);
-  var itemAfter = findById(manageAllList, afterId);
-  if (preParentType === 1 && afterParentType === 1 && preParentId !== parentId && preType === 3 && afterType === 3) {
-    // 跨分组拖拽
-    sourceData.children.splice(sourceData.children.indexOf(itemIn), 1); // 删掉
-
-    var _data = manageList.filter(function (_ref34) {
-      var widgetId = _ref34.widgetId;
-      return widgetId === parentId;
-    })[0].children; // 当前分组数据
-
-    if (preParentId !== parentId) {
-      itemIn.parentId = parentId;
-      monitor.getItem().parentId = parentId;
-    }
-    manageList.filter(function (_ref35) {
-      var widgetId = _ref35.widgetId;
-      return widgetId === parentId;
-    })[0].children = (0, _update2["default"])(_data, {
-      $splice: [[targetData.children.indexOf(itemAfter), 0, itemIn]]
-    });
-  } else if (preParentId !== parentId && preType === 3 && afterType === 1) {
-    // 跨分组拖拽 放到组内 而不是元素上
-    sourceData.children.splice(sourceData.children.indexOf(itemIn), 1); // 删掉
-    if (preParentId !== parentId) {
-      itemIn.parentId = parentId;
-    }
-    targetData.children.splice(targetData.children.length, 0, itemIn); // 添加
-  } else {
-    var dataPre = manageList.filter(function (_ref36) {
-      var widgetId = _ref36.widgetId;
-      return widgetId === preParentId;
-    })[0].children;
-    var _data2 = manageList.filter(function (_ref37) {
-      var widgetId = _ref37.widgetId;
-      return widgetId === parentId;
-    })[0].children;
-    var item = dataPre.filter(function (_ref38) {
-      var widgetId = _ref38.widgetId;
-      return widgetId === id;
-    })[0];
-    var afterItem = _data2.filter(function (_ref39) {
-      var widgetId = _ref39.widgetId;
-      return widgetId === afterId;
-    })[0];
-    var itemIndex = _data2.indexOf(item);
-    var afterIndex = _data2.indexOf(afterItem);
-
-    manageList.filter(function (_ref40) {
-      var widgetId = _ref40.widgetId;
-      return widgetId === parentId;
-    })[0].children = (0, _update2["default"])(_data2, {
-      $splice: [[itemIndex, 1], [afterIndex, 0, item]]
-    });
-  }
-
-  manageList = JSON.parse(JSON.stringify(manageAllList));
-  return _extends({}, state, {
-    isEdit: true,
-    manageList: manageList,
-    currEditonlyId: ''
-  });
 }), _defineProperty(_handleActions, openBatchMove, function (state) {
   return _extends({}, state, {
     batchMoveModalDisplay: true,
@@ -669,14 +521,14 @@ var reducer = (0, _reduxActions.handleActions)((_handleActions = {}, _defineProp
     batchMoveModalDisplay: false,
     currEditonlyId: ''
   });
-}), _defineProperty(_handleActions, setEditState, function (state, _ref41) {
-  var isEdit = _ref41.payload;
+}), _defineProperty(_handleActions, setEditState, function (state, _ref28) {
+  var isEdit = _ref28.payload;
   return _extends({}, state, {
     isEdit: isEdit,
     currEditonlyId: ''
   });
-}), _defineProperty(_handleActions, setEditonlyId, function (state, _ref42) {
-  var currEditonlyId = _ref42.payload;
+}), _defineProperty(_handleActions, setEditonlyId, function (state, _ref29) {
+  var currEditonlyId = _ref29.payload;
   return _extends({}, state, {
     currEditonlyId: currEditonlyId
   });
@@ -710,7 +562,25 @@ var reducer = (0, _reduxActions.handleActions)((_handleActions = {}, _defineProp
       widgetName: "item"
     },
     ifDifferentSizeExchanged: false,
-    checkedCardList: []
+    checkedCardList: [],
+    layout: {
+      containerWidth: 1200,
+      containerHeight: 200,
+      calWidth: 175,
+      rowHeight: 175,
+      col: 6,
+      margin: [10, 10],
+      containerPadding: [0, 0]
+    },
+    defaultLayout: {
+      containerWidth: 1200,
+      containerHeight: 200,
+      calWidth: 175,
+      rowHeight: 175,
+      col: 6,
+      margin: [10, 10],
+      containerPadding: [0, 0]
+    }
   };
 }), _defineProperty(_handleActions, emptySelectGroup, function (state) {
   return _extends({}, state, {

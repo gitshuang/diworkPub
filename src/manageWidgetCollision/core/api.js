@@ -7,6 +7,6 @@ export const getManageList = (manageListUrl) => {
 }
 
 export const getAllServicesByLabelGroup = serviceName => get(`/service/getAllServicesByLabelGroup?serviceName=${serviceName}`);
-export const getAllMenuList = (menuListUrl) => {
+export const getAllMenuList = (menuListUrl) => {    ///menubar/v2/get4Edit
     return get(menuListUrl); // eslint-disable-line
 }

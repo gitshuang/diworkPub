@@ -16,7 +16,8 @@ import { findDOMNode } from 'react-dom';
 import { connect } from 'react-redux';
 import { mapStateToProps } from '../core/util';
 import manageActions from '../core/action';
-const { dropSideCards, dropSideCardsInGroup,setEditonlyId,moveBottomGroup,moveTopGroup,delectGroup,addGroup,renameGroup } = manageActions;
+const { dropSideCards, dropSideCardsInGroup,setEditonlyId,moveBottomGroup,
+  moveTopGroup,delectGroup,addGroup,renameGroup,selectGroupActions,selectListActions,setDragInputState } = manageActions;
 
 import {
   widgetTitle,
@@ -106,6 +107,7 @@ const itemTarget = {
 		'layout',
     'defaultLayout',
     'currEditonlyId',
+    'selectList',
     {
       namespace: 'managewidget',
     },
@@ -118,7 +120,10 @@ const itemTarget = {
     moveTopGroup,
     delectGroup,
     addGroup,
-    renameGroup
+    renameGroup,
+    selectGroupActions,
+    selectListActions,
+    setDragInputState
   }
 )
 @DragSource("item", itemSource, (connect, monitor) => {
@@ -172,7 +177,6 @@ export default class ManageGroup extends GroupItem {
         this.setState({
           groupName: newGroupName,
         });
-        console.log("^^^^^^^^^^^^^^^*****************+++++++++++++++++",this.refs);
         this.groupName.focus();
         this.groupName.select();
 
@@ -289,8 +293,8 @@ export default class ManageGroup extends GroupItem {
               placeholder={languagesJSON.groupName_max_words_four}
               ref={ref=>this.groupName=ref} />
           </div>
-          <ButtonCheckSelected id={`${widgetId}_btn`} className={btn} onClick={() => { this.renameGroupFn(index) }}><Icon type="right"></Icon></ButtonCheckSelected>
-          <ButtonCheckClose className={btn} onClick={() => { this.renameGroupCancel(index) }}><Icon type="cancel"></Icon></ButtonCheckClose>
+          <ButtonCheckSelected id={`${widgetId}_btn`} className={`${btn} right`} onClick={() => { this.renameGroupFn(index) }}><Icon type="Determine"></Icon></ButtonCheckSelected>
+          <ButtonCheckClose className={`${btn} error`} onClick={() => { this.renameGroupCancel(index) }}><Icon type="error3"></Icon></ButtonCheckClose>
         </div>
       );
     } else {
@@ -298,7 +302,8 @@ export default class ManageGroup extends GroupItem {
         // um-box-justify
         <div className={`${widgetTitle} ${widgetTitleInit} `} >
           <div className={check_group}>
-            <Checkbox checked={checkType} onChange={(e) => { this.selectFn(e, index) }}>{widgetName}</Checkbox>
+            {/* <Checkbox checked={checkType} onChange={(e) => { this.selectFn(e, index) }}>{widgetName}</Checkbox> */}
+            <div className="titleText">{widgetName}</div>
             {
               (languagesJSON.noDataGroup && children.length === 0)
                 ?
@@ -313,13 +318,13 @@ export default class ManageGroup extends GroupItem {
               <Icon title={languagesJSON.delete} type="dustbin" onClick={() => { this.delectGroupFn(index) }} />
               {
                 index ?
-                  <Icon title={languagesJSON.move_up} type="move-upward" onClick={() => { this.moveTopFn(index); }} />
-                  : <Icon title={languagesJSON.move_up} type="move-upward" className="disabled" onClick={() => { return false }} />}
+                  <Icon title={languagesJSON.move_up} font="shangyi" onClick={() => { this.moveTopFn(index); }} />
+                  : <Icon title={languagesJSON.move_up} font="shangyi" className="disabled" onClick={() => { return false }} />}
               {
                 index !== manageList.length - 1 ?
-                  <Icon title={languagesJSON.move_down} type="move-down" onClick={() => { this.moveBottomFn(index) }} />
+                  <Icon title={languagesJSON.move_down} font="xiayi" onClick={() => { this.moveBottomFn(index) }} />
                   :
-                  <Icon title={languagesJSON.move_down} type="move-down" className="disabled" onClick={() => { return false }} />}
+                  <Icon title={languagesJSON.move_down} font="xiayi" className="disabled" onClick={() => { return false }} />}
             </div>
             {/* {this.renderDrop(index)} */}
           </div>

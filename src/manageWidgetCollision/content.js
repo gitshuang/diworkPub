@@ -52,7 +52,7 @@ export default class Content extends Component{
 		const dragCard = manageList[dragIndex];
 		manageList.splice(dragIndex, 1);
 		manageList.splice(hoverIndex, 0, dragCard);
-		this.props.updateGroupList(manageList);
+		this.props.updateGroupList({manageList,isEdit:true});
 	};
 /**
 	 * 拖拽中卡片在组上移动
@@ -115,39 +115,78 @@ export default class Content extends Component{
   };
   //当页面加载完成，获得卡片容器宽度
 	handleLoad = () => {
-		let fn = () => {
-			let clientWidth;
-			const containerDom = document.querySelector('#widget-container');
-			if (containerDom) {
-				clientWidth = containerDom.clientWidth;
-			} else {
-				const firstAddButton = document.querySelector('#first-add');
-				if (firstAddButton) {
-					clientWidth = firstAddButton.clientWidth - 10;
-				} else {
-					return;
-				}
-			}
-			const defaultCalWidth = this.props.defaultLayout.calWidth;
-			const { containerPadding, margin } = this.props.layout;
-			let layout = _.cloneDeep(this.props.layout);
-			const windowWidth = window.innerWidth - 60 * 2;
-			const col = utilService.calColCount(defaultCalWidth, windowWidth, containerPadding, margin);
-			const calWidth = utilService.calColWidth(clientWidth, col, containerPadding, margin);
-
-			let { manageList } = this.props;
-			manageList = _.cloneDeep(manageList);
-			_.forEach(manageList, (g) => {
-				let compactedLayout = compactLayoutHorizontal(g.children, col);
-				g.children = compactedLayout;
-			});
-
-			layout.calWidth = layout.rowHeight = calWidth;
-			layout.col = col;
-			layout.containerWidth = clientWidth;
-			this.props.updateGroupList(manageList);
-			this.props.updateLayout(layout);
-		}
+    let fn;
+    if(this.props.roleEdit){//当用在角色编辑时
+      fn = () => {
+        let clientWidth;
+        const containerDom = document.querySelector('#widget-container');
+        if (containerDom) {
+          clientWidth = containerDom.clientWidth;
+        } else {
+          const firstAddButton = document.querySelector('#first-add');
+          if (firstAddButton) {
+            clientWidth = firstAddButton.clientWidth - 10;
+          } else {
+            return;
+          }
+        }
+        const defaultCalWidth = this.props.defaultLayout.calWidth;
+        const { containerPadding, margin } = this.props.layout;
+        let layout = _.cloneDeep(this.props.layout);
+        const col = utilService.calColCount(148, clientWidth, containerPadding, margin);//取148是为了和左侧拖拽时的阴影对应
+        const calWidth = 148;
+  
+        let { manageList } = this.props;
+        manageList = _.cloneDeep(manageList);
+        _.forEach(manageList, (g) => {
+          let compactedLayout = compactLayoutHorizontal(g.children, col);
+          g.children = compactedLayout;
+        });
+  
+        layout.calWidth = layout.rowHeight = calWidth;
+        layout.col = col;
+        layout.containerWidth = clientWidth;
+        this.props.updateGroupList(manageList);
+        this.props.updateLayout(layout);
+      }
+    }else{
+      fn = () => {
+        let clientWidth;
+        const containerDom = document.querySelector('#widget-container');
+        if (containerDom) {
+          clientWidth = containerDom.clientWidth;
+        } else {
+          const firstAddButton = document.querySelector('#first-add');
+          if (firstAddButton) {
+            clientWidth = firstAddButton.clientWidth - 10;
+          } else {
+            return;
+          }
+        }
+        const defaultCalWidth = this.props.defaultLayout.calWidth;
+        const { containerPadding, margin } = this.props.layout;
+        let layout = _.cloneDeep(this.props.layout);
+        const windowWidth = window.innerWidth - 60 * 2;
+        const col = utilService.calColCount(defaultCalWidth, windowWidth, containerPadding, margin);
+        const calWidth = utilService.calColWidth(clientWidth, col, containerPadding, margin);
+  
+        let { manageList } = this.props;
+        manageList = _.cloneDeep(manageList);
+        _.forEach(manageList, (g) => {
+          let compactedLayout = compactLayoutHorizontal(g.children, col);
+          g.children = compactedLayout;
+        });
+  
+        layout.calWidth = layout.rowHeight = calWidth;
+        layout.col = col;
+        layout.containerWidth = clientWidth;
+        this.props.updateGroupList(manageList);
+        this.props.updateLayout(layout);
+      }
+    }
+		
+    
+    
 		utilService.DeferFn(fn)
   };
   /**
@@ -179,13 +218,18 @@ export default class Content extends Component{
 		let { manageList,layout,shadowCard } = this.props;
 		manageList = _.cloneDeep(manageList);
 		const targetGroupIndex = dropItem.index;
-		const cardList = dragItem.cardList;
+		const cardList = _.cloneDeep(dragItem.cardList);
     //拖拽卡片和目标组内卡片合并、去重
     cardList.forEach(item=>{
       item.gridx = shadowCard.gridx;
       item.gridy = shadowCard.gridy;
+      for(var key in item){
+        if(/^menu/.test(key)||/^service$/.test(key)){
+            delete item[key]
+        }
+    }
     })
-    
+   
     //删除阴影的卡片
 		_.forEach(manageList, (g, index) => {
 			_.remove(g.children, (a) => {
@@ -209,12 +253,8 @@ export default class Content extends Component{
 	//组件渲染完毕时，添加resize事件
 	componentDidMount() {
 		window.addEventListener('resize', this.handleLoad);
-      const { getManageList,updateGroupList,manageListUrl } = this.props;
-      return getManageList(manageListUrl).then(({ error, payload }) => {
-        if (error) {
-          //requestError(payload);
-        }
-        _.forEach(payload.workList, (g) => {
+      const { updateGroupList,groupList } = this.props;
+        _.forEach(groupList, (g) => {
           _.forEach(g.children,(a)=>{
             a.isShadow = false;
             a.isChecked = false;
@@ -241,8 +281,7 @@ export default class Content extends Component{
           })
           
         });
-        //updateGroupList(payload.workList);
-      });
+        updateGroupList(groupList);//把外界传入的数据，作为自己的状态数据，自己的状态是manageList
 	}
   renderContent() {
     var {
@@ -251,9 +290,6 @@ export default class Content extends Component{
       selectList,
       currEditonlyId,
       dragState,
-      //requestStart,
-      //requestSuccess,
-      //requestError,
       moveGroup,
       selectListActions,
       selectGroupActions,
@@ -268,9 +304,6 @@ export default class Content extends Component{
       selectList,
       currEditonlyId,
       dragState,
-      //requestStart,
-      //requestSuccess,
-     // requestError,
       moveGroup,
       selectListActions,
       selectGroupActions,
@@ -291,7 +324,6 @@ export default class Content extends Component{
       selectListActions,
       selectGroupActions,
       setDragInputState,
-      delectService,
     } = this.props;
     var widgetListProps = {
       manageList,
@@ -308,7 +340,6 @@ export default class Content extends Component{
       selectListActions,
       selectGroupActions,
       setDragInputState,
-      delectService,
     }
  
     let list = [];

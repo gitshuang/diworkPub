@@ -286,7 +286,7 @@ export const hasCardContainInGroups = (groups, cardID) => {
     let flag = false;
     groups.forEach(g => {
       g.children.forEach(a => {
-            if (a.serviceId === cardID) {
+            if (a.serviceCode === cardID) {
                 flag = true;
                 return false;
             }
@@ -297,3 +297,5 @@ export const hasCardContainInGroups = (groups, cardID) => {
     });
     return flag;
   };
+//ie11的window.ActiveXObject返回undefined，
+export const IS_IE = !!window.ActiveXObject || "ActiveXObject" in window;

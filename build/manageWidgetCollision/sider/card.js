@@ -68,7 +68,7 @@ var noteSource = {
         if (!data.checked) {
             //拖拽没被选择上的元素时，元素被push进checkedCardList
             props.checkedCardList.push(data);
-            ///component.clickSiderCard(true, data.parentId, data.menuItemId);
+            //component.clickSiderCard(true, data.parentId, data.menuItemId);
         }
         props.checkedCardList.forEach(function (element) {
             element.size = 1;
@@ -77,8 +77,9 @@ var noteSource = {
             element.widgetName = element.service.serviceName;
             element.serviceCode = element.service.serviceCode;
             element.icon = element.service.serviceIcon;
-            element.size = element.widgetTemplate.size;
-            element.serviceType = element.widgetTemplate.serviceType;
+            element.size = element.widgetTemplate ? element.widgetTemplate.size : 1;
+            element.serviceType = element.widgetTemplate ? element.widgetTemplate.serviceType : 1;
+
             switch (element.size) {
                 case 1:
                     element.height = 1;
@@ -104,6 +105,7 @@ var noteSource = {
             widgetId: "shadowCardId"
         };
         props.updateShadowCard(dragCard);
+        console.log(props.checkedCardList, 'checkedCardList=========checkedCardList');
         return { id: "shadowCardId", type: "cardList", cardList: props.checkedCardList //3代表widget，parentId=2暂时代表侧边栏
 
         };
@@ -114,7 +116,6 @@ var noteSource = {
             updateManageList = props.updateManageList;
 
         if (!monitor.didDrop()) {
-            //debugger
 
             manageList.forEach(function (item) {
                 item.children.forEach(function (a, b) {
@@ -129,12 +130,10 @@ var noteSource = {
         }
     },
     canDrag: function canDrag(props, monitor) {
-        // debugger
         var manageList = props.manageList,
             data = props.data;
 
-
-        if (props.hasBeenDragged || (0, _utils.hasCardContainInGroups)(manageList, data.service.serviceId)) {
+        if ((0, _utils.hasCardContainInGroups)(manageList, data.service.serviceCode)) {
             return false;
         }
         return true;
@@ -173,34 +172,36 @@ var Card = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('manageList'
     }
 
     Card.prototype.componentDidMount = function componentDidMount() {
-
         this.props.connectDragPreview((0, _reactDndHtml5Backend.getEmptyImage)(), {
             captureDraggingState: true
         });
     };
-    // shouldComponentUpdate(nextProps,nextState){//优化：只有checked变化是才更新组件
-    //     if(nextProps.checked!==this.props.checked)return true;
-    //     const isContain = hasCardContainInGroups(this.props.manageList, this.props.serviceId)
-    //     const isNextContain = hasCardContainInGroups(nextProps.manageList, this.props.serviceId);
 
+    Card.prototype.shouldComponentUpdate = function shouldComponentUpdate(nextProps, nextState) {
+        //优化：只有checked变化是才更新组件
+        if (nextProps.data.checked !== this.props.data.checked) return true;
+        var isContain = (0, _utils.hasCardContainInGroups)(this.props.manageList, this.props.data.service.serviceCode);
+        var isNextContain = (0, _utils.hasCardContainInGroups)(nextProps.manageList, nextProps.data.service.serviceCode);
+        if (isContain != isNextContain) {
+            return true;
+        }
+        return false;
+    };
 
-    //     if (isContain!=isNextContain) {
-    // 		return true;
-    //     }
-    //     return false
-    // }
     //改变SiderCard的选中状态
+
 
     Card.prototype.render = function render() {
         var _props = this.props,
             connectDragSource = _props.connectDragSource,
             manageList = _props.manageList;
         var _props$data = this.props.data,
-            serviceId = _props$data.serviceId,
-            menuItemName = _props$data.menuItemName,
+            _props$data$service = _props$data.service,
+            serviceName = _props$data$service.serviceName,
+            serviceCode = _props$data$service.serviceCode,
             checked = _props$data.checked;
 
-        var isContainInGroups = (0, _utils.hasCardContainInGroups)(manageList, serviceId);
+        var isContainInGroups = (0, _utils.hasCardContainInGroups)(manageList, serviceCode);
         return connectDragSource(_react2["default"].createElement(
             'div',
             null,
@@ -213,7 +214,7 @@ var Card = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('manageList'
                     _react2["default"].createElement(
                         'span',
                         { className: _style.title_name },
-                        menuItemName
+                        serviceName
                     )
                 )
             ) : _react2["default"].createElement(
@@ -224,13 +225,13 @@ var Card = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('manageList'
                     { className: _style.list_item_content + ' ' + _style.title + ' ' + (checked ? 'item-checked' : null) },
                     _react2["default"].createElement(
                         'span',
-                        { className: _style.title_name, title: menuItemName },
-                        menuItemName
+                        { className: _style.title_name, title: serviceName },
+                        serviceName
                     ),
-                    checked ? _react2["default"].createElement('i', {
-                        className: 'selected',
+                    _react2["default"].createElement('i', {
+                        className: checked ? "selected" : null,
                         style: { color: 'rgb(0, 122, 206)' }
-                    }) : null
+                    })
                 )
             )
         ));

@@ -1,7 +1,6 @@
 import { handleActions } from 'redux-actions';
-import update from 'react/lib/update';
 import actions from './action';
-import { updateAllMenuList,guid } from './util'
+import { guid } from './util'
 
 const {
   updateShadowCard,
@@ -17,14 +16,11 @@ const {
   addGroup,
   delectGroup,
   renameGroup,
-  moveGroup,
   stickGroup,
   moveTopGroup,
   moveBottomGroup,
   splitFolder,
   addService,
-  delectService,
-  moveService,
   getAllServicesByLabelGroup,
   setCurrentSelectWidgetMap,
   openBatchMove,
@@ -169,16 +165,14 @@ const reducer = handleActions({
       layout: layout
     };
   },
-  [updateGroupList]:(state,{payload:groupList}) => {
-    console.log(groupList,'isEdit=================================isEdit==================isEdit');
-    
-    if(Object.prototype.toString.call(groupList)=="[object Object]"&& groupList.isEdit){
-      state.isEdit = groupList.isEdit
-      groupList = groupList.manageList
+  [updateGroupList]:(state,{payload:payload}) => {
+    if(Object.prototype.toString.call(payload)=="[object Object]"&& payload.isEdit){//有些update不需要激活edit，所以传入的参数不同
+      state.isEdit = payload.isEdit
+      payload = payload.manageList
     }
     return {
       ...state,
-      manageList: groupList,
+      manageList: payload,
       checkedCardList:[],
       isEdit:state.isEdit
     };
@@ -406,31 +400,7 @@ const reducer = handleActions({
       currEditonlyId,
     };
   },
-  [moveGroup]: (state, { payload: { id, afterId } }) => {
-    let manageList = state.manageList;
-    const item = manageList.filter(({ widgetId }) => widgetId === id)[0];
-    const afterItem = manageList.filter(({ widgetId }) => widgetId === afterId)[0];
-    const itemIndex = manageList.indexOf(item);
-    const afterIndex = manageList.indexOf(afterItem);
 
-    manageList = update(manageList, {
-      $splice: [
-        [itemIndex, 1],
-        [afterIndex, 0, item],
-      ],
-    });
-    // 深拷贝
-    // manageList = JSON.parse(JSON.stringify(manageList));
-
-    return {
-      ...state,
-      isEdit: true,
-      selectGroup: [],
-      selectList: [],
-      manageList,
-      currEditonlyId: '',
-    };
-  },
   [stickGroup]: (state, { payload: index }) => {
     const manageList = state.manageList;
     const curr = manageList[index];
@@ -487,37 +457,7 @@ const reducer = handleActions({
       currEditonlyId: '',
     };
   },
-  [delectService]: (state, { payload: folderId }) => {
-    const { manageList, allMenuList } = state;
-    let groupIndex;
-    let widgetIndex;
-    if (
-      !manageList.some((group, i) => {
-        groupIndex = i;
-        return group.children.some(({ widgetId }, j) => {
-          widgetIndex = j;
-          return folderId === widgetId;
-        });
-      })
-    ) {
-      return state;
-    }
-    const group = manageList[groupIndex];
-    group.children.splice(widgetIndex, 1);
-    group.children = [...group.children];
-    manageList.splice(groupIndex, 1, {
-      ...group,
-    });
-    delete state.currentSelectWidgetMap[folderId];
-    updateAllMenuList(allMenuList, manageList)
-    return {
-      ...state,
-      isEdit: true,
-      manageList: [...manageList],
-      currEditonlyId: '',
-      currentSelectWidgetMap: state.currentSelectWidgetMap,
-    };
-  },
+ 
 
   [editTitle]: (state, { payload: { id, name } }) => {
     const manageList = state.manageList;
@@ -532,71 +472,6 @@ const reducer = handleActions({
       // manageList: [...manageList],
     };
   },
-  [moveService]: (state, {
-    payload: {
-      id, preParentId, preType, afterId, parentId, afterType, monitor
-    }
-  }) => {
-    const manageAllList = state.manageList;
-    let manageList = manageAllList;
-
-
-    const sourceData = preParentId && findById(manageAllList, preParentId); // 拖拽前 父级源对象
-    const targetData = parentId && findById(manageAllList, parentId); // 拖拽后 父级目标对象
-    const preParentType = sourceData.type;
-    const afterParentType = targetData.type;
-    // 判断是否为文件夹里面元素拖拽
-    const itemIn = findById(manageAllList, id);
-    const itemAfter = findById(manageAllList, afterId);
-    if (preParentType === 1 && afterParentType === 1 && preParentId !== parentId && preType === 3 && afterType === 3) {
-      // 跨分组拖拽
-      sourceData.children.splice(sourceData.children.indexOf(itemIn), 1); // 删掉
-
-      const data = manageList.filter(({ widgetId }) => widgetId === parentId)[0].children;// 当前分组数据
-
-      if (preParentId !== parentId) {
-        itemIn.parentId = parentId;
-        monitor.getItem().parentId = parentId
-      }
-      manageList.filter(({ widgetId }) => widgetId === parentId)[0].children = update(data, {
-        $splice: [
-          [targetData.children.indexOf(itemAfter), 0, itemIn],
-        ],
-      });
-
-    } else if (preParentId !== parentId && preType === 3 && afterType === 1) {
-      // 跨分组拖拽 放到组内 而不是元素上
-      sourceData.children.splice(sourceData.children.indexOf(itemIn), 1); // 删掉
-      if (preParentId !== parentId) {
-        itemIn.parentId = parentId;
-      }
-      targetData.children.splice(targetData.children.length, 0, itemIn); // 添加
-    } else {
-      const dataPre = manageList.filter(({ widgetId }) => widgetId === preParentId)[0].children;
-      const data = manageList.filter(({ widgetId }) => widgetId === parentId)[0].children;
-      const item = dataPre.filter(({ widgetId }) => widgetId === id)[0];
-      const afterItem = data.filter(({ widgetId }) => widgetId === afterId)[0];
-      const itemIndex = data.indexOf(item);
-      const afterIndex = data.indexOf(afterItem);
-
-      manageList.filter(({ widgetId }) => widgetId === parentId)[0].children = update(data, {
-        $splice: [
-          [itemIndex, 1],
-          [afterIndex, 0, item],
-        ],
-      });
-
-    }
-
-    manageList = JSON.parse(JSON.stringify(manageAllList));
-    return {
-      ...state,
-      isEdit: true,
-      manageList,
-      currEditonlyId: '',
-    };
-  },
-
 
   [openBatchMove]: state => ({
     ...state,
@@ -647,7 +522,25 @@ const reducer = handleActions({
       widgetName: "item"
     },
     ifDifferentSizeExchanged: false,
-    checkedCardList: []
+    checkedCardList: [],
+    layout: {
+      containerWidth: 1200,
+      containerHeight: 200,
+      calWidth: 175,
+      rowHeight: 175,
+      col: 6,
+      margin: [ 10, 10 ],
+      containerPadding: [ 0, 0 ]
+    },
+    defaultLayout: {
+      containerWidth: 1200,
+      containerHeight: 200,
+      calWidth: 175,
+      rowHeight: 175,
+      col: 6,
+      margin: [ 10, 10 ],
+      containerPadding: [ 0, 0 ]
+    },
   }),
   [emptySelectGroup]: state => ({
     ...state,

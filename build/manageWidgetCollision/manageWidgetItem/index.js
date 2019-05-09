@@ -23,10 +23,6 @@ var _lodash = require('lodash');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-var _default = require('assets/image/default.png');
-
-var _default2 = _interopRequireDefault(_default);
-
 require('./style.css');
 
 var _style = {
@@ -63,10 +59,6 @@ var _style = {
 var _icon = require('pub-comp/icon');
 
 var _icon2 = _interopRequireDefault(_icon);
-
-var _checkbox = require('../../bee/checkbox');
-
-var _checkbox2 = _interopRequireDefault(_checkbox);
 
 var _reactRedux = require('react-redux');
 
@@ -213,14 +205,27 @@ var Item = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)("manageLi
 		var cardDom = void 0;
 		//是否为拖拽中的阴影卡片
 		if (isShadow) {
-			cardDom = _react2["default"].createElement('div', {
-				className: _style.card_shadow,
-				style: {
-					width: wPx,
-					height: hPx,
-					transform: 'translate(' + x + 'px, ' + y + 'px)'
-				}
-			});
+			cardDom = _react2["default"].createElement(
+				'div',
+				{
+					className: _style.card_shadow,
+					style: {
+						width: wPx,
+						height: hPx,
+						transform: 'translate(' + x + 'px, ' + y + 'px)'
+					}
+				},
+				_react2["default"].createElement(
+					'div',
+					{ className: 'cardTitle' },
+					name
+				),
+				_react2["default"].createElement(
+					'div',
+					{ className: _style.card_footer },
+					_react2["default"].createElement(_icon2["default"], { type: 'dustbin', className: 'card-delete', onClick: this.deleteCard })
+				)
+			);
 		} else {
 			var opacity = haspower === false ? 0.6 : 1;
 			cardDom = _react2["default"].createElement(
@@ -236,18 +241,14 @@ var Item = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)("manageLi
 				},
 				_react2["default"].createElement(
 					'div',
-					{ style: { paddingLeft: '10px' } },
+					{ className: 'cardTitle' },
 					name
 				),
 				_react2["default"].createElement('div', { className: _style.card_mid }),
 				_react2["default"].createElement(
 					'div',
-					{ className: _style.card_footer },
-					_react2["default"].createElement(_icon2["default"], { type: 'dustbin', className: 'card-delete', onClick: this.deleteCard }),
-					_react2["default"].createElement('i', {
-						className: 'iconfont icon-shanchu card_delete',
-						onClick: this.deleteCard
-					})
+					{ className: (_utils.IS_IE ? "ie11" : '') + ' ' + _style.card_footer },
+					_react2["default"].createElement(_icon2["default"], { type: 'dustbin', className: 'card-delete', onClick: this.deleteCard })
 				)
 			);
 		}

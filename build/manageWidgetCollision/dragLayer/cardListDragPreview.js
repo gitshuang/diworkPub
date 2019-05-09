@@ -9,9 +9,13 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _background_card = require('assets/image/background_card.png');
+var _background_card = require('../assets/background_card.svg');
 
 var _background_card2 = _interopRequireDefault(_background_card);
+
+var _singleBackground = require('../assets/single-background.svg');
+
+var _singleBackground2 = _interopRequireDefault(_singleBackground);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -58,7 +62,7 @@ var CardListDragPreview = function (_Component) {
 				'\uFF0B',
 				cardListLength
 			),
-			_react2["default"].createElement('img', {
+			cardListLength == 1 ? _react2["default"].createElement('img', { src: _singleBackground2["default"], alt: 'logo' }) : _react2["default"].createElement('img', {
 				src: _background_card2["default"],
 				alt: 'logo'
 			})

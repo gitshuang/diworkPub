@@ -4,17 +4,15 @@ import { DragSource } from 'react-dnd';
 import { compactLayoutHorizontal } from '../compact';
 import * as utilService from '../utils';
 import _ from 'lodash';
-import background_card from 'assets/image/default.png';
-import {card_shadow,card,card_mid,card_footer} from "./style.css"
+import { card_shadow, card, card_mid, card_footer } from "./style.css"
 import Icon from 'pub-comp/icon';
-import Checkbox from 'bee/checkbox';  
-
+import { IS_IE } from '../utils';
 
 
 import { connect } from 'react-redux';
 import { mapStateToProps } from '../core/util';
 import manageActions from '../core/action';
-const { updateShadowCard,updateGroupList} = manageActions;
+const { updateShadowCard, updateGroupList } = manageActions;
 
 
 const noteSource = {
@@ -41,16 +39,16 @@ const noteSource = {
 
 @connect(
 	mapStateToProps(
-    "manageList",
-    "shadowCard",
-    "layout",
+		"manageList",
+		"shadowCard",
+		"layout",
 		{
 			namespace: 'managewidget',
-    },
-	),{
-    updateShadowCard,
-    updateGroupList,
-  }
+		},
+	), {
+		updateShadowCard,
+		updateGroupList,
+	}
 )
 @DragSource('item', noteSource, (connect) => ({
 	connectDragSource: connect.dragSource()
@@ -88,7 +86,7 @@ export default class Item extends Component {
 
 		let compactedLayout = compactLayoutHorizontal(manageList[groupIndex].children, this.props.layout.col);
 		manageList[groupIndex].children = compactedLayout;
-		this.props.updateGroupList({manageList,isEdit:true});
+		this.props.updateGroupList({ manageList, isEdit: true });
 	};
 	//选中卡片
 	onCheckboxChange = (flag) => {
@@ -109,11 +107,11 @@ export default class Item extends Component {
 			isChecked,
 			haspower
 		} = this.props;
-        
+
 		const { margin, rowHeight, calWidth } = this.props.layout;
-		
+
 		const { x, y } = utilService.calGridItemPosition(gridx, gridy, margin, rowHeight, calWidth);
-		
+
 
 		const { wPx, hPx } = utilService.calWHtoPx(width, height, margin, rowHeight, calWidth);
 		let cardDom;
@@ -127,7 +125,17 @@ export default class Item extends Component {
 						height: hPx,
 						transform: `translate(${x}px, ${y}px)`
 					}}
-				/>
+				>
+
+					<div  className="cardTitle">{name}</div>
+				
+					<div className={card_footer}>
+						{/* <Checkbox checked={isChecked} onChange={this.onCheckboxChange} /> */}
+						<Icon type='dustbin' className='card-delete' onClick={this.deleteCard} />
+						
+					</div>
+
+				</div>
 			);
 		} else {
 			const opacity = haspower === false ? 0.6 : 1;
@@ -141,17 +149,13 @@ export default class Item extends Component {
 						transform: `translate(${x}px, ${y}px)`
 					}}
 				>
-					<div style={{ paddingLeft: '10px' }}>{name}</div>
+					<div className="cardTitle">{name}</div>
 					<div className={card_mid}>
-						
+
 					</div>
-					<div className={card_footer}>
+					<div className={`${IS_IE?"ie11":''} ${card_footer}`}>
 						{/* <Checkbox checked={isChecked} onChange={this.onCheckboxChange} /> */}
 						<Icon type='dustbin' className='card-delete' onClick={this.deleteCard} />
-						<i
-							className='iconfont icon-shanchu card_delete'
-							onClick={this.deleteCard}
-						/>
 					</div>
 				</div>
 			);

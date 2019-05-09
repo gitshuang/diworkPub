@@ -28,8 +28,9 @@ export default class MenuList extends React.Component{
         this.props.updateCheckedCardList([]);
     }
     handleClickOutside(evt) {
-       // debugger
+
        const {showServiceAndChangeInput,isMenuListShow} = this.props;
+       if(evt.target.className=='inputMask')return
         if(isMenuListShow){
             showServiceAndChangeInput();
         }
@@ -39,11 +40,12 @@ export default class MenuList extends React.Component{
         const {menuList,isMenuListShow} = this.props;
         return <Menu defaultOpenKeys={["0"]} className={menuListStyle} onClick={this.handleClick} style={{display:isMenuListShow?"block":"none"}}>
         {menuList.map((item, index) => {
-            return <SubMenu title={item.menuBarName} key={item.menuBarId} >
-                {item.menuItems.map((a, g) => {
+            return <Menu.Item  key={item.menuBarCode} >  {/*title={item.menuBarName}*/}
+            {item.menuBarName}
+                {/* {item.menuItems.map((a, g) => {
                     return <Menu.Item key={a.menuItemId} >{a.menuItemName}</Menu.Item>
-                })}
-            </SubMenu>
+                })} */}
+            </Menu.Item>
         }) }
     </Menu>
     }

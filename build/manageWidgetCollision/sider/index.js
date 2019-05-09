@@ -50,8 +50,6 @@ var _icon = require('pub-comp/icon');
 
 var _icon2 = _interopRequireDefault(_icon);
 
-var _utils = require('../utils');
-
 var _cardList = require('./cardList');
 
 var _cardList2 = _interopRequireDefault(_cardList);
@@ -64,6 +62,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -73,16 +73,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var changeSiderState = _action2["default"].changeSiderState,
     getAllMenuList = _action2["default"].getAllMenuList,
     updateCheckedCardList = _action2["default"].updateCheckedCardList;
-//import rootActions from 'store/root/actions';
-//const { requestStart, requestSuccess, requestError } = rootActions;
-
 var MySider = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('isSiderDisplay', 'manageList', 'allMenuList', 'checkedCardList', {
     namespace: 'managewidget'
 }), {
     getAllMenuList: getAllMenuList,
-    //requestStart,
-    //requestSuccess,
-    //requestError,
     changeSiderState: changeSiderState,
     updateCheckedCardList: updateCheckedCardList
 }), _dec(_class = (_temp = _class2 = function (_Component) {
@@ -110,66 +104,29 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('isSid
         var _this2 = this;
 
         var _props = this.props,
-            getAllMenuList = _props.getAllMenuList,
             manageList = _props.manageList,
-            menuListUrl = _props.menuListUrl;
-        //requestStart()
+            menuList = _props.menuList;
 
-        getAllMenuList(menuListUrl).then(function (_ref) {
-            var error = _ref.error,
-                payload = _ref.payload;
-
-            if (error) {
-                //requestError(payload);
-                return;
-            }
-
-            payload.forEach(function (a) {
-                //第一级
-                a.menuItems.forEach(function (b) {
-                    //第二级
-                    b.children.forEach(function (c) {
-                        //第三极
-                        if (c.children.length) {
-                            c.children.forEach(function (d) {
-                                if ((0, _utils.hasCardContainInGroups)(manageList, d.serviceId)) d.hasBeenDragged = true;
-                            });
-                        } else {
-                            if ((0, _utils.hasCardContainInGroups)(manageList, c.serviceId)) c.hasBeenDragged = true;
-                        }
-                    });
-                });
-            });
-            _this2.setState({
-                menuList: payload
-            }, function () {
+        this.setState({
+            menuList: menuList
+        }, function () {
+            if (menuList.length) {
                 _this2.showServiceAndChangeInput();
-            });
-            //requestSuccess();
+            }
         });
-
-        this.setHeight();
-        window.addEventListener('resize', this.setHeight);
-    };
-
-    MySider.prototype.componentDidUpdate = function componentDidUpdate() {
-        //解决隐藏后重新显示
-        this.setHeight();
-    };
-
-    MySider.prototype.componentWillUnmount = function componentWillUnmount() {
-        window.removeEventListener('resize', this.setHeight);
     };
 
     MySider.prototype.componentWillReceiveProps = function componentWillReceiveProps(props) {};
 
     MySider.prototype.render = function render() {
-        var _this3 = this;
+        var _React$createElement2,
+            _this3 = this;
 
         var _state = this.state,
             inputValue = _state.inputValue,
             searchValue = _state.searchValue,
-            ifSearchState = _state.ifSearchState;
+            ifSearchState = _state.ifSearchState,
+            isMenuListShow = _state.isMenuListShow;
         var _props2 = this.props,
             isSiderDisplay = _props2.isSiderDisplay,
             changeSiderState = _props2.changeSiderState,
@@ -197,44 +154,52 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('isSid
                         { className: 'sider-container-fixed' },
                         _react2["default"].createElement(
                             'div',
-                            { className: _style.add_item },
+                            { style: { position: 'absolute', width: 320, zIndex: 99999, backgroundColor: '#fff' } },
                             _react2["default"].createElement(
-                                'span',
-                                null,
-                                _react2["default"].createElement(_icon2["default"], { type: 'notice' }),
-                                languagesJSON.notice
+                                'div',
+                                { className: _style.add_item },
+                                _react2["default"].createElement(
+                                    'span',
+                                    null,
+                                    _react2["default"].createElement(_icon2["default"], { type: 'notice' }),
+                                    languagesJSON.notice
+                                )
+                            ),
+                            ifSearchState ? _react2["default"].createElement(
+                                'div',
+                                { className: _style.selectServiceArea },
+                                _react2["default"].createElement(_icon2["default"], { type: 'search', onClick: this.switchFetchFn, className: 'frontSearchIcon' }),
+                                _react2["default"].createElement('input', _defineProperty({ className: _style.selectService,
+                                    onKeyUp: this.searchService,
+                                    key: 'clickSearch',
+                                    placeholder: '\u8F93\u5165\u670D\u52A1\u540D\u79F0'
+                                }, 'className', 'searchInput')),
+                                _react2["default"].createElement(
+                                    'span',
+                                    { onClick: this.switchFetchFn, className: 'option' },
+                                    '\u53D6\u6D88'
+                                )
+                            ) : _react2["default"].createElement(
+                                'div',
+                                { className: _style.selectServiceArea },
+                                _react2["default"].createElement('input', (_React$createElement2 = { className: _style.selectService
+                                    // onFocus={() => { this.setState({ isMenuListShow: true }) }}
+                                    , value: inputValue,
+                                    key: 'menuSearch'
+                                    // onBlur={() => { this.setState({ isMenuListShow: false }) }}
+                                }, _defineProperty(_React$createElement2, 'className', 'menuInput'), _defineProperty(_React$createElement2, 'disabled', 'disabled'), _React$createElement2)),
+                                _react2["default"].createElement('div', { className: 'inputMask', onClick: function onClick() {
+                                        _this3.setState({ isMenuListShow: !isMenuListShow });
+                                    } }),
+                                _react2["default"].createElement(_icon2["default"], { type: isMenuListShow ? "upward" : "pull-down", className: 'arrow' }),
+                                _react2["default"].createElement(_icon2["default"], { type: 'search', onClick: this.switchFetchFn, className: 'option' })
                             )
-                        ),
-                        ifSearchState ? _react2["default"].createElement(
-                            'div',
-                            { className: _style.selectServiceArea },
-                            _react2["default"].createElement('input', { className: _style.selectService,
-                                onKeyUp: this.searchService,
-                                key: 'clickSearch'
-                            }),
-                            _react2["default"].createElement(
-                                'span',
-                                { onClick: this.switchFetchFn, className: 'option' },
-                                '\u53D6\u6D88'
-                            )
-                        ) : _react2["default"].createElement(
-                            'div',
-                            { className: _style.selectServiceArea },
-                            _react2["default"].createElement('input', { className: _style.selectService,
-                                onFocus: function onFocus() {
-                                    _this3.setState({ isMenuListShow: true });
-                                },
-                                value: inputValue,
-                                key: 'menuSearch'
-                                // onBlur={() => { this.setState({ isMenuListShow: false }) }}
-                            }),
-                            _react2["default"].createElement(_icon2["default"], { type: 'search', onClick: this.switchFetchFn, className: 'option' })
                         ),
                         this.renderMenu(),
                         _react2["default"].createElement(
                             'div',
-                            { className: 'serviceArea', ref: function ref(_ref2) {
-                                    return _this3.serviceArea = _ref2;
+                            { className: 'serviceArea', ref: function ref(_ref) {
+                                    return _this3.serviceArea = _ref;
                                 } },
                             this.renderService()
                         )
@@ -258,12 +223,6 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('isSid
 }(_react.Component), _initialiseProps = function _initialiseProps() {
     var _this4 = this;
 
-    this.setHeight = function () {
-        if (_this4.serviceArea) {
-            _this4.serviceArea.style.height = (document.documentElement || document.body).clientHeight - 180 + "px";
-        }
-    };
-
     this.renderMenu = function () {
         var _state2 = _this4.state,
             menuList = _state2.menuList,
@@ -283,49 +242,56 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('isSid
         // 通过keyPath，获得一二级
         var inputValue = '';
         var cardsList = [];
+        var menuList = _this4.state.menuList;
 
+        if (!menuList.length) return;
         if (keyPath.length) {
             _this4.state.menuList.forEach(function (item) {
-                if (item.menuBarId == keyPath[1]) {
-                    inputValue += item.menuBarName + '/';
-                    item.menuItems.forEach(function (a) {
-                        if (a.menuItemId == keyPath[0]) {
-                            inputValue += a.menuItemName;
-                            cardsList = a.children;
-                            return;
-                        }
-                    });
+                if (item.menuBarCode == keyPath[0]) {
+                    inputValue = item.menuBarName; //+ '/';
+                    cardsList = item.menuItems;
+                    // item.menuItems.forEach((a) => {
+                    //     if (a.menuItemId == keyPath[0]) {
+                    //         inputValue += a.menuItemName;
+                    //         cardsList = a.children;
+                    //         return
+                    //     }
+                    // })
                 }
             });
         }
 
         if (!keyPath.length) {
-            cardsList = _this4.state.menuList[0].menuItems[0].children;
-            inputValue = _this4.state.menuList[0].menuBarName + '/' + _this4.state.menuList[0].menuItems[0].menuItemName;
+            cardsList = menuList[0].menuItems; //.children
+            inputValue = '' + menuList[0].menuBarName; ///${menuList[0].menuItems[0].menuItemName
         }
 
         _this4.setState({
             cardsList: cardsList,
             inputValue: inputValue,
             isMenuListShow: false,
-            keyPath: keyPath
+            keyPath: keyPath,
+            canShowEmptyDom: false
         });
     };
 
     this.renderService = function () {
         var checkedCardList = _this4.props.checkedCardList;
+        var _state3 = _this4.state,
+            cardsList = _state3.cardsList,
+            canShowEmptyDom = _state3.canShowEmptyDom;
 
         var dom = '';
-        dom = _this4.state.cardsList.map(function (a, b) {
+        dom = cardsList.map(function (a, b) {
             if (a.children && a.children.length == 0) {
                 var isContainInCheckCardList = checkedCardList.some(function (item) {
-                    return item.serviceId == a.serviceId;
+                    return item.serviceCode == a.serviceCode;
                 });
                 a.checked = isContainInCheckCardList;
                 return _react2["default"].createElement(
                     'div',
-                    { key: a.menuItemId, className: 'result_app_list_3' },
-                    _react2["default"].createElement(_card2["default"], { data: a, key: a.menuItemIdb, index: b,
+                    { key: a.menuItemId + '-' + b, className: 'result_app_list_3' },
+                    _react2["default"].createElement(_card2["default"], { data: JSON.parse(JSON.stringify(a)), key: a.menuItemId + '-' + b, index: b,
                         onChangeChecked: _this4.onChangeChecked
                     }),
                     _react2["default"].createElement('hr', null)
@@ -338,6 +304,13 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('isSid
                 checkedCardList: checkedCardList,
                 onChangeChecked: _this4.onChangeChecked });
         });
+        if (!dom.length && canShowEmptyDom) {
+            dom = _react2["default"].createElement(
+                'div',
+                { className: 'emptyDom' },
+                '\u6682\u65E0\u7ED3\u679C'
+            );
+        }
         return dom;
     };
 
@@ -354,14 +327,12 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('isSid
             //如果是选中，push checkedCardList
             cardsList.forEach(function (item) {
                 if (item.menuItemId == menuItemId && !item.children.length) {
-                    //item.checked = checked;
                     newCheckedCardList.push(item);
                 }
 
                 if (item.children.length) {
                     item.children.forEach(function (a) {
                         if (a.menuItemId == menuItemId) {
-                            //a.checked = checked;
                             newCheckedCardList.push(a);
                         }
                     });
@@ -404,11 +375,11 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('isSid
             _this4.state.menuList.forEach(function (a, b) {
                 a.menuItems.forEach(function (c, d) {
                     c.children.forEach(function (e, f) {
-                        if (e.children.length == 0 && e.menuItemName.indexOf(value) != -1) {
+                        if (e.children.length == 0 && e.service.serviceName.indexOf(value) != -1) {
                             cardsList.push(e);
                         } else if (e.children.length != 0) {
                             e.children.forEach(function (g, h) {
-                                if (g.menuItemName.indexOf(value) != -1) {
+                                if (g.service.serviceName.indexOf(value) != -1) {
                                     cardsList.push(g);
                                 }
                             });
@@ -416,17 +387,18 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('isSid
                     });
                 });
             });
-            //给手动搜索到的cardList去重
+            //如果有重复的,给手动搜索到的cardList去重,给下拉展示的cardList不去重,给checkedCardList去重
             var deduplicatedList = [];
             cardsList.forEach(function (item, index) {
                 var isContain = deduplicatedList.some(function (d) {
-                    return d.serviceId == item.serviceId;
+                    return d.serviceCode == item.serviceCode;
                 });
                 if (!isContain) {
                     deduplicatedList.push(item);
                 }
             });
-            _this4.setState({ cardsList: deduplicatedList });
+
+            _this4.setState({ cardsList: deduplicatedList, canShowEmptyDom: true });
         }
     };
 

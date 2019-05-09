@@ -8,45 +8,47 @@ export default class CardsList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isShow:true
+            isShow: true
         }
     }
-    handleClick=()=>{
+    handleClick = () => {
         this.setState({
-            isShow:!this.state.isShow
+            isShow: !this.state.isShow
         })
     }
-    componentDidMount(){
-        
+    componentDidMount() {
+
         const height = this.listDom.offsetHeight;
         this.setState({
-            height:height
+            height: height
         })
     }
     render() {
-        const {list,listName,onChangeChecked,checkedCardList} = this.props;
-        const {isShow,height} = this.state;
-        const display = isShow?'flex':'none';
-        const showStyle = isShow?{
-            height:height
-        }:{
-            height:0,
-        }
+        const { list, listName, onChangeChecked, checkedCardList } = this.props;
+        const { isShow, height } = this.state;
+        const display = isShow ? 'flex' : 'none';
+        const showStyle = isShow ? {
+            height: height
+        } : {
+                height: 0,
+            }
         list.forEach(element => {
-        const isContainInCheckCardList = checkedCardList.some(a=>{return a.serviceId==element.serviceId})
+            const isContainInCheckCardList = checkedCardList.some(a => { return a.serviceCode == element.serviceCode })
 
             element.checked = isContainInCheckCardList
         });
-        return <div>
-            <div className="serviceTitle"><span>{listName}</span><i className={classNames({ down: isShow })} onClick={this.handleClick}/></div>
-            <div className="result_app_list_4" style={{...showStyle,transition:"height .5s"}} ref={ref=>this.listDom=ref}>
+        return <div style={{ width: "100%" }}>
+            <div className="serviceTitle"><span>{listName}</span><i className={classNames({ down: isShow })} onClick={this.handleClick} /></div>
+            <div className="result_app_list_4" style={{ ...showStyle, transition: "height .5s" }} ref={ref => this.listDom = ref}>
                 {list.map((item, c) => {
 
-                    return <Card data={item} key={item.menuItemId} index={c}
+                    return <Card data={JSON.parse(JSON.stringify(item))}
+                        key={`${item.menuItemId}-${c}`} 
+                        index={c}
                         onChangeChecked={onChangeChecked}
                         checkedCardList={checkedCardList}
-                        />//{item.menuItemName}
-                        
+                    />//{item.menuItemName}
+
                 })}
             </div>
             <hr />
