@@ -68,8 +68,7 @@ var returnDefaultState = _action2["default"].returnDefaultState,
     updateGroupList = _action2["default"].updateGroupList,
     emptySelectGroup = _action2["default"].emptySelectGroup,
     setEditState = _action2["default"].setEditState,
-    moveGroup = _action2["default"].moveGroup,
-    setManageList = _action2["default"].setManageList;
+    moveGroup = _action2["default"].moveGroup;
 var Wrapper = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('manageList', 'isEdit', {
   namespace: 'managewidget'
 }), {
@@ -77,8 +76,7 @@ var Wrapper = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('manag
   updateGroupList: updateGroupList,
   emptySelectGroup: emptySelectGroup,
   setEditState: setEditState,
-  moveGroup: moveGroup,
-  setManageList: setManageList
+  moveGroup: moveGroup
 }), _dec(_class = (_temp = _class2 = function (_Component) {
   _inherits(Wrapper, _Component);
 
@@ -120,13 +118,13 @@ var Wrapper = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('manag
 
     _this.save = function () {
       var _this$props = _this.props,
-          setManageList = _this$props.setManageList,
-          manageList = _this$props.manageList;
+          manageList = _this$props.manageList,
+          save = _this$props.save;
 
       if (_this.checkBtn) {
         _this.checkBtn.click();
       }
-      setManageList(manageList).then(function (_ref) {
+      save(manageList).then(function (_ref) {
         var error = _ref.error,
             payload = _ref.payload;
 

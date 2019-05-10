@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import store from './core/index'
 
 import manageActions from './core/action';
-const { returnDefaultState,updateGroupList,emptySelectGroup,setEditState,moveGroup,setManageList } = manageActions;
+const { returnDefaultState,updateGroupList,emptySelectGroup,setEditState,moveGroup } = manageActions;
 import { mapStateToProps } from './core/util';
 
 
@@ -28,8 +28,7 @@ import { mapStateToProps } from './core/util';
       updateGroupList,
       emptySelectGroup,
       setEditState,
-      moveGroup,
-      setManageList
+      moveGroup
   }
 )
 class Wrapper extends Component {
@@ -108,13 +107,13 @@ class Wrapper extends Component {
    //  保存
    save = () => {
     const {
-      setManageList,
       manageList,
+      save
     } = this.props;
     if (this.checkBtn) {
       this.checkBtn.click();
     }
-    setManageList(manageList).then(({ error, payload }) => {
+    save(manageList).then(({ error, payload }) => {
       if (error) {
         //requestError(payload);
 
