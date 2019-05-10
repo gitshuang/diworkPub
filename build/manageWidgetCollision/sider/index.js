@@ -314,7 +314,7 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('isSid
         return dom;
     };
 
-    this.onChangeChecked = function (checked, parentId, menuItemId) {
+    this.onChangeChecked = function (checked, parentId, serviceCode) {
         var cardsList = _this4.state.cardsList;
         //const newCardsList = JSON.parse(JSON.stringify(cardsList))
 
@@ -326,13 +326,13 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('isSid
         if (checked) {
             //如果是选中，push checkedCardList
             cardsList.forEach(function (item) {
-                if (item.menuItemId == menuItemId && !item.children.length) {
+                if (item.serviceCode == serviceCode && !item.children.length) {
                     newCheckedCardList.push(item);
                 }
 
                 if (item.children.length) {
                     item.children.forEach(function (a) {
-                        if (a.menuItemId == menuItemId) {
+                        if (a.serviceCode == serviceCode) {
                             newCheckedCardList.push(a);
                         }
                     });
@@ -342,19 +342,19 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('isSid
         if (!checked) {
             //如果是解除选中状态，改变cardList状态，从 checkedCardList中删除
             cardsList.forEach(function (item) {
-                if (item.menuItemId == menuItemId && !item.children.length) {
+                if (item.serviceCode == serviceCode && !item.children.length) {
                     //item.checked = checked;
                     newCheckedCardList = newCheckedCardList.filter(function (item) {
-                        return item.menuItemId !== menuItemId;
+                        return item.serviceCode !== serviceCode;
                     });
                 }
 
                 if (item.children.length) {
                     item.children.forEach(function (a) {
-                        if (a.menuItemId == menuItemId) {
+                        if (a.serviceCode == serviceCode) {
                             // a.checked = checked;
                             newCheckedCardList = newCheckedCardList.filter(function (item) {
-                                return item.menuItemId !== menuItemId;
+                                return item.serviceCode !== serviceCode;
                             });
                         }
                     });

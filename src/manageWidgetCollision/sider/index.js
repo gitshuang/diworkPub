@@ -128,20 +128,20 @@ export default class MySider extends Component {
     }
     componentWillReceiveProps(props) {
     }
-    onChangeChecked = (checked, parentId, menuItemId) => {
+    onChangeChecked = (checked, parentId, serviceCode) => {
         const { cardsList } = this.state;
         //const newCardsList = JSON.parse(JSON.stringify(cardsList))
         const { checkedCardList, updateCheckedCardList } = this.props;
         let newCheckedCardList = JSON.parse(JSON.stringify(checkedCardList));
         if (checked) {//如果是选中，push checkedCardList
             cardsList.forEach((item) => {
-                if (item.menuItemId == menuItemId && !item.children.length) {
+                if (item.serviceCode == serviceCode && !item.children.length) {
                     newCheckedCardList.push(item)
                 }
 
                 if (item.children.length) {
                     item.children.forEach((a) => {
-                        if (a.menuItemId == menuItemId) {
+                        if (a.serviceCode == serviceCode) {
                             newCheckedCardList.push(a)
                         }
                     })
@@ -150,19 +150,19 @@ export default class MySider extends Component {
         }
         if (!checked) {//如果是解除选中状态，改变cardList状态，从 checkedCardList中删除
             cardsList.forEach((item) => {
-                if (item.menuItemId == menuItemId && !item.children.length) {
+                if (item.serviceCode == serviceCode && !item.children.length) {
                     //item.checked = checked;
                     newCheckedCardList = newCheckedCardList.filter(item => {
-                        return item.menuItemId !== menuItemId
+                        return item.serviceCode !== serviceCode
                     })
                 }
 
                 if (item.children.length) {
                     item.children.forEach((a) => {
-                        if (a.menuItemId == menuItemId) {
+                        if (a.serviceCode == serviceCode) {
                             // a.checked = checked;
                             newCheckedCardList = newCheckedCardList.filter(item => {
-                                return item.menuItemId !== menuItemId
+                                return item.serviceCode !== serviceCode
                             })
                         }
                     })

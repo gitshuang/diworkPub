@@ -161,11 +161,11 @@ var Card = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('manageList'
 
         _this.clickSiderCard = function () {
             var _this$props$data = _this.props.data,
-                menuItemId = _this$props$data.menuItemId,
+                serviceCode = _this$props$data.service.serviceCode,
                 parentId = _this$props$data.parentId,
                 checked = _this$props$data.checked;
 
-            _this.props.onChangeChecked(!checked, parentId, menuItemId);
+            _this.props.onChangeChecked(!checked, parentId, serviceCode);
         };
 
         return _this;

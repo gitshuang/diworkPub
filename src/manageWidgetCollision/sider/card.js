@@ -125,8 +125,8 @@ export default class Card extends Component {
 
     //改变SiderCard的选中状态
     clickSiderCard = () => {
-        const { menuItemId, parentId, checked } = this.props.data;
-        this.props.onChangeChecked(!checked, parentId, menuItemId);
+        const { service:{serviceCode}, parentId, checked } = this.props.data;
+        this.props.onChangeChecked(!checked, parentId, serviceCode);
     };
 
     render() { 
