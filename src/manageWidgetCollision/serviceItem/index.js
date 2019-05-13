@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Icon from 'pub-comp/icon';
+import Icon from '../../icon';
 import Button from 'bee/button';
 
 import { serviceItem,serviceItemTitle,item_li_top,item_footer,item_footer_app,item_left,item_right,

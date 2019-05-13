@@ -23,13 +23,13 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _pop = require('pub-comp/pop');
+var _pop = require('../../pop');
 
 var _pop2 = _interopRequireDefault(_pop);
 
 var _button = require('pub-comp/button');
 
-var _u = require('@u');
+var _utils = require('../../utils');
 
 var _icon = require('pub-comp/icon');
 
@@ -43,9 +43,9 @@ var _manageWidgetItem = require('../manageWidgetItem');
 
 var _manageWidgetItem2 = _interopRequireDefault(_manageWidgetItem);
 
-var _utils = require('../utils');
+var _utils2 = require('../utils');
 
-var utilService = _interopRequireWildcard(_utils);
+var utilService = _interopRequireWildcard(_utils2);
 
 var _reactDom = require('react-dom');
 
@@ -235,7 +235,7 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('m
 
           return widgetName;
         });
-        var newGroupName = (0, _u.avoidSameName)(nameArr, languagesJSON.group);
+        var newGroupName = (0, _utils.avoidSameName)(nameArr, languagesJSON.group);
         _this2.setState({
           groupName: newGroupName
         });

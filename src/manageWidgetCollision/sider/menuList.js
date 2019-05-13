@@ -4,7 +4,7 @@ const SubMenu = Menu.SubMenu;
 import {menuListStyle} from './style.css';
 import onClickOutside from 'react-onclickoutside';
 import { connect } from 'react-redux';
-import { mapStateToProps } from '@u';
+import { mapStateToProps } from '../../utils';
 import manageActions from '../core/action';
 const { updateCheckedCardList } = manageActions;
 

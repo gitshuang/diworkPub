@@ -5,7 +5,7 @@ import { compactLayoutHorizontal } from '../compact';
 import * as utilService from '../utils';
 import _ from 'lodash';
 import { card_shadow, card, card_mid, card_footer } from "./style.css"
-import Icon from 'pub-comp/icon';
+import Icon from '../../icon';
 import { IS_IE } from '../utils';
 
 

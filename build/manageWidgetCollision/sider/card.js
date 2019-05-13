@@ -19,7 +19,7 @@ var _reactRedux = require('react-redux');
 
 var _utils = require('../utils');
 
-var _u = require('@u');
+var _utils2 = require('../../utils');
 
 require('./style.css');
 
@@ -140,7 +140,7 @@ var noteSource = {
     }
 };
 
-var Card = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('manageList', 'checkedCardList', {
+var Card = (_dec = (0, _reactRedux.connect)((0, _utils2.mapStateToProps)('manageList', 'checkedCardList', {
     namespace: 'managewidget'
 }), {
     updateManageList: updateManageList,

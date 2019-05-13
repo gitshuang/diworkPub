@@ -22,13 +22,13 @@ var _serviceItem = require('../serviceItem');
 
 var _serviceItem2 = _interopRequireDefault(_serviceItem);
 
-var _searchInput = require('pub-comp/searchInput');
+var _searchInput = require('../../searchInput');
 
 var _searchInput2 = _interopRequireDefault(_searchInput);
 
 var _button3 = require('pub-comp/button');
 
-var _u = require('@u');
+var _utils = require('../../utils');
 
 require('./style.css');
 
@@ -345,7 +345,7 @@ var SelectWidgetList = function (_Component) {
       }
       item.service.forEach(function (da, i) {
         da.extend = _b;
-        list.push(_react2["default"].createElement(_serviceItem2["default"], { key: 'widget-' + (0, _u.guid)(), onChange: _this3.onChange, data: da,
+        list.push(_react2["default"].createElement(_serviceItem2["default"], { key: 'widget-' + (0, _utils.guid)(), onChange: _this3.onChange, data: da,
           languagesJSON: languagesJSON }));
       });
     });

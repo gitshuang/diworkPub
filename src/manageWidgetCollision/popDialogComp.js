@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PopDialog from 'pub-comp/pop';
+import PopDialog from '../pop';
 import { manager_save_pop } from './style.css';
 
 import { connect } from 'react-redux';

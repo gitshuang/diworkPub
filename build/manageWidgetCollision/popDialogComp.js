@@ -11,7 +11,7 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _pop = require('pub-comp/pop');
+var _pop = require('../pop');
 
 var _pop2 = _interopRequireDefault(_pop);
 

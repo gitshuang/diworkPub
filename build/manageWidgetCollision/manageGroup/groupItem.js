@@ -17,7 +17,7 @@ var _message = require('../../bee/message');
 
 var _message2 = _interopRequireDefault(_message);
 
-var _icon = require('pub-comp/icon');
+var _icon = require('../../icon');
 
 var _icon2 = _interopRequireDefault(_icon);
 

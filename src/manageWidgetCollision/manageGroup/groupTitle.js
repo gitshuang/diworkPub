@@ -4,8 +4,8 @@ import Message from 'bee/message';
 import { connect } from 'react-redux';
 import Menu, { Item as MenuItem } from 'bee/menus';
 import Dropdown from 'bee/dropdown';
-import { ButtonCheckClose, ButtonCheckSelected } from 'pub-comp/button';
-import { mapStateToProps } from '@u';
+import { ButtonCheckClose, ButtonCheckSelected } from '../../button';
+import { mapStateToProps } from '../../utils';
 import manageActions from '../core/action';
 const { addGroup,
   updateGroupList,

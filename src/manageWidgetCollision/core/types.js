@@ -1,4 +1,4 @@
-import { createTypes } from '@u';
+import { createTypes } from '../../utils';
 
 export default createTypes(
   'UPDATE_CHECKED_CARD_LIST',

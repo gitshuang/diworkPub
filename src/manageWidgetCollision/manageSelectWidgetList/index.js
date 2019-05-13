@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import ButtonGroup from 'bee/button-group';
 import Button from 'bee/button';
 import ServiceItem from '../serviceItem';
-import SearchInput from 'pub-comp/searchInput';
+import SearchInput from '../../searchInput';
 import { ButtonBrand, ButtonDefaultAlpha } from 'pub-comp/button';
-import { guid } from '@u';
+import { guid } from '../../utils';
 
 
 import {

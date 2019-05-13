@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createActions;
 
-var _u = require('@u');
+var _utils = require('../../utils');
 
 var _types = require('./types');
 
@@ -59,7 +59,7 @@ var CHANGE_SIDER_STATE = _types2["default"].CHANGE_SIDER_STATE,
     UPDATE_CHECKED_CARD_LIST = _types2["default"].UPDATE_CHECKED_CARD_LIST;
 
 
-var actions = (0, _u.createActions)({
+var actions = (0, _utils.createActions)({
   namespace: 'managewidget'
 }, (_createActions = {}, _defineProperty(_createActions, SET_MANAGE_LIST, _api.setManageList), _defineProperty(_createActions, GET_MANAGE_LIST, _api.getManageList), _defineProperty(_createActions, GET_ALL_SERVICES_BY_LABEL_GROUP, _api.getAllServicesByLabelGroup), _defineProperty(_createActions, GET_ALL_MENU_LIST, _api.getAllMenuList), _createActions), UPDATE_CHECKED_CARD_LIST, DROP_SIDE_CARDS_IN_GROUP, UPDATE_MANAGE_LIST, DROP_SIDE_CARDS, MOVE_SIDE_CARDS, CHANGE_SIDER_STATE, UPDATE_SHADOW_CARD, UPDATE_LAYOUT, UPDATE_GROUP_LIST, BATCH_DELECT, ADD_GROUP, ADD_DESK, DELECT_GROUP, BATCH_MOVE, SELECT_GROUP_ACTIONS, SELECT_LIST_ACTIONS, RENAME_GROUP, MOVE_GROUP, STICK_GROUP, MOVE_TOP_GROUP, MOVE_BOTTOM_GROUP, SPLIT_FOLDER, ADD_SERVICE, DELECT_SERVICE, MOVE_SERVICE, OPEN_BATCH_MOVE, CLOSE_BATCH_MOVE, SET_EDIT_STATE, SET_CURR_GROUP_INDEX, EDIT_TITLE, SET_EDITONLY_ID, SET_CURRENT_SELECT_WIDGET_MAP, RETURN_DEFAULT_STATE, SET_DRAG_INPUT_STATE, EMPTY_SELECT_GROUP);
 exports["default"] = actions;

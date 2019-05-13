@@ -42,7 +42,7 @@ var _reactOnclickoutside2 = _interopRequireDefault(_reactOnclickoutside);
 
 var _reactRedux = require('react-redux');
 
-var _u = require('@u');
+var _utils = require('../../utils');
 
 var _action = require('../core/action');
 
@@ -60,7 +60,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var SubMenu = _menus2["default"].SubMenu;
 var updateCheckedCardList = _action2["default"].updateCheckedCardList;
-var MenuList = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)('checkedCardList', {
+var MenuList = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('checkedCardList', {
     namespace: 'managewidget'
 }), {
     updateCheckedCardList: updateCheckedCardList

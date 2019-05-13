@@ -29,9 +29,9 @@ var _dropdown = require('../../bee/dropdown');
 
 var _dropdown2 = _interopRequireDefault(_dropdown);
 
-var _button = require('pub-comp/button');
+var _button = require('../../button');
 
-var _u = require('@u');
+var _utils = require('../../utils');
 
 var _action = require('../core/action');
 
@@ -86,7 +86,7 @@ var addGroup = _action2["default"].addGroup,
     renameGroup = _action2["default"].renameGroup,
     moveBottomGroup = _action2["default"].moveBottomGroup,
     moveTopGroup = _action2["default"].moveTopGroup;
-var GroupTitle = (_dec = (0, _reactRedux.connect)((0, _u.mapStateToProps)("manageList", "layout", "selectGroup", "currEditonlyId", "selectList", {
+var GroupTitle = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)("manageList", "layout", "selectGroup", "currEditonlyId", "selectList", {
   namespace: 'managewidget'
 }), {
   addGroup: addGroup,

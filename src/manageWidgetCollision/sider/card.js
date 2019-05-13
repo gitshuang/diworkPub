@@ -3,7 +3,7 @@ import { DragSource } from 'react-dnd';
 import { getEmptyImage } from 'react-dnd-html5-backend';
 import { connect } from 'react-redux';
 import { hasCardContainInGroups } from '../utils';
-import { mapStateToProps } from '@u';
+import { mapStateToProps } from '../../utils';
 import { list_item_content, title, isAddColor, title_name } from './style.css'
 import manageActions from '../core/action';
 const { updateManageList,updateShadowCard } = manageActions;

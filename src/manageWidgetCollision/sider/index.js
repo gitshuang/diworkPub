@@ -7,7 +7,7 @@ import { add_item, sider_container, toggleBar, selectService, selectServiceArea 
 import { TransitionGroup, CSSTransitionGroup } from 'react-transition-group';
 import MenuList from './menuList';
 import Card from './card'
-import Icon from "pub-comp/icon";
+import Icon from "../../icon";
 import CardsList from './cardList';
 
 import { connect } from 'react-redux';

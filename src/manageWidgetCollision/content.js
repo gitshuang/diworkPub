@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {ButtonDefaultAlpha} from 'pub-comp/button';
-import Icon from 'pub-comp/icon';
+import {ButtonDefaultAlpha} from '../button';
+import Icon from '../icon';
 import ManageGroup from './manageGroup';
 import _ from 'lodash';
 import manageActions from './core/action';

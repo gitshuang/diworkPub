@@ -16,7 +16,7 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _icon = require('pub-comp/icon');
+var _icon = require('../../icon');
 
 var _icon2 = _interopRequireDefault(_icon);
 

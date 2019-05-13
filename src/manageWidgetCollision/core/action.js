@@ -1,4 +1,4 @@
-import { createActions } from '@u';
+import { createActions } from '../../utils';
 import types from './types';
 import {
   setManageList,

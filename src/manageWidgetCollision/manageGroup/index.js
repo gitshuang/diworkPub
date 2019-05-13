@@ -3,9 +3,9 @@ import React from 'react';
 import GroupItem from './groupItem';
 import { DragSource, DropTarget } from 'react-dnd';
 import PropTypes from 'prop-types';
-import PopDialog from 'pub-comp/pop';
+import PopDialog from '../../pop';
 import { ButtonCheckClose, ButtonCheckSelected, ButtonDefaultWhite } from 'pub-comp/button';
-import { avoidSameName } from '@u';
+import { avoidSameName } from '../../utils';
 import Icon from 'pub-comp/icon';
 import Checkbox from 'bee/checkbox';
 

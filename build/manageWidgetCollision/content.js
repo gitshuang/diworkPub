@@ -13,9 +13,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _button = require('pub-comp/button');
+var _button = require('../button');
 
-var _icon = require('pub-comp/icon');
+var _icon = require('../icon');
 
 var _icon2 = _interopRequireDefault(_icon);
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {ButtonDefaultLine,ButtonBrand,ButtonDefaultAlpha} from 'pub-comp/button';
+import {ButtonDefaultLine,ButtonBrand,ButtonDefaultAlpha} from '../button';
 import { um_footer, umBoxJustify, batchArea, saveArea } from './style.css';
 
 import { connect } from 'react-redux';

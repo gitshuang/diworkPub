@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import Menu, { Item as MenuItem } from 'bee/menus';
 import Message from 'bee/message';
-import Icon from 'pub-comp/icon';
+import Icon from '../../icon';
 import Dropdown from 'bee/dropdown';
 
 

@@ -46,7 +46,7 @@ var _card = require('./card');
 
 var _card2 = _interopRequireDefault(_card);
 
-var _icon = require('pub-comp/icon');
+var _icon = require('../../icon');
 
 var _icon2 = _interopRequireDefault(_icon);
 

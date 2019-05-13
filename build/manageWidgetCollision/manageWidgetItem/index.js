@@ -56,7 +56,7 @@ var _style = {
 	'card_delete': 'card_delete__style___3XhJv'
 };
 
-var _icon = require('pub-comp/icon');
+var _icon = require('../../icon');
 
 var _icon2 = _interopRequireDefault(_icon);
 
