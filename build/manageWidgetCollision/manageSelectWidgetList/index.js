@@ -33,21 +33,21 @@ var _utils = require('../../utils');
 require('./style.css');
 
 var _style = {
-  'select_widget_list': 'select_widget_list__style___2him1',
-  'widget_left': 'widget_left__style___2TmXm',
-  'widget_right': 'widget_right__style___1sh7f',
-  'title': 'title__style___2IdY9',
-  'searchPanel': 'searchPanel__style___1CD9t',
-  'form_control': 'form_control__style___1wFkv',
-  'search_icon_con': 'search_icon_con__style___163Cp',
-  'panel': 'panel__style___yfo0N',
-  'panel_left': 'panel_left__style___k8Z8E',
-  'panel_right': 'panel_right__style___2pJQV',
-  'btn_type': 'btn_type__style___3qi6h',
-  'server_type': 'server_type__style___1NOdG',
-  'footer_btn': 'footer_btn__style___NNGMF',
-  'btn_active': 'btn_active__style___2gkN8',
-  'u-button-group-vertical': 'u-button-group-vertical__style___3HuyD'
+  'select_widget_list': 'select_widget_list__style___2E2BJ',
+  'widget_left': 'widget_left__style___6LQEh',
+  'widget_right': 'widget_right__style___WLajT',
+  'title': 'title__style___2Vw9C',
+  'searchPanel': 'searchPanel__style___16TCX',
+  'form_control': 'form_control__style___3vm2R',
+  'search_icon_con': 'search_icon_con__style___1qg1f',
+  'panel': 'panel__style___iLttA',
+  'panel_left': 'panel_left__style___3hhh4',
+  'panel_right': 'panel_right__style___zxrVD',
+  'btn_type': 'btn_type__style___RLZfR',
+  'server_type': 'server_type__style___15DLD',
+  'footer_btn': 'footer_btn__style___cIMxF',
+  'btn_active': 'btn_active__style___3xS34',
+  'u-button-group-vertical': 'u-button-group-vertical__style___3osC1'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

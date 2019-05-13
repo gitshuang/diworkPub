@@ -36,13 +36,13 @@ var _button2 = require('../button');
 require('./style.css');
 
 var _style = {
-  'btn': 'btn__style___3snvj',
-  'closeBtn': 'closeBtn__style___39nWU',
-  'pop_type': 'pop_type__style___39Ruo',
-  'error': 'error__style___1RDeg',
-  'warning': 'warning__style___2qwlI',
-  'danger': 'danger__style___3vNqD',
-  'success': 'success__style___3fNXj'
+  'btn': 'btn__style___20DQM',
+  'closeBtn': 'closeBtn__style___2Ow_p',
+  'pop_type': 'pop_type__style___7FzHT',
+  'error': 'error__style___3lAfZ',
+  'warning': 'warning__style___rOA-7',
+  'danger': 'danger__style___2dz2P',
+  'success': 'success__style___3B6OV'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
