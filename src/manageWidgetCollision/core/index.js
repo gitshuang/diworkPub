@@ -4,20 +4,20 @@ import { createStore, applyMiddleware } from 'redux';
  import { createLogger } from 'redux-logger';
 import reducer from './reducer';
 
-let middleware;
+// let middleware;
 
-if (process.env.NODE_ENV === 'production') {
-  middleware = applyMiddleware(thunk, promise);
-} else {
-  // middleware = applyMiddleware(thunk, promise, );
-  middleware = applyMiddleware(createLogger(), thunk, promise);
-}
+// if (process.env.NODE_ENV === 'production') {
+//   middleware = applyMiddleware(thunk, promise);
+// } else {
+//   // middleware = applyMiddleware(thunk, promise, );
+//   middleware = applyMiddleware(createLogger(), thunk, promise);
+// }
 
 // const preloadedState = {};
 
 const store = createStore(
   reducer,
-  middleware,
+  // middleware,
 );
 
 export default store;

@@ -22,18 +22,20 @@ var _reducer2 = _interopRequireDefault(_reducer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var middleware = void 0;
+// let middleware;
 
-if (process.env.NODE_ENV === 'production') {
-  middleware = (0, _redux.applyMiddleware)(_thunk2["default"], _reduxPromise2["default"]);
-} else {
-  // middleware = applyMiddleware(thunk, promise, );
-  middleware = (0, _redux.applyMiddleware)((0, _reduxLogger.createLogger)(), _thunk2["default"], _reduxPromise2["default"]);
-}
+// if (process.env.NODE_ENV === 'production') {
+//   middleware = applyMiddleware(thunk, promise);
+// } else {
+//   // middleware = applyMiddleware(thunk, promise, );
+//   middleware = applyMiddleware(createLogger(), thunk, promise);
+// }
 
 // const preloadedState = {};
 
-var store = (0, _redux.createStore)(_reducer2["default"], middleware);
+var store = (0, _redux.createStore)(_reducer2["default"]
+// middleware,
+);
 
 exports["default"] = store;
 module.exports = exports['default'];
