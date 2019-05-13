@@ -18,7 +18,7 @@ const { addGroup,
   moveBottomGroup,
   moveTopGroup } = manageActions;
 import languagesJSON from 'yutils/languages';
-import Icon from 'pub-comp/icon';
+import Icon from '../../icon';
 
 import {
   widgetTitle,

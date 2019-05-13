@@ -3,7 +3,7 @@ import ButtonGroup from 'bee/button-group';
 import Button from 'bee/button';
 import ServiceItem from '../serviceItem';
 import SearchInput from '../../searchInput';
-import { ButtonBrand, ButtonDefaultAlpha } from 'pub-comp/button';
+import { ButtonBrand, ButtonDefaultAlpha } from '../../button';
 import { guid } from '../../utils';
 
 
