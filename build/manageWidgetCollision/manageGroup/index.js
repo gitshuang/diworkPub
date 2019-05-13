@@ -27,11 +27,11 @@ var _pop = require('../../pop');
 
 var _pop2 = _interopRequireDefault(_pop);
 
-var _button = require('pub-comp/button');
+var _button = require('../../button');
 
 var _utils = require('../../utils');
 
-var _icon = require('pub-comp/icon');
+var _icon = require('../../icon');
 
 var _icon2 = _interopRequireDefault(_icon);
 

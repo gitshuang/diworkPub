@@ -41,7 +41,7 @@ var _languages = require('yutils/languages');
 
 var _languages2 = _interopRequireDefault(_languages);
 
-var _icon = require('pub-comp/icon');
+var _icon = require('../../icon');
 
 var _icon2 = _interopRequireDefault(_icon);
 

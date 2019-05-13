@@ -26,7 +26,7 @@ var _searchInput = require('../../searchInput');
 
 var _searchInput2 = _interopRequireDefault(_searchInput);
 
-var _button3 = require('pub-comp/button');
+var _button3 = require('../../button');
 
 var _utils = require('../../utils');
 
