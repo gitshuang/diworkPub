@@ -375,11 +375,11 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('isSid
             _this4.state.menuList.forEach(function (a, b) {
                 a.menuItems.forEach(function (c, d) {
                     c.children.forEach(function (e, f) {
-                        if (e.children.length == 0 && e.service.serviceName.indexOf(value) != -1) {
+                        if (e.children.length == 0 && e.service.serviceName && e.service.serviceName.indexOf(value) != -1) {
                             cardsList.push(e);
                         } else if (e.children.length != 0) {
                             e.children.forEach(function (g, h) {
-                                if (g.service.serviceName.indexOf(value) != -1) {
+                                if (g.service.serviceName && g.service.serviceName.indexOf(value) != -1) {
                                     cardsList.push(g);
                                 }
                             });
