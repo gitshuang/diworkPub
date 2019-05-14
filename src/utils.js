@@ -114,7 +114,7 @@ export const getHost = (key = 'api') => {
       production: 'https://ec.diwork.com/portal/home/index',
       development: 'http://web.yyuap.com:91/portal/home/index',
       daily: 'https://ec-daily.yyuap.com/portal/home/index',
-      combine: 'https://ec-u8c-daily.yyuap.com/portal/home/index'
+      combine: 'https://u8c-daily.yyuap.com/portal'
     },
     // 门户请求地址
     u8cportal: {
