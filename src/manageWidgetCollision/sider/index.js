@@ -183,11 +183,11 @@ export default class MySider extends Component {
             this.state.menuList.forEach((a, b) => {
                 a.menuItems.forEach((c, d) => {
                     c.children.forEach((e, f) => {
-                        if (e.children.length == 0 && e.service.serviceName.indexOf(value) != -1) {
+                        if (e.children.length == 0 && e.service.serviceName&&e.service.serviceName.indexOf(value) != -1) {
                             cardsList.push(e);
                         } else if (e.children.length != 0) {
                             e.children.forEach((g, h) => {
-                                if (g.service.serviceName.indexOf(value) != -1) {
+                                if (g.service.serviceName&&g.service.serviceName.indexOf(value) != -1) {
                                     cardsList.push(g);
                                 }
                             })
