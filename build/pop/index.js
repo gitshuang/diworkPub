@@ -118,27 +118,70 @@ var PopDialog = (_temp2 = _class = function (_Component) {
         case 'warning':
           return _react2["default"].createElement(
             _button2.ButtonWarning,
-            { key: "warning_pop_btn" + key, onClick: function onClick(e) {
+            { key: "warning_pop_btn" + key,
+              onClick: function onClick(e) {
                 _this.btnClick(e, da);
-              }, className: _className + ' ' + _style.btn + ' warning', disabled: da.disable ? true : false },
+              },
+              className: _className + ' ' + _style.btn + ' warning',
+              disabled: da.disable ? true : false },
             da.label
           );
         case 'danger':
           return _react2["default"].createElement(
             _button2.ButtonBrand,
-            { key: "brand_pop_btn" + key, onClick: function onClick(e) {
+            { key: "brand_pop_btn" + key,
+              onClick: function onClick(e) {
                 _this.btnClick(e, da);
-              }, className: _className + ' ' + _style.btn + ' brand', disabled: da.disable ? true : false },
+              },
+              className: _className + ' ' + _style.btn + ' brand',
+              disabled: da.disable ? true : false },
             da.label
           );
         case 'defaultAlpha':
           return _react2["default"].createElement(
             _button2.ButtonDefaultAlpha,
-            { key: "brand_pop_btn" + key, onClick: function onClick(e) {
+            { key: "brand_pop_btn" + key,
+              onClick: function onClick(e) {
                 _this.btnClick(e, da);
-              }, className: _className + ' ' + _style.btn + ' defaultalpha', disabled: da.disable ? true : false },
+              },
+              className: _className + ' ' + _style.btn + ' defaultalpha',
+              disabled: da.disable ? true : false },
             da.label
           );
+        case 'u8c':
+          return _react2["default"].createElement(
+            _button2.ButtonU8c,
+            { key: "u8c_pop_btn" + key,
+              onClick: function onClick(e) {
+                _this.btnClick(e, da);
+              },
+              className: _className + ' ' + _style.btn + ' ',
+              disabled: da.disable ? true : false },
+            da.label
+          );
+        case 'u8cPrimary':
+          return _react2["default"].createElement(
+            _button2.ButtonU8cPrimary,
+            { key: "u8cPrimary_pop_btn" + key,
+              onClick: function onClick(e) {
+                _this.btnClick(e, da);
+              },
+              className: _className + ' ' + _style.btn + ' ',
+              disabled: da.disable ? true : false },
+            da.label
+          );
+        case 'u8cDefault':
+          return _react2["default"].createElement(
+            _button2.ButtonU8cDefault,
+            { key: "u8cDefault_pop_btn" + key,
+              onClick: function onClick(e) {
+                _this.btnClick(e, da);
+              },
+              className: _className + ' ' + _style.btn + ' ',
+              disabled: da.disable ? true : false },
+            da.label
+          );
+
       }
       return "";
     }, _this.getButtonList = function () {
