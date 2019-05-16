@@ -40,15 +40,15 @@ button.btn.u8c_primary:disabled:hover{
 /* u8c_default  */
 button.btn.u8c_default{
   background:#DBE0E5;
-  color:#666666;
+  color:#505766;
 }
 button.btn.u8c_default:hover{
   background: #E5E9EC;
-  color:#666666;
+  color:#505766;
 }
 button.btn.u8c_default:active{
   background:#E5E9EC;
-  color:#666666;
+  color:#505766;
 }
 button.btn.u8c_default:disabled,
 button.btn.u8c_default:disabled:hover,
