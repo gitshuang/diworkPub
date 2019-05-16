@@ -37,7 +37,11 @@ var babelPlugins = [
     "css-modules-transform",
     {
       generateScopedName: '[local]__[name]___[hash:base64:5]',
-      ignore: "./node_modules/",
+      ignore: function (url) {
+        if (url.indexOf(path.join(__dirname, './src/bee/*')) >= 0 || url.indexOf(path.join(__dirname, './node_modules')) > 0) {
+          return true
+        }
+      },
       extractCss: {
         dir: "./build/",
         relativeRoot: "./src/",
