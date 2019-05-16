@@ -2046,9 +2046,6 @@
   content: "\e845";
 }
 
-
-/* 原来的 */
-
 .icon-time:before {
   content: "\e7c0";
 }
@@ -2217,47 +2214,17 @@
   content: "\e86e";
 }
 
-.icon-time:before {
-  content: "\e7c0";
-}
+/* 000000000 */
 
 .icon-shaixuan:before {
-  content: "\e603";
-}
-
-.icon-wenjianjia:before {
-  content: "\e604";
+  content: "\e85f";
 }
 
 .icon-yuyanshezhi:before {
-  content: "\e605";
-}
-
-.icon-shangyi:before {
-  content: "\e988";
-}
-
-.icon-xiayi:before {
-  content: "\ea0f";
-}
-
-.icon-morendenglu:before {
-  content: "\e608";
-}
-
-.icon-jiantizhongwen:before {
-  content: "\e60a";
-}
-
-.icon-fantizhongwen:before {
-  content: "\e60b";
-}
-
-.icon-English:before {
-  content: "\e60c";
+  content: "\ea15";
 }
 
 .icon-zhuxiao:before {
-  content: "\e60d";
+  content: "\e991";
 }
 
