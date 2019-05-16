@@ -312,7 +312,6 @@ var sizes = {
 require('./font/iconfont.css');
 
 var fonts = {
-  'font_family': 'font_family__iconfont___C24DS',
   'icon-wenjianjia': 'icon-wenjianjia__iconfont___2DQcb',
   'icon-shangyi': 'icon-shangyi__iconfont___l6RuZ',
   'icon-xiayi': 'icon-xiayi__iconfont___1M0ic',
@@ -862,7 +861,10 @@ var fonts = {
   'icon-tupian': 'icon-tupian__iconfont___vtaGX',
   'icon-wenbenxiala': 'icon-wenbenxiala__iconfont___1llHv',
   'icon-riqiqujian': 'icon-riqiqujian__iconfont___2EhJm',
-  'icon-hebingxingzhuang1': 'icon-hebingxingzhuang1__iconfont___1nAYa'
+  'icon-hebingxingzhuang1': 'icon-hebingxingzhuang1__iconfont___1nAYa',
+  'icon-shaixuan': 'icon-shaixuan__iconfont___c-VGV',
+  'icon-yuyanshezhi': 'icon-yuyanshezhi__iconfont___p8M0Z',
+  'icon-zhuxiao': 'icon-zhuxiao__iconfont___1mBfW'
 };
 
 
