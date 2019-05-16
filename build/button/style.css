@@ -36,7 +36,7 @@ button.btn__style___37bsb.u8c_primary__style___RFibc:disabled:hover,
 button.btn__style___37bsb.u8c_primary__style___RFibc:disabled,
 button.btn__style___37bsb.u8c_primary__style___RFibc:disabled:hover{
   background:linear-gradient(315deg,rgba(254,166,153,1) 0%,rgba(246,145,145,1) 100%);
-  color: #bfbfbf;
+  color: #fff;
 }
 
 /* u8c_default  */
@@ -79,6 +79,7 @@ button.btn__style___37bsb.u8c__style___2_wts:disabled,
 button.btn__style___37bsb.u8c__style___2_wts:disabled:hover{
   background:#505766;
   color: #ffffff;
+  opacity: 0.6;
 }
 
 
