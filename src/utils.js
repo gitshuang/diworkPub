@@ -226,6 +226,13 @@ export const getHost = (key = 'api') => {
       development: 'http://workbenchdev.yyuap.com/fe',
       daily: 'https://cdn.yonyoucloud.com/pro/diwork',
     },
+    // u8c 向导参数设置
+    paramsetting: {
+      production: 'https://u8cupc-test.yyuap.com/platform/paramsSetting?optionId=common_option',
+      development: 'http://u8cupc-test.yyuap.com/platform/paramsSetting?optionId=common_option',
+      daily: 'https://u8cupc-test.yyuap.com/platform/paramsSetting?optionId=common_option',
+      combine: 'https://u8cupc-test.yyuap.com/platform/paramsSetting?optionId=common_option',
+    }
   };
   return hosts[key][process.env.NODE_ENV];
 };
