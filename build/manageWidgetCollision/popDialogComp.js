@@ -76,7 +76,7 @@ var PopDialogComp = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)(
     var languagesJSON = this.props.languagesJSON;
 
     var pop_btn = [{ label: languagesJSON.confirm, fun: this.props.batchDelectFn, className: "" }, { label: languagesJSON.cancel, fun: this.props.popClose, className: "" }];
-    var pop_btn2 = [{ label: languagesJSON.notSave, fun: this.props.cancel, type: "defaultAlpha" }, { label: languagesJSON.save, fun: this.props.save, type: "warning" }, { label: languagesJSON.cancel, fun: this.props.popCloseCancel, type: "defaultAlpha" }];
+    var pop_btn2 = [{ label: languagesJSON.cancel, fun: this.props.popCloseCancel, type: "u8cDefault" }, { label: languagesJSON.notSave, fun: this.props.cancel, type: "u8c" }, { label: languagesJSON.save, fun: this.props.save, type: "u8cPrimary" }];
     return _react2["default"].createElement(
       'div',
       null,

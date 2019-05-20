@@ -438,7 +438,7 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('m
     if (isOver && getItemType.type === 1) {
       overStyle = {
         'transform': 'scale(1,1)',
-        'boxShadow': '0 0 0 3px #ddd,0 0 0 6px rgba(0,205,195,1)',
+        'boxShadow': '0 0 0 3px #ddd,0 0 0 6px #588ce9',
         'borderRadius': '0'
       };
     }

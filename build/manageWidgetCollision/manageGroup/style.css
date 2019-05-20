@@ -47,23 +47,23 @@
   left: 2px;
 }
 .widgetTitle__style___2j5oO button.right i{
-  color: #18b681!important;
-  border-color: #18b681
+  color: #588CE9!important;
+  border-color: #588CE9
 }
 
 .widgetTitle__style___2j5oO button.right i::before{
-  color: #18b681!important;
-  border-color: #18b681;
+  color: #588CE9!important;
+  border-color: #588CE9;
   left: 1px;
 }
 .widgetTitle__style___2j5oO button.right:hover{
-  border-color: #0E9E6E;
+  border-color: #588CE9;
 }
 .widgetTitle__style___2j5oO button.right:hover i::before{
   color: #0E9E6E!important;
 }
 .widgetTitle__style___2j5oO button.right{
-  border-color: #18b681;
+  border-color: #588CE9;
   margin: 0 4px;
 }
 /* .widgetTitle :global(.u-checkbox input[type=checkbox]){
@@ -162,7 +162,7 @@
 }
 
 .newGroupName_focus__style___c_o_p{
-	border:1px solid #18b681;
+	border:1px solid #588CE9;
 }
 .newGroupName_blur__style___3ih13{
   border:1px solid #878B94;
