@@ -38,7 +38,7 @@ var babelPlugins = [
     {
       generateScopedName: '[local]__[name]___[hash:base64:5]',
       ignore: function (url) {
-        if (url.indexOf(path.join(__dirname, './src/bee/*')) >= 0 || url.indexOf(path.join(__dirname, './node_modules')) > 0) {
+        if (url.indexOf(path.join(__dirname, '../src/bee')) >= 0 || url.indexOf(path.join(__dirname, '../node_modules')) > 0) {
           return true
         }
       },
@@ -67,6 +67,14 @@ gulp.task("clean", function (cb) {
     cb()
   })
 });
+gulp.task("css", ["clean"], function () {
+  return gulp
+    .src([
+      './src/bee/*.css',
+    ])
+    .pipe(gulp.dest('build/bee'))
+});
+
 gulp.task("fonts", ["clean"], function () {
   return gulp
     .src([
@@ -78,7 +86,7 @@ gulp.task("fonts", ["clean"], function () {
     ])
     .pipe(gulp.dest('build'))
 });
-gulp.task("build", ["clean", "fonts"], function () {
+gulp.task("build", ["clean", "css",  "fonts"], function () {
   return gulp
     .src([
       path.join(process.cwd(), "./src/**/*.js"),
