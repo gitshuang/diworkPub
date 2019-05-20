@@ -45,23 +45,23 @@
   left: 2px;
 }
 .widgetTitle :global(button.right i){
-  color: #18b681!important;
-  border-color: #18b681
+  color: #588CE9!important;
+  border-color: #588CE9
 }
 
 .widgetTitle :global(button.right i::before){
-  color: #18b681!important;
-  border-color: #18b681;
+  color: #588CE9!important;
+  border-color: #588CE9;
   left: 1px;
 }
 .widgetTitle :global(button.right:hover){
-  border-color: #0E9E6E;
+  border-color: #588CE9;
 }
 .widgetTitle :global(button.right:hover i::before){
   color: #0E9E6E!important;
 }
 .widgetTitle :global(button.right){
-  border-color: #18b681;
+  border-color: #588CE9;
   margin: 0 4px;
 }
 /* .widgetTitle :global(.u-checkbox input[type=checkbox]){
@@ -160,7 +160,7 @@
 }
 
 .newGroupName_focus{
-	border:1px solid #18b681;
+	border:1px solid #588CE9;
 }
 .newGroupName_blur{
   border:1px solid #878B94;
