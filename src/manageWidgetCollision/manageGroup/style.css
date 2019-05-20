@@ -50,18 +50,18 @@
 }
 
 .widgetTitle :global(button.right i::before){
-  color: #588CE9!important;
+  color: #0E9E6E!important;
   border-color: #588CE9;
   left: 1px;
 }
 .widgetTitle :global(button.right:hover){
-  border-color: #588CE9;
+  border-color: #505766;
 }
 .widgetTitle :global(button.right:hover i::before){
   color: #0E9E6E!important;
 }
 .widgetTitle :global(button.right){
-  border-color: #588CE9;
+  border-color: #505766;
   margin: 0 4px;
 }
 /* .widgetTitle :global(.u-checkbox input[type=checkbox]){
@@ -156,14 +156,15 @@
 }
 .newGroupName:global(.input){
   width:176px;
-	height:22px;
+  height:22px;
+  
 }
 
 .newGroupName_focus{
-	border:1px solid #588CE9;
+	border:1px solid #505766;
 }
 .newGroupName_blur{
-  border:1px solid #878B94;
+  border:1px solid #505766;
 }
 .widgetTitle :global(.uf),.widgetTitle :global(.iconfont){
 	font-size:22px;
