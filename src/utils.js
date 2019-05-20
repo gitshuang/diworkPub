@@ -228,10 +228,10 @@ export const getHost = (key = 'api') => {
     },
     // u8c 向导参数设置
     paramsetting: {
-      production: 'https://u8cupc-test.yyuap.com/platform/paramsSetting?optionId=common_option',
+      production: 'https://u8cupc-daily.yyuap.com/platform/paramsSetting?optionId=common_option',
       development: 'http://u8cupc-test.yyuap.com/platform/paramsSetting?optionId=common_option',
-      daily: 'https://u8cupc-test.yyuap.com/platform/paramsSetting?optionId=common_option',
-      combine: 'https://u8cupc-test.yyuap.com/platform/paramsSetting?optionId=common_option',
+      daily: 'https://u8cupc-daily.yyuap.com/platform/paramsSetting?optionId=common_option',
+      combine: 'https://u8cupc-daily.yyuap.com/platform/paramsSetting?optionId=common_option',
     }
   };
   return hosts[key][process.env.NODE_ENV];
