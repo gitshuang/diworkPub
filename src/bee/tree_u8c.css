@@ -1,0 +1,42 @@
+.u-tree li a {
+  color: #333;
+  line-height: 17px;
+  font-weight: 400;
+}
+.u-tree li a:hover {
+  background:#F0F3F9;
+  border-radius:100px;
+}
+.u-tree li a.u-tree-node-selected {
+  background:#FFF5E2;
+  border-radius:100px;
+}
+/*选中框*/
+.u-tree li span.u-tree-checkbox{
+  margin-right: 10px;
+}
+
+.u-tree .u-tree-checkbox-inner {
+  border-color: #CCCCCC;
+}
+
+.u-tree .u-tree-checkbox-inner:after {
+
+}
+.u-tree .u-tree-checkbox-checked .u-tree-checkbox-inner,
+.u-tree .u-tree-checkbox-indeterminate .u-tree-checkbox-inner{
+  background-color: #fff;
+  border-color: #CCCCCC;
+
+}
+.u-tree .u-tree-checkbox-checked .u-tree-checkbox-inner:after
+{
+  border-color: #EE2223;
+  width: 3px;
+  height: 6px;
+}
+.u-tree .u-tree-checkbox-indeterminate .u-tree-checkbox-inner:after {
+  border-color: #EE2223;
+  height: 0;
+  left: 1px;
+}
