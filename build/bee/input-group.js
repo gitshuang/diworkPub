@@ -27,6 +27,8 @@ require('bee-input-group/build/InputGroup.css');
 
 require('bee-input-group/build/InputGroupButton.css');
 
+require('./input-group.css');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 module.exports = exports['default'];

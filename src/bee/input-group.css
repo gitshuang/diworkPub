@@ -1,0 +1,4 @@
+.u-input-group .u-form-control:last-child {
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+}

@@ -1,8 +1,4 @@
 import 'bee-button/build/Button.css';
-if (window.location.origin.indexOf("u8c") > -1) {
-    require("./button_u8c.css");
-} else {
-    require("./button.css");
-}
+import "./button.css";
 export * from 'bee-button';
 export { default } from 'bee-button';

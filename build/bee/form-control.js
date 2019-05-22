@@ -25,6 +25,8 @@ Object.defineProperty(exports, 'default', {
 
 require('bee-form-control/build/FormControl.css');
 
+require('./form-control.css');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 module.exports = exports['default'];
