@@ -27,6 +27,8 @@ require('bee-city-select/build/CitySelect.css');
 
 require('bee-icon/build/Icon.css');
 
+require('./city-select.css');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 module.exports = exports['default'];

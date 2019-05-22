@@ -38,7 +38,7 @@ var babelPlugins = [
     {
       generateScopedName: '[local]__[name]___[hash:base64:5]',
       ignore: function (url) {
-        if (url.indexOf(path.join(__dirname, '../src/bee')) >= 0 || url.indexOf(path.join(__dirname, '../node_modules')) > 0) {
+        if (url.indexOf(path.join(__dirname, '../src/bee')) >= 0 || url.indexOf(path.join(__dirname, '../node_modules')) >= 0) {
           return true
         }
       },
