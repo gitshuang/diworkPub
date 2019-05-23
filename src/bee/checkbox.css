@@ -3,30 +3,30 @@
 }
 
 .u-checkbox .u-checkbox-label:before {
-  width: 14px;
-  height: 14px;
-  box-sizing: border-box;
+  width: 14px !important;
+  height: 14px !important;
+  box-sizing: border-box !important;
   border-radius: 2px;
-  border: 1px solid rgba(204, 204, 204, 1);
+  border: 1px solid rgba(204, 204, 204, 1) !important;
   top: -13px !important;
 }
 
 .u-checkbox .u-checkbox-label:after {
-  width: 14px;
-  height: 14px;
+  width: 14px !important;
+  height: 14px !important;
   top: -13px !important;
 }
 
 .u-checkbox.is-checked .u-checkbox-label:before {
-  box-shadow: none;
-  border: 1px solid rgba(204, 204, 204, 1);
+  box-shadow: none !important;
+  border: 1px solid rgba(204, 204, 204, 1) !important;
 }
 
 .u-checkbox.is-checked .u-checkbox-label:after {
-  color: #EE2223;
-  line-height: 15px;
+  color: #EE2223 !important;
+  line-height: 15px !important;
 }
 
 .u-checkbox span {
-  color: #333333;
+  color: #333333 !important;
 }
