@@ -2,6 +2,10 @@
   display: inherit !important;
 }
 
+.u-checkbox .u-checkbox-label{
+  position: relative !important;
+}
+
 .u-checkbox .u-checkbox-label:before {
   width: 14px !important;
   height: 14px !important;
