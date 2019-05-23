@@ -1,0 +1,37 @@
+.u-menu-inline>.u-menu-item {
+    font-size: 14px;
+    color: #555555;
+    cursor: pointer;
+  }
+  
+  .u-menu-inline>.u-menu-submenu>.u-menu-submenu-title {
+    color: #555555;
+    cursor: pointer;
+  }
+  
+  .u-menu-inline>.u-menu-submenu>.u-menu-submenu-title .iconfont:hover {
+    color: #111111;
+    cursor: pointer;
+  }
+  
+  .u-menu-inline .u-menu-selected, .u-menu-inline .u-menu-inline .u-menu-item-selected {
+    border: none;
+    color: #E14C46;
+    /* background: #f4f5f7; */
+  }
+  
+  .u-menu-submenu-inline>.u-menu-submenu-title:after {
+    font-size: 16px;
+    transform: scale(.66667) rotate(-90deg);
+  }
+  
+  .u-menu-inline .u-menu-submenu-active>.u-menu-submenu-title:after {
+    color: #E14C46;
+  }
+  
+  .u-menu-inline .u-menu-submenu-active>.u-menu-submenu-title {
+    font-weight: normal;
+    background: transparent;
+    cursor: default;
+  }
+  
