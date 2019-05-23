@@ -1,0 +1,34 @@
+.u-switch.is-checked{
+    border-color: #CDF2E3;
+    background: #CDF2E3;
+  }
+  .u-switch.is-checked:after{
+    background: #00CB7C;
+  }
+  .u-switch.u-switch-disabled{
+    opacity: 0.4;
+  }
+  .u-switch:after{
+    background: #82919C;
+  }
+  .u-switch.u-switch-disabled:after{
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  
+  .u-switch:before{
+    position: absolute;
+    line-height: 20px;
+    color: #ffffff;
+    left:5px;
+    right:auto;
+    content: "×";
+    z-index: 888;
+    transition: left .3s cubic-bezier(.78,.14,.15,.86),width .3s cubic-bezier(.78,.14,.15,.86);
+  }
+  .u-switch.is-checked:before{
+    content: "√";
+    /* content: "\e658"; */
+    color: #fff;
+    left:30px;
+  }
