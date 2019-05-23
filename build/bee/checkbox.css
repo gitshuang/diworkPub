@@ -1,3 +1,7 @@
+.u-checkbox input[type='checkbox'] {
+  display: inherit !important;
+}
+
 .u-checkbox .u-checkbox-label:before {
   width: 14px;
   height: 14px;
@@ -10,6 +14,7 @@
 .u-checkbox .u-checkbox-label:after {
   width: 14px;
   height: 14px;
+  top: -13px !important;
 }
 
 .u-checkbox.is-checked .u-checkbox-label:before {
