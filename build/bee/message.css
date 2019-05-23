@@ -1,0 +1,85 @@
+
+/* success 成功样式 */
+
+.u-message {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+  
+  .u-message-notice-close {
+    display: none;
+  }
+  
+  .u-message .u-message-notice {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 10px 12px 0px rgba(74, 81, 93, 0.25);
+    border-radius: 4px;
+  }
+  
+  .u-message-notice {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 10px 12px 0px rgba(74, 81, 93, 0.25);
+    border-radius: 4px;
+  }
+  
+  .u-message-notice-success .u-message-notice-description-icon .uf {
+    font-size: 18px;
+    padding: 0;
+    font-family: 'icomoon' !important;
+    font-weight: bold;
+    color: #00B39E;
+  }
+  
+  .u-message-notice-success .u-message-notice-description-icon .uf-correct:before {
+    content: "\e9eb";
+    font-family: 'icomoon' !important;
+  }
+  
+  .u-message-notice-success .u-message-notice-description-icon {
+    background: transparent !important;
+  }
+  
+  .u-message-notice-success .u-message-notice-description-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00B39E;
+  }
+  
+  .u-message-notice-success .u-message-notice-description-content {
+    color: #474D54;
+    padding: 5px;
+  }
+  
+  /* warning 失败样式 */
+  
+  .u-message-notice-warning .u-message-notice-description-icon .uf {
+    font-size: 18px;
+    padding: 0;
+    font-family: 'icomoon' !important;
+    font-weight: bold;
+    color: #4C4C4C;
+  }
+  
+  .u-message-notice-warning .u-message-notice-description-icon .uf-exc-t:before {
+    content: "\E999";
+    /* notice */
+    font-family: 'icomoon' !important;
+  }
+  
+  .u-message-notice-warning .u-message-notice-description-icon {
+    background: transparent !important;
+  }
+  
+  .u-message-notice-warning .u-message-notice-description-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00B39E;
+  }
+  
+  .u-message-notice-warning .u-message-notice-description-content {
+    color: #474D54;
+    padding: 5px;
+  }

@@ -25,6 +25,8 @@ Object.defineProperty(exports, 'default', {
 
 require('bee-message/build/Message.css');
 
+require('./message.css');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 module.exports = exports['default'];

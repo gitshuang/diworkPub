@@ -25,6 +25,8 @@ Object.defineProperty(exports, 'default', {
 
 require('bee-rate/build/Rate.css');
 
+require('./rate.css');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 module.exports = exports['default'];

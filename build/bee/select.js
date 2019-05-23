@@ -35,6 +35,8 @@ require('bee-select/build/Select.css');
 
 require('bee-icon/build/Icon.css');
 
+require('./select.css');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 module.exports = exports['default'];

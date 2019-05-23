@@ -27,6 +27,8 @@ require('bee-menus/build/Menu.css');
 
 require('bee-icon/build/Icon.css');
 
+require('./menus.css');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 module.exports = exports['default'];
