@@ -1,0 +1,18 @@
+.u-tabs-upborder .u-tabs-bar,
+.u-tabs-upborder .u-tabs-nav-container {
+  background-color:#F7F9FD;
+}
+.u-tabs-upborder .u-tabs-nav .u-tabs-tab-active{
+
+}
+.u-tabs {
+  color: #505766;
+}
+.u-tabs-upborder .u-tabs-nav .u-tabs-tab::before {
+  border-right: 1px solid #E4E4E4;
+}
+.u-tabs-upborder .u-tabs-nav .u-tabs-tab::after {
+  background-color: #505766;
+  height: 2px;
+  border-bottom-width: 36px;
+}
