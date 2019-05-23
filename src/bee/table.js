@@ -1,7 +1,7 @@
 import 'bee-table/build/Table.css';
-if (window.location.origin.indexOf("u8c") > -1) {
+// if (window.location.origin.indexOf("u8c") > -1) {
   require("./table_u8c.css");
-}
+// }
 
 /*
 * 行选中状态，添加selected类名
