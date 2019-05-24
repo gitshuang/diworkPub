@@ -124,9 +124,10 @@ var logout = exports.logout = function logout() {
   }
 
   var _getContext2 = getContext(),
-      defaultDesktop = _getContext2.defaultDesktop;
+      defaultDesktop = _getContext2.defaultDesktop,
+      productLine = _getContext2.productLine;
 
-  if (defaultDesktop === "portal") {
+  if (defaultDesktop === "portal" && productLine === "diwork") {
     var ajaxUrl = getHost('u8cportal') + "/user/logOut?v=1.0";
     deleteRequest(ajaxUrl).then(function (payload) {
       window.location.href = payload.url;

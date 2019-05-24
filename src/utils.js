@@ -70,8 +70,8 @@ export const logout = () => {
   if (window.sessionStorage.getItem('TABS_DATA')) {
     window.sessionStorage.removeItem('TABS_DATA');
   }
-  const { defaultDesktop } = getContext();
-  if (defaultDesktop === "portal") {
+  const { defaultDesktop, productLine } = getContext();
+  if (defaultDesktop === "portal" && productLine === "diwork") {
     const ajaxUrl = `${getHost('u8cportal')}/user/logOut?v=1.0`;
     deleteRequest(ajaxUrl).then((payload) => {
       window.location.href = payload.url;
