@@ -54,5 +54,11 @@
   visibility: visible;
 }
 .u-table th{
-  font-weight: normal!important
+  font-weight: normal!important;
+  background: #F7F9FD!important
 }
+
+.u-table tr:nth-child(2n){
+  background: #FFFFFF!important
+}
+
