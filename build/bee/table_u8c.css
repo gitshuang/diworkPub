@@ -53,3 +53,6 @@
 .u-table .u-table-tbody tr:hover .action-btns-container .action-btn {
   visibility: visible;
 }
+.u-table th{
+  font-weight: normal!important
+}
