@@ -25,3 +25,8 @@
     background: #e4e4e4;
     font-weight: normal;
   }
+  .u-select-disabled .u-select-selection{
+    background: #f7f7f7;
+    cursor: not-allowed;
+    color: #ccc!important;
+  }
