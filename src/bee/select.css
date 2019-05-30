@@ -30,3 +30,7 @@
     cursor: not-allowed;
     color: #ccc!important;
   }
+
+  .u-select-dropdown .u-select-dropdown-menu-item{
+    border-top:none
+  }
