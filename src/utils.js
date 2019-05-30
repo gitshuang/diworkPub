@@ -219,6 +219,7 @@ export const getHost = (key = 'api') => {
       production: 'https://ms.diwork.com',
       development: 'http://workbench.yyuap.com',
       daily: 'https://ms-daily.yyuap.com',
+      combine: 'https://u8cms-daily.yyuap.com',
     },
     // 参照组织
     org: {

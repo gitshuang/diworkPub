@@ -273,7 +273,8 @@ var getHost = exports.getHost = function getHost() {
     ref: {
       production: 'https://ms.diwork.com',
       development: 'http://workbench.yyuap.com',
-      daily: 'https://ms-daily.yyuap.com'
+      daily: 'https://ms-daily.yyuap.com',
+      combine: 'https://u8cms-daily.yyuap.com'
     },
     // 参照组织
     org: {
