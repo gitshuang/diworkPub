@@ -8,4 +8,10 @@
   }
   .u-radio .u-radio-label:before {
     box-sizing: inherit;
+    border: 1px solid #ccc;
+    background-color: #fff
   }
+  .u-radio.u-radio-danger.is-checked .u-radio-label:before{
+    border-color:#ccc
+  }
+ 
