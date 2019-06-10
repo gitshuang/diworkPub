@@ -5,11 +5,19 @@
   }
   .u-radio.is-checked .u-radio-label:after{
     background:#EE2223;
+    position: absolute;
+    top: 11px;
+    border-radius: 4px;
+    height: 6px;
+    width: 6px;
+    margin-left: 4px;
   }
   .u-radio .u-radio-label:before {
     box-sizing: inherit;
     border: 1px solid #ccc;
-    background-color: #fff
+    background-color: #fff;
+    width: 14px;
+    height: 14px;
   }
   .u-radio.u-radio-danger.is-checked .u-radio-label:before{
     border-color:#ccc
