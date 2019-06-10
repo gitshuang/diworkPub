@@ -1,10 +1,10 @@
 .u-radio.is-checked .u-radio-label:before{
-    border-color: #4E5E68;
+    border-color: #ccc;
     -webkit-box-shadow: inset 0 0 0 10px #fff;
     box-shadow: inset 0 0 0 10px #fff;
   }
   .u-radio.is-checked .u-radio-label:after{
-    background:#4E5E68;
+    background:#EE2223;
   }
   .u-radio .u-radio-label:before {
     box-sizing: inherit;
