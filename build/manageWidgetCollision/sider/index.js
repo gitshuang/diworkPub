@@ -283,20 +283,16 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('isSid
 
         var dom = '';
         dom = cardsList.map(function (a, b) {
-            if (a.children && a.children.length == 0) {
-                var isContainInCheckCardList = checkedCardList.some(function (item) {
-                    return item.serviceCode == a.serviceCode;
-                });
-                a.checked = isContainInCheckCardList;
-                return _react2["default"].createElement(
-                    'div',
-                    { key: a.menuItemId + '-' + b, className: 'result_app_list_3' },
-                    _react2["default"].createElement(_card2["default"], { data: JSON.parse(JSON.stringify(a)), key: a.menuItemId + '-' + b, index: b,
-                        onChangeChecked: _this4.onChangeChecked
-                    }),
-                    _react2["default"].createElement('hr', null)
-                );
-            }
+            // if (a.children && a.children.length == 0) {
+            //     const isContainInCheckCardList = checkedCardList.some((item) => { return item.serviceCode == a.serviceCode })
+            //     a.checked = isContainInCheckCardList;
+            //     return <div key={`${a.menuItemId}-${b}`} className="result_app_list_3" >
+            //         <Card data={JSON.parse(JSON.stringify(a))} key={`${a.menuItemId}-${b}`} index={b}
+            //             onChangeChecked={this.onChangeChecked}
+            //         />
+            //         <hr />
+            //     </div>
+            // }
             return _react2["default"].createElement(_cardList2["default"], {
                 key: a.menuItemId,
                 list: a.children,

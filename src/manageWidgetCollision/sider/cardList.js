@@ -26,7 +26,6 @@ export default class CardsList extends React.Component {
     render() {
         const { list, listName, onChangeChecked, checkedCardList } = this.props;
         const { isShow, height } = this.state;
-        const display = isShow ? 'flex' : 'none';
         const showStyle = isShow ? {
             height: height
         } : {
@@ -38,7 +37,9 @@ export default class CardsList extends React.Component {
             element.checked = isContainInCheckCardList
         });
         return <div style={{ width: "100%" }}>
-            <div className="serviceTitle"><span>{listName}</span><i className={classNames({ down: isShow })} onClick={this.handleClick} /></div>
+            <div className="serviceTitle"><span>{listName}</span>
+            {list.length?<i className={classNames({ down: isShow })} onClick={this.handleClick} />:null}
+            </div>
             <div className="result_app_list_4" style={{ ...showStyle, transition: "height .5s" }} ref={ref => this.listDom = ref}>
                 {list.map((item, c) => {
 

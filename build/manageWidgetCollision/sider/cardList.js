@@ -69,7 +69,6 @@ var CardsList = function (_React$Component) {
             isShow = _state.isShow,
             height = _state.height;
 
-        var display = isShow ? 'flex' : 'none';
         var showStyle = isShow ? {
             height: height
         } : {
@@ -93,7 +92,7 @@ var CardsList = function (_React$Component) {
                     null,
                     listName
                 ),
-                _react2["default"].createElement('i', { className: (0, _classnames2["default"])({ down: isShow }), onClick: this.handleClick })
+                list.length ? _react2["default"].createElement('i', { className: (0, _classnames2["default"])({ down: isShow }), onClick: this.handleClick }) : null
             ),
             _react2["default"].createElement(
                 'div',

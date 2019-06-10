@@ -105,7 +105,6 @@ var noteSource = {
             widgetId: "shadowCardId"
         };
         props.updateShadowCard(dragCard);
-        console.log(props.checkedCardList, 'checkedCardList=========checkedCardList');
         return { id: "shadowCardId", type: "cardList", cardList: props.checkedCardList //3代表widget，parentId=2暂时代表侧边栏
 
         };
