@@ -1,20 +1,25 @@
 .u-pagination-gap>li>a{
     width:28px;
     height:28px;
-    background:rgba(9,30,66,0.04);
-    border-color: #e9e7e7;
+    background:#fff;
+    border-color: #E4E4E4;
     border-radius: 4px ;
     line-height: 28px;
     padding:0;
+    color: #666;
+    font-size: 12px;
   }
   .u-pagination-gap>li>a:hover{
-    border-color:#FCEDEC;
+    border-color:#ADB4BC;
   }
   .u-pagination>.active>a, .u-pagination>.active>a:focus, .u-pagination>.active>a:hover, .u-pagination>.active>span, .u-pagination>.active>span:focus, .u-pagination>.active>span:hover{
-    border-color: #FCEDEC;
-    background: #FCEDEC;
-    color: #E14C46;
+    border-color: #ADB4BC;
+    background: #ADB4BC;
+    color: #fff;
   }
   .u-pagination>.disabled>a, .u-pagination>.disabled>a:focus, .u-pagination>.disabled>a:hover, .u-pagination>.disabled>span, .u-pagination>.disabled>span:focus, .u-pagination>.disabled>span:hover{
-    background: rgba(9,44,66,0.04);
+    background: #fff;
+  }
+  .u-pagination > .disabled > a, .u-pagination > .disabled > span, .u-pagination > .disabled > a:hover, .u-pagination > .disabled > span:hover, .u-pagination > .disabled > a:focus, .u-pagination > .disabled > span:focus{
+    color: #ccc
   }

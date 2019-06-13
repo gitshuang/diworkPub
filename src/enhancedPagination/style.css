@@ -6,7 +6,7 @@
     min-width: 700px;
     overflow: auto;
     -webkit-box-pack: center;
-    justify-content: center;
+    justify-content: flex-end;
 }
 .enhanced_pagination .u_float_pagination{
     float: left;
@@ -19,30 +19,32 @@
     outline: none;
     -webkit-appearance: none;
     height: 28px;
-    background: rgba(9,30,66,.04);
-    border-color: #e9e7e7;
+    background: #fff;
+    border-color: #E4E4E4;
     border-radius: 4px;
     line-height: 28px;
     padding: 0 15px;
     text-align: center;
-    font-size: 14px;
+    font-size: 12px;
     margin: 0 6px;
-   
+    color: #666
 }
 .page_jump {
-    font-size: 14px;
+    font-size: 12px;
     float: left;
     margin: 5px;
+    color: #666
 }
 input.page_jump_value {
     outline: none;
     -webkit-appearance:  none;
-    background: rgba(9,30,66,.04);
+    background: #fff;
     border-radius: 4px;
     line-height: 28px;
     width: 80px;
     margin: 0 6px;
     text-align: center;
-    font-size: 14px;
+    font-size: 12px;
     border: 1px solid #e9e7e7;
+    color: #666
 }
