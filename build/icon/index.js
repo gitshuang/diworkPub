@@ -862,6 +862,10 @@ var fonts = {
   'icon-wenbenxiala': 'icon-wenbenxiala__iconfont___1llHv',
   'icon-riqiqujian': 'icon-riqiqujian__iconfont___2EhJm',
   'icon-hebingxingzhuang1': 'icon-hebingxingzhuang1__iconfont___1nAYa',
+  'icon-shuzhankai': 'icon-shuzhankai__iconfont___27lXV',
+  'icon-shushouqi': 'icon-shushouqi__iconfont___2eZjD',
+  'icon-xinzeng': 'icon-xinzeng__iconfont___1vXBZ',
+  'icon-fanhui': 'icon-fanhui__iconfont___Ll91J',
   'icon-shaixuan': 'icon-shaixuan__iconfont___c-VGV',
   'icon-yuyanshezhi': 'icon-yuyanshezhi__iconfont___p8M0Z',
   'icon-zhuxiao': 'icon-zhuxiao__iconfont___1mBfW'

@@ -1,11 +1,11 @@
 /*  imported from iconfont.css  */
 
 @font-face {font-family: "font_family_u8c";
-  src: url('iconfont.eot?t=1557801195019'); /* IE9 */
-  src: url('iconfont.eot?t=1557801195019#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff?t=1557801195019') format('woff'),
-  url('iconfont.ttf?t=1557801195019') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-  url('iconfont.svg?t=1557801195019#font_family') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1560406819337'); /* IE9 */
+  src: url('iconfont.eot?t=1560406819337#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1560406819337') format('woff'),
+  url('iconfont.ttf?t=1560406819337') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1560406819337#font_family') format('svg'); /* iOS 4.1- */
 }
 
 .u8ciconfont {
@@ -2214,6 +2214,22 @@
 
 .icon-hebingxingzhuang1__iconfont___1nAYa:before {
   content: "\E86E";
+}
+
+.icon-shuzhankai__iconfont___27lXV:before {
+  content: "\E870";
+}
+
+.icon-shushouqi__iconfont___2eZjD:before {
+  content: "\E871";
+}
+
+.icon-xinzeng__iconfont___1vXBZ:before {
+  content: "\E86F";
+}
+
+.icon-fanhui__iconfont___Ll91J:before {
+  content: "\E872";
 }
 
 /* 000000000 */
