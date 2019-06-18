@@ -276,7 +276,7 @@ const fetchTools = {
             } catch (e) {
               return Promise.reject(new Error('接口返回数据无法解析'));
             }
-            const { status, data, msg, errorCode } = result;
+            const { status, data, msg, errorCode, needrelogin } = result;
             let _data = {};
             // 获取隔离的接口没有status,data这一项
             if ((url.indexOf("/ref/diwork/iref_ctr/refInfo") > -1)) {
@@ -292,6 +292,8 @@ const fetchTools = {
                 _data = data;
               }
               return Promise.resolve(_data);
+            } else if (needrelogin) {
+              logout();
             } else if (errorCode) {
               switch (errorCode) {
                 case '000001':

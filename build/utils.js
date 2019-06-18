@@ -345,7 +345,8 @@ var fetchTools = {
                 status = _result.status,
                 data = _result.data,
                 msg = _result.msg,
-                errorCode = _result.errorCode;
+                errorCode = _result.errorCode,
+                needrelogin = _result.needrelogin;
 
             var _data = {};
             // 获取隔离的接口没有status,data这一项
@@ -363,6 +364,8 @@ var fetchTools = {
                 _data = data;
               }
               return Promise.resolve(_data);
+            } else if (needrelogin) {
+              logout();
             } else if (errorCode) {
               switch (errorCode) {
                 case '000001':
