@@ -677,7 +677,11 @@ function avoidSameName(namaArr, name) {
 
 function getContext() {
   if (window.diworkContext && typeof window.diworkContext === 'function') {
-    return window.diworkContext();
+    var result = window.diworkContext();
+    if (result.productLine.includes("u8c")) {
+      result.productLine = "u8c";
+    }
+    return result;
   } else {
     return {};
   }

@@ -596,7 +596,11 @@ export function avoidSameName(namaArr, name) {
 
 export function getContext() {
   if (window.diworkContext && typeof window.diworkContext === 'function') {
-    return window.diworkContext();
+    const result = window.diworkContext();
+    if(result.productLine.includes("u8c")){
+      result.productLine = "u8c"; 
+    }
+    return result;
   } else {
     return {};
   }
