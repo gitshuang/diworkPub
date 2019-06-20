@@ -597,8 +597,8 @@ export function avoidSameName(namaArr, name) {
 export function getContext() {
   if (window.diworkContext && typeof window.diworkContext === 'function') {
     const result = window.diworkContext();
-    if(result.productLine.includes("u8c")){
-      result.productLine = "u8c"; 
+    if (result.productLine.indexOf("u8c") > -1) {
+      result.productLine = "u8c";
     }
     return result;
   } else {
