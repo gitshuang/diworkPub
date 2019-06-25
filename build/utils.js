@@ -365,6 +365,7 @@ var fetchTools = {
               }
               return Promise.resolve(_data);
             } else if (needrelogin) {
+              alert(msg);
               logout();
             } else if (errorCode) {
               switch (errorCode) {
