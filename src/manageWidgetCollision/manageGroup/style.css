@@ -223,6 +223,7 @@
 }
 .groupArea :global(#widget-container){
   position: relative;
+  font-family: Microsoft YaHei,Arial!important;
 }
 .addBtn :global(.u-button){
   width: 100%;

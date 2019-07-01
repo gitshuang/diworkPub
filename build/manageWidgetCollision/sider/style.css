@@ -30,8 +30,24 @@
 .sider_container__style___6IhSA::-webkit-scrollbar{
     display: block
 }
+.sider_container__style___6IhSA::-webkit-scrollbar{
+    display: block
+}
+.sider_container__style___6IhSA::-webkit-scrollbar {
+    width: 7px;    
+    height: 7px;
+}
+.sider_container__style___6IhSA::-webkit-scrollbar-thumb {
+    background:rgba(193,193,193,1);
+    border-radius:100px;
+}
+.sider_container__style___6IhSA::-webkit-scrollbar-track {
+    border-radius: 0;
+    background: #F3F3F3;
+
+}
 .sider_container__style___6IhSA .sider-container-fixed{
-    width: 100%;
+    width: 99%;
     /* position:fixed; */
     /* overflow: hidden; */
     background:rgba(255,255,255,1);
@@ -307,6 +323,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     overflow: hidden;
+    font-family: Microsoft YaHei,Arial!important;
 }
 .sider_container__style___6IhSA .serviceArea .result_app_list_3{
     width: 100%;
