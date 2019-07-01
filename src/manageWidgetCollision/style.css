@@ -9,7 +9,14 @@
     left: 320px;
     right: 0;
     overflow-y: scroll;
-    overflow-x: hidden
+    overflow-x: hidden;
+
+}
+.um_content::-webkit-scrollbar{
+  display: none
+}
+.um_content:global(::-webkit-scrollbar){
+  display: none
 }
 .umBoxJustify{
   display: table;
