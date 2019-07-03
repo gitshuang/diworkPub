@@ -101,19 +101,20 @@ export default class MySider extends Component {
 
     renderService = () => {
         const { checkedCardList } = this.props;
-        const { cardsList, canShowEmptyDom } = this.state;
+        const { cardsList, canShowEmptyDom,ifSearchState } = this.state;
         let dom = '';
         dom = cardsList.map((a, b) => {
-            // if (a.children && a.children.length == 0) {
-            //     const isContainInCheckCardList = checkedCardList.some((item) => { return item.serviceCode == a.serviceCode })
-            //     a.checked = isContainInCheckCardList;
-            //     return <div key={`${a.menuItemId}-${b}`} className="result_app_list_3" >
-            //         <Card data={JSON.parse(JSON.stringify(a))} key={`${a.menuItemId}-${b}`} index={b}
-            //             onChangeChecked={this.onChangeChecked}
-            //         />
-            //         <hr />
-            //     </div>
-            // }
+            if (ifSearchState) {
+                const isContainInCheckCardList = checkedCardList.some((item) => { return item.serviceCode == a.serviceCode })
+                a.checked = isContainInCheckCardList;
+                return <div key={`${a.menuItemId}-${b}`} className="result_app_list_3" >
+                    <Card data={JSON.parse(JSON.stringify(a))} key={`${a.menuItemId}-${b}`} index={b}
+                        onChangeChecked={this.onChangeChecked}
+                    />
+                    <hr />
+                </div>
+            }
+
             return <CardsList
                 key={a.menuItemId}
                 list={a.children}
