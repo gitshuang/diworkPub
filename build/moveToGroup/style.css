@@ -79,7 +79,7 @@
 }
 .borderBox__style___1q8V0 input:focus {
   border-color: #505766;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  /* box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); */
   outline: 0;
   transition: all ease .1s;
 }
@@ -136,4 +136,12 @@
   font-weight: 100;
   position: relative;
   top: 3px;
+}
+.icon__style___1HXQR {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+  margin-right:5px;
 }

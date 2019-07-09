@@ -4,6 +4,9 @@ import Button from 'bee/button';
 import Menu, { SubMenu } from 'bee/menus';
 import { findPath, avoidSameName } from '@u';
 import Icon from '../icon';
+import {ButtonU8cDefault,ButtonU8cPrimary} from '../button'
+import '../iconfont.js'
+
 /*  style */
 import {
   container,
@@ -12,6 +15,7 @@ import {
   footer,
   selectedli,
   saveBtn,
+  icon
 } from './style.css';
 
 const { Item } = Menu;
@@ -235,35 +239,40 @@ class MoveToGroup extends Component {
           {
             onAddGroup ? (
               <div>
-                <Button style={{ float: 'left', position: 'relative' }} onClick={this.addGroup} disabled={inAddGroup}>
-                  <Icon type="add" />
+                <Button style={{ float: 'left', position: 'relative',paddingLeft:16}} 
+                onClick={this.addGroup} disabled={inAddGroup}>
+                  {/* <Icon type="add" /> */}
+                  <svg className={icon} aria-hidden="true">
+                    <use xlinkHref="#icon-xinzeng"></use>
+                  </svg>
                   {languagesJSON.addGroup}
                 </Button>
               </div>
             ) : null
           }
           <div style={{ float: 'right' }}>
+          {
+              onCancel ? (
+                <ButtonU8cDefault
+                  onClick={this.cancel}
+                >
+                  {languagesJSON.cancel}
+                </ButtonU8cDefault>
+              ) : null
+            }
             {
               onSave ? (
-                <Button
-                  colors="danger"
+                <ButtonU8cPrimary
+                  //colors="danger"
                   disabled={!way && !inAddGroup}
                   className={saveBtn}
                   onClick={this.save}
                 >
                   {languagesJSON.confirm}
-                </Button>
+                </ButtonU8cPrimary>
               ) : null
             }
-            {
-              onCancel ? (
-                <Button
-                  onClick={this.cancel}
-                >
-                  {languagesJSON.cancel}
-                </Button>
-              ) : null
-            }
+            
           </div>
         </div>
       </div>

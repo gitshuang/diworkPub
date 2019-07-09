@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var _class, _temp;
+
 /*  style */
 
 
@@ -30,6 +31,10 @@ var _icon = require('../icon');
 
 var _icon2 = _interopRequireDefault(_icon);
 
+var _button3 = require('../button');
+
+require('../iconfont.js');
+
 require('./style.css');
 
 var _style = {
@@ -40,7 +45,8 @@ var _style = {
   'u-menu-selected': 'u-menu-selected__style___2rj0p',
   'footer': 'footer__style___33izj',
   'selectedli': 'selectedli__style___6ub3B',
-  'saveBtn': 'saveBtn__style___2n4e3'
+  'saveBtn': 'saveBtn__style___2n4e3',
+  'icon': 'icon__style___1HXQR'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -310,30 +316,35 @@ var MoveToGroup = (_temp = _class = function (_Component) {
           null,
           _react2["default"].createElement(
             _button2["default"],
-            { style: { "float": 'left', position: 'relative' }, onClick: this.addGroup, disabled: inAddGroup },
-            _react2["default"].createElement(_icon2["default"], { type: 'add' }),
+            { style: { "float": 'left', position: 'relative', paddingLeft: 16 },
+              onClick: this.addGroup, disabled: inAddGroup },
+            _react2["default"].createElement(
+              'svg',
+              { className: _style.icon, 'aria-hidden': 'true' },
+              _react2["default"].createElement('use', { xlinkHref: '#icon-xinzeng' })
+            ),
             languagesJSON.addGroup
           )
         ) : null,
         _react2["default"].createElement(
           'div',
           { style: { "float": 'right' } },
-          onSave ? _react2["default"].createElement(
-            _button2["default"],
-            {
-              colors: 'danger',
-              disabled: !way && !inAddGroup,
-              className: _style.saveBtn,
-              onClick: this.save
-            },
-            languagesJSON.confirm
-          ) : null,
           onCancel ? _react2["default"].createElement(
-            _button2["default"],
+            _button3.ButtonU8cDefault,
             {
               onClick: this.cancel
             },
             languagesJSON.cancel
+          ) : null,
+          onSave ? _react2["default"].createElement(
+            _button3.ButtonU8cPrimary
+            //colors="danger"
+            ,
+            { disabled: !way && !inAddGroup,
+              className: _style.saveBtn,
+              onClick: this.save
+            },
+            languagesJSON.confirm
           ) : null
         )
       )
