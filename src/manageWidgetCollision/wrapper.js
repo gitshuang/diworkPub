@@ -136,9 +136,13 @@ class Wrapper extends Component {
   // 返回操作
   goBack = () => {
     this.configBack = true;
-    const { emptySelectGroup } = this.props;
+    const { emptySelectGroup,goBack } = this.props;
     emptySelectGroup();
     //this.props.history.replace(this.goToLocation);
+    if(goBack){
+      goBack();
+      return
+    }
     this.props.history.go(-1);
   }
 

@@ -148,10 +148,16 @@ var Wrapper = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('manag
 
     _this.goBack = function () {
       _this.configBack = true;
-      var emptySelectGroup = _this.props.emptySelectGroup;
+      var _this$props2 = _this.props,
+          emptySelectGroup = _this$props2.emptySelectGroup,
+          goBack = _this$props2.goBack;
 
       emptySelectGroup();
       //this.props.history.replace(this.goToLocation);
+      if (goBack) {
+        goBack();
+        return;
+      }
       _this.props.history.go(-1);
     };
 
