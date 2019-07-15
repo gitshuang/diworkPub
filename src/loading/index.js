@@ -2,14 +2,7 @@ import {getContext} from '../utils';
 import DiworkLoading from './diwork/loading';
 import U8cLoading from './u8c/loading';
 
-let productLine = ''
-if(Object.keys(getContext()).length ){
-   productLine = getContext().productLine
- }else{
-   jDiwork.getContext(data => {
-     productLine =  data.productLine
-   })
- }
+
 
 // let Loading;
 // if(productLine=='u8c'){
@@ -25,12 +18,22 @@ class LoadingInstance extends Component{
   constructor(props){
     super(props);
     //this.flag = false;//页面是否有loading的div
+    this.productLine = '';
+    if(Object.keys(getContext()).length ){
+      this.productLine = getContext().productLine
+    }else if(window.jDiwork){
+      jDiwork.getContext(data => {
+        this.productLine =  data.productLine
+      })
+    }else{
+      this.productLine = "diwork";
+    }
   }
   create  = (options) =>{
      const div = document.createElement('div');
      div.id="_loadingModal"
      document.body.appendChild(div);
-     if(productLine=='u8c'){
+     if(this.productLine=='u8c'){
      const loading = ReactDOM.render(<U8cLoading {...options}/>, div);
      }else{
      const loading = ReactDOM.render(<DiworkLoading {...options}/>, div);

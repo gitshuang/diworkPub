@@ -33,15 +33,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
-var productLine = '';
-if (Object.keys((0, _utils.getContext)()).length) {
-  productLine = (0, _utils.getContext)().productLine;
-} else {
-  jDiwork.getContext(function (data) {
-    productLine = data.productLine;
-  });
-}
-
 // let Loading;
 // if(productLine=='u8c'){
 //    Loading = require('./u8c/loading')
@@ -62,7 +53,7 @@ var LoadingInstance = function (_Component) {
       var div = document.createElement('div');
       div.id = "_loadingModal";
       document.body.appendChild(div);
-      if (productLine == 'u8c') {
+      if (_this.productLine == 'u8c') {
         var loading = _reactDom2["default"].render(_react2["default"].createElement(_loading6["default"], options), div);
       } else {
         var _loading2 = _reactDom2["default"].render(_react2["default"].createElement(_loading4["default"], options), div);
@@ -76,6 +67,16 @@ var LoadingInstance = function (_Component) {
       document.body.removeChild(div);
     };
 
+    _this.productLine = '';
+    if (Object.keys((0, _utils.getContext)()).length) {
+      _this.productLine = (0, _utils.getContext)().productLine;
+    } else if (window.jDiwork) {
+      jDiwork.getContext(function (data) {
+        _this.productLine = data.productLine;
+      });
+    } else {
+      _this.productLine = "diwork";
+    }
     return _this;
   }
 
