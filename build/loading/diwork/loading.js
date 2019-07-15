@@ -12,18 +12,18 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _icon = require('../icon');
+var _icon = require('../../icon');
 
 var _icon2 = _interopRequireDefault(_icon);
 
 require('./style.css');
 
 var _style = {
-  'loading_modal': 'loading_modal__style___1hpun',
-  'loading_body': 'loading_body__style___3gRno',
-  'loading_icon': 'loading_icon__style___30rw_',
-  'rotating': 'rotating__style___1TiuX',
-  'loading_content': 'loading_content__style___bM_-v'
+  'loading_modal': 'loading_modal__style___1tmHR',
+  'loading_body': 'loading_body__style___3lbLh',
+  'loading_icon': 'loading_icon__style___2Tef7',
+  'rotating': 'rotating__style___1_mgM',
+  'loading_content': 'loading_content__style___8ZsY8'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

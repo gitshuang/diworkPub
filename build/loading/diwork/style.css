@@ -1,6 +1,6 @@
 /*  imported from style.css  */
 
-.loading_modal__style___1hpun {
+.loading_modal__style___1tmHR {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -9,7 +9,7 @@
     background: transparent;
     z-index: 2001;
 }
-.loading_body__style___3gRno{
+.loading_body__style___3lbLh{
     width:90px;
     height:90px;
     background:rgba(0,0,0,0.7);
@@ -27,17 +27,17 @@
     padding: 22px 0 12px;
     box-sizing: border-box;
 }
-.loading_modal__style___1hpun .loading_icon__style___30rw_{
+.loading_modal__style___1tmHR .loading_icon__style___2Tef7{
     font-size :32px;
     color:#fff;
-    animation: rotating__style___1TiuX 2s linear infinite;
+    animation: rotating__style___1_mgM 2s linear infinite;
     display: inline-block;
 }
-.loading_content__style___bM_-v{
+.loading_content__style___8ZsY8{
     padding-top: 6px;
     font-size: 12px;
 }
-@keyframes rotating__style___1TiuX{
+@keyframes rotating__style___1_mgM{
     0% {
         -webkit-transform: rotate(0deg);
         transform: rotate(0deg);

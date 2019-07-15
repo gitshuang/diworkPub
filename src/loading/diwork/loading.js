@@ -1,9 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../icon';
-import{loading_modal,loading_body,loading_icon,loading_content} from './style.css';
+import Icon from '../../icon';
+import {
+  loading_modal,
+  loading_body, loading_icon, loading_content,
 
-function Loading(props){
+} from './style.css';
+
+function Loading(props) {
   const { text } = props;
   return (
     <div className={loading_modal} >

@@ -1,6 +1,26 @@
+import {getContext} from '../utils';
+import DiworkLoading from './diwork/loading';
+import U8cLoading from './u8c/loading';
+
+let productLine = ''
+if(Object.keys(getContext()).length ){
+   productLine = getContext().productLine
+ }else{
+   jDiwork.getContext(data => {
+     productLine =  data.productLine
+   })
+ }
+
+// let Loading;
+// if(productLine=='u8c'){
+//    Loading = require('./u8c/loading')
+// }else{
+//    Loading = require('./diwork/loading')
+// }
+
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import Loading from './loading';
+
 class LoadingInstance extends Component{
   constructor(props){
     super(props);
@@ -10,7 +30,11 @@ class LoadingInstance extends Component{
      const div = document.createElement('div');
      div.id="_loadingModal"
      document.body.appendChild(div);
-     const loading = ReactDOM.render(<Loading {...options}/>, div);
+     if(productLine=='u8c'){
+     const loading = ReactDOM.render(<U8cLoading {...options}/>, div);
+     }else{
+     const loading = ReactDOM.render(<DiworkLoading {...options}/>, div);
+     }
    
   }
   destory = () =>{
