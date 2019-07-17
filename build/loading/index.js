@@ -68,12 +68,17 @@ var LoadingInstance = function (_Component) {
     };
 
     _this.productLine = '';
-    if (Object.keys((0, _utils.getContext)()).length) {
-      _this.productLine = (0, _utils.getContext)().productLine;
-    } else if (window.jDiwork) {
-      jDiwork.getContext(function (data) {
-        _this.productLine = data.productLine;
-      });
+    // if(Object.keys(getContext()).length ){
+    //   this.productLine = getContext().productLine
+    // }else if(window.jDiwork){
+    //   jDiwork.getContext(data => {
+    //     this.productLine =  data.productLine
+    //   })
+    // }else{
+    //   this.productLine = "diwork";
+    // }
+    if (window.top.diworkContext) {
+      _this.productLine = window.top.diworkContext().productLine;
     } else {
       _this.productLine = "diwork";
     }
