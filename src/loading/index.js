@@ -19,20 +19,20 @@ class LoadingInstance extends Component{
     super(props);
     //this.flag = false;//页面是否有loading的div
     this.productLine = '';
-    // if(Object.keys(getContext()).length ){
-    //   this.productLine = getContext().productLine
-    // }else if(window.jDiwork){
-    //   jDiwork.getContext(data => {
-    //     this.productLine =  data.productLine
-    //   })
-    // }else{
-    //   this.productLine = "diwork";
-    // }
-    if(window.top.diworkContext){
-      this.productLine = window.top.diworkContext().productLine
+    if(Object.keys(getContext()).length ){
+      this.productLine = getContext().productLine
+    }else if(window.jDiwork){
+      jDiwork.getContext(data => {
+        this.productLine =  data.productLine
+      })
     }else{
       this.productLine = "diwork";
     }
+    // if(window.top.diworkContext){
+    //   this.productLine = window.top.diworkContext().productLine
+    // }else{
+    //   this.productLine = "diwork";
+    // }
   }
   create  = (options) =>{
      const div = document.createElement('div');
