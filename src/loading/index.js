@@ -17,28 +17,12 @@ import ReactDOM from 'react-dom';
 class LoadingInstance extends Component{
   constructor(props){
     super(props);
-    //this.flag = false;//页面是否有loading的div
-    this.productLine = '';
-    if(Object.keys(getContext()).length ){
-      this.productLine = getContext().productLine
-    }else if(window.jDiwork){
-      jDiwork.getContext(data => {
-        this.productLine =  data.productLine
-      })
-    }else{
-      this.productLine = "diwork";
-    }
-    // if(window.top.diworkContext){
-    //   this.productLine = window.top.diworkContext().productLine
-    // }else{
-    //   this.productLine = "diwork";
-    // }
   }
   create  = (options) =>{
      const div = document.createElement('div');
      div.id="_loadingModal"
      document.body.appendChild(div);
-     if(this.productLine=='u8c'){
+     if(options.productLine=='u8c'){
      const loading = ReactDOM.render(<U8cLoading {...options}/>, div);
      }else{
      const loading = ReactDOM.render(<DiworkLoading {...options}/>, div);
@@ -56,8 +40,29 @@ class LoadingInstance extends Component{
 
 let _loading;
 function createLoadingFunc(options){
-  _loading = new LoadingInstance(options);
-  _loading.create(options);
+  let productLine='u8c';
+  // if(Object.keys(getContext()).length ){
+  //   productLine = getContext().productLine;
+  //   _loading = new LoadingInstance({...options,productLine});
+  //   _loading.create({...options,productLine});
+
+  // }else if(window.jDiwork){
+  //   jDiwork.getContext(data => {
+  //     productLine =  data.productLine;
+  //     _loading = new LoadingInstance({...options,productLine});
+  //     _loading.create({...options,productLine});
+  //   })
+
+  // }else{
+  //   productLine = "diwork";
+  //   _loading = new LoadingInstance({...options,productLine});
+  //   _loading.create(options);
+  // }
+  
+  _loading = new LoadingInstance({...options,productLine});
+  _loading.create({...options,productLine});
+
+  
 }
 function destoryLoadingFunc(){
   _loading = new LoadingInstance();

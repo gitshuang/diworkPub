@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.destoryLoadingFunc = exports.createLoadingFunc = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _utils = require('../utils');
 
 var _loading3 = require('./diwork/loading');
@@ -46,14 +48,13 @@ var LoadingInstance = function (_Component) {
   function LoadingInstance(props) {
     _classCallCheck(this, LoadingInstance);
 
-    //this.flag = false;//页面是否有loading的div
     var _this = _possibleConstructorReturn(this, _Component.call(this, props));
 
     _this.create = function (options) {
       var div = document.createElement('div');
       div.id = "_loadingModal";
       document.body.appendChild(div);
-      if (_this.productLine == 'u8c') {
+      if (options.productLine == 'u8c') {
         var loading = _reactDom2["default"].render(_react2["default"].createElement(_loading6["default"], options), div);
       } else {
         var _loading2 = _reactDom2["default"].render(_react2["default"].createElement(_loading4["default"], options), div);
@@ -67,21 +68,6 @@ var LoadingInstance = function (_Component) {
       document.body.removeChild(div);
     };
 
-    _this.productLine = '';
-    if (Object.keys((0, _utils.getContext)()).length) {
-      _this.productLine = (0, _utils.getContext)().productLine;
-    } else if (window.jDiwork) {
-      jDiwork.getContext(function (data) {
-        _this.productLine = data.productLine;
-      });
-    } else {
-      _this.productLine = "diwork";
-    }
-    // if(window.top.diworkContext){
-    //   this.productLine = window.top.diworkContext().productLine
-    // }else{
-    //   this.productLine = "diwork";
-    // }
     return _this;
   }
 
@@ -90,8 +76,27 @@ var LoadingInstance = function (_Component) {
 
 var _loading = void 0;
 function createLoadingFunc(options) {
-  _loading = new LoadingInstance(options);
-  _loading.create(options);
+  var productLine = 'u8c';
+  // if(Object.keys(getContext()).length ){
+  //   productLine = getContext().productLine;
+  //   _loading = new LoadingInstance({...options,productLine});
+  //   _loading.create({...options,productLine});
+
+  // }else if(window.jDiwork){
+  //   jDiwork.getContext(data => {
+  //     productLine =  data.productLine;
+  //     _loading = new LoadingInstance({...options,productLine});
+  //     _loading.create({...options,productLine});
+  //   })
+
+  // }else{
+  //   productLine = "diwork";
+  //   _loading = new LoadingInstance({...options,productLine});
+  //   _loading.create(options);
+  // }
+
+  _loading = new LoadingInstance(_extends({}, options, { productLine: productLine }));
+  _loading.create(_extends({}, options, { productLine: productLine }));
 }
 function destoryLoadingFunc() {
   _loading = new LoadingInstance();
