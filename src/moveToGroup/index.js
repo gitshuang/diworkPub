@@ -4,7 +4,7 @@ import Button from 'bee/button';
 import Menu, { SubMenu } from 'bee/menus';
 import { findPath, avoidSameName } from '@u';
 import Icon from '../icon';
-import {ButtonU8cDefault,ButtonU8cPrimary} from '../button'
+import {ButtonU8cDefault,ButtonU8cPrimary, } from '../button'
 import '../iconfont.js'
 
 /*  style */
@@ -15,7 +15,8 @@ import {
   footer,
   selectedli,
   saveBtn,
-  icon
+  icon,
+  close,
 } from './style.css';
 
 const { Item } = Menu;
@@ -206,6 +207,7 @@ class MoveToGroup extends Component {
       <div className={container}>
         <div className={title}>
           {caller}{languagesJSON.to}：{way}
+          <Icon className={close} type="error3" onClick={this.cancel} />
         </div>
         <div className={borderBox}>
           <Menu

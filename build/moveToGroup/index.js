@@ -40,6 +40,7 @@ require('./style.css');
 var _style = {
   'container': 'container__style___3CvgR',
   'title': 'title__style___YVWvc',
+  'close': 'close__style___PWIUk',
   'borderBox': 'borderBox__style___1q8V0',
   'u-menu-inline': 'u-menu-inline__style___1KbeC',
   'u-menu-selected': 'u-menu-selected__style___2rj0p',
@@ -279,7 +280,8 @@ var MoveToGroup = (_temp = _class = function (_Component) {
         caller,
         languagesJSON.to,
         '\uFF1A',
-        way
+        way,
+        _react2["default"].createElement(_icon2["default"], { className: _style.close, type: 'error3', onClick: this.cancel })
       ),
       _react2["default"].createElement(
         'div',
