@@ -17,7 +17,7 @@ function Loading(props) {
           <i ></i>
           <i ></i>
         </span>
-        <div className="ant-spin-text" >加载中...</div>
+        <div className="ant-spin-text" >{text || '加载中...'}</div>
       </div>
     
     </div>

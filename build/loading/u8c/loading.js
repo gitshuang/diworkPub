@@ -46,7 +46,7 @@ function Loading(props) {
       _react2["default"].createElement(
         'div',
         { className: 'ant-spin-text' },
-        '\u52A0\u8F7D\u4E2D...'
+        text || '加载中...'
       )
     )
   );
