@@ -105,6 +105,7 @@ var NotificationMess = function (_Component) {
           closable = _this$props.closable;
 
       var key = Date.now();
+      var _closable = typeof closable === 'undefined' ? false : closable;
       _this.notification.notice({
         content: _react2["default"].createElement(
           'div',
@@ -118,17 +119,17 @@ var NotificationMess = function (_Component) {
               { className: _index.title_cont },
               title
             ),
-            _react2["default"].createElement(_icon2["default"], { type: 'error3', className: _index._close, onClick: _this.close(_this, key) })
+            _closable ? _react2["default"].createElement(_icon2["default"], { type: 'error3', className: _index._close, onClick: _this.close(_this, key) }) : null
           ),
-          _react2["default"].createElement(
+          content ? _react2["default"].createElement(
             'div',
             { className: _index.notification_cont },
             content
-          )
+          ) : null
         ),
         key: key,
         duration: typeof duration === 'undefined' ? null : duration,
-        closable: typeof closable === 'undefined' ? false : closable
+        closable: _closable
       });
     };
 

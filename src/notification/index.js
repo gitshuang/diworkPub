@@ -56,19 +56,25 @@ class NotificationMess extends Component {
   open=(options)=>{
     const { title, content, duration, closable } = this.props;
     const key = Date.now();
+    const _closable = typeof closable === 'undefined' ? false : closable;
     this.notification.notice({
       content:(<div className={`${page}` }>
         <div className={_title}>
           <Icon className={_tip} type={this.getTypeIcon()} />
           <span className={title_cont}>{title}</span>
-          <Icon type="error3" className={_close} onClick={this.close(this, key)} />
+          {
+            _closable?
+            <Icon type="error3" className={_close} onClick={this.close(this, key)} />
+            :null
+          }
         </div>
-        <div className={notification_cont}>{content}</div>
+        {content?<div className={notification_cont}>{content}</div>:null}
+        
         {/* <Button onClick={this.close(this, key)} size="sm" style={{ position: 'absolute', right: 15, bottom: 15}}>知道了</Button> */}
       </div>),
       key,
       duration: typeof duration === 'undefined' ? null : duration,
-      closable: typeof closable === 'undefined' ? false : closable,
+      closable: _closable,
     });
   }
 
