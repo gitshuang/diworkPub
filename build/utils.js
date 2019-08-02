@@ -158,14 +158,14 @@ var getHost = exports.getHost = function getHost() {
       development: 'http://workbench.yyuap.com',
       daily: 'https://workbench-daily.yyuap.com',
       combine: 'https://u8c-daily.yyuap.com',
-      pre: 'https://y3me-pre.diwork.com'
+      pre: 'https://yonsuite-pre.diwork.com'
     },
     u8c: {
       production: 'https://u8c.diwork.com',
       development: 'http://u8c-test.yyuap.com',
       daily: 'https://workbench-daily.yyuap.com',
       combine: 'https://u8c-daily.yyuap.com',
-      pre: 'https://y3me-pre.diwork.com'
+      pre: 'https://yonsuite-pre.diwork.com'
     },
     // 门户地址
     yzone: {
