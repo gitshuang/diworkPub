@@ -255,6 +255,22 @@ export const getHost = (key = 'api') => {
       daily: 'https://u8cupc-daily.yyuap.com/platform/paramsSetting?optionId=common_option',
       combine: 'https://u8cupc-daily.yyuap.com/platform/paramsSetting?optionId=common_option',
       pre: '',
+    },
+    //开放平台
+    platform:{
+      production: 'https://open.diwork.com',   //diwork 正式
+      development: 'http://open-test.app.yyuap.com',
+      daily: 'https://open-daily.yyuap.com',   //diwork daily
+      combine: 'https://open-u8cdaliy.yonyoucloud.com', //u8cdaily
+      pre: 'http://diwok-open-web.pre.app.yyuap.com',   //u8c 预发
+    },
+    //开发者信息路径
+    developerPath:{
+      production: 'dpApplication.html',   //diwork 正式
+      development: 'dpApplication.html',
+      daily: 'dpApplication.html',   //diwork daily
+      combine: 'yonsuite.html#/appdev', //u8cdaily
+      pre: 'yonsuite.html#/appdev',   //u8c 预发
     }
   };
   return hosts[key][process.env.NODE_ENV];
