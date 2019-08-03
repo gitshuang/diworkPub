@@ -150,6 +150,7 @@ var getHost = exports.getHost = function getHost() {
       production: process.env.HOST || '',
       development: process.env.HOST || '',
       daily: process.env.HOST || '',
+      integrate: process.env.HOST || '',
       combine: process.env.HOST || '',
       pre: process.env.HOST || ''
     },
@@ -157,6 +158,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://www.diwork.com',
       development: 'http://workbench.yyuap.com',
       daily: 'https://workbench-daily.yyuap.com',
+      integrate: 'https://workbench-daily.yyuap.com',
       combine: 'https://u8c-daily.yyuap.com',
       pre: 'https://yonsuite-pre.diwork.com'
     },
@@ -164,6 +166,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://u8c.diwork.com',
       development: 'http://u8c-test.yyuap.com',
       daily: 'https://workbench-daily.yyuap.com',
+      integrate: 'https://workbench-daily.yyuap.com',
       combine: 'https://u8c-daily.yyuap.com',
       pre: 'https://yonsuite-pre.diwork.com'
     },
@@ -172,6 +175,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://ec.diwork.com/portal/home/index',
       development: 'http://web.yyuap.com:91/portal/home/index',
       daily: 'https://ec-daily.yyuap.com/portal/home/index',
+      integrate: 'https://ec-daily.yyuap.com/portal/home/index',
       combine: 'https://u8c-daily.yyuap.com/portal_index',
       pre: 'https://y3me-pre.diwork.com/portal_index'
     },
@@ -180,6 +184,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://dwweb-api.diwork.com',
       development: 'http://dwweb.api.yyuap.com:6062',
       daily: 'https://dwweb-api.yyuap.com',
+      integrate: 'https://dwweb-api.yyuap.com',
       combine: 'https://dwweb-api-u8c-daily.yyuap.com',
       pre: "https://y3me-pre.diwork.com/portal_index"
     },
@@ -188,6 +193,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://nec.diwork.com/static/home.html#/spaceList/joined?target=pc',
       development: 'http://web.yyuap.com:91/static/home.html#/spaceList/joined?target=pc',
       daily: 'https://ec-daily.yyuap.com/static/home.html#/spaceList/joined?target=pc',
+      integrate: 'https://ec-daily.yyuap.com/static/home.html#/spaceList/joined?target=pc',
       combine: 'https://ec-u8c-daily.yyuap.com/static/home.html#/spaceList/joined?target=pc',
       pre: ''
     },
@@ -196,6 +202,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://euc.diwork.com',
       development: 'https://idtest.yyuap.com',
       daily: "https://sso-daily.yyuap.com",
+      integrate: "https://sso-daily.yyuap.com",
       combine: "https://u8c-sso-daily.yyuap.com",
       pre: 'https://sso-y3me-pre.diwork.com'
     },
@@ -204,6 +211,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://euc.diwork.com',
       development: 'https://idtest.yyuap.com',
       daily: "https://user-daily.yyuap.com",
+      integrate: "https://user-daily.yyuap.com",
       combine: "https://u8c-user-daily.yyuap.com",
       pre: 'https://user-y3me-pre.diwork.com'
     },
@@ -212,6 +220,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://hr.diwork.com',
       development: 'http://hrcloud.yyuap.com',
       daily: 'https://hr-daily.yyuap.com',
+      integrate: 'https://hr-daily.yyuap.com',
       combine: 'https://hr-u8c-daily.yyuap.com',
       pre: ''
     },
@@ -220,6 +229,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://market.yonyoucloud.com/market/index#/shopping/orderlist',
       development: 'https://uastest.yyuap.com/market/index#/shopping/orderlist',
       daily: 'https://market-daily.yyuap.com/market/index#/shopping/orderlist',
+      integrate: 'https://market-daily.yyuap.com/market/index#/shopping/orderlist',
       combine: 'https://market-daily.yyuap.com/market/index#/shopping/orderlist',
       pre: 'https://maket-y3me-pre.diwork.com'
     },
@@ -228,6 +238,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://bd.diwork.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
       development: 'http://workbenchdev.yyuap.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
       daily: 'http://workbenchdev.yyuap.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
+      integrate: 'http://workbenchdev.yyuap.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
       combine: 'https://u8c-daily.com/manager/file/upload/oss/workbench-image-path-applicationIcon',
       pre: 'https://y3me-pre.diwork.com/manager/file/upload/oss/workbench-image-path-applicationIcon'
     },
@@ -236,6 +247,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://ec.diwork.com/static/home.html#/myspeech/personInfo?target=pc',
       development: 'http://web.yyuap.com:91/static/home.html#/myspeech/personInfo?target=pc',
       daily: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/personInfo?target=pc',
+      integrate: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/personInfo?target=pc',
       combine: 'https://ec-u8c-daily.yyuap.com/static/home.html#/myspeech/personInfo?target=pc',
       pre: ''
     },
@@ -244,6 +256,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://ec.diwork.com/static/home.html#/myspeech/index?index=0&target=pc',
       development: 'http://web.yyuap.com:91/static/home.html#/myspeech/index?index=0&target=pc',
       daily: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/index?index=0&target=pc',
+      integrate: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/index?index=0&target=pc',
       combine: 'https://ec-u8c-daily.yyuap.com/static/home.html#/myspeech/index?index=0&target=pc',
       pre: ''
     },
@@ -252,6 +265,7 @@ var getHost = exports.getHost = function getHost() {
       production: '//wsbs.diwork.com/pc/modules/honorZone/ph/index.html',
       development: '//wsbs.app.yyuap.com/pc/modules/honorZone/ph/index.html',
       daily: '//wsbs-daily.yyuap.com/pc/modules/honorZone/ph/index.html',
+      integrate: '//wsbs-daily.yyuap.com/pc/modules/honorZone/ph/index.html',
       combine: '//wsbs-daily.yyuap.com/pc/modules/honorZone/ph/index.html',
       pre: ''
     },
@@ -260,6 +274,7 @@ var getHost = exports.getHost = function getHost() {
       production: '//wsbs.diwork.com/pc/modules/honorZone/send/index.html',
       development: '//wsbs.app.yyuap.com/pc/modules/honorZone/send/index.html',
       daily: '//wsbs-daily.yyuap.com/pc/modules/honorZone/send/index.html',
+      integrate: '//wsbs-daily.yyuap.com/pc/modules/honorZone/send/index.html',
       combine: '//wsbs-daily.yyuap.com/pc/modules/honorZone/send/index.html',
       pre: ''
     },
@@ -268,6 +283,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'http://wo.diwork.com/ticket/query',
       development: 'http://172.20.9.47:8000/ticket/query',
       daily: 'http://ticket.app.yyuap.com/ticket/query',
+      integrate: 'http://ticket.app.yyuap.com/ticket/query',
       combine: 'http://ticket.app.yyuap.com/ticket/query',
       pre: ''
     },
@@ -276,6 +292,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://ticket.yonyoucloud.com',
       development: 'https://ticket.yonyoucloud.com',
       daily: 'https://ticket.yonyoucloud.com',
+      integrate: 'https://ticket.yonyoucloud.com',
       combine: 'https://ticket.yonyoucloud.com',
       pre: ''
     },
@@ -284,6 +301,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://www.yonyoucloud.com',
       development: 'https://cloudtest.yyuap.com',
       daily: 'https://www.yonyoucloud.com',
+      integrate: 'https://www.yonyoucloud.com',
       combine: 'https://www.yonyoucloud.com',
       pre: ''
     },
@@ -292,6 +310,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://ms.diwork.com',
       development: 'http://workbench.yyuap.com',
       daily: 'https://ms-daily.yyuap.com',
+      integrate: 'https://ms-daily.yyuap.com',
       combine: 'https://u8cms-daily.yyuap.com',
       pre: 'https://ms-y3me-pre.diwork.com'
     },
@@ -300,6 +319,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://cdn.yonyoucloud.com/pro/diwork',
       development: 'http://workbenchdev.yyuap.com/fe',
       daily: 'https://cdn.yonyoucloud.com/pro/diwork',
+      integrate: 'https://cdn.yonyoucloud.com/pro/diwork',
       combine: '',
       pre: 'https://cdn.yonyoucloud.com/pro/diwork'
     },
@@ -308,6 +328,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://u8cupc-daily.yyuap.com/platform/paramsSetting?optionId=common_option',
       development: 'http://u8cupc-test.yyuap.com/platform/paramsSetting?optionId=common_option',
       daily: 'https://u8cupc-daily.yyuap.com/platform/paramsSetting?optionId=common_option',
+      integrate: 'https://u8cupc-daily.yyuap.com/platform/paramsSetting?optionId=common_option',
       combine: 'https://u8cupc-daily.yyuap.com/platform/paramsSetting?optionId=common_option',
       pre: ''
     },
@@ -316,6 +337,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://open.diwork.com', //diwork 正式
       development: 'http://open-test.app.yyuap.com',
       daily: 'https://open-daily.yyuap.com', //diwork daily
+      integrate: 'https://open-daily.yyuap.com', //diwork daily
       combine: 'https://open-u8cdaliy.yonyoucloud.com', //u8cdaily
       pre: 'http://diwok-open-web.pre.app.yyuap.com' //u8c 预发
     },
@@ -324,6 +346,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'dpApplication.html', //diwork 正式
       development: 'dpApplication.html',
       daily: 'dpApplication.html', //diwork daily
+      integrate: 'dpApplication.html', //diwork daily
       combine: 'yonsuite.html#/appdev', //u8cdaily
       pre: 'yonsuite.html#/appdev' //u8c 预发
     },
