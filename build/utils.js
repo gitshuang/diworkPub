@@ -326,6 +326,14 @@ var getHost = exports.getHost = function getHost() {
       daily: 'dpApplication.html', //diwork daily
       combine: 'yonsuite.html#/appdev', //u8cdaily
       pre: 'yonsuite.html#/appdev' //u8c 预发
+    },
+    //订单查询
+    orderSearch: {
+      development: 'http://workbench.yyuap.com',
+      daily: 'https://workbench-daily.yyuap.com/workbench-system',
+      production: 'https://www.diwork.com/workbench-system',
+      combine: 'https://u8c-daily.yyuap.com/workbench-system',
+      pre: 'https://y3me-pre.diwork.com/workbench-system'
     }
   };
   return hosts[key][process.env.NODE_ENV];
