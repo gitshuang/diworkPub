@@ -298,10 +298,11 @@ export const getHost = (key = 'api') => {
     //订单查询
     orderSearch:{ 
       development:'http://workbench.yyuap.com',
-      daily:'https://workbench-daily.yyuap.com/workbench-system',
-      production:'https://www.diwork.com/workbench-system',
-      combine:'https://u8c-daily.yyuap.com/workbench-system',
-      pre: 'https://y3me-pre.diwork.com/workbench-system',
+      daily:'https://workbench-daily.yyuap.com',
+      production:'https://www.diwork.com',
+      combine:'https://u8c-daily.yyuap.com',
+      pre: 'https://y3me-pre.diwork.com',
+      integrate:'https://workbench-daily.yyuap.com'
     }
   };
   return hosts[key][process.env.NODE_ENV];
