@@ -177,7 +177,7 @@ var getHost = exports.getHost = function getHost() {
       daily: 'https://ec-daily.yyuap.com/portal/home/index',
       integrate: 'https://ec-daily.yyuap.com/portal/home/index',
       combine: 'https://u8c-daily.yyuap.com/portal_index',
-      pre: 'https://ec-yonsuite-pre.diwork.com/'
+      pre: 'https://yonsuite-pre.diwork.com/portal_index'
     },
     // 门户请求地址
     u8cportal: {
