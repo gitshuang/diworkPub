@@ -175,8 +175,8 @@ export const getHost = (key = 'api') => {
       development: 'https://uastest.yyuap.com/market/index#/shopping/orderlist',
       daily: 'https://market-daily.yyuap.com/market/index#/shopping/orderlist',
       integrate: 'https://market-daily.yyuap.com/market/index#/shopping/orderlist',
-      combine: 'https://market-daily.yyuap.com/market/index#/shopping/orderlist',
-      pre:'https://maket-y3me-pre.diwork.com',
+      combine: 'https://u8cmaket-daily.yyuap.com/market/index#/shopping/orderlist',
+      pre:'https://market-pre.diwork.com/market/index#/shopping/orderlist',
     },
     // 上传
     upload: {
