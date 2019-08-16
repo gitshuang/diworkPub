@@ -291,6 +291,12 @@ var Content = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)("manag
       _this.props.updateGroupList({ manageList: manageList, isEdit: true });
     };
 
+    _this.addGroupFn = function (v) {
+      var addGroup = _this.props.addGroup;
+
+      addGroup({ index: v });
+    };
+
     return _this;
   }
   /**
@@ -456,11 +462,8 @@ var Content = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)("manag
         { className: _style.addBtn, id: 'first-add' },
         _react2["default"].createElement(
           _button.ButtonDefaultAlpha,
-          { className: _style.addGroupBtn, onClick: function onClick() {
-              addGroup({ index: 0 });
-            } },
-          _react2["default"].createElement(_icon2["default"], { type: 'add' }),
-          '//\u6DFB\u52A0\u7EC4',
+          { className: _style.addGroupBtn, onClick: this.addGroupFn.bind(this, 0) },
+          _react2["default"].createElement(_icon2["default"], { type: 'add', style: { verticalAlign: 'sub' } }),
           languagesJSON.addGroup
         )
       );

@@ -306,7 +306,11 @@ export default class Content extends Component{
           
         });
         updateGroupList(groupList);//把外界传入的数据，作为自己的状态数据，自己的状态是manageList
-	}
+  }
+  addGroupFn = (v)=>{
+    const { addGroup } = this.props;
+    addGroup({index:v})
+  }
   renderContent() {
     var {
       manageList,
@@ -371,9 +375,9 @@ export default class Content extends Component{
     if(manageList.length == 0){
       return (
         <div className={addBtn} id="first-add">
-          <ButtonDefaultAlpha className={addGroupBtn} onClick={()=>{addGroup({index:0})}}>
-            <Icon type="add"></Icon>
-            //添加组
+          <ButtonDefaultAlpha className={addGroupBtn} onClick={this.addGroupFn.bind(this, 0)}>
+            <Icon type="add" style={{verticalAlign:'sub'}}></Icon>
+            {/* //添加组 */}
             {languagesJSON.addGroup}
           </ButtonDefaultAlpha>
         </div>
