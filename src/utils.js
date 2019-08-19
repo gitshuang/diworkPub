@@ -226,7 +226,7 @@ export const getHost = (key = 'api') => {
     // 工单   - u8c没有     2
     ticket: {
       production: 'http://wo.diwork.com/ticket/query',
-      development: 'http://172.20.9.47:8000/ticket/query',
+      development: 'http://ticket-v2.dev.app.yyuap.com/ticket/query',
       daily: 'http://ticket.app.yyuap.com/ticket/query',
       integrate: 'http://ticket.app.yyuap.com/ticket/query',
       combine: 'http://ticket.app.yyuap.com/ticket/query',
