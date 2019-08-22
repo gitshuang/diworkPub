@@ -120,7 +120,7 @@ export const getHost = (key = 'api') => {
       production: 'https://ec.diwork.com/portal/home/index',
       development: 'http://web.yyuap.com:91/portal/home/index',
       daily: 'https://ec-daily.yyuap.com/portal/home/index',
-      integrate: 'https://y3me-daily.yyuap.com/portal_index',
+      integrate: 'https://ec-yonsuite-pre.yyuap.com/',
       combine: 'https://u8c-daily.yyuap.com/portal_index',
       pre: 'https://yonsuite-pre.diwork.com/portal_index',
     },
