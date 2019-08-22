@@ -255,7 +255,7 @@ export const getHost = (key = 'api') => {
       production: 'https://ms.diwork.com',
       development: 'http://workbench.yyuap.com',
       daily: 'https://ms-daily.yyuap.com',
-      integrate: 'https://ms-daily.yyuap.com',
+      integrate: 'https://ms-y3me-daily.yyuap.com',
       combine: 'https://u8cms-daily.yyuap.com',
       pre: 'https://ms-y3me-pre.diwork.com',
     },
