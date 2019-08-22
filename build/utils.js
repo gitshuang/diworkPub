@@ -158,7 +158,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://www.diwork.com',
       development: 'http://workbench.yyuap.com',
       daily: 'https://workbench-daily.yyuap.com',
-      integrate: 'https://workbench-daily.yyuap.com',
+      integrate: 'https://y3me-daily.yyuap.com',
       combine: 'https://u8c-daily.yyuap.com',
       pre: 'https://yonsuite-pre.diwork.com'
     },
@@ -166,7 +166,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://u8c.diwork.com',
       development: 'http://u8c-test.yyuap.com',
       daily: 'https://workbench-daily.yyuap.com',
-      integrate: 'https://workbench-daily.yyuap.com',
+      integrate: 'https://y3me-daily.yyuap.com',
       combine: 'https://u8c-daily.yyuap.com',
       pre: 'https://yonsuite-pre.diwork.com'
     },
@@ -175,7 +175,7 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://ec.diwork.com/portal/home/index',
       development: 'http://web.yyuap.com:91/portal/home/index',
       daily: 'https://ec-daily.yyuap.com/portal/home/index',
-      integrate: 'https://ec-daily.yyuap.com/portal/home/index',
+      integrate: 'https://y3me-daily.yyuap.com/portal_index',
       combine: 'https://u8c-daily.yyuap.com/portal_index',
       pre: 'https://yonsuite-pre.diwork.com/portal_index'
     },
