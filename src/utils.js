@@ -11,15 +11,21 @@ const getLocaleIndex = () => {
       return value === locale;
     });
     return index;
-  } else {
-    return window.jDiwork && window.jDiwork.getContext((data) => {
-      const currLocal = data.locale;
-      const index = lanArr.findIndex(value => {
-        return value === currLocal;
-      });
-      return index;
-    });
   }
+  const context = window.top.diworkContext;
+  if (context) {
+    const { locale: iframelocale } = context();
+    const index = lanArr.findIndex(value => value === iframelocale);
+    return index;
+    // return window.jDiwork && window.jDiwork.getContext((data) => {
+    //   const currLocal = data.locale;
+    //   const index = lanArr.findIndex(value => {
+    //     return value === currLocal;
+    //   });
+    //   return index;
+    // });
+  }
+  return -1;
 }
 
 export const mergeReducers = (...reducers) =>
@@ -140,7 +146,7 @@ export const getHost = (key = 'api') => {
       daily: 'https://ec-daily.yyuap.com/static/home.html#/spaceList/joined?target=pc',
       integrate: 'https://ec-daily.yyuap.com/static/home.html#/spaceList/joined?target=pc',
       combine: 'https://ec-u8c-daily.yyuap.com/static/home.html#/spaceList/joined?target=pc',
-      pre:'',
+      pre: '',
     },
     // 帐号 登录
     login: {
@@ -149,7 +155,7 @@ export const getHost = (key = 'api') => {
       daily: "https://sso-daily.yyuap.com",
       integrate: "https://sso-daily.yyuap.com",
       combine: "https://u8c-sso-daily.yyuap.com",
-      pre:'https://sso-y3me-pre.diwork.com',
+      pre: 'https://sso-y3me-pre.diwork.com',
     },
     // 帐号 友互通
     euc: {
@@ -167,7 +173,7 @@ export const getHost = (key = 'api') => {
       daily: 'https://hr-daily.yyuap.com',
       integrate: 'https://hr-daily.yyuap.com',
       combine: 'https://hr-u8c-daily.yyuap.com',
-      pre:'',
+      pre: '',
     },
     // 应用市场
     market: {
@@ -176,7 +182,7 @@ export const getHost = (key = 'api') => {
       daily: 'https://market-daily.yyuap.com/market/index#/shopping/orderlist',
       integrate: 'https://market-daily.yyuap.com/market/index#/shopping/orderlist',
       combine: 'https://u8cmaket-daily.yyuap.com/market/index#/shopping/orderlist',
-      pre:'https://market-pre.diwork.com/market/index#/shopping/orderlist',
+      pre: 'https://market-pre.diwork.com/market/index#/shopping/orderlist',
     },
     // 上传
     upload: {
@@ -278,7 +284,7 @@ export const getHost = (key = 'api') => {
       pre: '',
     },
     //开放平台
-    platform:{
+    platform: {
       production: 'https://open.diwork.com',   //diwork 正式
       development: 'http://open-test.app.yyuap.com',
       daily: 'https://open-daily.yyuap.com',   //diwork daily
@@ -287,7 +293,7 @@ export const getHost = (key = 'api') => {
       pre: 'http://diwok-open-web.pre.app.yyuap.com',   //u8c 预发
     },
     //开发者信息路径
-    developerPath:{
+    developerPath: {
       production: 'dpApplication.html',   //diwork 正式
       development: 'dpApplication.html',
       daily: 'dpApplication.html',   //diwork daily
@@ -296,13 +302,13 @@ export const getHost = (key = 'api') => {
       pre: 'yonsuite.html#/appdev',   //u8c 预发
     },
     //订单查询
-    orderSearch:{ 
-      development:'http://workbench.yyuap.com',
-      daily:'https://workbench-daily.yyuap.com',
-      production:'https://www.diwork.com',
-      combine:'https://u8c-daily.yyuap.com',
+    orderSearch: {
+      development: 'http://workbench.yyuap.com',
+      daily: 'https://workbench-daily.yyuap.com',
+      production: 'https://www.diwork.com',
+      combine: 'https://u8c-daily.yyuap.com',
       pre: 'https://y3me-pre.diwork.com',
-      integrate:'https://workbench-daily.yyuap.com'
+      integrate: 'https://workbench-daily.yyuap.com'
     }
   };
   return hosts[key][process.env.NODE_ENV];

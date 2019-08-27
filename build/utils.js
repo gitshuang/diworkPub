@@ -45,15 +45,25 @@ var getLocaleIndex = function getLocaleIndex() {
       return value === locale;
     });
     return index;
-  } else {
-    return window.jDiwork && window.jDiwork.getContext(function (data) {
-      var currLocal = data.locale;
-      var index = lanArr.findIndex(function (value) {
-        return value === currLocal;
-      });
-      return index;
-    });
   }
+  var context = window.top.diworkContext;
+  if (context) {
+    var _context = context(),
+        iframelocale = _context.locale;
+
+    var _index2 = lanArr.findIndex(function (value) {
+      return value === iframelocale;
+    });
+    return _index2;
+    // return window.jDiwork && window.jDiwork.getContext((data) => {
+    //   const currLocal = data.locale;
+    //   const index = lanArr.findIndex(value => {
+    //     return value === currLocal;
+    //   });
+    //   return index;
+    // });
+  }
+  return -1;
 };
 
 var mergeReducers = exports.mergeReducers = function mergeReducers() {
