@@ -53,34 +53,6 @@ var getLocaleIndex = function getLocaleIndex() {
     });
     return _index2;
   }
-  // let index = -1;
-  if (window.jDiwork) {
-    var _index3 = -1;
-    window.jDiwork.getContext(function (data) {
-      _index3 = lanArr.findIndex(function (value) {
-        return value === data.locale;
-      });
-    });
-    return _index3;
-  }
-  return -1;
-  var context = window.top.diworkContext;
-  if (context) {
-    var _context = context(),
-        iframelocale = _context.locale;
-
-    var _index4 = lanArr.findIndex(function (value) {
-      return value === iframelocale;
-    });
-    return _index4;
-    // return window.jDiwork && window.jDiwork.getContext((data) => {
-    //   const currLocal = data.locale;
-    //   const index = lanArr.findIndex(value => {
-    //     return value === currLocal;
-    //   });
-    //   return index;
-    // });
-  }
   return -1;
 };
 

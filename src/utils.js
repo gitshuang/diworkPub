@@ -19,28 +19,6 @@ const getLocaleIndex = () => {
     });
     return index;
   }
-  // let index = -1;
-  if (window.jDiwork) {
-    let index = -1;
-    window.jDiwork.getContext(data => {
-      index = lanArr.findIndex(value => value === data.locale);
-    })
-    return index;
-  }
-  return -1;
-  const context = window.top.diworkContext;
-  if (context) {
-    const { locale: iframelocale } = context();
-    const index = lanArr.findIndex(value => value === iframelocale);
-    return index;
-    // return window.jDiwork && window.jDiwork.getContext((data) => {
-    //   const currLocal = data.locale;
-    //   const index = lanArr.findIndex(value => {
-    //     return value === currLocal;
-    //   });
-    //   return index;
-    // });
-  }
   return -1;
 }
 
