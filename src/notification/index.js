@@ -21,7 +21,8 @@ class NotificationMess extends Component {
 
     this.notification = Notification.newInstance({
       position: 'topMiddle',
-      className:this.getTypeNotifica()+ " " + notification_mess
+      className:this.getTypeNotifica()+ " " + notification_mess,
+      style:props.style
     });
   }
 

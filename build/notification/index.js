@@ -137,7 +137,8 @@ var NotificationMess = function (_Component) {
 
     _this.notification = _notification3["default"].newInstance({
       position: 'topMiddle',
-      className: _this.getTypeNotifica() + " " + _index.notification_mess
+      className: _this.getTypeNotifica() + " " + _index.notification_mess,
+      style: props.style
     });
     return _this;
   }
