@@ -36,25 +36,43 @@ var noop = exports.noop = function noop() {};
 var getLocaleIndex = function getLocaleIndex() {
   // const pathname = window.location.pathname;
   var lanArr = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"];
+  if (window.getContext) {
+    var _getContext = getContext(),
+        locale = _getContext.locale;
 
-  var _getContext = getContext(),
-      locale = _getContext.locale;
-
-  if (locale) {
     var index = lanArr.findIndex(function (value) {
       return value === locale;
     });
     return index;
   }
+  if (window.managerContext) {
+    var _locale = window.managerContext.locale;
+
+    var _index2 = lanArr.findIndex(function (value) {
+      return value === _locale;
+    });
+    return _index2;
+  }
+  // let index = -1;
+  if (window.jDiwork) {
+    var _index3 = -1;
+    window.jDiwork.getContext(function (data) {
+      _index3 = lanArr.findIndex(function (value) {
+        return value === data.locale;
+      });
+    });
+    return _index3;
+  }
+  return -1;
   var context = window.top.diworkContext;
   if (context) {
     var _context = context(),
         iframelocale = _context.locale;
 
-    var _index2 = lanArr.findIndex(function (value) {
+    var _index4 = lanArr.findIndex(function (value) {
       return value === iframelocale;
     });
-    return _index2;
+    return _index4;
     // return window.jDiwork && window.jDiwork.getContext((data) => {
     //   const currLocal = data.locale;
     //   const index = lanArr.findIndex(value => {

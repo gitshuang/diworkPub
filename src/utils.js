@@ -5,13 +5,29 @@ export const noop = () => { };
 const getLocaleIndex = () => {
   // const pathname = window.location.pathname;
   const lanArr = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"];
-  const { locale } = getContext();
-  if (locale) {
+  if (window.getContext) {
+    const { locale } = getContext();
     const index = lanArr.findIndex(value => {
       return value === locale;
     });
     return index;
   }
+  if (window.managerContext) {
+    const { locale } = window.managerContext;
+    const index = lanArr.findIndex(value => {
+      return value === locale;
+    });
+    return index;
+  }
+  // let index = -1;
+  if (window.jDiwork) {
+    let index = -1;
+    window.jDiwork.getContext(data => {
+      index = lanArr.findIndex(value => value === data.locale);
+    })
+    return index;
+  }
+  return -1;
   const context = window.top.diworkContext;
   if (context) {
     const { locale: iframelocale } = context();
