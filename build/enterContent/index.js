@@ -138,7 +138,7 @@ var EnterContent = (_temp = _class = function (_Component) {
       var TenantAddress = address.province + '|' + address.city + '|' + address.area + '|' + addressInput;
       data.tenantAddress = TenantAddress;
       data.tenantId = tenantId;
-      data.tenantTel = '' + data.countryCode + data.tenantTel;
+      data.tenantTel = data.countryCode + ':' + data.tenantTel;
       data.logo = logo;
       handleClickFn(data, function (_ref) {
         var error = _ref.error,
@@ -261,8 +261,19 @@ var EnterContent = (_temp = _class = function (_Component) {
     }
     data.linkman = data.linkman || userInfo.userName;
     data.tenantEmail = data.tenantEmail || userInfo.userEmail;
-    data.countryCode = data.tenantTel ? data.tenantTel.substring(0, data.tenantTel.length - 11) : '86';
-    data.tenantTel = data.tenantTel ? data.tenantTel.substring(data.tenantTel.length - 11) : userInfo.userMobile;
+    if (data.tenantTel) {
+      // 兼容原来创建的企业， 并没有加上：的
+      if (data.tenantTel.indexOf(":") > -1) {
+        data.countryCode = data.tenantTel.split(":")[0];
+        data.tenantTel = data.tenantTel.split(":")[1];
+      } else {
+        data.countryCode = data.tenantTel.substring(0, data.tenantTel.length - 11);
+        data.tenantTel = data.tenantTel.substring(data.tenantTel.length - 11);
+      }
+    } else {
+      data.countryCode = '86';
+      data.tenantTel = userInfo.userMobile;
+    }
     this.setState(_extends({}, data));
   };
   // 切换企业地址
@@ -781,6 +792,10 @@ var EnterContent = (_temp = _class = function (_Component) {
           _extends({
             style: { width: 112 }
           }, getFieldProps('countryCode', {
+            onChange: function onChange(value) {
+              _this.setState({ countryCode: value });
+            },
+
             initialValue: countryCode,
             rules: [{ required: true }]
           })),

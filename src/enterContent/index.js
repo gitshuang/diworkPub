@@ -99,7 +99,7 @@ class EnterContent extends Component {
         area: Addres[2] || '东城区',
       };
       data.addressInput = Addres[Addres.length - 1];
-    }else{
+    } else {
       data.address = {
         province: '北京',
         city: '北京',
@@ -108,8 +108,19 @@ class EnterContent extends Component {
     }
     data.linkman = data.linkman || userInfo.userName;
     data.tenantEmail = data.tenantEmail || userInfo.userEmail;
-    data.countryCode = data.tenantTel ? data.tenantTel.substring(0, data.tenantTel.length - 11) : '86';
-    data.tenantTel = data.tenantTel ? data.tenantTel.substring(data.tenantTel.length - 11) : userInfo.userMobile;
+    if (data.tenantTel) {
+      // 兼容原来创建的企业， 并没有加上：的
+      if (data.tenantTel.indexOf(":") > -1) {
+        data.countryCode = data.tenantTel.split(":")[0];
+        data.tenantTel = data.tenantTel.split(":")[1];
+      } else {
+        data.countryCode = data.tenantTel.substring(0, data.tenantTel.length - 11);
+        data.tenantTel = data.tenantTel.substring(data.tenantTel.length - 11);
+      }
+    } else {
+      data.countryCode = '86';
+      data.tenantTel = userInfo.userMobile;
+    }
     this.setState({
       ...data,
     });
@@ -169,7 +180,7 @@ class EnterContent extends Component {
     const TenantAddress = `${address.province}|${address.city}|${address.area}|${addressInput}`;
     data.tenantAddress = TenantAddress;
     data.tenantId = tenantId;
-    data.tenantTel = `${data.countryCode}${data.tenantTel}`;
+    data.tenantTel = `${data.countryCode}:${data.tenantTel}`;
     data.logo = logo;
     handleClickFn(data, ({ error, payload }) => {
       // 只要是回调都将按钮的disabled 设定为false
@@ -197,9 +208,9 @@ class EnterContent extends Component {
   }
 
   successLoading = () => {
-    const {  _from, switchSpace } = this.props;
+    const { _from, switchSpace } = this.props;
     const { tenantId } = this.state;
-    if(_from === "create" && switchSpace){
+    if (_from === "create" && switchSpace) {
       switchSpace(tenantId);
       return false;
     }
@@ -311,17 +322,17 @@ class EnterContent extends Component {
           </Select>
         </FormItem>
         {
-          address ? 
-          <FormItem>
-            <label><span>{texts.addressLabel}&nbsp;&nbsp;</span></label>
-            <CitySelect
-              name="address"
-              onChange={this.onCityChange}
-              defaultValue={address}
+          address ?
+            <FormItem>
+              <label><span>{texts.addressLabel}&nbsp;&nbsp;</span></label>
+              <CitySelect
+                name="address"
+                onChange={this.onCityChange}
+                defaultValue={address}
               // value={address}
-            />
-          </FormItem>
-          : null
+              />
+            </FormItem>
+            : null
         }
         <FormItem>
           <label></label>
@@ -472,6 +483,9 @@ class EnterContent extends Component {
             style={{ width: 112 }}
             {
             ...getFieldProps('countryCode', {
+              onChange(value) {
+                _this.setState({ countryCode: value });
+              },
               initialValue: countryCode,
               rules: [{ required: true }]
             })
