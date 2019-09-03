@@ -36,8 +36,8 @@ var noop = exports.noop = function noop() {};
 var getLocaleIndex = function getLocaleIndex() {
   // const pathname = window.location.pathname;
   var lanArr = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"];
-  var context = getContext();
   if (window.diworkContext && typeof window.diworkContext === 'function') {
+    var context = getContext();
     var locale = context.locale;
 
     var index = lanArr.findIndex(function (value) {
