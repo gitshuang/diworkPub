@@ -5,8 +5,9 @@ export const noop = () => { };
 const getLocaleIndex = () => {
   // const pathname = window.location.pathname;
   const lanArr = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"];
-  if (window.getContext) {
-    const { locale } = getContext();
+  const context = getContext();
+  if (window.diworkContext && typeof window.diworkContext === 'function') {
+    const { locale } = context;
     const index = lanArr.findIndex(value => {
       return value === locale;
     });

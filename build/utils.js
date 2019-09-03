@@ -36,9 +36,9 @@ var noop = exports.noop = function noop() {};
 var getLocaleIndex = function getLocaleIndex() {
   // const pathname = window.location.pathname;
   var lanArr = ["en_US", "zh_TW", "fr_FR", "de_DE", "ja_JP"];
-  if (window.getContext) {
-    var _getContext = getContext(),
-        locale = _getContext.locale;
+  var context = getContext();
+  if (window.diworkContext && typeof window.diworkContext === 'function') {
+    var locale = context.locale;
 
     var index = lanArr.findIndex(function (value) {
       return value === locale;
@@ -123,9 +123,9 @@ var logout = exports.logout = function logout() {
     window.sessionStorage.removeItem('TABS_DATA');
   }
 
-  var _getContext2 = getContext(),
-      defaultDesktop = _getContext2.defaultDesktop,
-      productLine = _getContext2.productLine;
+  var _getContext = getContext(),
+      defaultDesktop = _getContext.defaultDesktop,
+      productLine = _getContext.productLine;
 
   if (defaultDesktop === "portal" && productLine === "diwork") {
     var ajaxUrl = getHost('u8cportal') + "/user/logOut?v=1.0";
@@ -469,8 +469,8 @@ var fetchTools = {
       'isAjax': 1
       // 判断当前登录的是portal 则增加header头
     };
-    var _getContext3 = getContext(),
-        defaultDesktop = _getContext3.defaultDesktop;
+    var _getContext2 = getContext(),
+        defaultDesktop = _getContext2.defaultDesktop;
     // !withEc 主要是为了判断他们自己跨域请求的， 不增加判断是否工作台还是权限， 是因为权限获取不到getContext 
 
 
@@ -488,8 +488,8 @@ var fetchTools = {
     if (!_url) {
       throw new Error('has no url!');
     } else if (_url.indexOf('http') !== 0) {
-      var _getContext4 = getContext(),
-          defaultDesktop = _getContext4.defaultDesktop;
+      var _getContext3 = getContext(),
+          defaultDesktop = _getContext3.defaultDesktop;
       // 当前如果是友空间， 则固定url   workbench.yyuap.com +
 
 
