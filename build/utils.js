@@ -249,7 +249,7 @@ var getHost = exports.getHost = function getHost() {
       daily: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/personInfo?target=pc',
       integrate: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/personInfo?target=pc',
       combine: 'https://ec-u8c-daily.yyuap.com/static/home.html#/myspeech/personInfo?target=pc',
-      pre: ''
+      pre: 'https://ec-yonsuite-pre.yyuap.com/static/home.html#/myspeech/personInfo?target=pc'
     },
     // 门户发言
     speak: {
@@ -258,7 +258,7 @@ var getHost = exports.getHost = function getHost() {
       daily: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/index?index=0&target=pc',
       integrate: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/index?index=0&target=pc',
       combine: 'https://ec-u8c-daily.yyuap.com/static/home.html#/myspeech/index?index=0&target=pc',
-      pre: ''
+      pre: 'https://ec-yonsuite-pre.yyuap.com/static/home.html#/myspeech/index?index=0&target=pc'
     },
     // 荣耀    2
     honor: {
