@@ -166,9 +166,9 @@ var getHost = exports.getHost = function getHost() {
       production: 'https://ec.diwork.com',
       development: 'http://web.yyuap.com:91',
       daily: 'https://ec-daily.yyuap.com',
-      integrate: 'https://ec-yonsuite-pre.yyuap.com',
-      combine: 'https://u8c-daily.yyuap.com',
-      pre: 'https://yonsuite-pre.diwork.com'
+      integrate: 'https://ec-daily.yyuap.com',
+      combine: 'https://ec-u8c-daily.yyuap.com',
+      pre: 'https://ec-yonsuite-pre.diwork.com'
     },
     // 门户地址
     yzone: {
@@ -261,6 +261,24 @@ var getHost = exports.getHost = function getHost() {
       combine: '',
       pre: 'https://cdn.yonyoucloud.com/pro/diwork'
     }
+    // 门户个人信息
+    // info: {
+    //   production: 'https://ec.diwork.com/static/home.html#/myspeech/personInfo?target=pc',
+    //   development: 'http://web.yyuap.com:91/static/home.html#/myspeech/personInfo?target=pc',
+    //   daily: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/personInfo?target=pc',
+    //   integrate: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/personInfo?target=pc',
+    //   combine: 'https://ec-u8c-daily.yyuap.com/static/home.html#/myspeech/personInfo?target=pc',
+    //   pre: 'https://ec-yonsuite-pre.diwork.com/static/home.html#/myspeech/personInfo?target=pc'
+    // },
+    // // 门户发言
+    // speak: {
+    //   production: 'https://ec.diwork.com/static/home.html#/myspeech/index?index=0&target=pc',
+    //   development: 'http://web.yyuap.com:91/static/home.html#/myspeech/index?index=0&target=pc',
+    //   daily: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/index?index=0&target=pc',
+    //   integrate: 'https://ec-daily.yyuap.com/static/home.html#/myspeech/index?index=0&target=pc',
+    //   combine: 'https://ec-u8c-daily.yyuap.com/static/home.html#/myspeech/index?index=0&target=pc',
+    //   pre: 'https://ec-yonsuite-pre.diwork.com/static/home.html#/myspeech/index?index=0&target=pc',
+    // },
     // u8c 向导参数设置
     // paramsetting: {
     //   production: '',
