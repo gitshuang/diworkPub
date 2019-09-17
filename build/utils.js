@@ -234,7 +234,7 @@ var getHost = exports.getHost = function getHost() {
       combine: '//wsbs-daily.yyuap.com',
       pre: ''
     },
-    // 工单   - u8c没有     2
+    // 工单  
     ticket: {
       production: 'http://wo.diwork.com',
       development: 'http://ticket-v2.dev.app.yyuap.com',
@@ -258,7 +258,7 @@ var getHost = exports.getHost = function getHost() {
       development: 'http://workbenchdev.yyuap.com/fe',
       daily: 'https://cdn.yonyoucloud.com/pro/diwork',
       integrate: 'https://cdn.yonyoucloud.com/pro/diwork',
-      combine: '',
+      combine: 'https://cdn.yonyoucloud.com/pro/diwork',
       pre: 'https://cdn.yonyoucloud.com/pro/diwork'
     }
     // 门户个人信息
