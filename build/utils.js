@@ -236,7 +236,7 @@ var getHost = exports.getHost = function getHost() {
     },
     // 工单  
     ticket: {
-      production: 'http://wo.diwork.com',
+      production: 'https://wo.diwork.com',
       development: 'http://ticket-v2.dev.app.yyuap.com',
       daily: 'http://ticket.app.yyuap.com',
       integrate: 'http://ticket.app.yyuap.com',
