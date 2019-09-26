@@ -493,7 +493,7 @@ var fetchTools = {
       // 当前如果是友空间， 则固定url   workbench.yyuap.com +
 
 
-      _url = defaultDesktop === "portal" && window.location.port !== "3000" ? "" + getHost('workbench') + _url : _url;
+      _url = defaultDesktop === "portal" && window.location.port !== "3000" ? "" + getHost('workbench') + _url : "" + getHost() + _url;
     }
     return _url;
   }
