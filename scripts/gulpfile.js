@@ -8,6 +8,7 @@ var chalk = require('chalk')
 var gulp = require("gulp");
 var babel = require("gulp-babel");
 var es3ify = require("gulp-es3ify");
+var uglify = require('gulp-uglify');
 
 var spinner = ora('building for production...')
 
@@ -98,6 +99,7 @@ gulp.task("build", ["clean", "css",  "fonts"], function () {
       })
     )
     .pipe(es3ify())
+    .pipe(uglify())
     .pipe(gulp.dest("build"))
     .on("end", function () {
       spinner.stop()
