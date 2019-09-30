@@ -1,1 +1,244 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _extends=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var o in r)Object.prototype.hasOwnProperty.call(r,o)&&(e[o]=r[o])}return e},_react=require("react"),_react2=_interopRequireDefault(_react),_reactDom=require("react-dom"),_reactDom2=_interopRequireDefault(_reactDom),_content=require("./content"),_content2=_interopRequireDefault(_content),_footer=require("./footer"),_footer2=_interopRequireDefault(_footer),_folderDialog=require("./folderDialog"),_folderDialog2=_interopRequireDefault(_folderDialog),_batchMove=require("./batchMove"),_batchMove2=_interopRequireDefault(_batchMove),_popDialogComp=require("./popDialogComp"),_popDialogComp2=_interopRequireDefault(_popDialogComp),_backend=require("./backend"),_backend2=_interopRequireDefault(_backend),_reactDnd=require("react-dnd");function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function _defaults(e,t){for(var r=Object.getOwnPropertyNames(t),o=0;o<r.length;o++){var a=r[o],l=Object.getOwnPropertyDescriptor(t,a);l&&l.configurable&&void 0===e[a]&&Object.defineProperty(e,a,l)}return e}function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function _possibleConstructorReturn(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function _inherits(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):_defaults(e,t))}var CreateManageModule=function(t){function r(e){return _classCallCheck(this,r),_possibleConstructorReturn(this,t.call(this,e))}return _inherits(r,t),r.prototype.render=function(){var e=this.props,t=e.selectGroup,r=e.currEditonlyId,o=e.requestStart,a=e.requestSuccess,l=e.requestError,n=e.addGroup,c=e.delectGroup,s=e.renameGroup,d=e.moveGroup,u=e.moveTopGroup,i=e.moveBottomGroup,p=e.addFolder,f=e.selectListActions,_=e.selectGroupActions,g=e.setEditonlyId,v=e.setDragInputState,m=e.manageList,D=e.curEditFolderId,b=e.drag,h=e.dragState,G=e.selectList,y=e.currGroupIndex,S=e.title,C=e.openFolder,F=e.deleteFolder,M=e.renameFolder,E=e.setFolderEdit,q=e.moveService,O=e.closeFolder,I=e.setCurrGroupIndex,L=e.editTitle,x=e.cancelFolderEdit,w=e.delectService,R=e.batchDelectFn,j=e.openGroupTo,A=e.isEdit,B=e.save,k=e.popOpenCancel,T=e.curDisplayFolder,N=e.folderModalDisplay,P=e.batchMoveModalDisplay,J=e.moveData,W=e.closeBatchMove,z=e.batchMove,H=e.showModal,K=e.showCancelModal,Q=e.popClose,U=e.cancel,V=e.popCloseCancel,X=e.applicationsMap,Y=e.allServicesByLabelGroup,Z=e.getAllServicesByLabelGroup,$=e.setCurrentSelectWidgetMap,ee=e.addDesk,te=e.moveGroupDrag,re=e.moveItemDrag,oe=e.folderBgSrc,ae=e.languagesJSON,le={manageList:m,selectGroup:t,selectList:G,currEditonlyId:r,dragState:h,requestStart:o,requestSuccess:a,requestError:l,addGroup:n,delectGroup:c,renameGroup:s,moveGroup:d,moveTopGroup:u,moveBottomGroup:i,addFolder:p,selectListActions:f,selectGroupActions:_,setEditonlyId:g,setDragInputState:v,moveGroupDrag:te,moveItemDrag:re},ne={manageList:m,curEditFolderId:D,drag:b,dragState:h,selectList:G,selectGroup:t,currEditonlyId:r,currGroupIndex:y,title:S,openFolder:C,deleteFolder:F,renameFolder:M,setFolderEdit:E,moveService:q,addFolder:p,closeFolder:O,setCurrGroupIndex:I,editTitle:L,selectListActions:f,selectGroupActions:_,cancelFolderEdit:x,setEditonlyId:g,setDragInputState:v,delectService:w,folderBgSrc:oe},ce={applicationsMap:X,manageList:m,allServicesByLabelGroup:Y,getAllServicesByLabelGroup:Z,setCurrentSelectWidgetMap:$,deleteFolder:F,addDesk:ee,requestSuccess:a,requestError:l},se={batchDelectFn:R,selectList:G,openGroupTo:j,isEdit:A,save:B,popOpenCancel:k},de={curDisplayFolder:T,folderModalDisplay:N,closeFolder:O,moveService:q},ue={manageList:m,curEditFolderId:D,selectList:G,selectGroup:t,currGroupIndex:y,drag:b,deleteFolder:F,renameFolder:M,setFolderEdit:E,selectListActions:f,selectGroupActions:_,addFolder:p,delectService:w},ie={batchMoveModalDisplay:P,manageList:m,moveData:J,closeBatchMove:W,batchMove:z,addGroup:n},pe={showModal:H,showCancelModal:K,popClose:Q,batchDelectFn:R,cancel:U,save:B,popCloseCancel:V};return _react2.default.createElement("div",null,_react2.default.createElement(_content2.default,_extends({},le,ne,ce,{languagesJSON:ae})),_react2.default.createElement(_footer2.default,_extends({},se,{languagesJSON:ae})),_react2.default.createElement(_folderDialog2.default,_extends({},de,ue,{languagesJSON:ae})),_react2.default.createElement(_batchMove2.default,_extends({},ie,{languagesJSON:ae})),_react2.default.createElement(_popDialogComp2.default,_extends({},pe,{languagesJSON:ae})))},r}(_react.Component);exports.default=(0,_reactDnd.DragDropContext)(_backend2.default)(CreateManageModule),module.exports=exports.default;
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _content = require('./content');
+
+var _content2 = _interopRequireDefault(_content);
+
+var _footer = require('./footer');
+
+var _footer2 = _interopRequireDefault(_footer);
+
+var _folderDialog = require('./folderDialog');
+
+var _folderDialog2 = _interopRequireDefault(_folderDialog);
+
+var _batchMove = require('./batchMove');
+
+var _batchMove2 = _interopRequireDefault(_batchMove);
+
+var _popDialogComp = require('./popDialogComp');
+
+var _popDialogComp2 = _interopRequireDefault(_popDialogComp);
+
+var _backend = require('./backend');
+
+var _backend2 = _interopRequireDefault(_backend);
+
+var _reactDnd = require('react-dnd');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+
+var CreateManageModule = function (_Component) {
+  _inherits(CreateManageModule, _Component);
+
+  function CreateManageModule(props) {
+    _classCallCheck(this, CreateManageModule);
+
+    return _possibleConstructorReturn(this, _Component.call(this, props));
+  }
+
+  CreateManageModule.prototype.render = function render() {
+    var _props = this.props,
+        selectGroup = _props.selectGroup,
+        currEditonlyId = _props.currEditonlyId,
+        requestStart = _props.requestStart,
+        requestSuccess = _props.requestSuccess,
+        requestError = _props.requestError,
+        addGroup = _props.addGroup,
+        delectGroup = _props.delectGroup,
+        renameGroup = _props.renameGroup,
+        moveGroup = _props.moveGroup,
+        moveTopGroup = _props.moveTopGroup,
+        moveBottomGroup = _props.moveBottomGroup,
+        addFolder = _props.addFolder,
+        selectListActions = _props.selectListActions,
+        selectGroupActions = _props.selectGroupActions,
+        setEditonlyId = _props.setEditonlyId,
+        setDragInputState = _props.setDragInputState,
+        manageList = _props.manageList,
+        curEditFolderId = _props.curEditFolderId,
+        drag = _props.drag,
+        dragState = _props.dragState,
+        selectList = _props.selectList,
+        currGroupIndex = _props.currGroupIndex,
+        title = _props.title,
+        openFolder = _props.openFolder,
+        deleteFolder = _props.deleteFolder,
+        renameFolder = _props.renameFolder,
+        setFolderEdit = _props.setFolderEdit,
+        moveService = _props.moveService,
+        closeFolder = _props.closeFolder,
+        setCurrGroupIndex = _props.setCurrGroupIndex,
+        editTitle = _props.editTitle,
+        cancelFolderEdit = _props.cancelFolderEdit,
+        delectService = _props.delectService,
+        batchDelectFn = _props.batchDelectFn,
+        openGroupTo = _props.openGroupTo,
+        isEdit = _props.isEdit,
+        save = _props.save,
+        popOpenCancel = _props.popOpenCancel,
+        curDisplayFolder = _props.curDisplayFolder,
+        folderModalDisplay = _props.folderModalDisplay,
+        batchMoveModalDisplay = _props.batchMoveModalDisplay,
+        moveData = _props.moveData,
+        closeBatchMove = _props.closeBatchMove,
+        batchMove = _props.batchMove,
+        showModal = _props.showModal,
+        showCancelModal = _props.showCancelModal,
+        popClose = _props.popClose,
+        cancel = _props.cancel,
+        popCloseCancel = _props.popCloseCancel,
+        applicationsMap = _props.applicationsMap,
+        allServicesByLabelGroup = _props.allServicesByLabelGroup,
+        getAllServicesByLabelGroup = _props.getAllServicesByLabelGroup,
+        setCurrentSelectWidgetMap = _props.setCurrentSelectWidgetMap,
+        addDesk = _props.addDesk,
+        moveGroupDrag = _props.moveGroupDrag,
+        moveItemDrag = _props.moveItemDrag,
+        folderBgSrc = _props.folderBgSrc,
+        languagesJSON = _props.languagesJSON;
+
+    var manageProps = {
+      manageList: manageList,
+      selectGroup: selectGroup,
+      selectList: selectList,
+      currEditonlyId: currEditonlyId,
+      dragState: dragState,
+      requestStart: requestStart,
+      requestSuccess: requestSuccess,
+      requestError: requestError,
+      addGroup: addGroup,
+      delectGroup: delectGroup,
+      renameGroup: renameGroup,
+      moveGroup: moveGroup,
+      moveTopGroup: moveTopGroup,
+      moveBottomGroup: moveBottomGroup,
+      addFolder: addFolder,
+      selectListActions: selectListActions,
+      selectGroupActions: selectGroupActions,
+      setEditonlyId: setEditonlyId,
+      setDragInputState: setDragInputState,
+      moveGroupDrag: moveGroupDrag,
+      moveItemDrag: moveItemDrag
+    };
+    var widgetListProps = {
+      manageList: manageList,
+      curEditFolderId: curEditFolderId,
+      drag: drag,
+      dragState: dragState,
+      selectList: selectList,
+      selectGroup: selectGroup,
+      currEditonlyId: currEditonlyId,
+      currGroupIndex: currGroupIndex,
+      title: title,
+      openFolder: openFolder,
+      deleteFolder: deleteFolder,
+      renameFolder: renameFolder,
+      setFolderEdit: setFolderEdit,
+      moveService: moveService,
+      addFolder: addFolder,
+      closeFolder: closeFolder,
+      setCurrGroupIndex: setCurrGroupIndex,
+      editTitle: editTitle,
+      selectListActions: selectListActions,
+      selectGroupActions: selectGroupActions,
+      cancelFolderEdit: cancelFolderEdit,
+      setEditonlyId: setEditonlyId,
+      setDragInputState: setDragInputState,
+      delectService: delectService,
+      folderBgSrc: folderBgSrc
+    };
+    var widgetSelectListProps = {
+      applicationsMap: applicationsMap,
+      manageList: manageList,
+      allServicesByLabelGroup: allServicesByLabelGroup,
+      getAllServicesByLabelGroup: getAllServicesByLabelGroup,
+      setCurrentSelectWidgetMap: setCurrentSelectWidgetMap,
+      deleteFolder: deleteFolder,
+      addDesk: addDesk,
+      requestSuccess: requestSuccess,
+      requestError: requestError
+    };
+    var footerProps = {
+      batchDelectFn: batchDelectFn,
+      selectList: selectList,
+      openGroupTo: openGroupTo,
+      isEdit: isEdit,
+      save: save,
+      popOpenCancel: popOpenCancel
+    };
+    var folderDialogProps = {
+      curDisplayFolder: curDisplayFolder,
+      folderModalDisplay: folderModalDisplay,
+      closeFolder: closeFolder,
+      moveService: moveService
+    };
+    var widgetItemProps = {
+      manageList: manageList,
+      curEditFolderId: curEditFolderId,
+      selectList: selectList,
+      selectGroup: selectGroup,
+      currGroupIndex: currGroupIndex,
+      drag: drag,
+      deleteFolder: deleteFolder,
+      renameFolder: renameFolder,
+      setFolderEdit: setFolderEdit,
+      selectListActions: selectListActions, selectGroupActions: selectGroupActions,
+      addFolder: addFolder,
+      delectService: delectService
+    };
+    var batchMoveRedux = {
+      batchMoveModalDisplay: batchMoveModalDisplay,
+      manageList: manageList,
+      moveData: moveData,
+      closeBatchMove: closeBatchMove,
+      batchMove: batchMove,
+      addGroup: addGroup
+    };
+    var popDialogOuter = {
+      showModal: showModal,
+      showCancelModal: showCancelModal,
+      popClose: popClose,
+      batchDelectFn: batchDelectFn,
+      cancel: cancel,
+      save: save,
+      popCloseCancel: popCloseCancel
+    };
+    return _react2["default"].createElement(
+      'div',
+      null,
+      _react2["default"].createElement(_content2["default"], _extends({}, manageProps, widgetListProps, widgetSelectListProps, { languagesJSON: languagesJSON })),
+      _react2["default"].createElement(_footer2["default"], _extends({}, footerProps, { languagesJSON: languagesJSON })),
+      _react2["default"].createElement(_folderDialog2["default"], _extends({}, folderDialogProps, widgetItemProps, { languagesJSON: languagesJSON })),
+      _react2["default"].createElement(_batchMove2["default"], _extends({}, batchMoveRedux, { languagesJSON: languagesJSON })),
+      _react2["default"].createElement(_popDialogComp2["default"], _extends({}, popDialogOuter, { languagesJSON: languagesJSON }))
+    );
+  };
+
+  return CreateManageModule;
+}(_react.Component);
+
+exports["default"] = (0, _reactDnd.DragDropContext)(_backend2["default"])(CreateManageModule);
+module.exports = exports['default'];

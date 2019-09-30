@@ -99,7 +99,7 @@ gulp.task("build", ["clean", "css",  "fonts"], function () {
       })
     )
     .pipe(es3ify())
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest("build"))
     .on("end", function () {
       spinner.stop()

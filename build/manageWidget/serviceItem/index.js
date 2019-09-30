@@ -1,1 +1,179 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _extends=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var a in r)Object.prototype.hasOwnProperty.call(r,a)&&(e[a]=r[a])}return e},_react=require("react"),_react2=_interopRequireDefault(_react),_reactRouterDom=require("react-router-dom"),_propTypes=require("prop-types"),_propTypes2=_interopRequireDefault(_propTypes),_icon=require("../../icon"),_icon2=_interopRequireDefault(_icon),_button=require("../../bee/button"),_button2=_interopRequireDefault(_button);require("./style.css");var _style2={serviceItem:"serviceItem__style___ZcaE2",serviceItemTitle:"serviceItemTitle__style___2XEnj",item_li_top:"item_li_top__style___1Kk8d",item_footer:"item_footer__style___2__CS",item_left:"item_left__style___1swGm",item_right:"item_right__style___tCTBx",item_footer_app:"item_footer_app__style___2eCWr",icon:"icon__style___1lXCn",up_icon:"up_icon__style___28KQE"},_default=require("../default.svg"),_default2=_interopRequireDefault(_default);function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function _defaults(e,t){for(var r=Object.getOwnPropertyNames(t),a=0;a<r.length;a++){var n=r[a],l=Object.getOwnPropertyDescriptor(t,n);l&&l.configurable&&void 0===e[n]&&Object.defineProperty(e,n,l)}return e}function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function _possibleConstructorReturn(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function _inherits(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):_defaults(e,t))}var ServiceItem=function(r){function a(e){_classCallCheck(this,a);var t=_possibleConstructorReturn(this,r.call(this,e));return t.packUp=function(){},t}return _inherits(a,r),a.prototype.render=function(){var e=this,t=this.props,r=t.data,a=(r.serviceId,r.serviceName),n=r.selected,l=r.serviceType,o=r.serviceIcon,i=r.extend,c=r.service,_=t.arrow,s=t.languagesJSON,u=null;n?"1"==n?u="2"==l?_react2.default.createElement("div",null,_react2.default.createElement("span",null,s.added),_react2.default.createElement(_icon2.default,{title:s.added,type:"pin2",style:{color:"rgba(117,127,140,1)"}})):_react2.default.createElement("div",null,_react2.default.createElement(_icon2.default,{title:s.added,type:"pin2",style:{color:"rgba(117,127,140,1)"}}),_react2.default.createElement("span",null,s.added)):"2"==n?u=_react2.default.createElement("div",{onClick:function(){e.props.onChange(e.props.data,"3")}},_react2.default.createElement(_icon2.default,{title:s.notAdd,type:"pin",style:{cursor:"pointer"}})," "):"3"==n&&(u=_react2.default.createElement("div",{onClick:function(){e.props.onChange(e.props.data,"2")}},_react2.default.createElement(_icon2.default,{title:s.add,type:"pin2",style:{cursor:"pointer"}})," ")):u=_react2.default.createElement("div",{onClick:function(){e.props.onChange(e.props.data,"3")}},_react2.default.createElement(_icon2.default,{title:s.notAdd,type:"pin",style:{cursor:"pointer"}})," ");var p="2"==l?_react2.default.createElement(_icon2.default,{className:_style2.up_icon,type:i?"pull-down":"upward",title:i?s.extend:s.unfold,onClick:function(){e.props.packUp(e.props.data)}}):null,d="2"==l?null:i?{display:"none"}:null,f=c&&0==c.length?_style2.item_footer_app:"";return _react2.default.createElement("div",{className:"2"==l?_style2.serviceItemTitle:_style2.serviceItem,style:_extends({},d)},_react2.default.createElement("div",{className:_style2.item_li_top},_react2.default.createElement("img",{className:_style2.icon,src:o||_default2.default}),_react2.default.createElement("div",{className:_style2.item_right},a)),_react2.default.createElement("div",{className:_style2.item_footer+" "+f},u),_?p:"")},a}(_react.Component);exports.default=ServiceItem,module.exports=exports.default;
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = require('react-router-dom');
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _icon = require('../../icon');
+
+var _icon2 = _interopRequireDefault(_icon);
+
+var _button = require('../../bee/button');
+
+var _button2 = _interopRequireDefault(_button);
+
+require('./style.css');
+
+var _style2 = {
+  'serviceItem': 'serviceItem__style___ZcaE2',
+  'serviceItemTitle': 'serviceItemTitle__style___2XEnj',
+  'item_li_top': 'item_li_top__style___1Kk8d',
+  'item_footer': 'item_footer__style___2__CS',
+  'item_left': 'item_left__style___1swGm',
+  'item_right': 'item_right__style___tCTBx',
+  'item_footer_app': 'item_footer_app__style___2eCWr',
+  'icon': 'icon__style___1lXCn',
+  'up_icon': 'up_icon__style___28KQE'
+};
+
+var _default = require('../default.svg');
+
+var _default2 = _interopRequireDefault(_default);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+
+var ServiceItem = function (_Component) {
+  _inherits(ServiceItem, _Component);
+
+  // 1，已存在，
+  // 2，未添加，
+  // 3，本次勾选
+  // 点击 本次取消
+
+  function ServiceItem(props) {
+    _classCallCheck(this, ServiceItem);
+
+    var _this = _possibleConstructorReturn(this, _Component.call(this, props));
+
+    _this.packUp = function () {};
+
+    return _this;
+  }
+
+  ServiceItem.prototype.render = function render() {
+    var _this2 = this;
+
+    // const {serviceId, serviceName,selected} = this.props.data;
+    var _props = this.props,
+        _props$data = _props.data,
+        serviceId = _props$data.serviceId,
+        serviceName = _props$data.serviceName,
+        selected = _props$data.selected,
+        serviceType = _props$data.serviceType,
+        serviceIcon = _props$data.serviceIcon,
+        extend = _props$data.extend,
+        service = _props$data.service,
+        arrow = _props.arrow,
+        languagesJSON = _props.languagesJSON;
+
+    var btn = null;
+    if (selected) {
+      if (selected == "1") {
+        //  btn = (<div >
+        //     <span>已添加</span>
+        //     <Icon title="已添加"  type="pin2" style={{color:"rgba(117,127,140,1)"}} />
+        //  </div>);
+        {
+          serviceType == "2" ? btn = _react2["default"].createElement(
+            'div',
+            null,
+            _react2["default"].createElement(
+              'span',
+              null,
+              languagesJSON.added
+            ),
+            _react2["default"].createElement(_icon2["default"], { title: languagesJSON.added, type: 'pin2', style: { color: "rgba(117,127,140,1)" } })
+          ) : btn = _react2["default"].createElement(
+            'div',
+            null,
+            _react2["default"].createElement(_icon2["default"], { title: languagesJSON.added, type: 'pin2', style: { color: "rgba(117,127,140,1)" } }),
+            _react2["default"].createElement(
+              'span',
+              null,
+              languagesJSON.added
+            )
+          );
+        };
+      } else if (selected == "2") {
+        btn = _react2["default"].createElement(
+          'div',
+          { onClick: function onClick() {
+              _this2.props.onChange(_this2.props.data, "3");
+            } },
+          _react2["default"].createElement(_icon2["default"], { title: languagesJSON.notAdd, type: 'pin', style: { cursor: "pointer" } }),
+          ' '
+        );
+      } else if (selected == "3") {
+        btn = _react2["default"].createElement(
+          'div',
+          { onClick: function onClick() {
+              _this2.props.onChange(_this2.props.data, "2");
+            } },
+          _react2["default"].createElement(_icon2["default"], { title: languagesJSON.add, type: 'pin2', style: { cursor: "pointer" } }),
+          ' '
+        );
+      }
+    } else {
+      //如果没有selected，就显示2
+      btn = _react2["default"].createElement(
+        'div',
+        { onClick: function onClick() {
+            _this2.props.onChange(_this2.props.data, "3");
+          } },
+        _react2["default"].createElement(_icon2["default"], { title: languagesJSON.notAdd, type: 'pin', style: { cursor: "pointer" } }),
+        ' '
+      );
+    }
+
+    var upIcon = serviceType == "2" ? _react2["default"].createElement(_icon2["default"], { className: _style2.up_icon, type: extend ? "pull-down" : "upward", title: extend ? languagesJSON.extend : languagesJSON.unfold, onClick: function onClick() {
+        _this2.props.packUp(_this2.props.data);
+      } }) : null;
+    var _style = serviceType == "2" ? null : extend ? { display: "none" } : null;
+    var _app = service && service.length == 0 ? _style2.item_footer_app : "";
+    return _react2["default"].createElement(
+      'div',
+      { className: serviceType == "2" ? _style2.serviceItemTitle : _style2.serviceItem, style: _extends({}, _style) },
+      _react2["default"].createElement(
+        'div',
+        { className: _style2.item_li_top },
+        _react2["default"].createElement('img', { className: _style2.icon, src: serviceIcon || _default2["default"] }),
+        _react2["default"].createElement(
+          'div',
+          { className: _style2.item_right },
+          serviceName
+        )
+      ),
+      _react2["default"].createElement(
+        'div',
+        { className: _style2.item_footer + ' ' + _app },
+        btn
+      ),
+      arrow ? upIcon : ''
+    );
+  };
+
+  return ServiceItem;
+}(_react.Component);
+
+exports["default"] = ServiceItem;
+module.exports = exports['default'];

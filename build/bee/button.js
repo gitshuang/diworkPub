@@ -1,1 +1,32 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _beeButton=require("bee-button");function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}Object.keys(_beeButton).forEach(function(e){"default"!==e&&"__esModule"!==e&&Object.defineProperty(exports,e,{enumerable:!0,get:function(){return _beeButton[e]}})}),Object.defineProperty(exports,"default",{enumerable:!0,get:function(){return _interopRequireDefault(_beeButton).default}}),require("bee-button/build/Button.css"),require("./button.css"),module.exports=exports.default;
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = undefined;
+
+var _beeButton = require('bee-button');
+
+Object.keys(_beeButton).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _beeButton[key];
+    }
+  });
+});
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_beeButton)["default"];
+  }
+});
+
+require('bee-button/build/Button.css');
+
+require('./button.css');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+module.exports = exports['default'];

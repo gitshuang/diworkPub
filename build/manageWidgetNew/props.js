@@ -1,1 +1,23 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _actions=require("store/root/manage/actions"),actions=_interopRequireWildcard(_actions);function _interopRequireWildcard(e){if(e&&e.__esModule)return e;var r={};if(null!=e)for(var a in e)Object.prototype.hasOwnProperty.call(e,a)&&(r[a]=e[a]);return r.default=e,r}var namespace="manage";exports.default={actions:actions,namespace:namespace},module.exports=exports.default;
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _actions = require('store/root/manage/actions');
+
+var actions = _interopRequireWildcard(_actions);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
+
+//这里是可变的别的项目里面可能不叫这个
+
+//const actions;
+
+var namespace = 'manage';
+
+exports["default"] = {
+    actions: actions,
+    namespace: namespace
+};
+module.exports = exports['default'];

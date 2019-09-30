@@ -1,1 +1,32 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _beeMessage=require("bee-message");function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}Object.keys(_beeMessage).forEach(function(e){"default"!==e&&"__esModule"!==e&&Object.defineProperty(exports,e,{enumerable:!0,get:function(){return _beeMessage[e]}})}),Object.defineProperty(exports,"default",{enumerable:!0,get:function(){return _interopRequireDefault(_beeMessage).default}}),require("bee-message/build/Message.css"),require("./message.css"),module.exports=exports.default;
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = undefined;
+
+var _beeMessage = require('bee-message');
+
+Object.keys(_beeMessage).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _beeMessage[key];
+    }
+  });
+});
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_beeMessage)["default"];
+  }
+});
+
+require('bee-message/build/Message.css');
+
+require('./message.css');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+module.exports = exports['default'];

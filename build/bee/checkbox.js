@@ -1,1 +1,38 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _beeCheckbox=require("bee-checkbox");function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}Object.keys(_beeCheckbox).forEach(function(e){"default"!==e&&"__esModule"!==e&&Object.defineProperty(exports,e,{enumerable:!0,get:function(){return _beeCheckbox[e]}})}),Object.defineProperty(exports,"default",{enumerable:!0,get:function(){return _interopRequireDefault(_beeCheckbox).default}}),require("bee-checkbox/build/Checkbox.css"),require("bee-icon/build/Icon.css"),window.location.origin.indexOf("u8c"),require("./checkbox.css"),module.exports=exports.default;
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports["default"] = undefined;
+
+var _beeCheckbox = require('bee-checkbox');
+
+Object.keys(_beeCheckbox).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _beeCheckbox[key];
+        }
+    });
+});
+Object.defineProperty(exports, 'default', {
+    enumerable: true,
+    get: function get() {
+        return _interopRequireDefault(_beeCheckbox)["default"];
+    }
+});
+
+require('bee-checkbox/build/Checkbox.css');
+
+require('bee-icon/build/Icon.css');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+// 审查完毕， 
+if (window.location.origin.indexOf("u8c") > -1) {
+    require("./checkbox.css");
+} else {
+    require("./checkbox.css");
+}
+module.exports = exports['default'];

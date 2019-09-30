@@ -1,1 +1,196 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _react=require("react"),_react2=_interopRequireDefault(_react),_icon2=require("../../icon"),_icon3=_interopRequireDefault(_icon2);require("./style.css");var _style={upload_page:"upload_page__style___zYQWv",uploadImg:"uploadImg__style___BN5PM",appImg:"appImg__style___45bj3",appValidate:"appValidate__style___1Ukr7",edit:"edit__style___1G3e-",titlp_lab:"titlp_lab__style___39ui_",form_btnFile:"form_btnFile__style___TCnEm",ie9_form:"ie9_form__style___IpeSX",hidden_form:"hidden_form__style___3RZCb",icon:"icon__style___2YinQ"};function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function _defaults(e,t){for(var a=Object.getOwnPropertyNames(t),n=0;n<a.length;n++){var r=a[n],o=Object.getOwnPropertyDescriptor(t,r);o&&o.configurable&&void 0===e[r]&&Object.defineProperty(e,r,o)}return e}function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function _possibleConstructorReturn(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function _inherits(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):_defaults(e,t))}var UploadPage=function(_Component){function UploadPage(props){_classCallCheck(this,UploadPage);var _this=_possibleConstructorReturn(this,_Component.call(this,props));return _this.uploadImage=function(){_this.refs.file.click()},_this.imgChange=function(e){var t=_this.props,a=t.logoError,n=t.logoError2;0===e.target.value.trim().length&&_this.setState({imgWarning:a});var r=e.target.value&&e.target.value.substr(e.target.value.lastIndexOf("."));if(r&&!r.match(/.jpg|.gif|.png|.bmp|.svg/i))return _this.setState({imgWarning:n}),!1;if(_this.setState({imgWarning:!1}),0<navigator.userAgent.indexOf("MSIE 9.0"))return document.getElementById("upload-form").submit(),window.attachEvent?document.getElementById("frameUpload").attachEvent("onload",_this.handleOnLoad):document.getElementById("frameUpload").addEventListener("load",_this.handleOnLoad),!0;var o=_this.refs.file.files[0],i=(window.URL.createObjectURL(o),new FormData);i.append("file",o),_this.props.uploadApplication(i).then(function(e){var t=e.url;_this.setState({applicationIcon:t}),"function"==typeof _this.props.onChange&&_this.props.onChange(t)},function(e){console.log(e)})},_this.handleOnLoad=function(){var frame=document.getElementById("frameUpload"),resp={},content=frame.contentWindow?frame.contentWindow.document.body:frame.contentDocument.document.body;if(!content)throw new Error("Your browser does not support async upload");resp.responseText=content.innerHTML||"null innerHTML",resp.json=JSON.parse(resp.responseText)||eval("("+resp.responseText+")");var dataBack=resp.json||resp.responseText;dataBack&&(_this.props.onChange(dataBack.data.url),_this.setState({applicationIcon:dataBack.data.url}))},_this.getIe9Html=function(){var e=_this.state,t=e.applicationIcon,a=(e.imgWarning,""!=t?"ie9_cont":"ie9_form_cont");return 0<navigator.userAgent.indexOf("MSIE 9.0")?_react2.default.createElement("div",{className:_style.ie9_form+" "+a},_react2.default.createElement("div",{className:""+_style.hidden_form},_react2.default.createElement("form",{id:"upload-form",name:"myform",action:"/manager/file/upload/oss/workbench-image-path-applicationIcon",method:"post",target:"frameUpload",acceptCharset:"utf-8",encType:"multipart/form-data"},_react2.default.createElement("input",{id:"btn_file",className:_style.form_btnFile,type:"file",name:"file",accept:"image/x-png,image/gif,image/jpeg,image/bmp",onChange:function(e){return _this.imgChange(e)}})),_react2.default.createElement("iframe",{id:"frameUpload",name:"frameUpload",style:{width:0,height:0,opacity:0}})),_react2.default.createElement(_icon3.default,{type:"copyreader",className:_style.icon})):_react2.default.createElement("div",null,_react2.default.createElement("input",{type:"file",ref:"file",accept:"image/x-png,image/gif,image/jpeg,image/bmp",onChange:_this.imgChange,style:{display:"none"}}),_react2.default.createElement("div",{className:_style.edit,onClick:_this.uploadImage},_react2.default.createElement(_icon3.default,{type:"copyreader"})))},_this.state={applicationIcon:"",imgWarning:!1},_this}return _inherits(UploadPage,_Component),UploadPage.prototype.componentWillReceiveProps=function(e){e.logo!=this.state.applicationIcon&&this.setState({applicationIcon:e.logo})},UploadPage.prototype.render=function(){var e=this.state,t=e.applicationIcon,a=e.imgWarning;return _react2.default.createElement("div",{className:_style.upload_page},""==t?_react2.default.createElement("div",{className:_style.appImg+" imgsrc"}):_react2.default.createElement("img",{id:"imgSrc",src:t,className:_style.appImg+" imgsrc"}),a?_react2.default.createElement("div",{className:_style.appValidate},a):null,this.getIe9Html(),this.props.tip?_react2.default.createElement("span",{className:_style.titlp_lab},this.props.tip):"")},UploadPage}(_react.Component);exports.default=UploadPage,module.exports=exports.default;
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _icon2 = require('../../icon');
+
+var _icon3 = _interopRequireDefault(_icon2);
+
+require('./style.css');
+
+var _style = {
+  'upload_page': 'upload_page__style___zYQWv',
+  'uploadImg': 'uploadImg__style___BN5PM',
+  'appImg': 'appImg__style___45bj3',
+  'appValidate': 'appValidate__style___1Ukr7',
+  'edit': 'edit__style___1G3e-',
+  'titlp_lab': 'titlp_lab__style___39ui_',
+  'form_btnFile': 'form_btnFile__style___TCnEm',
+  'ie9_form': 'ie9_form__style___IpeSX',
+  'hidden_form': 'hidden_form__style___3RZCb',
+  'icon': 'icon__style___2YinQ'
+};
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+
+var UploadPage = function (_Component) {
+  _inherits(UploadPage, _Component);
+
+  function UploadPage(props) {
+    _classCallCheck(this, UploadPage);
+
+    var _this = _possibleConstructorReturn(this, _Component.call(this, props));
+
+    _this.uploadImage = function () {
+      _this.refs.file.click();
+    };
+
+    _this.imgChange = function (e) {
+      var _this$props = _this.props,
+          logoError = _this$props.logoError,
+          logoError2 = _this$props.logoError2;
+
+      if (e.target.value.trim().length === 0) {
+        _this.setState({
+          imgWarning: logoError
+        });
+      }
+      var val = e.target.value && e.target.value.substr(e.target.value.lastIndexOf("."));
+      if (val && !val.match(/.jpg|.gif|.png|.bmp|.svg/i)) {
+        _this.setState({
+          imgWarning: logoError2
+        });
+        return false;
+      } else {
+        _this.setState({
+          imgWarning: false
+        });
+      }
+      //todu 
+      if (navigator.userAgent.indexOf("MSIE 9.0") > 0) {
+        var formVal = document.getElementById('upload-form');
+        formVal.submit();
+        window.attachEvent ? document.getElementById('frameUpload').attachEvent('onload', _this.handleOnLoad) : document.getElementById('frameUpload').addEventListener('load', _this.handleOnLoad);
+        return true; //后面的不再执行了  
+      }
+
+      var obj = _this.refs.file.files[0];
+      var imgUrl = window.URL.createObjectURL(obj);
+      var from = new FormData();
+      from.append('file', obj);
+      _this.props.uploadApplication(from).then(function (_ref) {
+        var url = _ref.url;
+
+        _this.setState({
+          applicationIcon: url
+        });
+        if (typeof _this.props.onChange === 'function') {
+          _this.props.onChange(url);
+        }
+      }, function (e) {
+        console.log(e);
+      });
+    };
+
+    _this.handleOnLoad = function () {
+      var frame = document.getElementById('frameUpload');
+      var resp = {};
+      var content = frame.contentWindow ? frame.contentWindow.document.body : frame.contentDocument.document.body;
+      if (!content) throw new Error('Your browser does not support async upload');
+      resp.responseText = content.innerHTML || 'null innerHTML';
+      resp.json = JSON.parse(resp.responseText) || eval('(' + resp.responseText + ')');
+      var dataBack = resp.json || resp.responseText;
+      if (dataBack) {
+        _this.props.onChange(dataBack.data.url);
+        _this.setState({
+          applicationIcon: dataBack.data.url
+        });
+      }
+    };
+
+    _this.getIe9Html = function () {
+      var _this$state = _this.state,
+          applicationIcon = _this$state.applicationIcon,
+          imgWarning = _this$state.imgWarning;
+
+      var _icon = applicationIcon != '' ? 'ie9_cont' : 'ie9_form_cont';
+      if (navigator.userAgent.indexOf("MSIE 9.0") > 0) {
+        return _react2["default"].createElement(
+          'div',
+          { className: _style.ie9_form + ' ' + _icon },
+          _react2["default"].createElement(
+            'div',
+            { className: '' + _style.hidden_form },
+            _react2["default"].createElement(
+              'form',
+              { id: 'upload-form', name: 'myform', action: '/manager/file/upload/oss/workbench-image-path-applicationIcon', method: 'post',
+                target: 'frameUpload', acceptCharset: 'utf-8', encType: 'multipart/form-data' },
+              _react2["default"].createElement('input', { id: 'btn_file', className: _style.form_btnFile, type: 'file', name: 'file', accept: 'image/x-png,image/gif,image/jpeg,image/bmp', onChange: function onChange(e) {
+                  return _this.imgChange(e);
+                } })
+            ),
+            _react2["default"].createElement('iframe', { id: 'frameUpload', name: 'frameUpload', style: { 'width': 0, 'height': 0, 'opacity': 0 } })
+          ),
+          _react2["default"].createElement(_icon3["default"], { type: 'copyreader', className: _style.icon })
+        );
+      } else {
+        return _react2["default"].createElement(
+          'div',
+          null,
+          _react2["default"].createElement('input', { type: 'file', ref: 'file', accept: 'image/x-png,image/gif,image/jpeg,image/bmp', onChange: _this.imgChange, style: { display: "none" } }),
+          _react2["default"].createElement(
+            'div',
+            { className: _style.edit, onClick: _this.uploadImage },
+            _react2["default"].createElement(_icon3["default"], { type: 'copyreader' })
+          )
+        );
+      }
+    };
+
+    _this.state = {
+      applicationIcon: "",
+      imgWarning: false
+    };
+    return _this;
+  }
+
+  UploadPage.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+    if (nextProps.logo != this.state.applicationIcon) {
+      this.setState({
+        applicationIcon: nextProps.logo
+      });
+    }
+  };
+
+  UploadPage.prototype.render = function render() {
+    var _state = this.state,
+        applicationIcon = _state.applicationIcon,
+        imgWarning = _state.imgWarning;
+
+    return _react2["default"].createElement(
+      'div',
+      { className: _style.upload_page },
+      applicationIcon == "" ? _react2["default"].createElement('div', { className: _style.appImg + ' imgsrc' }) : _react2["default"].createElement('img', { id: 'imgSrc', src: applicationIcon, className: _style.appImg + ' imgsrc' }),
+      imgWarning ? _react2["default"].createElement(
+        'div',
+        { className: _style.appValidate },
+        imgWarning
+      ) : null,
+      this.getIe9Html(),
+      this.props.tip ? _react2["default"].createElement(
+        'span',
+        { className: _style.titlp_lab },
+        this.props.tip
+      ) : ''
+    );
+  };
+
+  return UploadPage;
+}(_react.Component);
+
+exports["default"] = UploadPage;
+module.exports = exports['default'];

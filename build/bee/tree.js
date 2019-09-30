@@ -1,1 +1,33 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _beeTree=require("bee-tree");function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}Object.keys(_beeTree).forEach(function(e){"default"!==e&&"__esModule"!==e&&Object.defineProperty(exports,e,{enumerable:!0,get:function(){return _beeTree[e]}})}),Object.defineProperty(exports,"default",{enumerable:!0,get:function(){return _interopRequireDefault(_beeTree).default}}),require("bee-tree/build/Tree.css"),require("./tree_u8c.css"),module.exports=exports.default;
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = undefined;
+
+var _beeTree = require('bee-tree');
+
+Object.keys(_beeTree).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _beeTree[key];
+    }
+  });
+});
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_beeTree)["default"];
+  }
+});
+
+require('bee-tree/build/Tree.css');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+// if (window.location.origin.indexOf("u8c") > -1) {
+require("./tree_u8c.css");
+// }
+module.exports = exports['default'];

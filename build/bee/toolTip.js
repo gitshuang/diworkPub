@@ -1,1 +1,30 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _beeTooltip=require("bee-tooltip");function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}Object.keys(_beeTooltip).forEach(function(e){"default"!==e&&"__esModule"!==e&&Object.defineProperty(exports,e,{enumerable:!0,get:function(){return _beeTooltip[e]}})}),Object.defineProperty(exports,"default",{enumerable:!0,get:function(){return _interopRequireDefault(_beeTooltip).default}}),require("bee-tooltip/build/Tooltip.css"),module.exports=exports.default;
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = undefined;
+
+var _beeTooltip = require('bee-tooltip');
+
+Object.keys(_beeTooltip).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _beeTooltip[key];
+    }
+  });
+});
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_beeTooltip)["default"];
+  }
+});
+
+require('bee-tooltip/build/Tooltip.css');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+module.exports = exports['default'];

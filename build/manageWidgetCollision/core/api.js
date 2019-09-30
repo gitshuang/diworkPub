@@ -1,1 +1,3 @@
-"use strict";var _utils=require("../../utils");
+'use strict';
+
+var _utils = require('../../utils');

@@ -1,1 +1,750 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var _class,_temp,_extends=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var a in r)Object.prototype.hasOwnProperty.call(r,a)&&(e[a]=r[a])}return e},_react=require("react"),_react2=_interopRequireDefault(_react),_reactDnd=require("react-dnd"),_propTypes=require("prop-types"),_propTypes2=_interopRequireDefault(_propTypes),_menus=require("../../bee/menus"),_menus2=_interopRequireDefault(_menus),_dropdown=require("../../bee/dropdown"),_dropdown2=_interopRequireDefault(_dropdown),_pop=require("../../pop"),_pop2=_interopRequireDefault(_pop),_button=require("../../bee/button"),_button2=_interopRequireDefault(_button),_button3=require("../../button"),_utils=require("../../utils"),_icon=require("../../icon"),_icon2=_interopRequireDefault(_icon),_checkbox=require("../../bee/checkbox"),_checkbox2=_interopRequireDefault(_checkbox),_message=require("../../bee/message"),_message2=_interopRequireDefault(_message),_manageWidgetList=require("../manageWidgetList"),_manageWidgetList2=_interopRequireDefault(_manageWidgetList);require("./style.css");var _style={widgetTitle:"widgetTitle__style___5B_lc",addBtn:"addBtn__style___1pYRJ",addGroupBtn:"addGroupBtn__style___3RkOC",titleInputArea:"titleInputArea__style___3_qnw",input:"input__style___1eXYC",newGroupName:"newGroupName__style___gKFWe",newGroupName_focus:"newGroupName_focus__style___2OcOs",newGroupName_blur:"newGroupName_blur__style___1QJJD",btn:"btn__style___1NAHM",icon:"icon__style___3S22Q",groupArea:"groupArea__style___3NyCg",selectedBackClass:"selectedBackClass__style___QJZ17",iconBox:"iconBox__style___CwgKm",widgetTitleInit:"widgetTitleInit__style___3JKUO",check_group:"check_group__style___2btKQ",noChildStyle:"noChildStyle__style___1sFC6"};function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function _defaults(e,t){for(var r=Object.getOwnPropertyNames(t),a=0;a<r.length;a++){var n=r[a],o=Object.getOwnPropertyDescriptor(t,n);o&&o.configurable&&void 0===e[n]&&Object.defineProperty(e,n,o)}return e}function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function _possibleConstructorReturn(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function _inherits(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):_defaults(e,t))}function findItemById(e,t){for(var r=void 0,a=0;a<e.length&&(e[a].children&&(r=findItemById(e[a].children,t)),!r);a++)if(e[a].widgetId&&e[a].widgetId===t){r=e[a];break}return r}var type="item",itemSource={beginDrag:function(e,t){return{id:e.id,type:e.type,parentId:e.parentId,folderType:e.folderType}}},itemTarget={drop:function(e,t){var r=t.getItem().id,a=t.getItem().parentId,n=t.getItem().type,o=t.getItem().folderType,l=e.data.parentId;if(r!==e.id&&1===n&&1===e.data.type)e.moveGroupDrag(r,e.id);else if((2===n||3===n)&&1===e.data.type){e.data.parentId||(l=e.data.widgetId);var i=findItemById(e.data.children,r);("folder"===o||void 0===i||i&&i.widgetId!==r)&&e.moveItemDrag(r,a,n,e.id,l,e.data.type)}}};function collectSource(e,t){return{connectDragSource:e.dragSource(),isDragging:t.isDragging()}}function collectTaget(e,t){return{connectDropTarget:e.dropTarget(),isOver:t.isOver(),getItemType:t.getItem()}}Array.prototype.distinct=function(){var e,t=this,r={},a=[];t.length;for(e=0;e<t.length;e++)r[t[e]]||(r[t[e]]=1,a.push(t[e]));return a};var ManageGroup=(_temp=_class=function(t){function r(e){_classCallCheck(this,r);var c=_possibleConstructorReturn(this,t.call(this,e));return c.openRenameGroupFn=function(e){(0,c.props.setEditonlyId)(e),setTimeout(function(){c.refs.groupName.focus(),c.refs.groupName.select()},0),c.setState({inFoucs:!1})},c.renameGroupCancel=function(e){var t=c.props,r=t.renameGroup,a=t.setEditonlyId,n=c.props.data.widgetName,o=c.state.groupName;c.setState({groupName:n||o}),a(""),n||r({index:e,name:o}),c.setState({inFoucs:!1})},c.renameGroupFn=function(e){var t=c.props,r=t.renameGroup,a=t.manageList,n=t.languagesJSON,o=c.state.groupName;return o==a[e].widgetName?(c.renameGroupCancel(e),!1):a.map(function(e,t){return e.widgetName}).includes(o)?(_message2.default.create({content:n.group_name_exists,duration:1.5,position:"topLeft",color:"warning",style:{height:"auto"}}),!1):(r({index:e,name:o}),void c.renameGroupCancel(e))},c.clearInput=function(){c.setState({groupName:""})},c.editGroupName=function(e){var t=e.target.value;c.setState({groupName:t})},c.handleFocus=function(){c.setState({inFoucs:!0});var e=c.props,t=e.setDragInputState;e.dragState&&t(!1)},c.handleBlur=function(){c.setState({inFoucs:!1});var e=c.props,t=e.setDragInputState;e.dragState||t(!0)},c.selectFn=function(e,r){var t=c.props,a=t.selectListActions,n=t.manageList,o=t.selectList,l=t.selectGroup,i=t.selectGroupActions,s=e,u=n[r].children.map(function(e,t){return e.widgetId});s?(l.push(r),i(l),o=window.ActiveXObject||"ActiveXObject"in window?Array.from(o.concat(u).distinct()):Array.from(new Set(o.concat(u)))):(o=o.filter(function(e){return!u.includes(e)}),i(l.filter(function(e,t){return r!==e})));a(o)},c.popOpen=function(){c.setState({showModal:!0})},c.popClose=function(){c.setState({showModal:!1})},c.moveTopFn=function(e){(0,c.props.moveTopGroup)(e)},c.moveBottomFn=function(e){(0,c.props.moveBottomGroup)(e)},c.delectGroupFn=function(e){(0,c.props.delectGroup)(e)},c.onDropSelect=function(t){return function(e){switch(e.key){case"1":c.moveBottomFn(t);break;case"2":c.moveTopFn(t);break;default:c.delectGroupFn(t)}}},c.renderDrop=function(e){var t=c.props,r=t.manageList,a=t.languagesJSON,n=_react2.default.createElement(_menus2.default,{onClick:c.onDropSelect(e)},e!==r.length-1?_react2.default.createElement(_menus.Item,{key:"1"},a.move_down):null,e?_react2.default.createElement(_menus.Item,{key:"2"},a.move_up):null,_react2.default.createElement(_menus.Item,{key:"3"},a.delete));return _react2.default.createElement(_dropdown2.default,{trigger:["click"],overlay:n,animation:"slide-up"},_react2.default.createElement("div",null,_react2.default.createElement(_icon2.default,{title:a.more,type:"more"})))},c.state={groupName:"",inFoucs:!1,showModal:!1,selectGroup:[],selectList:[]},c}return _inherits(r,t),r.prototype.componentWillMount=function(){var a=this,e=this.props,t=e.data,r=t.widgetName,n=t.isNew,o=e.manageList,l=e.languagesJSON;n?setTimeout(function(){var e=o.map(function(e){return e.widgetName}),t=(0,_utils.avoidSameName)(e,l.group);a.setState({groupName:t}),a.refs.groupName.focus(),a.refs.groupName.select();var r=a.props;(0,r.checkFun)(r.currEditonlyId+"_btn")},0):this.setState({groupName:r})},r.prototype.componentWillReceiveProps=function(e){this.props.currEditonlyId!==e.currEditonlyId&&this.props.data.isNew&&(this.props.renameGroup({id:this.props.data.widgetId,name:""==this.state.groupName?this.props.data.widgetName:this.state.groupName,dontChangeCurrEditonlyId:!0}),this.setState({inFoucs:!1}))},r.prototype.addFolderFn=function(e){(0,this.props.addFolder)({groupIndex:e})},r.prototype.addGroupFn=function(e){(0,this.props.addGroup)({index:e})},r.prototype.render=function(){var t=this,e=this.props,r=e.manageList,a=e.curEditFolderId,n=e.drag,o=e.dragState,l=e.selectList,i=e.selectGroup,s=e.currEditonlyId,u=e.currGroupIndex,c=e.title,d=e.openFolder,p=e.deleteFolder,_=e.renameFolder,m=e.setFolderEdit,f=e.moveService,g=e.addFolder,y=e.closeFolder,h=e.setCurrGroupIndex,v=e.editTitle,b=e.selectListActions,w=e.selectGroupActions,N=e.cancelFolderEdit,I=e.setEditonlyId,S=e.setDragInputState,E=e.applicationsMap,G=e.allServicesByLabelGroup,F=e.getAllServicesByLabelGroup,D=e.setCurrentSelectWidgetMap,C=e.addDesk,T=e.requestSuccess,x=e.requestError,q=e.delectService,k=e.folderBgSrc,B=e.languagesJSON,O={manageList:r,curEditFolderId:a,drag:n,dragState:o,selectList:l,selectGroup:i,currEditonlyId:s,currGroupIndex:u,title:c,openFolder:d,deleteFolder:p,renameFolder:_,setFolderEdit:m,moveService:f,addFolder:g,closeFolder:y,setCurrGroupIndex:h,editTitle:v,selectListActions:b,selectGroupActions:w,cancelFolderEdit:N,setEditonlyId:I,setDragInputState:S,delectService:q,folderBgSrc:k},L={applicationsMap:E,manageList:r,allServicesByLabelGroup:G,getAllServicesByLabelGroup:F,setCurrentSelectWidgetMap:D,deleteFolder:p,addDesk:C,requestSuccess:T,requestError:x},R=this.props,A=R.data,M=A.widgetId,j=A.widgetName,W=A.children,J=R.index,P=R.connectDragSource,K=R.connectDropTarget,Q=R.isDragging,X=this.state,Y=X.inFoucs,z=X.groupName,H=X.showModal,U=-1<i.indexOf(J),Z=Q?0:1,V=void 0;V=s==M?_react2.default.createElement("div",{className:_style.widgetTitle},_react2.default.createElement("div",{className:_style.titleInputArea},_react2.default.createElement("input",{className:(Y?_style.newGroupName_focus:_style.newGroupName_blur)+" "+_style.newGroupName+" input",value:z,maxLength:"4",autoFocus:"autofocus",onChange:this.editGroupName,onFocus:this.handleFocus,onBlur:this.handleBlur,placeholder:B.groupName_max_words_four,ref:"groupName"})),_react2.default.createElement(_button3.ButtonCheckSelected,{id:M+"_btn",className:_style.btn,onClick:function(){t.renameGroupFn(J)}},_react2.default.createElement(_icon2.default,{type:"right"})),_react2.default.createElement(_button3.ButtonCheckClose,{className:_style.btn,onClick:function(){t.renameGroupCancel(J)}},_react2.default.createElement(_icon2.default,{type:"cancel"}))):_react2.default.createElement("div",{className:_style.widgetTitle+" "+_style.widgetTitleInit+" "},_react2.default.createElement("div",{className:_style.check_group},_react2.default.createElement(_checkbox2.default,{checked:U,onChange:function(e){t.selectFn(e,J)}},j),B.noDataGroup&&0===W.length?_react2.default.createElement("span",{className:_style.noChildStyle},_react2.default.createElement(_icon2.default,{type:"notice"}),B.noDataGroup):null),_react2.default.createElement("div",null,_react2.default.createElement("div",{className:_style.iconBox},_react2.default.createElement(_icon2.default,{title:B.rename_group,type:"record",onClick:function(){t.openRenameGroupFn(M)}})),_react2.default.createElement("div",{className:_style.iconBox},_react2.default.createElement(_icon2.default,{title:B.add_folder,type:"add-files",onClick:this.addFolderFn.bind(this,J)})),this.renderDrop(J)));var $=[{label:""+B.confirm,fun:this.delectGroupFn,className:""},{label:""+B.cancel,fun:this.popClose,className:""}],ee=this.props,te=ee.isOver,re=ee.getItemType,ae={};te&&1===re.type&&(ae={transform:"scale(1,1)",boxShadow:"0 0 0 3px #ddd,0 0 0 6px rgba(0,205,195,1)",borderRadius:"0"});var ne=_react2.default.createElement("div",{className:_style.groupArea+" animated zoomIn",style:_extends({},ae)},_react2.default.createElement("section",{style:_extends({},Z),className:Y?_style.selectedBackClass:""},V,_react2.default.createElement("div",null,_react2.default.createElement(_manageWidgetList2.default,_extends({index:J,data:W,parentId:this.props.data.widgetId},O,L,{languagesJSON:B})))),_react2.default.createElement("div",{className:_style.addBtn},_react2.default.createElement(_button3.ButtonDefaultWhite,{className:_style.addGroupBtn,onClick:this.addGroupFn.bind(this,J)},_react2.default.createElement(_icon2.default,{type:"add"}),B.addGroup)),_react2.default.createElement(_pop2.default,{className:"pop_dialog_delete",show:H,type:"delete",close:this.popClose,btns:$,data:{index:J}},_react2.default.createElement("div",{className:"pop_cont"},_react2.default.createElement("span",null,B.confirm_del_this_item))));return o?P(K(ne)):ne},r}(_react.Component),_class.propTypes={connectDragSource:_propTypes2.default.func.isRequired,connectDropTarget:_propTypes2.default.func.isRequired,index:_propTypes2.default.number.isRequired,isDragging:_propTypes2.default.bool.isRequired,id:_propTypes2.default.any.isRequired},_temp);exports.default=(0,_reactDnd.DragSource)(type,itemSource,collectSource)((0,_reactDnd.DropTarget)(type,itemTarget,collectTaget)(ManageGroup)),module.exports=exports.default;
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _class, _temp;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDnd = require('react-dnd');
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _menus = require('../../bee/menus');
+
+var _menus2 = _interopRequireDefault(_menus);
+
+var _dropdown = require('../../bee/dropdown');
+
+var _dropdown2 = _interopRequireDefault(_dropdown);
+
+var _pop = require('../../pop');
+
+var _pop2 = _interopRequireDefault(_pop);
+
+var _button = require('../../bee/button');
+
+var _button2 = _interopRequireDefault(_button);
+
+var _button3 = require('../../button');
+
+var _utils = require('../../utils');
+
+var _icon = require('../../icon');
+
+var _icon2 = _interopRequireDefault(_icon);
+
+var _checkbox = require('../../bee/checkbox');
+
+var _checkbox2 = _interopRequireDefault(_checkbox);
+
+var _message = require('../../bee/message');
+
+var _message2 = _interopRequireDefault(_message);
+
+var _manageWidgetList = require('../manageWidgetList');
+
+var _manageWidgetList2 = _interopRequireDefault(_manageWidgetList);
+
+require('./style.css');
+
+var _style = {
+  'widgetTitle': 'widgetTitle__style___5B_lc',
+  'addBtn': 'addBtn__style___1pYRJ',
+  'addGroupBtn': 'addGroupBtn__style___3RkOC',
+  'titleInputArea': 'titleInputArea__style___3_qnw',
+  'input': 'input__style___1eXYC',
+  'newGroupName': 'newGroupName__style___gKFWe',
+  'newGroupName_focus': 'newGroupName_focus__style___2OcOs',
+  'newGroupName_blur': 'newGroupName_blur__style___1QJJD',
+  'btn': 'btn__style___1NAHM',
+  'icon': 'icon__style___3S22Q',
+  'groupArea': 'groupArea__style___3NyCg',
+  'selectedBackClass': 'selectedBackClass__style___QJZ17',
+  'iconBox': 'iconBox__style___CwgKm',
+  'widgetTitleInit': 'widgetTitleInit__style___3JKUO',
+  'check_group': 'check_group__style___2btKQ',
+  'noChildStyle': 'noChildStyle__style___1sFC6'
+};
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+
+function findItemById(manageList, id) {
+  var dataItem = void 0;
+  for (var i = 0; i < manageList.length; i++) {
+    if (manageList[i].children) {
+      dataItem = findItemById(manageList[i].children, id);
+    }
+    if (dataItem) {
+      break;
+    }
+    if (manageList[i].widgetId && manageList[i].widgetId === id) {
+      dataItem = manageList[i];
+      break;
+    }
+  }
+  return dataItem;
+}
+var type = 'item';
+
+var itemSource = {
+  beginDrag: function beginDrag(props, monitor) {
+    return { id: props.id, type: props.type, parentId: props.parentId, folderType: props.folderType };
+  }
+};
+
+var itemTarget = {
+  drop: function drop(props, monitor) {
+    var draggedId = monitor.getItem().id;
+    var preParentId = monitor.getItem().parentId;
+    var draggedType = monitor.getItem().type;
+    var folderType = monitor.getItem().folderType;
+    var afterParentId = props.data.parentId;
+
+    if (draggedId !== props.id && draggedType === 1 && props.data.type === 1) {
+      props.moveGroupDrag(draggedId, props.id);
+    } else if ((draggedType === 2 || draggedType === 3) && props.data.type === 1) {
+      !props.data.parentId && (afterParentId = props.data.widgetId);
+      //因为冒泡 所以已经有的话 不需要执行move
+      var dataItem = findItemById(props.data.children, draggedId);
+      if (folderType === "folder" || typeof dataItem === "undefined" || dataItem && dataItem.widgetId !== draggedId) {
+        //folderType==="folder" 从文件夹把元素往分组里拖拽
+        props.moveItemDrag(draggedId, preParentId, draggedType, props.id, afterParentId, props.data.type);
+      }
+    }
+  }
+};
+
+function collectSource(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging()
+  };
+}
+
+function collectTaget(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver(),
+    getItemType: monitor.getItem()
+  };
+}
+
+Array.prototype.distinct = function () {
+  var arr = this,
+      i,
+      obj = {},
+      result = [],
+      len = arr.length;
+  for (i = 0; i < arr.length; i++) {
+    if (!obj[arr[i]]) {
+      obj[arr[i]] = 1;
+      result.push(arr[i]);
+    }
+  }
+  return result;
+};
+
+var ManageGroup = (_temp = _class = function (_Component) {
+  _inherits(ManageGroup, _Component);
+
+  function ManageGroup(props) {
+    _classCallCheck(this, ManageGroup);
+
+    var _this = _possibleConstructorReturn(this, _Component.call(this, props));
+
+    _this.openRenameGroupFn = function (id) {
+      var setEditonlyId = _this.props.setEditonlyId;
+
+      setEditonlyId(id);
+      setTimeout(function () {
+        _this.refs.groupName.focus();
+        _this.refs.groupName.select();
+      }, 0);
+      _this.setState({
+        inFoucs: false
+      });
+    };
+
+    _this.renameGroupCancel = function (index) {
+      var _this$props = _this.props,
+          renameGroup = _this$props.renameGroup,
+          setEditonlyId = _this$props.setEditonlyId;
+      var groupName = _this.props.data.widgetName;
+
+      var stateGroupName = _this.state.groupName;
+      _this.setState({
+        groupName: groupName ? groupName : stateGroupName
+      });
+      setEditonlyId("");
+      if (!groupName) {
+        renameGroup({
+          index: index,
+          name: stateGroupName
+        });
+      }
+      _this.setState({
+        inFoucs: false
+      });
+    };
+
+    _this.renameGroupFn = function (index) {
+      var _this$props2 = _this.props,
+          renameGroup = _this$props2.renameGroup,
+          manageList = _this$props2.manageList,
+          languagesJSON = _this$props2.languagesJSON;
+
+      var name = _this.state.groupName;
+      if (name == manageList[index].widgetName) {
+        _this.renameGroupCancel(index);
+        return false;
+      }
+      var widgetNameArr = manageList.map(function (item, index) {
+        return item.widgetName;
+      });
+      if (widgetNameArr.includes(name)) {
+        _message2["default"].create({
+          content: languagesJSON.group_name_exists,
+          duration: 1.5,
+          position: 'topLeft',
+          color: "warning",
+          style: { height: 'auto' }
+        });
+        return false;
+      }
+      renameGroup({
+        index: index,
+        name: name
+      });
+      _this.renameGroupCancel(index);
+    };
+
+    _this.clearInput = function () {
+      _this.setState({
+        groupName: ""
+      });
+    };
+
+    _this.editGroupName = function (e) {
+      var _groupName = e.target.value;
+      // _groupName = getStrLenSubstr(_groupName,11,21,true)
+      _this.setState({
+        groupName: _groupName
+      });
+    };
+
+    _this.handleFocus = function () {
+      _this.setState({
+        inFoucs: true
+      });
+      var _this$props3 = _this.props,
+          setDragInputState = _this$props3.setDragInputState,
+          dragState = _this$props3.dragState;
+
+      if (!dragState) return;
+      setDragInputState(false);
+    };
+
+    _this.handleBlur = function () {
+      _this.setState({
+        inFoucs: false
+      });
+      var _this$props4 = _this.props,
+          setDragInputState = _this$props4.setDragInputState,
+          dragState = _this$props4.dragState;
+
+      if (dragState) return;
+      setDragInputState(true);
+    };
+
+    _this.selectFn = function (e, index) {
+      var _this$props5 = _this.props,
+          selectListActions = _this$props5.selectListActions,
+          manageList = _this$props5.manageList,
+          selectList = _this$props5.selectList,
+          selectGroup = _this$props5.selectGroup,
+          selectGroupActions = _this$props5.selectGroupActions;
+      //const checkFlag = e.target.checked;
+      // 换成checkbox插件
+
+      var checkFlag = e;
+      var aa = manageList[index].children.map(function (item, index) {
+        return item.widgetId;
+      });
+      if (checkFlag) {
+        selectGroup.push(index);
+        selectGroupActions(selectGroup);
+        if (!!window.ActiveXObject || "ActiveXObject" in window) {
+          //ie?
+          selectList = Array.from(selectList.concat(aa).distinct());
+        } else {
+          selectList = Array.from(new Set(selectList.concat(aa)));
+        }
+      } else {
+        selectList = selectList.filter(function (v) {
+          return !aa.includes(v);
+        });
+        var selectGroup2 = selectGroup.filter(function (item, i) {
+          return index !== item;
+        });
+        selectGroupActions(selectGroup2);
+      }
+      selectListActions(selectList);
+    };
+
+    _this.popOpen = function () {
+      _this.setState({
+        showModal: true
+      });
+    };
+
+    _this.popClose = function () {
+      _this.setState({
+        showModal: false
+      });
+    };
+
+    _this.moveTopFn = function (index) {
+      var moveTopGroup = _this.props.moveTopGroup;
+
+      moveTopGroup(index);
+    };
+
+    _this.moveBottomFn = function (index) {
+      var moveBottomGroup = _this.props.moveBottomGroup;
+
+      moveBottomGroup(index);
+    };
+
+    _this.delectGroupFn = function (index) {
+      var delectGroup = _this.props.delectGroup;
+
+      delectGroup(index);
+    };
+
+    _this.onDropSelect = function (index) {
+      return function (_ref) {
+        var key = _ref.key;
+
+        switch (key) {
+          case '1':
+            _this.moveBottomFn(index);
+            break;
+          case '2':
+            _this.moveTopFn(index);
+            break;
+          default:
+            _this.delectGroupFn(index);
+            break;
+        }
+      };
+    };
+
+    _this.renderDrop = function (index) {
+      var _this$props6 = _this.props,
+          manageList = _this$props6.manageList,
+          languagesJSON = _this$props6.languagesJSON;
+
+      var menu = _react2["default"].createElement(
+        _menus2["default"],
+        { onClick: _this.onDropSelect(index) },
+        index !== manageList.length - 1 ? _react2["default"].createElement(
+          _menus.Item,
+          { key: '1' },
+          languagesJSON.move_down
+        ) : null,
+        index ? _react2["default"].createElement(
+          _menus.Item,
+          { key: '2' },
+          languagesJSON.move_up
+        ) : null,
+        _react2["default"].createElement(
+          _menus.Item,
+          { key: '3' },
+          languagesJSON["delete"]
+        )
+      );
+
+      // btnSelectedFun=()=>{
+      //    this.btn_selected.onClick()
+      // }
+
+      return _react2["default"].createElement(
+        _dropdown2["default"],
+        {
+          trigger: ['click'],
+          overlay: menu,
+          animation: 'slide-up' },
+        _react2["default"].createElement(
+          'div',
+          null,
+          _react2["default"].createElement(_icon2["default"], { title: languagesJSON.more, type: 'more' })
+        )
+      );
+    };
+
+    _this.state = {
+      groupName: "",
+      inFoucs: false,
+      showModal: false,
+      selectGroup: [],
+      selectList: []
+    };
+    return _this;
+  }
+
+  ManageGroup.prototype.componentWillMount = function componentWillMount() {
+    var _this2 = this;
+
+    var _props = this.props,
+        _props$data = _props.data,
+        widgetName = _props$data.widgetName,
+        isNew = _props$data.isNew,
+        manageList = _props.manageList,
+        languagesJSON = _props.languagesJSON;
+
+
+    if (isNew) {
+      setTimeout(function () {
+
+        var nameArr = manageList.map(function (_ref2) {
+          var widgetName = _ref2.widgetName;
+
+          return widgetName;
+        });
+        var newGroupName = (0, _utils.avoidSameName)(nameArr, languagesJSON.group);
+        _this2.setState({
+          groupName: newGroupName
+        });
+        _this2.refs.groupName.focus();
+        _this2.refs.groupName.select();
+
+        var _props2 = _this2.props,
+            checkFun = _props2.checkFun,
+            currEditonlyId = _props2.currEditonlyId;
+
+        checkFun(currEditonlyId + "_btn");
+      }, 0);
+    } else {
+      this.setState({
+        groupName: widgetName
+      });
+    }
+  };
+
+  ManageGroup.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+    if (this.props.currEditonlyId !== nextProps.currEditonlyId && this.props.data.isNew) {
+      this.props.renameGroup({
+        id: this.props.data.widgetId,
+        name: this.state.groupName == "" ? this.props.data.widgetName : this.state.groupName,
+        dontChangeCurrEditonlyId: true
+      });
+      this.setState({
+        inFoucs: false
+      });
+    }
+  };
+  // 添加文件夹
+
+
+  ManageGroup.prototype.addFolderFn = function addFolderFn(groupIndex) {
+    var addFolder = this.props.addFolder;
+
+    addFolder({ groupIndex: groupIndex });
+  };
+  // 打开编辑分组形态
+
+  // 点击取消编辑分组按钮
+
+  // 点击按钮执行 action   重新构造
+
+  //点击清空输入框
+
+  // 输入框的更改
+
+  //输入框聚焦更改背景颜色
+
+  //输入框失焦
+
+
+  // 选择框  选择
+
+  // 上移分组
+
+  // 下移分组
+
+  // 删除群组
+
+
+  // 添加新分组
+  ManageGroup.prototype.addGroupFn = function addGroupFn(index) {
+    var addGroup = this.props.addGroup;
+
+    addGroup({ index: index });
+  };
+  // menu组件 方法
+
+
+  ManageGroup.prototype.render = function render() {
+    var _this3 = this;
+
+    var _props3 = this.props,
+        manageList = _props3.manageList,
+        curEditFolderId = _props3.curEditFolderId,
+        drag = _props3.drag,
+        dragState = _props3.dragState,
+        selectList = _props3.selectList,
+        selectGroup = _props3.selectGroup,
+        currEditonlyId = _props3.currEditonlyId,
+        currGroupIndex = _props3.currGroupIndex,
+        title = _props3.title,
+        openFolder = _props3.openFolder,
+        deleteFolder = _props3.deleteFolder,
+        renameFolder = _props3.renameFolder,
+        setFolderEdit = _props3.setFolderEdit,
+        moveService = _props3.moveService,
+        addFolder = _props3.addFolder,
+        closeFolder = _props3.closeFolder,
+        setCurrGroupIndex = _props3.setCurrGroupIndex,
+        editTitle = _props3.editTitle,
+        selectListActions = _props3.selectListActions,
+        selectGroupActions = _props3.selectGroupActions,
+        cancelFolderEdit = _props3.cancelFolderEdit,
+        setEditonlyId = _props3.setEditonlyId,
+        setDragInputState = _props3.setDragInputState,
+        applicationsMap = _props3.applicationsMap,
+        allServicesByLabelGroup = _props3.allServicesByLabelGroup,
+        getAllServicesByLabelGroup = _props3.getAllServicesByLabelGroup,
+        setCurrentSelectWidgetMap = _props3.setCurrentSelectWidgetMap,
+        addDesk = _props3.addDesk,
+        requestSuccess = _props3.requestSuccess,
+        requestError = _props3.requestError,
+        delectService = _props3.delectService,
+        folderBgSrc = _props3.folderBgSrc,
+        languagesJSON = _props3.languagesJSON;
+
+    var widgetListProps = {
+      manageList: manageList,
+      curEditFolderId: curEditFolderId,
+      drag: drag,
+      dragState: dragState,
+      selectList: selectList,
+      selectGroup: selectGroup,
+      currEditonlyId: currEditonlyId,
+      currGroupIndex: currGroupIndex,
+      title: title,
+      openFolder: openFolder,
+      deleteFolder: deleteFolder,
+      renameFolder: renameFolder,
+      setFolderEdit: setFolderEdit,
+      moveService: moveService,
+      addFolder: addFolder,
+      closeFolder: closeFolder,
+      setCurrGroupIndex: setCurrGroupIndex,
+      editTitle: editTitle,
+      selectListActions: selectListActions,
+      selectGroupActions: selectGroupActions,
+      cancelFolderEdit: cancelFolderEdit,
+      setEditonlyId: setEditonlyId,
+      setDragInputState: setDragInputState,
+      delectService: delectService,
+      folderBgSrc: folderBgSrc
+    };
+    var widgetSelectListProps = {
+      applicationsMap: applicationsMap,
+      manageList: manageList,
+      allServicesByLabelGroup: allServicesByLabelGroup,
+      getAllServicesByLabelGroup: getAllServicesByLabelGroup,
+      setCurrentSelectWidgetMap: setCurrentSelectWidgetMap,
+      deleteFolder: deleteFolder,
+      addDesk: addDesk,
+      requestSuccess: requestSuccess,
+      requestError: requestError
+    };
+    var _props4 = this.props,
+        _props4$data = _props4.data,
+        widgetId = _props4$data.widgetId,
+        widgetName = _props4$data.widgetName,
+        children = _props4$data.children,
+        index = _props4.index,
+        connectDragSource = _props4.connectDragSource,
+        connectDropTarget = _props4.connectDropTarget,
+        isDragging = _props4.isDragging;
+    var _state = this.state,
+        inFoucs = _state.inFoucs,
+        groupName = _state.groupName,
+        showModal = _state.showModal;
+
+    var checkType = selectGroup.indexOf(index) > -1 ? true : false;
+    var opacity = isDragging ? 0 : 1;
+    var groupTitle = void 0;
+    if (currEditonlyId == widgetId) {
+      groupTitle = _react2["default"].createElement(
+        'div',
+        { className: _style.widgetTitle },
+        _react2["default"].createElement(
+          'div',
+          { className: _style.titleInputArea },
+          _react2["default"].createElement('input', {
+            className: (inFoucs ? _style.newGroupName_focus : _style.newGroupName_blur) + ' ' + _style.newGroupName + ' input',
+            value: groupName,
+            maxLength: '4',
+            autoFocus: 'autofocus',
+            onChange: this.editGroupName,
+            onFocus: this.handleFocus,
+            onBlur: this.handleBlur
+            // placeholder="分组名称,最多4个字符"
+            , placeholder: languagesJSON.groupName_max_words_four,
+            ref: 'groupName' })
+        ),
+        _react2["default"].createElement(
+          _button3.ButtonCheckSelected,
+          { id: widgetId + '_btn', className: _style.btn, onClick: function onClick() {
+              _this3.renameGroupFn(index);
+            } },
+          _react2["default"].createElement(_icon2["default"], { type: 'right' })
+        ),
+        _react2["default"].createElement(
+          _button3.ButtonCheckClose,
+          { className: _style.btn, onClick: function onClick() {
+              _this3.renameGroupCancel(index);
+            } },
+          _react2["default"].createElement(_icon2["default"], { type: 'cancel' })
+        )
+      );
+    } else {
+      groupTitle =
+      // um-box-justify
+      _react2["default"].createElement(
+        'div',
+        { className: _style.widgetTitle + ' ' + _style.widgetTitleInit + ' ' },
+        _react2["default"].createElement(
+          'div',
+          { className: _style.check_group },
+          _react2["default"].createElement(
+            _checkbox2["default"],
+            { checked: checkType, onChange: function onChange(e) {
+                _this3.selectFn(e, index);
+              } },
+            widgetName
+          ),
+          languagesJSON.noDataGroup && children.length === 0 ? _react2["default"].createElement(
+            'span',
+            { className: _style.noChildStyle },
+            _react2["default"].createElement(_icon2["default"], { type: 'notice' }),
+            languagesJSON.noDataGroup
+          ) : null
+        ),
+        _react2["default"].createElement(
+          'div',
+          null,
+          _react2["default"].createElement(
+            'div',
+            { className: _style.iconBox },
+            _react2["default"].createElement(_icon2["default"], { title: languagesJSON.rename_group, type: 'record', onClick: function onClick() {
+                _this3.openRenameGroupFn(widgetId);
+              } })
+          ),
+          _react2["default"].createElement(
+            'div',
+            { className: _style.iconBox },
+            _react2["default"].createElement(_icon2["default"], { title: languagesJSON.add_folder, type: 'add-files', onClick: this.addFolderFn.bind(this, index) })
+          ),
+          this.renderDrop(index)
+        )
+      );
+    }
+
+    var pop_btn = [{
+      label: '' + languagesJSON.confirm,
+      fun: this.delectGroupFn,
+      className: ""
+    }, {
+      label: '' + languagesJSON.cancel,
+      fun: this.popClose,
+      className: ""
+    }];
+
+    if (isDragging) {
+      //return null
+    }
+
+    var _props5 = this.props,
+        isOver = _props5.isOver,
+        getItemType = _props5.getItemType;
+
+    var overStyle = {};
+    if (isOver && getItemType.type === 1) {
+      overStyle = {
+        'transform': 'scale(1,1)',
+        'boxShadow': '0 0 0 3px #ddd,0 0 0 6px rgba(0,205,195,1)',
+        'borderRadius': '0'
+      };
+    }
+    var _html = _react2["default"].createElement(
+      'div',
+      { className: _style.groupArea + ' animated zoomIn', style: _extends({}, overStyle) },
+      _react2["default"].createElement(
+        'section',
+        { style: _extends({}, opacity), className: inFoucs ? _style.selectedBackClass : "" },
+        groupTitle,
+        _react2["default"].createElement(
+          'div',
+          null,
+          _react2["default"].createElement(_manageWidgetList2["default"], _extends({ index: index, data: children, parentId: this.props.data.widgetId
+          }, widgetListProps, widgetSelectListProps, { languagesJSON: languagesJSON }))
+        )
+      ),
+      _react2["default"].createElement(
+        'div',
+        { className: _style.addBtn },
+        _react2["default"].createElement(
+          _button3.ButtonDefaultWhite,
+          { className: _style.addGroupBtn, onClick: this.addGroupFn.bind(this, index) },
+          _react2["default"].createElement(_icon2["default"], { type: 'add' }),
+          languagesJSON.addGroup
+        )
+      ),
+      _react2["default"].createElement(
+        _pop2["default"],
+        { className: 'pop_dialog_delete', show: showModal, type: 'delete', close: this.popClose, btns: pop_btn, data: { index: index } },
+        _react2["default"].createElement(
+          'div',
+          { className: 'pop_cont' },
+          _react2["default"].createElement(
+            'span',
+            null,
+            languagesJSON.confirm_del_this_item
+          )
+        )
+      )
+    );
+    return dragState ? connectDragSource(connectDropTarget(_html)) : _html;
+  };
+
+  return ManageGroup;
+}(_react.Component), _class.propTypes = {
+  connectDragSource: _propTypes2["default"].func.isRequired,
+  connectDropTarget: _propTypes2["default"].func.isRequired,
+  index: _propTypes2["default"].number.isRequired,
+  isDragging: _propTypes2["default"].bool.isRequired,
+  id: _propTypes2["default"].any.isRequired
+}, _temp);
+exports["default"] = (0, _reactDnd.DragSource)(type, itemSource, collectSource)((0, _reactDnd.DropTarget)(type, itemTarget, collectTaget)(ManageGroup));
+module.exports = exports['default'];

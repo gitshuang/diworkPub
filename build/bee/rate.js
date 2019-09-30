@@ -1,1 +1,32 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var _beeRate=require("bee-rate");function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}Object.keys(_beeRate).forEach(function(e){"default"!==e&&"__esModule"!==e&&Object.defineProperty(exports,e,{enumerable:!0,get:function(){return _beeRate[e]}})}),Object.defineProperty(exports,"default",{enumerable:!0,get:function(){return _interopRequireDefault(_beeRate).default}}),require("bee-rate/build/Rate.css"),require("./rate.css"),module.exports=exports.default;
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = undefined;
+
+var _beeRate = require('bee-rate');
+
+Object.keys(_beeRate).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _beeRate[key];
+    }
+  });
+});
+Object.defineProperty(exports, 'default', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_beeRate)["default"];
+  }
+});
+
+require('bee-rate/build/Rate.css');
+
+require('./rate.css');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+module.exports = exports['default'];
