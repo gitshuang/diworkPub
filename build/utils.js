@@ -360,7 +360,7 @@ var getHost = exports.getHost = function getHost() {
     //   pre: 'https://y3me-pre.diwork.com/manager/file/upload/oss/workbench-image-path-applicationIcon'
     // },
   };
-  return hosts[key][process.env.NODE_ENV];
+  return hosts[key][process.env.NODE_ENV] || "";
 };
 //ie11的window.ActiveXObject返回undefined，
 var IS_IE = exports.IS_IE = !!window.ActiveXObject || "ActiveXObject" in window;
