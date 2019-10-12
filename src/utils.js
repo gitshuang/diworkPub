@@ -184,10 +184,10 @@ export const getHost = (key = 'api') => {
     ticket: {
       production: 'https://wo.diwork.com',
       development: 'http://ticket-v2.dev.app.yyuap.com',
-      daily: 'http://ticket.app.yyuap.com',
-      integrate: 'http://ticket.app.yyuap.com',
-      combine: 'http://ticket.app.yyuap.com',
-      pre: '',
+      daily: 'http://ticket-v2.dev.app.yyuap.com',
+      integrate: 'http://ticket-v2.dev.app.yyuap.com',
+      combine: 'http://ticket-v2.dev.app.yyuap.com',
+      pre: 'http://ticket-v2.dev.app.yyuap.com',
     },
     // 参照
     ref: {
