@@ -229,10 +229,19 @@ var EnterContent = (_temp = _class = function (_Component) {
     // 如果来自创建 ， 只做将userInfo信息灌入到组件中显示
 
     if (_from === "create") {
+      var userEmail = userInfo.userEmail,
+          userMobile = userInfo.userMobile;
+
+      if (userEmail && userEmail.indexOf("*") > -1) {
+        userEmail = "";
+      }
+      if (userMobile && userMobile.indexOf("*") > -1) {
+        userMobile = "";
+      }
       this.setState({
         linkman: userInfo.userName || '',
-        // tenantEmail: userInfo.userEmail || '',
-        // tenantTel: userInfo.userMobile || '',
+        tenantEmail: userEmail,
+        tenantTel: userMobile,
         address: {
           province: '北京',
           city: '北京',

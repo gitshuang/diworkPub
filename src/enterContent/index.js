@@ -77,10 +77,17 @@ class EnterContent extends Component {
     const { data, userInfo, _from } = this.props;
     // 如果来自创建 ， 只做将userInfo信息灌入到组件中显示
     if (_from === "create") {
+      let { userEmail, userMobile } = userInfo;
+      if (userEmail && userEmail.indexOf("*") > -1) {
+        userEmail = "";
+      }
+      if (userMobile && userMobile.indexOf("*") > -1) {
+        userMobile = "";
+      }
       this.setState({
         linkman: userInfo.userName || '',
-        // tenantEmail: userInfo.userEmail || '',
-        // tenantTel: userInfo.userMobile || '',
+        tenantEmail: userEmail,
+        tenantTel: userMobile,
         address: {
           province: '北京',
           city: '北京',
@@ -114,7 +121,7 @@ class EnterContent extends Component {
         data.countryCode = data.tenantTel.split(":")[0] || "86";
         data.tenantTel = data.tenantTel.split(":")[1];
       } else {
-        data.countryCode = data.tenantTel.substring(0, data.tenantTel.length - 11)|| "86";
+        data.countryCode = data.tenantTel.substring(0, data.tenantTel.length - 11) || "86";
         data.tenantTel = data.tenantTel.substring(data.tenantTel.length - 11);
       }
     } else {
