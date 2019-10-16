@@ -79,8 +79,8 @@ class EnterContent extends Component {
     if (_from === "create") {
       this.setState({
         linkman: userInfo.userName || '',
-        tenantEmail: userInfo.userEmail || '',
-        tenantTel: userInfo.userMobile || '',
+        // tenantEmail: userInfo.userEmail || '',
+        // tenantTel: userInfo.userMobile || '',
         address: {
           province: '北京',
           city: '北京',
