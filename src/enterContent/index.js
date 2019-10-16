@@ -78,9 +78,9 @@ class EnterContent extends Component {
     // 如果来自创建 ， 只做将userInfo信息灌入到组件中显示
     if (_from === "create") {
       this.setState({
-        linkman: userInfo.userName,
-        tenantEmail: userInfo.userEmail,
-        tenantTel: userInfo.userMobile,
+        linkman: userInfo.userName || '',
+        tenantEmail: userInfo.userEmail || '',
+        tenantTel: userInfo.userMobile || '',
         address: {
           province: '北京',
           city: '北京',
@@ -111,10 +111,10 @@ class EnterContent extends Component {
     if (data.tenantTel) {
       // 兼容原来创建的企业， 并没有加上：的
       if (data.tenantTel.indexOf(":") > -1) {
-        data.countryCode = data.tenantTel.split(":")[0];
+        data.countryCode = data.tenantTel.split(":")[0] || "86";
         data.tenantTel = data.tenantTel.split(":")[1];
       } else {
-        data.countryCode = data.tenantTel.substring(0, data.tenantTel.length - 11);
+        data.countryCode = data.tenantTel.substring(0, data.tenantTel.length - 11)|| "86";
         data.tenantTel = data.tenantTel.substring(data.tenantTel.length - 11);
       }
     } else {
