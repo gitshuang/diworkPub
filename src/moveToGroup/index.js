@@ -5,7 +5,7 @@ import Menu, { SubMenu } from 'bee/menus';
 import { findPath, avoidSameName } from '@u';
 import Icon from '../icon';
 import {ButtonU8cDefault,ButtonU8cPrimary, } from '../button'
-// import '../iconfont.js'
+import '../iconfont.js'
 
 /*  style */
 import {
@@ -243,7 +243,9 @@ class MoveToGroup extends Component {
               <div>
                 <Button style={{ float: 'left', position: 'relative',paddingLeft:16}} 
                 onClick={this.addGroup} disabled={inAddGroup}>
-                  <Icon font="xinzeng" />
+                  <svg className={icon} aria-hidden="true">
+                    <use xlinkHref="#icon-xinzeng"></use>
+                  </svg>
                   {languagesJSON.addGroup}
                 </Button>
               </div>
