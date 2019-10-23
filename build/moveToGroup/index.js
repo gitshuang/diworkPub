@@ -5,7 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var _class, _temp;
-// import '../iconfont.js'
 
 /*  style */
 
@@ -33,6 +32,8 @@ var _icon = require('../icon');
 var _icon2 = _interopRequireDefault(_icon);
 
 var _button3 = require('../button');
+
+require('../iconfont.js');
 
 require('./style.css');
 
@@ -319,7 +320,11 @@ var MoveToGroup = (_temp = _class = function (_Component) {
             _button2["default"],
             { style: { "float": 'left', position: 'relative', paddingLeft: 16 },
               onClick: this.addGroup, disabled: inAddGroup },
-            _react2["default"].createElement(_icon2["default"], { font: 'xinzeng' }),
+            _react2["default"].createElement(
+              'svg',
+              { className: _style.icon, 'aria-hidden': 'true' },
+              _react2["default"].createElement('use', { xlinkHref: '#icon-xinzeng' })
+            ),
             languagesJSON.addGroup
           )
         ) : null,
