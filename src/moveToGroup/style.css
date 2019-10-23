@@ -139,11 +139,6 @@
   margin-right: 5px;
 }
 
-.footer :global(.iconfont){
-  font-weight: 100;
-  position: relative;
-  top: 3px;
-}
 .icon {
   width: 1em;
   height: 1em;
