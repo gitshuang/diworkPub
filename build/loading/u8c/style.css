@@ -10,32 +10,36 @@
     z-index: 2001;
 }
 
-
 @keyframes antSpinMove__style___2zWlU {
     to {
-      opacity: 1;
+        opacity: 1;
     }
-  }
-  @keyframes antRotate__style___aI3o5 {
+}
+
+@keyframes antRotate__style___aI3o5 {
     to {
-      transform: rotate(405deg);
+        transform: rotate(405deg);
     }
-  }
+}
+
 .loading_modal__style___2u9Eb .portal-spin {
     position: absolute;
     top: 50%;
     left: 50%;
     z-index: 11111;
 }
+
 .loading_modal__style___2u9Eb .ant-spin {
     color: #f23f40;
 }
+
 .loading_modal__style___2u9Eb .portal-spin {
     position: absolute;
     top: 50%;
     left: 50%;
     z-index: 11111;
 }
+
 .loading_modal__style___2u9Eb .ant-spin {
     color: #f23f40;
 }
@@ -45,17 +49,20 @@
     text-align: center;
     opacity: 0;
     position: absolute;
-    transition: transform .3s cubic-bezier(.78,.14,.15,.86);
+    transition: transform .3s cubic-bezier(.78, .14, .15, .86);
     font-size: 12px;
 }
+
 .loading_modal__style___2u9Eb .ant-spin-spinning {
     opacity: 1;
     display: inline-block;
 }
+
 .loading_modal__style___2u9Eb .ant-spin-lg .ant-spin-dot {
     width: 32px;
     height: 32px;
 }
+
 .loading_modal__style___2u9Eb .ant-spin-dot {
     position: relative;
     display: inline-block;
@@ -69,16 +76,20 @@
     width: 14px;
     height: 14px;
 }
+
 .loading_modal__style___2u9Eb .ant-spin-dot i:first-child {
     left: 0;
     top: 0;
 }
+
 .loading_modal__style___2u9Eb .ant-spin-dot i {
     background-color: #f23f40;
 }
+
 .loading_modal__style___2u9Eb .ant-spin-dot i {
     background-color: #f23f40;
 }
+
 .loading_modal__style___2u9Eb .ant-spin-dot i {
     width: 9px;
     height: 9px;
@@ -90,25 +101,29 @@
     animation: antSpinMove__style___2zWlU 1s infinite linear alternate;
     transform-origin: 50% 50%;
 }
+
 .loading_modal__style___2u9Eb .ant-spin.ant-spin-show-text .ant-spin-text {
     display: block;
 }
+
 .loading_modal__style___2u9Eb .ant-spin-dot i:nth-child(2) {
     right: 0;
     top: 0;
     animation-delay: .4s;
 }
+
 .loading_modal__style___2u9Eb .ant-spin-dot i:nth-child(3) {
     right: 0;
     bottom: 0;
     animation-delay: .8s;
 }
+
 .loading_modal__style___2u9Eb .ant-spin-dot i {
     background-color: #f23f40;
 }
+
 .loading_modal__style___2u9Eb .ant-spin-dot i:nth-child(4) {
     left: 0;
     bottom: 0;
     animation-delay: 1.2s;
 }
-

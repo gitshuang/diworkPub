@@ -12,9 +12,9 @@ var uglify = require('gulp-uglify');
 
 var spinner = ora('building for production...')
 
-var makeAlias = function(obj) {
+var makeAlias = function (obj) {
   var result = [];
-  Object.keys(obj).forEach(function(key) {
+  Object.keys(obj).forEach(function (key) {
     var cell = {
       src: key,
       expose: obj[key]
@@ -87,7 +87,15 @@ gulp.task("fonts", ["clean"], function () {
     ])
     .pipe(gulp.dest('build'))
 });
-gulp.task("build", ["clean", "css",  "fonts"], function () {
+gulp.task("npm", ["clean"], function () {
+  return gulp
+    .src([
+      './src/**/*.md',
+      './src/**/*.json',
+    ])
+    .pipe(gulp.dest('build'))
+});
+gulp.task("build", ["clean", "npm", "css", "fonts"], function () {
   return gulp
     .src([
       path.join(process.cwd(), "./src/**/*.js"),

@@ -1,10 +1,5 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Icon from '../../icon';
-import {
-  loading_modal,
-  loading_body, loading_icon, loading_content,
-} from './style.css';
+import React from 'react';
+import { loading_modal, } from './style.css';
 
 function Loading(props) {
   const { text } = props;
@@ -19,7 +14,6 @@ function Loading(props) {
         </span>
         <div className="ant-spin-text" >{text || '加载中...'}</div>
       </div>
-    
     </div>
   )
 }

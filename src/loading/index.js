@@ -1,37 +1,27 @@
-import {getContext} from '../utils';
-import DiworkLoading from './diwork/loading';
-import U8cLoading from './u8c/loading';
-
-
-
-// let Loading;
-// if(productLine=='u8c'){
-//    Loading = require('./u8c/loading')
-// }else{
-//    Loading = require('./diwork/loading')
-// }
-
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-
-class LoadingInstance extends Component{
-  constructor(props){
+import U8cLoading from './u8c/loading';
+// import { getContext } from '../utils';
+// import DiworkLoading from './diwork/loading';
+class LoadingInstance extends Component {
+  constructor(props) {
     super(props);
   }
-  create  = (options) =>{
-     const div = document.createElement('div');
-     div.id="_loadingModal"
-     document.body.appendChild(div);
-     if(options.productLine=='u8c'){
-     const loading = ReactDOM.render(<U8cLoading {...options}/>, div);
-     }else{
-     const loading = ReactDOM.render(<DiworkLoading {...options}/>, div);
-     }
-   
+  create = (options) => {
+    const div = document.createElement('div');
+    div.id = "_loadingModal"
+    document.body.appendChild(div);
+    const loading = ReactDOM.render(<U8cLoading {...options} />, div);
+    // if (options.productLine == 'u8c') {
+    //   const loading = ReactDOM.render(<U8cLoading {...options} />, div);
+    // } else {
+    //   const loading = ReactDOM.render(<DiworkLoading {...options} />, div);
+    // }
+
   }
-  destory = () =>{
+  destory = () => {
     const div = document.getElementById('_loadingModal');
-    if(!div) return false;
+    if (!div) return false;
     ReactDOM.unmountComponentAtNode(div);
     document.body.removeChild(div);
   }
@@ -39,8 +29,8 @@ class LoadingInstance extends Component{
 }
 
 let _loading;
-function createLoadingFunc(options){
-  let productLine='u8c';
+function createLoadingFunc(options) {
+  let productLine = 'u8c';
   // if(Object.keys(getContext()).length ){
   //   productLine = getContext().productLine;
   //   _loading = new LoadingInstance({...options,productLine});
@@ -58,13 +48,13 @@ function createLoadingFunc(options){
   //   _loading = new LoadingInstance({...options,productLine});
   //   _loading.create(options);
   // }
-  
-  _loading = new LoadingInstance({...options,productLine});
-  _loading.create({...options,productLine});
 
-  
+  _loading = new LoadingInstance({ ...options, productLine });
+  _loading.create({ ...options, productLine });
+
+
 }
-function destoryLoadingFunc(){
+function destoryLoadingFunc() {
   _loading = new LoadingInstance();
   _loading.destory();
 }
