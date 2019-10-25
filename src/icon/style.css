@@ -6,11 +6,8 @@
   font-style: normal;
 }
 
-.iconfont {}
-
 :global(.diworkiconfont) {
   font-family: 'icomoon' !important;
-  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -19,7 +16,6 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-weight: bold;
   font-size: 20px;
   font-weight: bold;
   color: #555555;
