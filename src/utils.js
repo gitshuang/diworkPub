@@ -207,6 +207,13 @@ export const getHost = (key = 'api') => {
       combine: 'https://cdn.yonyoucloud.com/pro/diwork',
       pre: 'https://cdn.yonyoucloud.com/pro/diwork',
     },
+    help: {
+      production: '',
+      development: 'http://helpcenter-fe.test.app.yyuap.com',
+      daily: 'http://helpcenter-fe.test.app.yyuap.com',
+      combine: 'http://helpcenter-fe.test.app.yyuap.com',
+      pre: '',
+    }
     // 门户个人信息
     // info: {
     //   production: 'https://ec.diwork.com/static/home.html#/myspeech/personInfo?target=pc',
