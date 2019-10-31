@@ -316,6 +316,8 @@ var fonts = {
   'icon-xiayi': 'icon-xiayi__iconfont___1M0ic',
   'icon-morendenglu': 'icon-morendenglu__iconfont___2Tv-D',
   'icon-time': 'icon-time__iconfont___1Ll2R',
+  'icon-shuzhankai': 'icon-shuzhankai__iconfont___27lXV',
+  'icon-shushouqi': 'icon-shushouqi__iconfont___2eZjD',
   'icon-bangzhu': 'icon-bangzhu__iconfont___Lxjdl'
 }; // iconfont字体
 
