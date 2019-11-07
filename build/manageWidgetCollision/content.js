@@ -39,6 +39,8 @@ var _utils = require('./utils');
 
 var utilService = _interopRequireWildcard(_utils);
 
+var _utils2 = require('../utils');
+
 require('./style.css');
 
 var _style = {
@@ -347,47 +349,48 @@ var Content = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)("manag
         a.isChecked = false;
         a.gridx = undefined; //Number(a.gridx);
         a.gridy = undefined; //Number(a.gridy);
-        switch (a.size) {
-          case 1:
-            a.height = 1;
-            a.width = 1;
-            break;
-          case 2:
-            a.height = 1;
-            a.width = 2;
-            break;
-          case 3:
-            a.height = 2;
-            a.width = 2;
-            break;
-          case 4:
-            a.height = 1;
-            a.width = 3;
-            break;
-          case 5:
-            a.height = 2;
-            a.width = 3;
-            break;
-          case 6:
-            a.height = 1;
-            a.width = 4;
-            break;
-          case 7:
-            a.height = 2;
-            a.width = 4;
-            break;
-          case 8:
-            a.height = 2;
-            a.width = 6;
-            break;
-          case 9:
-            a.height = 4;
-            a.width = 6;
-            break;
-          default:
-            a.height = 1;
-            a.width = 1;
-        }
+        (0, _utils2.addWidthAndHeight)(a);
+        // switch(a.size){
+        //   case 1:
+        //     a.height = 1;
+        //     a.width = 1;
+        //     break;
+        //   case 2:
+        //     a.height = 1;
+        //     a.width = 2;
+        //     break
+        //   case 3:
+        //     a.height = 2;
+        //     a.width = 2;
+        //     break
+        //   case 4:
+        //     a.height = 1;
+        //     a.width = 3;
+        //     break;
+        //   case 5:
+        //     a.height = 2;
+        //     a.width = 3;
+        //     break;
+        //   case 6:
+        //     a.height = 1;
+        //     a.width = 4;
+        //     break;
+        //   case 7:
+        //     a.height = 2;
+        //     a.width = 4;
+        //     break;
+        //   case 8:
+        //     a.height = 2;
+        //     a.width = 6;
+        //     break;
+        //   case 9:
+        //     a.height = 4;
+        //     a.width = 6;
+        //     break;
+        //   default:
+        //     a.height = 1;
+        //     a.width = 1;
+        // }
       });
     });
     updateGroupList(groupList); //把外界传入的数据，作为自己的状态数据，自己的状态是manageList

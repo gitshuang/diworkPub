@@ -846,3 +846,47 @@ const _diff = (_index, _data, type) => {
   }
   return loop(data);
 }
+
+export function addWidthAndHeight(a){
+      switch (a.size) {
+        case 1:
+          a.height = 1;
+          a.width = 1;
+          break;
+        case 2:
+          a.height = 1;
+          a.width = 2;
+          break;
+        case 3:
+          a.height = 2;
+          a.width = 2;
+          break;
+        case 4:
+          a.height = 1;
+          a.width = 3;
+          break;
+        case 5:
+          a.height = 2;
+          a.width = 3;
+          break;
+        case 6:
+          a.height = 1;
+          a.width = 4;
+          break;
+        case 7:
+          a.height = 2;
+          a.width = 4;
+          break;
+          case 8:
+          a.height = 2;
+          a.width = 6;
+          break;
+          case 9:
+          a.height = 4;
+          a.width = 6;
+          break;
+        default:
+          a.height = 1;
+          a.width = 1;
+      }
+}
