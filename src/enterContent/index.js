@@ -8,7 +8,7 @@ import Select from '../bee/select';
 import CitySelect from '../bee/city-select';
 import Progress from '../progress';
 // diwork业务组件
-import Upload from './upload';
+import Upload from '../upload';
 import { check } from './checkTenantStatus';
 import SubmitBtn from './button';
 import { enterForm, tel, line, infoTitle, progressBar, country, code, upload, } from './style.css';

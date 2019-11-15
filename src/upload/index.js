@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Icon from '../../icon';
+import Icon from '../icon';
 import {
   upload_page, appImg, appValidate, edit, titlp_lab,
   hidden_form, icon, form_btnFile, ie9_form,

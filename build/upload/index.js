@@ -8,23 +8,23 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _icon2 = require('../../icon');
+var _icon2 = require('../icon');
 
 var _icon3 = _interopRequireDefault(_icon2);
 
 require('./style.css');
 
 var _style = {
-  'upload_page': 'upload_page__style___zYQWv',
-  'uploadImg': 'uploadImg__style___BN5PM',
-  'appImg': 'appImg__style___45bj3',
-  'appValidate': 'appValidate__style___1Ukr7',
-  'edit': 'edit__style___1G3e-',
-  'titlp_lab': 'titlp_lab__style___39ui_',
-  'form_btnFile': 'form_btnFile__style___TCnEm',
-  'ie9_form': 'ie9_form__style___IpeSX',
-  'hidden_form': 'hidden_form__style___3RZCb',
-  'icon': 'icon__style___2YinQ'
+  'upload_page': 'upload_page__style___3QZds',
+  'uploadImg': 'uploadImg__style___3TvPm',
+  'appImg': 'appImg__style___34-l0',
+  'appValidate': 'appValidate__style___8SLYM',
+  'edit': 'edit__style___1zXjF',
+  'titlp_lab': 'titlp_lab__style___2Z3IF',
+  'form_btnFile': 'form_btnFile__style___1RFX7',
+  'ie9_form': 'ie9_form__style___23fPC',
+  'hidden_form': 'hidden_form__style___39F9z',
+  'icon': 'icon__style___tdjiQ'
 };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

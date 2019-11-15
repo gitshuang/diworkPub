@@ -44,7 +44,7 @@ var _progress = require('../progress');
 
 var _progress2 = _interopRequireDefault(_progress);
 
-var _upload = require('./upload');
+var _upload = require('../upload');
 
 var _upload2 = _interopRequireDefault(_upload);
 
