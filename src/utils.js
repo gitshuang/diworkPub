@@ -208,11 +208,11 @@ export const getHost = (key = 'api') => {
       pre: 'https://cdn.yonyoucloud.com/pro/diwork',
     },
     help: {
-      production: '',
+      production: 'https://helpcenter-yonsuite.diwork.com',
       development: 'http://helpcenter-fe.test.app.yyuap.com',
-      daily: 'http://helpcenter-fe.test.app.yyuap.com',
-      combine: 'http://helpcenter-fe.test.app.yyuap.com',
-      pre: '',
+      daily: 'https://helpcenter-daily.yyuap.com',
+      combine: 'https://helpcenter-daily.yyuap.com',
+      pre: 'https://helpcenter-y3me-pre.diwork.com',
     }
     // 门户个人信息
     // info: {
