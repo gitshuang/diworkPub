@@ -1,11 +1,6 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import Icon from '../../icon';
-import {
-  loading_modal,
-  loading_body, loading_icon, loading_content,
-
-} from './style.css';
+import { loading_modal, loading_body, loading_icon, loading_content, } from './style.css';
 
 function Loading(props) {
   const { text } = props;
