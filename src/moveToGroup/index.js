@@ -241,7 +241,14 @@ class MoveToGroup extends Component {
           {
             onAddGroup ? (
               <div>
-                <Button style={{ float: 'left', position: 'relative',paddingLeft:16}} 
+                <Button style={
+                  { float: 'left',
+                   position: 'relative',
+                   paddingLeft:16,
+                   maxWidth: 103,
+                   whiteSpace: 'nowrap',
+                   textOverflow: 'ellipsis',
+                  }} 
                 onClick={this.addGroup} disabled={inAddGroup}>
                   <svg className={icon} aria-hidden="true">
                     <use xlinkHref="#icon-xinzeng"></use>

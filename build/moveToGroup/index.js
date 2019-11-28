@@ -318,7 +318,13 @@ var MoveToGroup = (_temp = _class = function (_Component) {
           null,
           _react2["default"].createElement(
             _button2["default"],
-            { style: { "float": 'left', position: 'relative', paddingLeft: 16 },
+            { style: { "float": 'left',
+                position: 'relative',
+                paddingLeft: 16,
+                maxWidth: 103,
+                whiteSpace: 'nowrap',
+                textOverflow: 'ellipsis'
+              },
               onClick: this.addGroup, disabled: inAddGroup },
             _react2["default"].createElement(
               'svg',
