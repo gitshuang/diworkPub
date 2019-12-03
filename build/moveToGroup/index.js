@@ -331,7 +331,11 @@ var MoveToGroup = (_temp = _class = function (_Component) {
               { className: _style.icon, 'aria-hidden': 'true' },
               _react2["default"].createElement('use', { xlinkHref: '#icon-xinzeng' })
             ),
-            languagesJSON.addGroup
+            _react2["default"].createElement(
+              'span',
+              { title: languagesJSON.addGroup },
+              languagesJSON.addGroup
+            )
           )
         ) : null,
         _react2["default"].createElement(

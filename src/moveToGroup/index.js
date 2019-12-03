@@ -253,7 +253,7 @@ class MoveToGroup extends Component {
                   <svg className={icon} aria-hidden="true">
                     <use xlinkHref="#icon-xinzeng"></use>
                   </svg>
-                  {languagesJSON.addGroup}
+                  <span title={languagesJSON.addGroup}>{languagesJSON.addGroup}</span>
                 </Button>
               </div>
             ) : null

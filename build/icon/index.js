@@ -318,7 +318,8 @@ var fonts = {
   'icon-time': 'icon-time__iconfont___1Ll2R',
   'icon-shuzhankai': 'icon-shuzhankai__iconfont___27lXV',
   'icon-shushouqi': 'icon-shushouqi__iconfont___2eZjD',
-  'icon-bangzhu': 'icon-bangzhu__iconfont___Lxjdl'
+  'icon-bangzhu': 'icon-bangzhu__iconfont___Lxjdl',
+  'icon-riqi': 'icon-riqi__iconfont___1pS3V'
 }; // iconfont字体
 
 var propTypes = {
