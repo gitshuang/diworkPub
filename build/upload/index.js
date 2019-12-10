@@ -8,9 +8,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _icon2 = require('../icon');
+var _icon = require('../icon');
 
-var _icon3 = _interopRequireDefault(_icon2);
+var _icon2 = _interopRequireDefault(_icon);
 
 require('./style.css');
 
@@ -70,16 +70,8 @@ var UploadPage = function (_Component) {
           imgWarning: false
         });
       }
-      //todu 
-      if (navigator.userAgent.indexOf("MSIE 9.0") > 0) {
-        var formVal = document.getElementById('upload-form');
-        formVal.submit();
-        window.attachEvent ? document.getElementById('frameUpload').attachEvent('onload', _this.handleOnLoad) : document.getElementById('frameUpload').addEventListener('load', _this.handleOnLoad);
-        return true; //后面的不再执行了  
-      }
 
       var obj = _this.refs.file.files[0];
-      var imgUrl = window.URL.createObjectURL(obj);
       var from = new FormData();
       from.append('file', obj);
       _this.props.uploadApplication(from).then(function (_ref) {
@@ -94,61 +86,6 @@ var UploadPage = function (_Component) {
       }, function (e) {
         console.log(e);
       });
-    };
-
-    _this.handleOnLoad = function () {
-      var frame = document.getElementById('frameUpload');
-      var resp = {};
-      var content = frame.contentWindow ? frame.contentWindow.document.body : frame.contentDocument.document.body;
-      if (!content) throw new Error('Your browser does not support async upload');
-      resp.responseText = content.innerHTML || 'null innerHTML';
-      resp.json = JSON.parse(resp.responseText) || eval('(' + resp.responseText + ')');
-      var dataBack = resp.json || resp.responseText;
-      if (dataBack) {
-        _this.props.onChange(dataBack.data.url);
-        _this.setState({
-          applicationIcon: dataBack.data.url
-        });
-      }
-    };
-
-    _this.getIe9Html = function () {
-      var _this$state = _this.state,
-          applicationIcon = _this$state.applicationIcon,
-          imgWarning = _this$state.imgWarning;
-
-      var _icon = applicationIcon != '' ? 'ie9_cont' : 'ie9_form_cont';
-      if (navigator.userAgent.indexOf("MSIE 9.0") > 0) {
-        return _react2["default"].createElement(
-          'div',
-          { className: _style.ie9_form + ' ' + _icon },
-          _react2["default"].createElement(
-            'div',
-            { className: '' + _style.hidden_form },
-            _react2["default"].createElement(
-              'form',
-              { id: 'upload-form', name: 'myform', action: '/manager/file/upload/oss/workbench-image-path-applicationIcon', method: 'post',
-                target: 'frameUpload', acceptCharset: 'utf-8', encType: 'multipart/form-data' },
-              _react2["default"].createElement('input', { id: 'btn_file', className: _style.form_btnFile, type: 'file', name: 'file', accept: 'image/x-png,image/gif,image/jpeg,image/bmp', onChange: function onChange(e) {
-                  return _this.imgChange(e);
-                } })
-            ),
-            _react2["default"].createElement('iframe', { id: 'frameUpload', name: 'frameUpload', style: { 'width': 0, 'height': 0, 'opacity': 0 } })
-          ),
-          _react2["default"].createElement(_icon3["default"], { type: 'copyreader', className: _style.icon })
-        );
-      } else {
-        return _react2["default"].createElement(
-          'div',
-          null,
-          _react2["default"].createElement('input', { type: 'file', ref: 'file', accept: 'image/x-png,image/gif,image/jpeg,image/bmp', onChange: _this.imgChange, style: { display: "none" } }),
-          _react2["default"].createElement(
-            'div',
-            { className: _style.edit, onClick: _this.uploadImage },
-            _react2["default"].createElement(_icon3["default"], { type: 'copyreader' })
-          )
-        );
-      }
     };
 
     _this.state = {
@@ -180,7 +117,16 @@ var UploadPage = function (_Component) {
         { className: _style.appValidate },
         imgWarning
       ) : null,
-      this.getIe9Html(),
+      _react2["default"].createElement(
+        'div',
+        null,
+        _react2["default"].createElement('input', { type: 'file', ref: 'file', accept: 'image/x-png,image/gif,image/jpeg,image/bmp', onChange: this.imgChange, style: { display: "none" } }),
+        _react2["default"].createElement(
+          'div',
+          { className: _style.edit, onClick: this.uploadImage },
+          _react2["default"].createElement(_icon2["default"], { type: 'copyreader' })
+        )
+      ),
       this.props.tip ? _react2["default"].createElement(
         'span',
         { className: _style.titlp_lab },
