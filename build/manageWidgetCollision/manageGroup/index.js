@@ -51,7 +51,7 @@ var _reactDom = require('react-dom');
 
 var _reactRedux = require('react-redux');
 
-var _util = require('../core/util');
+var _utils3 = require('../../utils.js');
 
 var _action = require('../core/action');
 
@@ -173,7 +173,7 @@ var itemTarget = {
   }
 };
 
-var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('manageList', 'layout', 'defaultLayout', 'currEditonlyId', 'selectList', {
+var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)('manageList', 'layout', 'defaultLayout', 'currEditonlyId', 'selectList', {
   namespace: 'managewidget'
 }), {
   dropSideCards: dropSideCards,
@@ -245,8 +245,7 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('m
         var _props2 = _this2.props,
             checkFun = _props2.checkFun,
             currEditonlyId = _props2.currEditonlyId;
-
-        checkFun(currEditonlyId + "_btn");
+        //checkFun(currEditonlyId + "_btn");
       }, 0);
     } else {
       this.setState({

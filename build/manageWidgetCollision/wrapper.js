@@ -52,7 +52,7 @@ var _action = require('./core/action');
 
 var _action2 = _interopRequireDefault(_action);
 
-var _util = require('./core/util');
+var _utils = require('../utils.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -69,7 +69,7 @@ var returnDefaultState = _action2["default"].returnDefaultState,
     emptySelectGroup = _action2["default"].emptySelectGroup,
     setEditState = _action2["default"].setEditState,
     moveGroup = _action2["default"].moveGroup;
-var Wrapper = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('manageList', 'isEdit', {
+var Wrapper = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('manageList', 'isEdit', {
   namespace: 'managewidget'
 }), {
   returnDefaultState: returnDefaultState,

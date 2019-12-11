@@ -12,7 +12,7 @@ import store from './core/index'
 
 import manageActions from './core/action';
 const { returnDefaultState,updateGroupList,emptySelectGroup,setEditState,moveGroup } = manageActions;
-import { mapStateToProps } from './core/util';
+import { mapStateToProps } from 'utils';
 
 
 @connect(

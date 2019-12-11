@@ -36,7 +36,7 @@ var _action = require('./core/action');
 
 var _action2 = _interopRequireDefault(_action);
 
-var _util = require('./core/util');
+var _utils = require('../utils.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -56,7 +56,7 @@ var returnDefaultState = _action2["default"].returnDefaultState,
 
 //import rootActions from 'store/root/actions';
 //const { requestStart, requestSuccess, requestError } = rootActions;
-var PopDialogComp = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('manageList', 'isEdit', {
+var PopDialogComp = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('manageList', 'isEdit', {
   namespace: 'managewidget'
 }), {
   returnDefaultState: returnDefaultState,

@@ -11,7 +11,7 @@ import Icon from "../../icon";
 import CardsList from './cardList';
 
 import { connect } from 'react-redux';
-import { mapStateToProps } from '../core/util';
+import { mapStateToProps } from 'utils';
 
 @connect(
     mapStateToProps(
