@@ -51,7 +51,7 @@ var _reactDom = require('react-dom');
 
 var _reactRedux = require('react-redux');
 
-var _utils3 = require('utils');
+var _utils3 = require('../../utils.js');
 
 var _action = require('../core/action');
 
