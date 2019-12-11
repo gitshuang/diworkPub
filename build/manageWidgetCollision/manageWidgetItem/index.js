@@ -62,7 +62,7 @@ var _icon2 = _interopRequireDefault(_icon);
 
 var _reactRedux = require('react-redux');
 
-var _utils2 = require('../../utils.js');
+var _utils2 = require('utils');
 
 var _action = require('../core/action');
 

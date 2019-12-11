@@ -58,7 +58,7 @@ var _style = {
 
 var _reactRedux = require('react-redux');
 
-var _utils3 = require('../utils.js');
+var _utils3 = require('utils');
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
 

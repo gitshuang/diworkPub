@@ -52,7 +52,7 @@ var _action = require('./core/action');
 
 var _action2 = _interopRequireDefault(_action);
 
-var _utils = require('../utils.js');
+var _utils = require('utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 

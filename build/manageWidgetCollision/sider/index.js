@@ -56,7 +56,7 @@ var _cardList2 = _interopRequireDefault(_cardList);
 
 var _reactRedux = require('react-redux');
 
-var _utils = require('../../utils.js');
+var _utils = require('utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 

@@ -262,6 +262,7 @@ var getHost = exports.getHost = function getHost() {
       combine: 'https://cdn.yonyoucloud.com/pro/diwork',
       pre: 'https://cdn.yonyoucloud.com/pro/diwork'
     },
+    // 帮助中心
     help: {
       production: 'https://helpcenter-yonsuite.diwork.com',
       development: 'http://helpcenter-fe.test.app.yyuap.com',
