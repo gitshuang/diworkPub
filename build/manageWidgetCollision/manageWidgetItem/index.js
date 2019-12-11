@@ -62,7 +62,7 @@ var _icon2 = _interopRequireDefault(_icon);
 
 var _reactRedux = require('react-redux');
 
-var _util = require('../core/util');
+var _utils2 = require('../../utils.js');
 
 var _action = require('../core/action');
 
@@ -108,7 +108,7 @@ var noteSource = {
 };
 
 //卡片组件类
-var Item = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)("manageList", "shadowCard", "layout", {
+var Item = (_dec = (0, _reactRedux.connect)((0, _utils2.mapStateToProps)("manageList", "shadowCard", "layout", {
 	namespace: 'managewidget'
 }), {
 	updateShadowCard: updateShadowCard,

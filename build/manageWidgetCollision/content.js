@@ -58,7 +58,7 @@ var _style = {
 
 var _reactRedux = require('react-redux');
 
-var _util = require('./core/util');
+var _utils3 = require('../utils.js');
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj["default"] = obj; return newObj; } }
 
@@ -77,7 +77,7 @@ var updateShadowCard = _action2["default"].updateShadowCard,
     updateGroupList = _action2["default"].updateGroupList,
     updateLayout = _action2["default"].updateLayout,
     getManageList = _action2["default"].getManageList;
-var Content = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)("manageList", "shadowCard", "layout", "defaultLayout", 'selectGroup', 'dragState', {
+var Content = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)("manageList", "shadowCard", "layout", "defaultLayout", 'selectGroup', 'dragState', {
   namespace: 'managewidget'
 }), {
   updateShadowCard: updateShadowCard,

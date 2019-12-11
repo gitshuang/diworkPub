@@ -55,6 +55,7 @@ var babelPlugins = [
     "module-alias",
     makeAlias({
       "./src/bee": "bee",
+      "./src/utils.js":'utils'
     })
   ]
 ];

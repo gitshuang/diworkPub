@@ -14,7 +14,7 @@ import * as utilService from '../utils';
 import { findDOMNode } from 'react-dom';
 
 import { connect } from 'react-redux';
-import { mapStateToProps } from '../core/util';
+import { mapStateToProps } from 'utils';
 import manageActions from '../core/action';
 const { dropSideCards, dropSideCardsInGroup,setEditonlyId,moveBottomGroup,
   moveTopGroup,delectGroup,addGroup,renameGroup,selectGroupActions,selectListActions,setDragInputState } = manageActions;
@@ -181,7 +181,7 @@ export default class ManageGroup extends GroupItem {
         this.groupName.select();
 
         const { checkFun, currEditonlyId } = this.props;
-        checkFun(currEditonlyId + "_btn");
+        //checkFun(currEditonlyId + "_btn");
       }, 0);
     } else {
       this.setState({

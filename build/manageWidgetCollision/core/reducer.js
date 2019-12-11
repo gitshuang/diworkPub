@@ -14,7 +14,7 @@ var _action = require('./action');
 
 var _action2 = _interopRequireDefault(_action);
 
-var _util = require('./util');
+var _utils = require('../../utils.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -365,7 +365,7 @@ var reducer = (0, _reduxActions.handleActions)((_handleActions = {}, _defineProp
 
   var manageList = state.manageList;
   var newGroup = _extends({}, defaultGroup, {
-    widgetId: widgetId || (0, _util.guid)(),
+    widgetId: widgetId || (0, _utils.guid)(),
     widgetName: widgetName,
     children: []
   });

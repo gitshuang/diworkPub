@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
 import actions from './action';
-import { guid } from './util'
+import { guid } from 'utils'
 
 const {
   updateShadowCard,

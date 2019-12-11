@@ -10,7 +10,7 @@ import { IS_IE } from '../utils';
 
 
 import { connect } from 'react-redux';
-import { mapStateToProps } from '../core/util';
+import { mapStateToProps } from 'utils';
 import manageActions from '../core/action';
 const { updateShadowCard, updateGroupList } = manageActions;
 

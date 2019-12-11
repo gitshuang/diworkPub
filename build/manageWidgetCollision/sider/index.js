@@ -56,7 +56,7 @@ var _cardList2 = _interopRequireDefault(_cardList);
 
 var _reactRedux = require('react-redux');
 
-var _util = require('../core/util');
+var _utils = require('../../utils.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -73,7 +73,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var changeSiderState = _action2["default"].changeSiderState,
     getAllMenuList = _action2["default"].getAllMenuList,
     updateCheckedCardList = _action2["default"].updateCheckedCardList;
-var MySider = (_dec = (0, _reactRedux.connect)((0, _util.mapStateToProps)('isSiderDisplay', 'manageList', 'allMenuList', 'checkedCardList', {
+var MySider = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('isSiderDisplay', 'manageList', 'allMenuList', 'checkedCardList', {
     namespace: 'managewidget'
 }), {
     getAllMenuList: getAllMenuList,

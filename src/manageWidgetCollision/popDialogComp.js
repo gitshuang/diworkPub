@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import manageActions from './core/action';
 const { returnDefaultState,updateGroupList,setManageList,emptySelectGroup } = manageActions;
-import { mapStateToProps } from './core/util';
+import { mapStateToProps } from 'utils';
 
 //import rootActions from 'store/root/actions';
 //const { requestStart, requestSuccess, requestError } = rootActions;
