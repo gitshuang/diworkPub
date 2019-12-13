@@ -58,7 +58,7 @@
 }
 .um_footer__style___D4ujK{
 	width:100%;
-	position:fixed;
+	position: absolute;
 	bottom: 0;
 }
 /* :global(.cancelModal button){
