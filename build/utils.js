@@ -148,127 +148,123 @@ var getHost = exports.getHost = function getHost() {
 
   var hosts = {
     api: {
-      production: process.env.HOST || '',
       development: process.env.HOST || '',
       daily: process.env.HOST || '',
-      integrate: process.env.HOST || '',
       combine: process.env.HOST || '',
-      pre: process.env.HOST || ''
+      pre: process.env.HOST || '',
+      production: process.env.HOST || ''
     },
     workbench: {
-      production: 'https://www.diwork.com',
       development: 'http://workbench.yyuap.com',
       daily: 'https://workbench-daily.yyuap.com',
-      integrate: 'https://y3me-daily.yyuap.com',
       combine: 'https://u8c-daily.yyuap.com',
-      pre: 'https://yonsuite-pre.diwork.com'
+      pre: 'https://yonsuite-pre.diwork.com',
+      production: 'https://www.diwork.com'
     },
     portal: {
-      production: 'https://ec.diwork.com',
       development: 'http://web.yyuap.com:91',
       daily: 'https://ec-daily.yyuap.com',
-      integrate: 'https://ec-daily.yyuap.com',
       combine: 'https://ec-u8c-daily.yyuap.com',
-      pre: 'https://ec-yonsuite-pre.diwork.com'
+      pre: 'https://ec-yonsuite-pre.diwork.com',
+      production: 'https://ec.diwork.com'
     },
     // 门户地址
     yzone: {
-      production: 'https://ec.diwork.com/portal/home/index',
       development: 'http://web.yyuap.com:91/portal/home/index',
       daily: 'https://ec-daily.yyuap.com/portal/home/index',
-      integrate: 'https://ec-yonsuite-pre.yyuap.com/',
       combine: 'https://u8c-daily.yyuap.com/portal_index',
-      pre: 'https://yonsuite-pre.diwork.com/portal_index'
+      pre: 'https://yonsuite-pre.diwork.com/portal_index',
+      production: 'https://ec.diwork.com/portal/home/index'
     },
     // 门户请求地址
     u8cportal: {
-      production: 'https://dwweb-api.diwork.com',
       development: 'http://dwweb.api.yyuap.com:6062',
       daily: 'https://dwweb-api.yyuap.com',
-      integrate: 'https://dwweb-api.yyuap.com',
       combine: 'https://dwweb-api-u8c-daily.yyuap.com',
-      pre: "https://y3me-pre.diwork.com/portal_index"
+      pre: "https://y3me-pre.diwork.com/portal_index",
+      production: 'https://dwweb-api.diwork.com'
     },
 
     // 帐号 登录
     login: {
-      production: 'https://euc.diwork.com',
       development: 'https://idtest.yyuap.com',
       daily: "https://sso-daily.yyuap.com",
-      integrate: "https://sso-daily.yyuap.com",
       combine: "https://u8c-sso-daily.yyuap.com",
-      pre: 'https://sso-y3me-pre.diwork.com'
+      pre: 'https://sso-y3me-pre.diwork.com',
+      production: 'https://euc.diwork.com'
     },
     // 帐号管理、注册
     euc: {
-      production: 'https://euc.diwork.com',
       development: 'https://idtest.yyuap.com',
       daily: "https://user-daily.yyuap.com",
-      integrate: "https://user-daily.yyuap.com",
       combine: "https://u8c-user-daily.yyuap.com",
-      pre: 'https://user-y3me-pre.diwork.com'
+      pre: 'https://user-y3me-pre.diwork.com',
+      production: 'https://euc.diwork.com'
     },
     // 员工信息
     user: {
-      production: 'https://hr.diwork.com',
       development: 'http://hrcloud.yyuap.com',
       daily: 'https://hr-daily.yyuap.com',
-      integrate: 'https://hr-daily.yyuap.com',
       combine: 'https://hr-u8c-daily.yyuap.com',
-      pre: ''
+      pre: '',
+      production: 'https://hr.diwork.com'
     },
     // 应用市场
     market: {
-      production: 'https://market.yonyoucloud.com',
       development: 'https://uastest.yyuap.com',
       daily: 'https://market-daily.yyuap.com',
-      integrate: 'https://market-daily.yyuap.com',
       combine: 'https://u8cmaket-daily.yyuap.com',
-      pre: 'https://market-pre.diwork.com'
+      pre: 'https://market-pre.diwork.com',
+      production: 'https://market.yonyoucloud.com'
     },
     // 荣耀    2
     honor: {
-      production: '//wsbs.diwork.com',
       development: '//wsbs.app.yyuap.com',
       daily: '//wsbs-daily.yyuap.com',
-      integrate: '//wsbs-daily.yyuap.com',
       combine: '//wsbs-daily.yyuap.com',
-      pre: ''
+      pre: '',
+      production: '//wsbs.diwork.com'
     },
     // 工单  
     ticket: {
-      production: 'https://wo.diwork.com',
       development: 'http://ticket-v2.dev.app.yyuap.com',
       daily: 'http://ticket-v2.dev.app.yyuap.com',
-      integrate: 'http://ticket-v2.dev.app.yyuap.com',
       combine: 'http://ticket-v2.dev.app.yyuap.com',
-      pre: 'http://ticket-v2.dev.app.yyuap.com'
+      pre: 'http://ticket-v2.dev.app.yyuap.com',
+      production: 'https://wo.diwork.com'
     },
     // 参照
     ref: {
-      production: 'https://ms.diwork.com',
       development: 'http://workbench.yyuap.com',
       daily: 'https://ms-daily.yyuap.com',
-      integrate: 'https://ms-y3me-daily.yyuap.com',
       combine: 'https://u8cms-daily.yyuap.com',
-      pre: 'https://ms-y3me-pre.diwork.com'
+      pre: 'https://ms-y3me-pre.diwork.com',
+      production: 'https://ms.diwork.com'
     },
     // 参照组织
     org: {
-      production: 'https://cdn.yonyoucloud.com/pro/diwork',
       development: 'http://workbenchdev.yyuap.com/fe',
       daily: 'https://cdn.yonyoucloud.com/pro/diwork',
       integrate: 'https://cdn.yonyoucloud.com/pro/diwork',
       combine: 'https://cdn.yonyoucloud.com/pro/diwork',
-      pre: 'https://cdn.yonyoucloud.com/pro/diwork'
+      pre: 'https://cdn.yonyoucloud.com/pro/diwork',
+      production: 'https://cdn.yonyoucloud.com/pro/diwork'
     },
     // 帮助中心
     help: {
-      production: 'https://helpcenter-yonsuite.diwork.com',
       development: 'http://helpcenter-fe.test.app.yyuap.com',
       daily: 'https://helpcenter-daily.yyuap.com',
       combine: 'https://helpcenter-daily.yyuap.com',
-      pre: 'https://helpcenter-y3me-pre.diwork.com'
+      pre: 'https://helpcenter-y3me-pre.diwork.com',
+      production: 'https://helpcenter-yonsuite.diwork.com'
+    },
+    // 我的首选 - 友互通语言设置
+    lang: {
+      development: 'https://uastest.yyuap.com',
+      daily: 'https://u8c-apptenant-daily.yyuap.com',
+      combine: 'https://u8c-apptenant-daily.yyuap.com',
+      pre: '',
+      production: ''
       // 门户个人信息
       // info: {
       //   production: 'https://ec.diwork.com/static/home.html#/myspeech/personInfo?target=pc',
