@@ -304,7 +304,8 @@ var EnterContent = (_temp = _class = function (_Component) {
         buttonText = _props2.buttonText,
         _from = _props2._from,
         loadingDesc = _props2.loadingDesc,
-        texts = _props2.texts;
+        texts = _props2.texts,
+        lang = _props2.lang;
     var _props$form = this.props.form,
         getFieldProps = _props$form.getFieldProps,
         getFieldError = _props$form.getFieldError;
@@ -484,7 +485,8 @@ var EnterContent = (_temp = _class = function (_Component) {
         _react2["default"].createElement(_citySelect2["default"], {
           name: 'address',
           onChange: this.onCityChange,
-          defaultValue: address
+          defaultValue: address,
+          lang: lang
           // value={address}
         })
       ) : null,

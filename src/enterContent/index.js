@@ -231,7 +231,7 @@ class EnterContent extends Component {
   }
 
   render() {
-    const { buttonText, _from, loadingDesc, texts } = this.props;
+    const { buttonText, _from, loadingDesc, texts, lang } = this.props;
     const { getFieldProps, getFieldError } = this.props.form;
     const _this = this;
     const {
@@ -336,6 +336,7 @@ class EnterContent extends Component {
                 name="address"
                 onChange={this.onCityChange}
                 defaultValue={address}
+                lang={lang}
               // value={address}
               />
             </FormItem>
