@@ -878,7 +878,8 @@ var EnterContent = (_temp = _class = function (_Component) {
   _from: _propTypes2["default"].string,
   buttonText: _propTypes2["default"].string,
   uploadApplication: _propTypes2["default"].func,
-  loadingDesc: _propTypes2["default"].string
+  loadingDesc: _propTypes2["default"].string,
+  lang: _propTypes2["default"].string
 }, _class.defaultProps = {
   userInfo: {}, // 用户信息
   data: {}, // data ， 企业信息，新建为空
@@ -886,7 +887,8 @@ var EnterContent = (_temp = _class = function (_Component) {
   _from: '', // 来源，（新建，设置，升级）
   buttonText: '', // 按钮显示文字
   uploadApplication: function uploadApplication() {}, // 上传事件
-  loadingDesc: '' // 滚动条 文字提示
+  loadingDesc: '', // 滚动条 文字提示
+  lang: 'zh_CN'
 }, _temp);
 exports["default"] = _form2["default"].createForm()(EnterContent);
 module.exports = exports['default'];

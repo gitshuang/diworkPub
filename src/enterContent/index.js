@@ -28,6 +28,7 @@ class EnterContent extends Component {
     buttonText: PropTypes.string,
     uploadApplication: PropTypes.func,
     loadingDesc: PropTypes.string,
+    lang: PropTypes.string,
   };
   static defaultProps = {
     userInfo: {},                 // 用户信息
@@ -37,6 +38,7 @@ class EnterContent extends Component {
     buttonText: '',               // 按钮显示文字
     uploadApplication: () => { },          // 上传事件
     loadingDesc: '',              // 滚动条 文字提示
+    lang: 'zh_CN',
   };
   constructor(props) {
     super(props);
