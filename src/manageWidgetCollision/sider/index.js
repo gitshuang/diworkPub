@@ -100,7 +100,7 @@ export default class MySider extends Component {
     }
 
     renderService = () => {
-        const { checkedCardList } = this.props;
+        const { checkedCardList,languagesJSON } = this.props;
         const { cardsList, canShowEmptyDom,ifSearchState } = this.state;
         let dom = '';
         dom = cardsList.map((a, b) => {
@@ -123,7 +123,7 @@ export default class MySider extends Component {
                 onChangeChecked={this.onChangeChecked} />
         })
         if (!dom.length && canShowEmptyDom) {
-            dom = <div className='emptyDom'>暂无结果</div>
+        dom = <div className='emptyDom'>{languagesJSON.noData}</div>
         }
         return dom
     }
@@ -260,11 +260,11 @@ export default class MySider extends Component {
                                                 <input className={selectService}
                                                     onKeyUp={this.searchService}
                                                     key="clickSearch"
-                                                    placeholder="输入服务名称"
+                                                    placeholder={languagesJSON.inputServiceName}
                                                     className="searchInput"
                                                 />
 
-                                                <span onClick={this.switchFetchFn} className="option">取消</span>
+                                        <span onClick={this.switchFetchFn} className="option">{languagesJSON.cancel}</span>
                                             </div> : <div className={selectServiceArea}>
                                                 <input className={selectService}
                                                     // onFocus={() => { this.setState({ isMenuListShow: true }) }}

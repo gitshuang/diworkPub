@@ -172,12 +172,12 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('isSi
                                 _react2["default"].createElement('input', _defineProperty({ className: _style.selectService,
                                     onKeyUp: this.searchService,
                                     key: 'clickSearch',
-                                    placeholder: '\u8F93\u5165\u670D\u52A1\u540D\u79F0'
+                                    placeholder: languagesJSON.inputServiceName
                                 }, 'className', 'searchInput')),
                                 _react2["default"].createElement(
                                     'span',
                                     { onClick: this.switchFetchFn, className: 'option' },
-                                    '\u53D6\u6D88'
+                                    languagesJSON.cancel
                                 )
                             ) : _react2["default"].createElement(
                                 'div',
@@ -276,7 +276,9 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('isSi
     };
 
     this.renderService = function () {
-        var checkedCardList = _this4.props.checkedCardList;
+        var _props3 = _this4.props,
+            checkedCardList = _props3.checkedCardList,
+            languagesJSON = _props3.languagesJSON;
         var _state3 = _this4.state,
             cardsList = _state3.cardsList,
             canShowEmptyDom = _state3.canShowEmptyDom,
@@ -310,7 +312,7 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('isSi
             dom = _react2["default"].createElement(
                 'div',
                 { className: 'emptyDom' },
-                '\u6682\u65E0\u7ED3\u679C'
+                languagesJSON.noData
             );
         }
         return dom;
@@ -320,9 +322,9 @@ var MySider = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('isSi
         var cardsList = _this4.state.cardsList;
         //const newCardsList = JSON.parse(JSON.stringify(cardsList))
 
-        var _props3 = _this4.props,
-            checkedCardList = _props3.checkedCardList,
-            updateCheckedCardList = _props3.updateCheckedCardList;
+        var _props4 = _this4.props,
+            checkedCardList = _props4.checkedCardList,
+            updateCheckedCardList = _props4.updateCheckedCardList;
 
         var newCheckedCardList = JSON.parse(JSON.stringify(checkedCardList));
         if (checked) {

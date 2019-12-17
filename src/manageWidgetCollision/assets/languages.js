@@ -36,7 +36,9 @@ const manageWidget = {
 	more: '更多',
 	save_latest_or_not: '是否保存最新修改？',
 	noDataGroup: '无内容的分组在首页不可见',
-	notice: '拖动下方磁贴至右侧所需位置'
+	notice: '拖动下方磁贴至右侧所需位置',
+	inputServiceName:'输入服务名称',
+    noData:'暂无结果'	
 };
 
 export default {
