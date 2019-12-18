@@ -17,10 +17,6 @@ var _icon = require('pub-comp/icon');
 
 var _icon2 = _interopRequireDefault(_icon);
 
-var _button = require('../bee/button');
-
-var _button2 = _interopRequireDefault(_button);
-
 var _notification2 = require('../bee/notification');
 
 var _notification3 = _interopRequireDefault(_notification2);
@@ -109,7 +105,7 @@ var NotificationMess = function (_Component) {
       _this.notification.notice({
         content: _react2["default"].createElement(
           'div',
-          { className: '' + _index.page },
+          null,
           _react2["default"].createElement(
             'div',
             { className: _index._title },
@@ -137,6 +133,7 @@ var NotificationMess = function (_Component) {
 
     _this.notification = _notification3["default"].newInstance({
       position: 'topMiddle',
+      transitionName: "Fade",
       className: _this.getTypeNotifica() + " " + _index.notification_mess,
       style: props.style
     });

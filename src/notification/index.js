@@ -1,9 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Icon from 'pub-comp/icon';
-import Button from 'bee/button';
 import Notification from 'bee/notification';
-import {page,notification_mess,notification_cont,title_cont,warning_cont,success_cont,info_cont,error_cont,_title,_close,_tip} from "./index.css";
+import { notification_mess, notification_cont, title_cont, warning_cont, success_cont, info_cont, error_cont, _title, _close, _tip } from "./index.css";
 
 class NotificationMess extends Component {
 
@@ -21,14 +20,15 @@ class NotificationMess extends Component {
 
     this.notification = Notification.newInstance({
       position: 'topMiddle',
-      className:this.getTypeNotifica()+ " " + notification_mess,
-      style:props.style
+      transitionName: "Fade",
+      className: this.getTypeNotifica() + " " + notification_mess,
+      style: props.style
     });
   }
 
-  getTypeNotifica=()=>{
-    const {type} = this.props;
-    switch(type){
+  getTypeNotifica = () => {
+    const { type } = this.props;
+    switch (type) {
       case "warning":
         return warning_cont;
       case "success":
@@ -40,9 +40,9 @@ class NotificationMess extends Component {
     }
   }
 
-  getTypeIcon=()=>{
-    const {type} = this.props;
-    switch(type){
+  getTypeIcon = () => {
+    const { type } = this.props;
+    switch (type) {
       case "warning":
         return "notice";
       case "success":
@@ -54,24 +54,22 @@ class NotificationMess extends Component {
     }
   }
 
-  open=(options)=>{
+  open = (options) => {
     const { title, content, duration, closable } = this.props;
     const key = Date.now();
     const _closable = typeof closable === 'undefined' ? false : closable;
     this.notification.notice({
-      content:(<div className={`${page}` }>
+      content: (<div>
         <div className={_title}>
           <Icon className={_tip} type={this.getTypeIcon()} />
           <span className={title_cont}>{title}</span>
           {
-            _closable?
-            <Icon type="error3" className={_close} onClick={this.close(this, key)} />
-            :null
+            _closable ?
+              <Icon type="error3" className={_close} onClick={this.close(this, key)} />
+              : null
           }
         </div>
-        {content?<div className={notification_cont}>{content}</div>:null}
-        
-        {/* <Button onClick={this.close(this, key)} size="sm" style={{ position: 'absolute', right: 15, bottom: 15}}>知道了</Button> */}
+        {content ? <div className={notification_cont}>{content}</div> : null}
       </div>),
       key,
       duration: typeof duration === 'undefined' ? null : duration,
@@ -80,12 +78,12 @@ class NotificationMess extends Component {
   }
 
   close = () => {
-  
+
   }
 }
 
 let _notification;
-function openMess(options){
+function openMess(options) {
   _notification = null;//防止notification一个页面只能打开一种，其他被覆盖
   if (!_notification) {
     _notification = new NotificationMess(options);
