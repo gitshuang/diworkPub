@@ -74,6 +74,7 @@ class NotificationMess extends Component {
       key,
       duration: typeof duration === 'undefined' ? null : duration,
       closable: _closable,
+      onClose: () => { _notification = null; }
     });
   }
 
@@ -84,7 +85,7 @@ class NotificationMess extends Component {
 
 let _notification;
 function openMess(options) {
-  _notification = null;//防止notification一个页面只能打开一种，其他被覆盖
+  // _notification = null;//防止notification一个页面只能打开一种，其他被覆盖
   if (!_notification) {
     _notification = new NotificationMess(options);
   }

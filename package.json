@@ -5,8 +5,7 @@
   "author": "zhengxingcheng <xingcheng.zheng@gmail.com>",
   "private": true,
   "scripts": {
-    "build": "gulp build" 
-
+    "build": "gulp build"
   },
   "dependencies": {
     "bee-autocomplete": "1.0.1",
