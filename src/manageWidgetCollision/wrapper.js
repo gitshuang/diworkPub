@@ -166,7 +166,7 @@ class Wrapper extends Component {
       });
     }
   render() {
-   const {languagesJSON,isEdit,isFooterDisplay,roleEdit} = this.props;
+   const {languagesJSON,isEdit,isFooterDisplay,roleEdit,acInputLocal} = this.props;
     const {showModal,showCancelModal} = this.state;
     var popDialogProps = {
       save:this.save,
@@ -197,7 +197,11 @@ class Wrapper extends Component {
           {/* <BatchMove {...batchMoveRedux} languagesJSON={languagesJSON}/> */}
 
           <Sider languagesJSON={languagesJSON} menuList={this.props.menuList}/>
-          <Content languagesJSON={languagesJSON} groupList = {this.props.groupList} moveGroupDrag={this.moveGroupDrag} roleEdit={roleEdit}/>
+          <Content languagesJSON={languagesJSON} 
+          groupList = {this.props.groupList} 
+          moveGroupDrag={this.moveGroupDrag} 
+          roleEdit={roleEdit}
+          acInputLocal={acInputLocal}/>
           
           
           <PopDialogComp {...popDialogProps} languagesJSON={languagesJSON}/>

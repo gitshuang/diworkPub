@@ -206,12 +206,20 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
 
     var _this = _possibleConstructorReturn(this, _GroupItem.call(this, props));
 
+    _this.acInputOnchangeGroupName = function (localeValue, localeList) {
+      _this.setState({
+        groupNameMultiLang: localeList,
+        groupName: localeValue
+      });
+    };
+
     _this.state = {
       groupName: "",
       inFoucs: false,
       showModal: false,
       selectGroup: [],
-      selectList: []
+      selectList: [],
+      groupNameMultiLang: {} //角色首页,多语录入
     };
     return _this;
   }
@@ -326,11 +334,14 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
         cards = _props4.cards,
         id = _props4.id,
         layout = _props4.layout,
-        defaultLayout = _props4.defaultLayout;
+        defaultLayout = _props4.defaultLayout,
+        roleEdit = _props4.roleEdit,
+        acInputLocal = _props4.acInputLocal;
     var _state = this.state,
         inFoucs = _state.inFoucs,
         groupName = _state.groupName,
-        showModal = _state.showModal;
+        showModal = _state.showModal,
+        groupNameMultiLang = _state.groupNameMultiLang;
 
     var checkType = selectGroup.indexOf(index) > -1 ? true : false;
     var opacity = isDragging ? 0 : 1;
@@ -342,18 +353,28 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
         _react2["default"].createElement(
           'div',
           { className: _style.titleInputArea },
-          _react2["default"].createElement('input', {
+          roleEdit ? acInputLocal({
+            className: (inFoucs ? _style.newGroupName_focus : _style.newGroupName_blur) + ' ' + _style.newGroupName + ' input',
+            onChange: this.acInputOnchangeGroupName,
+            localeList: groupNameMultiLang,
+            inputId: "groupNameMultiLang",
+            placeholder: languagesJSON.groupName_max_words_four,
+            onFocus: this.handleFocus,
+            onBlur: this.handleBlur,
+            ref: function ref(_ref2) {
+              return _this3.groupName = _ref2;
+            }
+          }) : _react2["default"].createElement('input', {
             className: (inFoucs ? _style.newGroupName_focus : _style.newGroupName_blur) + ' ' + _style.newGroupName + ' input',
             value: groupName,
             maxLength: '4',
             autoFocus: 'autofocus',
             onChange: this.editGroupName,
             onFocus: this.handleFocus,
-            onBlur: this.handleBlur
-            // placeholder="分组名称,最多4个字符"
-            , placeholder: languagesJSON.groupName_max_words_four,
-            ref: function ref(_ref2) {
-              return _this3.groupName = _ref2;
+            onBlur: this.handleBlur,
+            placeholder: languagesJSON.groupName_max_words_four,
+            ref: function ref(_ref3) {
+              return _this3.groupName = _ref3;
             } })
         ),
         _react2["default"].createElement(

@@ -348,9 +348,8 @@ var GroupTitle = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)("m
               autoFocus: 'autofocus',
               onChange: _this.editGroupName,
               onFocus: _this.handleFocus,
-              onBlur: _this.handleBlur
-              // placeholder="分组名称,最多4个字符"
-              , placeholder: _languages2["default"].groupName_max_words_four,
+              onBlur: _this.handleBlur,
+              placeholder: _languages2["default"].groupName_max_words_four,
               ref: 'groupName' })
           ),
           _react2["default"].createElement(

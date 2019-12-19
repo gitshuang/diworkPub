@@ -155,6 +155,7 @@ export default class ManageGroup extends GroupItem {
       showModal: false,
       selectGroup: [],
       selectList: [],
+      groupNameMultiLang:{}//角色首页,多语录入
     }
   }
   componentWillMount() {
@@ -243,6 +244,12 @@ export default class ManageGroup extends GroupItem {
 	return itemDoms;
 }
 
+acInputOnchangeGroupName = (localeValue, localeList) => {
+  this.setState({
+    groupNameMultiLang: localeList,
+    groupName:localeValue
+  });
+}
   render() {
 
     var {
@@ -267,12 +274,15 @@ export default class ManageGroup extends GroupItem {
 			cards,
 			id,
 			layout,
-			defaultLayout
+      defaultLayout,
+      roleEdit,
+      acInputLocal
     } = this.props;
     const {
       inFoucs,
       groupName,
       showModal,
+      groupNameMultiLang
     } = this.state;
     const checkType = selectGroup.indexOf(index) > -1 ? true : false
     const opacity = isDragging ? 0 : 1;
@@ -281,17 +291,27 @@ export default class ManageGroup extends GroupItem {
       groupTitle = (
         <div className={widgetTitle} >
           <div className={titleInputArea}>
-            <input
-              className={`${inFoucs ? newGroupName_focus : newGroupName_blur} ${newGroupName} input`}
-              value={groupName}
-              maxLength="4"
-              autoFocus="autofocus"
-              onChange={this.editGroupName}
-              onFocus={this.handleFocus}
-              onBlur={this.handleBlur}
-              // placeholder="分组名称,最多4个字符"
-              placeholder={languagesJSON.groupName_max_words_four}
-              ref={ref=>this.groupName=ref} />
+          {roleEdit?acInputLocal({
+            className:`${inFoucs ? newGroupName_focus : newGroupName_blur} ${newGroupName} input`,
+            onChange:this.acInputOnchangeGroupName,
+            localeList:groupNameMultiLang,
+            inputId:"groupNameMultiLang" ,
+            placeholder:languagesJSON.groupName_max_words_four,
+            onFocus:this.handleFocus,
+            onBlur:this.handleBlur,
+            ref:ref=>this.groupName=ref
+          }):
+          <input
+          className={`${inFoucs ? newGroupName_focus : newGroupName_blur} ${newGroupName} input`}
+          value={groupName}
+          maxLength="4"
+          autoFocus="autofocus"
+          onChange={this.editGroupName}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+          placeholder={languagesJSON.groupName_max_words_four}
+          ref={ref=>this.groupName=ref} />}
+            
           </div>
           <ButtonCheckSelected id={`${widgetId}_btn`} className={`${btn} right`} onClick={() => { this.renameGroupFn(index) }}><Icon type="Determine"></Icon></ButtonCheckSelected>
           <ButtonCheckClose className={`${btn} error`} onClick={() => { this.renameGroupCancel(index) }}><Icon type="error3"></Icon></ButtonCheckClose>

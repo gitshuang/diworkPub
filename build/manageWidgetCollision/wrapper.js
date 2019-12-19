@@ -248,7 +248,8 @@ var Wrapper = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('mana
         languagesJSON = _props.languagesJSON,
         isEdit = _props.isEdit,
         isFooterDisplay = _props.isFooterDisplay,
-        roleEdit = _props.roleEdit;
+        roleEdit = _props.roleEdit,
+        acInputLocal = _props.acInputLocal;
     var _state = this.state,
         showModal = _state.showModal,
         showCancelModal = _state.showCancelModal;
@@ -282,7 +283,11 @@ var Wrapper = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('mana
             bottom: 0
           } },
         _react2["default"].createElement(_sider2["default"], { languagesJSON: languagesJSON, menuList: this.props.menuList }),
-        _react2["default"].createElement(_content2["default"], { languagesJSON: languagesJSON, groupList: this.props.groupList, moveGroupDrag: this.moveGroupDrag, roleEdit: roleEdit }),
+        _react2["default"].createElement(_content2["default"], { languagesJSON: languagesJSON,
+          groupList: this.props.groupList,
+          moveGroupDrag: this.moveGroupDrag,
+          roleEdit: roleEdit,
+          acInputLocal: acInputLocal }),
         _react2["default"].createElement(_popDialogComp2["default"], _extends({}, popDialogProps, { languagesJSON: languagesJSON })),
         _react2["default"].createElement(_customDragLayer2["default"], null)
       ),

@@ -291,7 +291,6 @@ export default class GroupTitle extends React.Component {
               onChange={this.editGroupName}
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
-              // placeholder="分组名称,最多4个字符"
               placeholder={languagesJSON.groupName_max_words_four}
               ref="groupName" />
           </div>

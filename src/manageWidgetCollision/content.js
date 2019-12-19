@@ -405,6 +405,8 @@ export default class Content extends Component{
             onCardDropInGroupItem = {this.onCardDropInGroupItem}
             onCardListDropInGroupItem = {this.onCardListDropInGroupItem}
             moveGroupItem={this.moveGroupItem}//移动分组
+            acInputLocal={this.props.acInputLocal}
+            roleEdit = {this.props.roleEdit}
             />
         )
       });
