@@ -126,8 +126,7 @@ var NotificationMess = function (_Component) {
           ) : null
         ),
         key: key,
-        // duration: typeof duration === 'undefined' ? null : duration,
-        duration: 1,
+        duration: typeof duration === 'undefined' ? 1 : duration,
         closable: _closable,
         onClose: function onClose() {
           _notification = null;

@@ -9,7 +9,6 @@
 
 .notification_mess :global(.u-notification-notice) {
   height: auto;
-  min-width: 200px;
   padding: 0 26px 0 14px;
 }
 

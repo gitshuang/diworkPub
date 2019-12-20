@@ -74,8 +74,7 @@ class NotificationMess extends Component {
         {content ? <div className={notification_cont}>{content}</div> : null}
       </div>),
       key,
-      // duration: typeof duration === 'undefined' ? null : duration,
-      duration: 1,
+      duration: typeof duration === 'undefined' ? 1 : duration,
       closable: _closable,
       onClose: () => { _notification = null; }
     });
