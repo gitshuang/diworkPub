@@ -46,6 +46,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
+var _notification = void 0;
+
 var NotificationMess = function (_Component) {
   _inherits(NotificationMess, _Component);
 
@@ -124,8 +126,12 @@ var NotificationMess = function (_Component) {
           ) : null
         ),
         key: key,
-        duration: typeof duration === 'undefined' ? null : duration,
-        closable: _closable
+        // duration: typeof duration === 'undefined' ? null : duration,
+        duration: 1,
+        closable: _closable,
+        onClose: function onClose() {
+          _notification = null;
+        }
       });
     };
 
@@ -143,7 +149,6 @@ var NotificationMess = function (_Component) {
   return NotificationMess;
 }(_react.Component);
 
-var _notification = void 0;
 function openMess(options) {
   // _notification = null;//防止notification一个页面只能打开一种，其他被覆盖
   if (!_notification) {

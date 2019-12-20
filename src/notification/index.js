@@ -4,6 +4,8 @@ import Icon from 'pub-comp/icon';
 import Notification from 'bee/notification';
 import { notification_mess, notification_cont, title_cont, warning_cont, success_cont, info_cont, error_cont, _title, _close, _tip } from "./index.css";
 
+
+let _notification;
 class NotificationMess extends Component {
 
   // static propTypes = {
@@ -72,7 +74,8 @@ class NotificationMess extends Component {
         {content ? <div className={notification_cont}>{content}</div> : null}
       </div>),
       key,
-      duration: typeof duration === 'undefined' ? null : duration,
+      // duration: typeof duration === 'undefined' ? null : duration,
+      duration: 1,
       closable: _closable,
       onClose: () => { _notification = null; }
     });
@@ -83,7 +86,7 @@ class NotificationMess extends Component {
   }
 }
 
-let _notification;
+
 function openMess(options) {
   // _notification = null;//防止notification一个页面只能打开一种，其他被覆盖
   if (!_notification) {
