@@ -26,10 +26,12 @@ class NotificationMess extends Component {
       className: this.getTypeNotifica() + " " + notification_mess,
       style: props.style
     });
+    this.key = 0;
   }
 
-  getTypeNotifica = () => {
-    const { type } = this.props;
+  getTypeNotifica = (type) => {
+    // const { type } = this.props;
+    type = type || this.props.type;
     switch (type) {
       case "warning":
         return warning_cont;
@@ -42,8 +44,9 @@ class NotificationMess extends Component {
     }
   }
 
-  getTypeIcon = () => {
-    const { type } = this.props;
+  getTypeIcon = (type) => {
+    // const { type } = this.props;
+    type = type || this.props.type;
     switch (type) {
       case "warning":
         return "notice";
@@ -57,13 +60,22 @@ class NotificationMess extends Component {
   }
 
   open = (options) => {
-    const { title, content, duration, closable } = this.props;
+    const { title, content, duration, closable, type } = options;
+    if (this.key) {
+      this.notification.destroy();
+      this.notification = Notification.newInstance({
+        position: 'topMiddle',
+        transitionName: "Fade",
+        className: this.getTypeNotifica(type) + " " + notification_mess,
+      });
+    }
     const key = Date.now();
+    this.key = key;
     const _closable = typeof closable === 'undefined' ? false : closable;
     this.notification.notice({
       content: (<div>
         <div className={_title}>
-          <Icon className={_tip} type={this.getTypeIcon()} />
+          <Icon className={_tip} type={this.getTypeIcon(type)} />
           <span className={title_cont}>{title}</span>
           {
             _closable ?
@@ -87,7 +99,6 @@ class NotificationMess extends Component {
 
 
 function openMess(options) {
-  // _notification = null;//防止notification一个页面只能打开一种，其他被覆盖
   if (!_notification) {
     _notification = new NotificationMess(options);
   }
@@ -99,15 +110,3 @@ export {
   openMess,
   close,
 };
-
-
-/**
-组件使用方式
-import NotificationMess,{openMess} from 'components/notification';
-type 类型[warning,success,info,error]
-openMess({
-  title:"234",
-  type:"error",
-  content:"你所提交的信息已经审核失败，可以进入个人信箱查看原因， 如有疑问，请联系客服人员。"
-});
-**/

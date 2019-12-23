@@ -65,9 +65,9 @@ var NotificationMess = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, _Component.call(this, props));
 
-    _this.getTypeNotifica = function () {
-      var type = _this.props.type;
-
+    _this.getTypeNotifica = function (type) {
+      // const { type } = this.props;
+      type = type || _this.props.type;
       switch (type) {
         case "warning":
           return _index.warning_cont;
@@ -80,9 +80,9 @@ var NotificationMess = function (_Component) {
       }
     };
 
-    _this.getTypeIcon = function () {
-      var type = _this.props.type;
-
+    _this.getTypeIcon = function (type) {
+      // const { type } = this.props;
+      type = type || _this.props.type;
       switch (type) {
         case "warning":
           return "notice";
@@ -96,13 +96,22 @@ var NotificationMess = function (_Component) {
     };
 
     _this.open = function (options) {
-      var _this$props = _this.props,
-          title = _this$props.title,
-          content = _this$props.content,
-          duration = _this$props.duration,
-          closable = _this$props.closable;
+      var title = options.title,
+          content = options.content,
+          duration = options.duration,
+          closable = options.closable,
+          type = options.type;
 
+      if (_this.key) {
+        _this.notification.destroy();
+        _this.notification = _notification3["default"].newInstance({
+          position: 'topMiddle',
+          transitionName: "Fade",
+          className: _this.getTypeNotifica(type) + " " + _index.notification_mess
+        });
+      }
       var key = Date.now();
+      _this.key = key;
       var _closable = typeof closable === 'undefined' ? false : closable;
       _this.notification.notice({
         content: _react2["default"].createElement(
@@ -111,7 +120,7 @@ var NotificationMess = function (_Component) {
           _react2["default"].createElement(
             'div',
             { className: _index._title },
-            _react2["default"].createElement(_icon2["default"], { className: _index._tip, type: _this.getTypeIcon() }),
+            _react2["default"].createElement(_icon2["default"], { className: _index._tip, type: _this.getTypeIcon(type) }),
             _react2["default"].createElement(
               'span',
               { className: _index.title_cont },
@@ -142,6 +151,7 @@ var NotificationMess = function (_Component) {
       className: _this.getTypeNotifica() + " " + _index.notification_mess,
       style: props.style
     });
+    _this.key = 0;
     return _this;
   }
 
@@ -149,7 +159,6 @@ var NotificationMess = function (_Component) {
 }(_react.Component);
 
 function openMess(options) {
-  // _notification = null;//防止notification一个页面只能打开一种，其他被覆盖
   if (!_notification) {
     _notification = new NotificationMess(options);
   }
@@ -159,14 +168,3 @@ function openMess(options) {
 exports["default"] = NotificationMess;
 exports.openMess = openMess;
 exports.close = close;
-
-/**
-组件使用方式
-import NotificationMess,{openMess} from 'components/notification';
-type 类型[warning,success,info,error]
-openMess({
-  title:"234",
-  type:"error",
-  content:"你所提交的信息已经审核失败，可以进入个人信箱查看原因， 如有疑问，请联系客服人员。"
-});
-**/
