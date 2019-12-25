@@ -9,11 +9,19 @@ import Dropdown from 'bee/dropdown';
 export default class GroupItem extends Component {
     // 打开编辑分组形态
   openRenameGroupFn = (id) => {
-    const { setEditonlyId } = this.props;
+    const { setEditonlyId,roleEdit } = this.props;
     setEditonlyId(id);
     setTimeout(() => {
-      this.groupName.focus();
-      this.groupName.select();
+      if(roleEdit){//应用在角色首页时
+          document.getElementById('widgetNameMultiLangText').focus()
+          document.getElementById('widgetNameMultiLangText').select()
+        //   document.getElementById('widgetNameMultiLangText').addEventListener('keydown',(e)=>{
+        //     if (e.target.value.length >= 4) e.preventDefault();
+        // })
+      }else{
+        this.groupName.focus();
+        this.groupName.select();
+      }
     }, 0);
     this.setState({
       inFoucs: false,

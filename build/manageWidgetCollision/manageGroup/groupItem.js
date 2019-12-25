@@ -48,20 +48,31 @@ var GroupItem = function (_Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.openRenameGroupFn = function (id) {
-      var setEditonlyId = _this.props.setEditonlyId;
+      var _this$props = _this.props,
+          setEditonlyId = _this$props.setEditonlyId,
+          roleEdit = _this$props.roleEdit;
 
       setEditonlyId(id);
       setTimeout(function () {
-        _this.groupName.focus();
-        _this.groupName.select();
+        if (roleEdit) {
+          //应用在角色首页时
+          document.getElementById('widgetNameMultiLangText').focus();
+          document.getElementById('widgetNameMultiLangText').select();
+          //   document.getElementById('widgetNameMultiLangText').addEventListener('keydown',(e)=>{
+          //     if (e.target.value.length >= 4) e.preventDefault();
+          // })
+        } else {
+          _this.groupName.focus();
+          _this.groupName.select();
+        }
       }, 0);
       _this.setState({
         inFoucs: false
       });
     }, _this.renameGroupCancel = function (index) {
-      var _this$props = _this.props,
-          renameGroup = _this$props.renameGroup,
-          setEditonlyId = _this$props.setEditonlyId;
+      var _this$props2 = _this.props,
+          renameGroup = _this$props2.renameGroup,
+          setEditonlyId = _this$props2.setEditonlyId;
       var groupName = _this.props.data.widgetName;
 
       var stateGroupName = _this.state.groupName;
@@ -79,10 +90,10 @@ var GroupItem = function (_Component) {
         inFoucs: false
       });
     }, _this.renameGroupFn = function (index) {
-      var _this$props2 = _this.props,
-          renameGroup = _this$props2.renameGroup,
-          manageList = _this$props2.manageList,
-          languagesJSON = _this$props2.languagesJSON;
+      var _this$props3 = _this.props,
+          renameGroup = _this$props3.renameGroup,
+          manageList = _this$props3.manageList,
+          languagesJSON = _this$props3.languagesJSON;
 
       var name = _this.state.groupName;
       if (name == manageList[index].widgetName) {
@@ -121,9 +132,9 @@ var GroupItem = function (_Component) {
       _this.setState({
         inFoucs: true
       });
-      var _this$props3 = _this.props,
-          setDragInputState = _this$props3.setDragInputState,
-          dragState = _this$props3.dragState;
+      var _this$props4 = _this.props,
+          setDragInputState = _this$props4.setDragInputState,
+          dragState = _this$props4.dragState;
 
       if (!dragState) return;
       setDragInputState(false);
@@ -131,19 +142,19 @@ var GroupItem = function (_Component) {
       _this.setState({
         inFoucs: false
       });
-      var _this$props4 = _this.props,
-          setDragInputState = _this$props4.setDragInputState,
-          dragState = _this$props4.dragState;
+      var _this$props5 = _this.props,
+          setDragInputState = _this$props5.setDragInputState,
+          dragState = _this$props5.dragState;
 
       if (dragState) return;
       setDragInputState(true);
     }, _this.selectFn = function (e, index) {
-      var _this$props5 = _this.props,
-          selectListActions = _this$props5.selectListActions,
-          manageList = _this$props5.manageList,
-          selectList = _this$props5.selectList,
-          selectGroup = _this$props5.selectGroup,
-          selectGroupActions = _this$props5.selectGroupActions;
+      var _this$props6 = _this.props,
+          selectListActions = _this$props6.selectListActions,
+          manageList = _this$props6.manageList,
+          selectList = _this$props6.selectList,
+          selectGroup = _this$props6.selectGroup,
+          selectGroupActions = _this$props6.selectGroupActions;
       //const checkFlag = e.target.checked;
       // 换成checkbox插件
 
@@ -207,9 +218,9 @@ var GroupItem = function (_Component) {
         }
       };
     }, _this.renderDrop = function (index) {
-      var _this$props6 = _this.props,
-          manageList = _this$props6.manageList,
-          languagesJSON = _this$props6.languagesJSON;
+      var _this$props7 = _this.props,
+          manageList = _this$props7.manageList,
+          languagesJSON = _this$props7.languagesJSON;
 
       var menu = _react2["default"].createElement(
         _menus2["default"],

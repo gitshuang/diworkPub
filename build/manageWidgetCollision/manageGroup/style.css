@@ -156,6 +156,20 @@
   color: #505766;
   border-radius: 3px;
 }
+.titleInputArea__style___Xn32m #widgetNameMultiLangText{
+  width:176px;
+	height:22px;
+	padding:0 9px;
+	font-size:12px;
+  color:#111111;
+  float: left;
+  color: #505766;
+  border-radius: 3px;
+}
+.titleInputArea__style___Xn32m .ac-input-locale .input-icon{
+  top: -4px!important;
+  right: 4px!important;
+}
 .newGroupName__style___3zjlf.input{
   width:176px;
   height:22px;

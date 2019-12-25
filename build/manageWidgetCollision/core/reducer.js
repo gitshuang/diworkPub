@@ -413,7 +413,8 @@ var reducer = (0, _reduxActions.handleActions)((_handleActions = {}, _defineProp
       name = _ref20$payload.name,
       index = _ref20$payload.index,
       id = _ref20$payload.id,
-      dontChangeCurrEditonlyId = _ref20$payload.dontChangeCurrEditonlyId;
+      dontChangeCurrEditonlyId = _ref20$payload.dontChangeCurrEditonlyId,
+      groupNameMultiLang = _ref20$payload.groupNameMultiLang;
 
   var manageList = state.manageList;
   var group = void 0;
@@ -433,6 +434,7 @@ var reducer = (0, _reduxActions.handleActions)((_handleActions = {}, _defineProp
   }
   group.widgetName = name;
   group.isNew = false;
+  group.widgetNameMultiLangText = groupNameMultiLang;
   return _extends({}, state, {
     manageList: manageList,
     isEdit: true,

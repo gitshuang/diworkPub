@@ -206,9 +206,11 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
 
     var _this = _possibleConstructorReturn(this, _GroupItem.call(this, props));
 
-    _this.acInputOnchangeGroupName = function (localeValue, localeList) {
+    _this.acInputOnchangeGroupName = function (localeValue, localeList, e) {
+      if (localeValue.length > 4) return;
+
       _this.setState({
-        groupNameMultiLang: localeList,
+        widgetNameMultiLangText: localeList,
         groupName: localeValue
       });
     };
@@ -219,7 +221,7 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
       showModal: false,
       selectGroup: [],
       selectList: [],
-      groupNameMultiLang: {} //角色首页,多语录入
+      widgetNameMultiLangText: {} //角色首页,多语录入
     };
     return _this;
   }
@@ -231,8 +233,10 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
         _props$data = _props.data,
         widgetName = _props$data.widgetName,
         isNew = _props$data.isNew,
+        widgetNameMultiLangText = _props$data.widgetNameMultiLangText,
         manageList = _props.manageList,
-        languagesJSON = _props.languagesJSON;
+        languagesJSON = _props.languagesJSON,
+        roleEdit = _props.roleEdit;
 
 
     if (isNew) {
@@ -247,8 +251,17 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
         _this2.setState({
           groupName: newGroupName
         });
-        _this2.groupName.focus();
-        _this2.groupName.select();
+        if (roleEdit) {
+          //应用在角色首页时
+          document.getElementById('widgetNameMultiLangText').focus();
+          document.getElementById('widgetNameMultiLangText').select();
+          //   document.getElementById('widgetNameMultiLangText').addEventListener('change',(e)=>{
+          //     if(e.target.value.length>4)return
+          // })
+        } else {
+          _this2.groupName.focus();
+          _this2.groupName.select();
+        }
 
         var _props2 = _this2.props,
             checkFun = _props2.checkFun,
@@ -257,7 +270,8 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
       }, 0);
     } else {
       this.setState({
-        groupName: widgetName
+        groupName: widgetName,
+        widgetNameMultiLangText: widgetNameMultiLangText
       });
     }
   };
@@ -278,7 +292,8 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
     if (this.props.currEditonlyId !== nextProps.currEditonlyId && this.props.data.isNew) {
       this.props.renameGroup({
         id: this.props.data.widgetId,
-        name: this.state.groupName == "" ? this.props.data.widgetName : this.state.groupName,
+        name: this.state.groupName, //this.state.groupName == "" ? this.props.data.widgetName : 
+        widgetNameMultiLangText: this.state.widgetNameMultiLangText,
         dontChangeCurrEditonlyId: true
       });
       this.setState({
@@ -342,7 +357,7 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
         inFoucs = _state.inFoucs,
         groupName = _state.groupName,
         showModal = _state.showModal,
-        groupNameMultiLang = _state.groupNameMultiLang;
+        widgetNameMultiLangText = _state.widgetNameMultiLangText;
 
     var checkType = selectGroup.indexOf(index) > -1 ? true : false;
     var opacity = isDragging ? 0 : 1;
@@ -357,8 +372,8 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
           roleEdit ? acInputLocal({
             className: (inFoucs ? _style.newGroupName_focus : _style.newGroupName_blur) + ' ' + _style.newGroupName + ' input',
             onChange: this.acInputOnchangeGroupName,
-            localeList: groupNameMultiLang,
-            inputId: "groupNameMultiLang", //唯一的标识
+            localeList: widgetNameMultiLangText,
+            inputId: "widgetNameMultiLangText", //唯一的标识
             placeholder: languagesJSON.groupName_max_words_four,
             onFocus: this.handleFocus,
             onBlur: function onBlur() {

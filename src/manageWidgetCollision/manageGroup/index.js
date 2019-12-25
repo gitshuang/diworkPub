@@ -155,7 +155,7 @@ export default class ManageGroup extends GroupItem {
       showModal: false,
       selectGroup: [],
       selectList: [],
-      groupNameMultiLang:{}//角色首页,多语录入
+      widgetNameMultiLangText:{}//角色首页,多语录入
     }
   }
   componentWillMount() {
@@ -163,9 +163,11 @@ export default class ManageGroup extends GroupItem {
       data: {
         widgetName,
         isNew,
+        widgetNameMultiLangText
       },
       manageList,
-      languagesJSON
+      languagesJSON,
+      roleEdit
     } = this.props;
 
     if (isNew) {
@@ -178,8 +180,19 @@ export default class ManageGroup extends GroupItem {
         this.setState({
           groupName: newGroupName,
         });
-        this.groupName.focus();
-        this.groupName.select();
+        if(roleEdit){//应用在角色首页时
+          document.getElementById('widgetNameMultiLangText').focus()
+          document.getElementById('widgetNameMultiLangText').select()
+        //   document.getElementById('widgetNameMultiLangText').addEventListener('change',(e)=>{
+        //     if(e.target.value.length>4)return
+        // })
+          
+        }else{
+          this.groupName.focus();
+          this.groupName.select();
+        }
+        
+        
 
         const { checkFun, currEditonlyId } = this.props;
         //checkFun(currEditonlyId + "_btn");
@@ -187,6 +200,7 @@ export default class ManageGroup extends GroupItem {
     } else {
       this.setState({
         groupName: widgetName,
+        widgetNameMultiLangText:widgetNameMultiLangText
       });
     }
   }
@@ -209,7 +223,8 @@ export default class ManageGroup extends GroupItem {
     ) {
       this.props.renameGroup({
         id: this.props.data.widgetId,
-        name: this.state.groupName == "" ? this.props.data.widgetName : this.state.groupName,
+        name: this.state.groupName,//this.state.groupName == "" ? this.props.data.widgetName : 
+        widgetNameMultiLangText:this.state.widgetNameMultiLangText,
         dontChangeCurrEditonlyId: true,
       });
       this.setState({
@@ -244,9 +259,11 @@ export default class ManageGroup extends GroupItem {
 	return itemDoms;
 }
 
-acInputOnchangeGroupName = (localeValue, localeList) => {
+acInputOnchangeGroupName = (localeValue, localeList,e) => {
+  if(localeValue.length>4)return
+  
   this.setState({
-    groupNameMultiLang: localeList,
+    widgetNameMultiLangText: localeList,
     groupName:localeValue
   });
 }
@@ -283,7 +300,7 @@ acInputOnchangeGroupName = (localeValue, localeList) => {
       inFoucs,
       groupName,
       showModal,
-      groupNameMultiLang
+      widgetNameMultiLangText
     } = this.state;
     const checkType = selectGroup.indexOf(index) > -1 ? true : false
     const opacity = isDragging ? 0 : 1;
@@ -295,8 +312,8 @@ acInputOnchangeGroupName = (localeValue, localeList) => {
           {roleEdit?acInputLocal({
             className:`${inFoucs ? newGroupName_focus : newGroupName_blur} ${newGroupName} input`,
             onChange:this.acInputOnchangeGroupName,
-            localeList:groupNameMultiLang,
-            inputId:"groupNameMultiLang" ,//唯一的标识
+            localeList:widgetNameMultiLangText,
+            inputId:"widgetNameMultiLangText" ,//唯一的标识
             placeholder:languagesJSON.groupName_max_words_four,
             onFocus:this.handleFocus,
             onBlur:()=>{
