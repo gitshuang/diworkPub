@@ -888,7 +888,7 @@ var _diff = function _diff(_index, _data, type) {
   var loop = function loop(data) {
     if ((typeof data === "undefined" ? "undefined" : _typeof(data)) === "object" && Array.isArray(data) && data.length) {
       data.forEach(function (item) {
-        if ((typeof item === "undefined" ? "undefined" : _typeof(item)) === "object" && (item.length !== 0 || Object.keys(item).length)) {
+        if (item && (typeof item === "undefined" ? "undefined" : _typeof(item)) === "object" && (item.length !== 0 || Object.keys(item).length)) {
           loop(item);
         }
       });

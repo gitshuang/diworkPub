@@ -794,7 +794,7 @@ const _diff = (_index, _data, type) => {
   const loop = (data) => {
     if (typeof data === "object" && Array.isArray(data) && data.length) {
       data.forEach(item => {
-        if (typeof item === "object" && (item.length !== 0 || Object.keys(item).length)) {
+        if (item && typeof item === "object" && (item.length !== 0 || Object.keys(item).length)) {
           loop(item);
         }
       });

@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Icon from 'pub-comp/icon';
-import Button from 'bee/button';
 import Notification from 'bee/notification';
-import {page,notification_mess,notification_cont,title_cont,warning_cont,success_cont,info_cont,error_cont,_title,_close,_tip} from "./index.css";
+import { notification_mess, notification_cont, title_cont, warning_cont, success_cont, info_cont, error_cont, _title, _close, _tip } from "./index.css";
 
+
+let _notification;
 class NotificationMess extends Component {
 
   // static propTypes = {
@@ -21,14 +22,17 @@ class NotificationMess extends Component {
 
     this.notification = Notification.newInstance({
       position: 'topMiddle',
-      className:this.getTypeNotifica()+ " " + notification_mess,
-      style:props.style
+      transitionName: "Fade",
+      className: this.getTypeNotifica() + " " + notification_mess,
+      style: props.style
     });
+    this.key = 0;
   }
 
-  getTypeNotifica=()=>{
-    const {type} = this.props;
-    switch(type){
+  getTypeNotifica = (type) => {
+    // const { type } = this.props;
+    type = type || this.props.type;
+    switch (type) {
       case "warning":
         return warning_cont;
       case "success":
@@ -40,9 +44,10 @@ class NotificationMess extends Component {
     }
   }
 
-  getTypeIcon=()=>{
-    const {type} = this.props;
-    switch(type){
+  getTypeIcon = (type) => {
+    // const { type } = this.props;
+    type = type || this.props.type;
+    switch (type) {
       case "warning":
         return "notice";
       case "success":
@@ -54,39 +59,46 @@ class NotificationMess extends Component {
     }
   }
 
-  open=(options)=>{
-    const { title, content, duration, closable } = this.props;
+  open = (options) => {
+    const { title, content, duration, closable, type } = options;
+    if (this.key) {
+      this.notification.destroy();
+      this.notification = Notification.newInstance({
+        position: 'topMiddle',
+        transitionName: "Fade",
+        className: this.getTypeNotifica(type) + " " + notification_mess,
+      });
+    }
     const key = Date.now();
+    this.key = key;
     const _closable = typeof closable === 'undefined' ? false : closable;
     this.notification.notice({
-      content:(<div className={`${page}` }>
+      content: (<div>
         <div className={_title}>
-          <Icon className={_tip} type={this.getTypeIcon()} />
+          <Icon className={_tip} type={this.getTypeIcon(type)} />
           <span className={title_cont}>{title}</span>
           {
-            _closable?
-            <Icon type="error3" className={_close} onClick={this.close(this, key)} />
-            :null
+            _closable ?
+              <Icon type="error3" className={_close} onClick={this.close(this, key)} />
+              : null
           }
         </div>
-        {content?<div className={notification_cont}>{content}</div>:null}
-        
-        {/* <Button onClick={this.close(this, key)} size="sm" style={{ position: 'absolute', right: 15, bottom: 15}}>知道了</Button> */}
+        {content ? <div className={notification_cont}>{content}</div> : null}
       </div>),
       key,
-      duration: typeof duration === 'undefined' ? null : duration,
+      duration: typeof duration === 'undefined' ? 1 : duration,
       closable: _closable,
+      onClose: () => { _notification = null; }
     });
   }
 
   close = () => {
-  
+
   }
 }
 
-let _notification;
-function openMess(options){
-  _notification = null;//防止notification一个页面只能打开一种，其他被覆盖
+
+function openMess(options) {
   if (!_notification) {
     _notification = new NotificationMess(options);
   }
@@ -98,15 +110,3 @@ export {
   openMess,
   close,
 };
-
-
-/**
-组件使用方式
-import NotificationMess,{openMess} from 'components/notification';
-type 类型[warning,success,info,error]
-openMess({
-  title:"234",
-  type:"error",
-  content:"你所提交的信息已经审核失败，可以进入个人信箱查看原因， 如有疑问，请联系客服人员。"
-});
-**/
