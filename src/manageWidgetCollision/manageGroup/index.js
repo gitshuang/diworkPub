@@ -276,7 +276,8 @@ acInputOnchangeGroupName = (localeValue, localeList) => {
 			layout,
       defaultLayout,
       roleEdit,
-      acInputLocal
+      acInputLocal,
+      renameGroup
     } = this.props;
     const {
       inFoucs,
@@ -295,10 +296,18 @@ acInputOnchangeGroupName = (localeValue, localeList) => {
             className:`${inFoucs ? newGroupName_focus : newGroupName_blur} ${newGroupName} input`,
             onChange:this.acInputOnchangeGroupName,
             localeList:groupNameMultiLang,
-            inputId:"groupNameMultiLang" ,
+            inputId:"groupNameMultiLang" ,//唯一的标识
             placeholder:languagesJSON.groupName_max_words_four,
             onFocus:this.handleFocus,
-            onBlur:this.handleBlur,
+            onBlur:()=>{
+              this.setState({
+              inFoucs: false,
+            });
+            this.renameGroupFn(index);
+            const { setDragInputState, dragState } = this.props;
+            if (dragState) return;
+            setDragInputState(true);
+              },
             ref:ref=>this.groupName=ref
           }):
           <input

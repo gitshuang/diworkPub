@@ -336,7 +336,8 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
         layout = _props4.layout,
         defaultLayout = _props4.defaultLayout,
         roleEdit = _props4.roleEdit,
-        acInputLocal = _props4.acInputLocal;
+        acInputLocal = _props4.acInputLocal,
+        renameGroup = _props4.renameGroup;
     var _state = this.state,
         inFoucs = _state.inFoucs,
         groupName = _state.groupName,
@@ -357,10 +358,21 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
             className: (inFoucs ? _style.newGroupName_focus : _style.newGroupName_blur) + ' ' + _style.newGroupName + ' input',
             onChange: this.acInputOnchangeGroupName,
             localeList: groupNameMultiLang,
-            inputId: "groupNameMultiLang",
+            inputId: "groupNameMultiLang", //唯一的标识
             placeholder: languagesJSON.groupName_max_words_four,
             onFocus: this.handleFocus,
-            onBlur: this.handleBlur,
+            onBlur: function onBlur() {
+              _this3.setState({
+                inFoucs: false
+              });
+              _this3.renameGroupFn(index);
+              var _props5 = _this3.props,
+                  setDragInputState = _props5.setDragInputState,
+                  dragState = _props5.dragState;
+
+              if (dragState) return;
+              setDragInputState(true);
+            },
             ref: function ref(_ref2) {
               return _this3.groupName = _ref2;
             }
@@ -450,9 +462,9 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
       className: ""
     }];
 
-    var _props5 = this.props,
-        isOver = _props5.isOver,
-        getItemType = _props5.getItemType;
+    var _props6 = this.props,
+        isOver = _props6.isOver,
+        getItemType = _props6.getItemType;
 
     var overStyle = {};
     if (isOver && getItemType.type === 1) {
