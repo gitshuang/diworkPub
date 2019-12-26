@@ -316,10 +316,20 @@ var fonts = {
   'icon-xiayi': 'icon-xiayi__iconfont___1M0ic',
   'icon-morendenglu': 'icon-morendenglu__iconfont___2Tv-D',
   'icon-time': 'icon-time__iconfont___1Ll2R',
-  'icon-shuzhankai': 'icon-shuzhankai__iconfont___27lXV',
-  'icon-shushouqi': 'icon-shushouqi__iconfont___2eZjD',
   'icon-bangzhu': 'icon-bangzhu__iconfont___Lxjdl',
-  'icon-riqi': 'icon-riqi__iconfont___1pS3V'
+  'icon-riqi': 'icon-riqi__iconfont___1pS3V',
+  'icon-tuichuquanping': 'icon-tuichuquanping__iconfont___1gq3o',
+  'icon-quanpingzhanshi': 'icon-quanpingzhanshi__iconfont___MGT3q',
+  'icon-bianji': 'icon-bianji__iconfont___3jXWc',
+  'icon-guanbi': 'icon-guanbi__iconfont___3wJRC',
+  'icon-jia': 'icon-jia__iconfont___1DXud',
+  'icon-biaogeshanchu': 'icon-biaogeshanchu__iconfont___zjJ0I',
+  'icon-kejian': 'icon-kejian__iconfont___CXqXN',
+  'icon-shangyi1': 'icon-shangyi1__iconfont___7OI-q',
+  'icon-xiayi1': 'icon-xiayi1__iconfont___Dz6BE',
+  'icon-xuanzhong': 'icon-xuanzhong__iconfont___3qab5',
+  'icon-xiangyou': 'icon-xiangyou__iconfont___QuylW',
+  'icon-yincang': 'icon-yincang__iconfont___KFpH_'
 }; // iconfont字体
 
 var propTypes = {

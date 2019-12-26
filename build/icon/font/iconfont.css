@@ -1,11 +1,11 @@
 /*  imported from iconfont.css  */
 
 @font-face {font-family: "font_family_u8c";
-  src: url('iconfont.eot?t=1571884865557'); /* IE9 */
-  src: url('iconfont.eot?t=1571884865557#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff?t=1571884865557') format('woff'),
-  url('iconfont.ttf?t=1571884865557') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-  url('iconfont.svg?t=1571884865557#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1577340597348'); /* IE9 */
+  src: url('iconfont.eot?t=1577340597348#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1577340597348') format('woff'),
+  url('iconfont.ttf?t=1577340597348') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1577340597348#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .u8ciconfont {
@@ -36,19 +36,59 @@
   content: "\E7C0";
 }
 
-.icon-shuzhankai__iconfont___27lXV:before {
-  content: "\E870";
-}
-
-.icon-shushouqi__iconfont___2eZjD:before {
-  content: "\E871";
-}
-
 .icon-bangzhu__iconfont___Lxjdl:before {
   content: "\E8B5";
 }
 
 .icon-riqi__iconfont___1pS3V:before {
   content: "\E8D2";
+}
+
+.icon-tuichuquanping__iconfont___1gq3o:before {
+  content: "\E8D5";
+}
+
+.icon-quanpingzhanshi__iconfont___MGT3q:before {
+  content: "\E8D6";
+}
+
+.icon-bianji__iconfont___3jXWc:before {
+  content: "\E602";
+}
+
+.icon-guanbi__iconfont___3wJRC:before {
+  content: "\E603";
+}
+
+.icon-jia__iconfont___1DXud:before {
+  content: "\E605";
+}
+
+.icon-biaogeshanchu__iconfont___zjJ0I:before {
+  content: "\E609";
+}
+
+.icon-kejian__iconfont___CXqXN:before {
+  content: "\E60A";
+}
+
+.icon-shangyi1__iconfont___7OI-q:before {
+  content: "\E60B";
+}
+
+.icon-xiayi1__iconfont___Dz6BE:before {
+  content: "\E60C";
+}
+
+.icon-xuanzhong__iconfont___3qab5:before {
+  content: "\E60D";
+}
+
+.icon-xiangyou__iconfont___QuylW:before {
+  content: "\E60E";
+}
+
+.icon-yincang__iconfont___KFpH_:before {
+  content: "\E60F";
 }
 
