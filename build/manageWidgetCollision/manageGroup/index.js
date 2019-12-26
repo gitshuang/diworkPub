@@ -271,7 +271,7 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
     } else {
       this.setState({
         groupName: widgetName,
-        widgetNameMultiLangText: widgetNameMultiLangText
+        widgetNameMultiLangText: widgetNameMultiLangText && widgetNameMultiLangText.textMap
       });
     }
   };
@@ -294,7 +294,8 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
         id: this.props.data.widgetId,
         name: this.state.groupName, //this.state.groupName == "" ? this.props.data.widgetName : 
         widgetNameMultiLangText: this.state.widgetNameMultiLangText,
-        dontChangeCurrEditonlyId: true
+        dontChangeCurrEditonlyId: true,
+        roleEdit: this.props.roleEdit
       });
       this.setState({
         inFoucs: false
@@ -370,12 +371,13 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
           'div',
           { className: _style.titleInputArea },
           roleEdit ? acInputLocal({
-            className: (inFoucs ? _style.newGroupName_focus : _style.newGroupName_blur) + ' ' + _style.newGroupName + ' input',
+            //className:`${inFoucs ? newGroupName_focus : newGroupName_blur} ${newGroupName} input`,
             onChange: this.acInputOnchangeGroupName,
             localeList: widgetNameMultiLangText,
             inputId: "widgetNameMultiLangText", //唯一的标识
             placeholder: languagesJSON.groupName_max_words_four,
             onFocus: this.handleFocus,
+            maxLength: 4,
             onBlur: function onBlur() {
               _this3.setState({
                 inFoucs: false

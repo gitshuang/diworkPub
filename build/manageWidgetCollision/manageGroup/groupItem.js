@@ -72,10 +72,12 @@ var GroupItem = function (_Component) {
     }, _this.renameGroupCancel = function (index) {
       var _this$props2 = _this.props,
           renameGroup = _this$props2.renameGroup,
-          setEditonlyId = _this$props2.setEditonlyId;
+          setEditonlyId = _this$props2.setEditonlyId,
+          roleEdit = _this$props2.roleEdit;
       var groupName = _this.props.data.widgetName;
 
       var stateGroupName = _this.state.groupName;
+      var widgetNameMultiLangText = _this.state.widgetNameMultiLangText;
       _this.setState({
         groupName: groupName ? groupName : stateGroupName
       });
@@ -83,7 +85,9 @@ var GroupItem = function (_Component) {
       if (!groupName) {
         renameGroup({
           index: index,
-          name: stateGroupName
+          name: stateGroupName,
+          widgetNameMultiLangText: widgetNameMultiLangText,
+          roleEdit: roleEdit
         });
       }
       _this.setState({
@@ -93,9 +97,12 @@ var GroupItem = function (_Component) {
       var _this$props3 = _this.props,
           renameGroup = _this$props3.renameGroup,
           manageList = _this$props3.manageList,
-          languagesJSON = _this$props3.languagesJSON;
+          languagesJSON = _this$props3.languagesJSON,
+          roleEdit = _this$props3.roleEdit;
+      var _this$state = _this.state,
+          name = _this$state.groupName,
+          widgetNameMultiLangText = _this$state.widgetNameMultiLangText;
 
-      var name = _this.state.groupName;
       if (name == manageList[index].widgetName) {
         _this.renameGroupCancel(index);
         return false;
@@ -115,7 +122,9 @@ var GroupItem = function (_Component) {
       }
       renameGroup({
         index: index,
-        name: name
+        name: name,
+        widgetNameMultiLangText: widgetNameMultiLangText,
+        roleEdit: roleEdit
       });
       _this.renameGroupCancel(index);
     }, _this.clearInput = function () {

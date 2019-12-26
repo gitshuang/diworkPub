@@ -414,7 +414,8 @@ var reducer = (0, _reduxActions.handleActions)((_handleActions = {}, _defineProp
       index = _ref20$payload.index,
       id = _ref20$payload.id,
       dontChangeCurrEditonlyId = _ref20$payload.dontChangeCurrEditonlyId,
-      groupNameMultiLang = _ref20$payload.groupNameMultiLang;
+      widgetNameMultiLangText = _ref20$payload.widgetNameMultiLangText,
+      roleEdit = _ref20$payload.roleEdit;
 
   var manageList = state.manageList;
   var group = void 0;
@@ -434,7 +435,9 @@ var reducer = (0, _reduxActions.handleActions)((_handleActions = {}, _defineProp
   }
   group.widgetName = name;
   group.isNew = false;
-  group.widgetNameMultiLangText = groupNameMultiLang;
+  if (roleEdit) {
+    group.widgetNameMultiLangText.textMap = widgetNameMultiLangText;
+  }
   return _extends({}, state, {
     manageList: manageList,
     isEdit: true,

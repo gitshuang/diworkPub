@@ -30,13 +30,14 @@ export default class GroupItem extends Component {
   // 点击取消编辑分组按钮
   renameGroupCancel = (index) => {
 
-    const { renameGroup, setEditonlyId } = this.props;
+    const { renameGroup, setEditonlyId,roleEdit } = this.props;
     const {
       data: {
         widgetName: groupName,
       },
     } = this.props;
     const stateGroupName = this.state.groupName;
+    const widgetNameMultiLangText = this.state.widgetNameMultiLangText
     this.setState({
       groupName: groupName ? groupName : stateGroupName,
     });
@@ -45,6 +46,8 @@ export default class GroupItem extends Component {
       renameGroup({
         index,
         name: stateGroupName,
+        widgetNameMultiLangText,
+        roleEdit
       });
     }
     this.setState({
@@ -53,8 +56,8 @@ export default class GroupItem extends Component {
   }
   // 点击按钮执行 action   重新构造
   renameGroupFn = (index) => {
-    const { renameGroup, manageList, languagesJSON } = this.props;
-    const name = this.state.groupName;
+    const { renameGroup, manageList, languagesJSON,roleEdit } = this.props;
+    const {groupName:name,widgetNameMultiLangText} = this.state;
     if (name == manageList[index].widgetName) {
       this.renameGroupCancel(index);
       return false;
@@ -75,6 +78,8 @@ export default class GroupItem extends Component {
     renameGroup({
       index,
       name,
+      widgetNameMultiLangText,
+      roleEdit
     });
     this.renameGroupCancel(index);
   }

@@ -200,7 +200,7 @@ export default class ManageGroup extends GroupItem {
     } else {
       this.setState({
         groupName: widgetName,
-        widgetNameMultiLangText:widgetNameMultiLangText
+        widgetNameMultiLangText:widgetNameMultiLangText&&widgetNameMultiLangText.textMap
       });
     }
   }
@@ -226,6 +226,7 @@ export default class ManageGroup extends GroupItem {
         name: this.state.groupName,//this.state.groupName == "" ? this.props.data.widgetName : 
         widgetNameMultiLangText:this.state.widgetNameMultiLangText,
         dontChangeCurrEditonlyId: true,
+        roleEdit:this.props.roleEdit
       });
       this.setState({
         inFoucs: false
@@ -310,12 +311,13 @@ acInputOnchangeGroupName = (localeValue, localeList,e) => {
         <div className={widgetTitle} >
           <div className={titleInputArea}>
           {roleEdit?acInputLocal({
-            className:`${inFoucs ? newGroupName_focus : newGroupName_blur} ${newGroupName} input`,
+            //className:`${inFoucs ? newGroupName_focus : newGroupName_blur} ${newGroupName} input`,
             onChange:this.acInputOnchangeGroupName,
             localeList:widgetNameMultiLangText,
             inputId:"widgetNameMultiLangText" ,//唯一的标识
             placeholder:languagesJSON.groupName_max_words_four,
             onFocus:this.handleFocus,
+            maxLength:4,
             onBlur:()=>{
               this.setState({
               inFoucs: false,

@@ -375,7 +375,7 @@ const reducer = handleActions({
   }),
   [renameGroup]: (state, {
     payload: {
-      name, index, id, dontChangeCurrEditonlyId,groupNameMultiLang
+      name, index, id, dontChangeCurrEditonlyId,widgetNameMultiLangText,roleEdit
     },
   }) => {
     const manageList = state.manageList;
@@ -393,7 +393,9 @@ const reducer = handleActions({
     }
     group.widgetName = name;
     group.isNew = false;
-    group.widgetNameMultiLangText = groupNameMultiLang
+    if(roleEdit){
+      group.widgetNameMultiLangText.textMap = widgetNameMultiLangText
+    }
     return {
       ...state,
       manageList,
