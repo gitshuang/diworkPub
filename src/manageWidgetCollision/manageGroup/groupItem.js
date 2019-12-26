@@ -58,12 +58,16 @@ export default class GroupItem extends Component {
   renameGroupFn = (index) => {
     const { renameGroup, manageList, languagesJSON,roleEdit } = this.props;
     const {groupName:name,widgetNameMultiLangText} = this.state;
-    if (name == manageList[index].widgetName) {
+    //如果名字不变就不更新,不应用在角色首页,因为有多语
+    if (!roleEdit&&name == manageList[index].widgetName) {
       this.renameGroupCancel(index);
       return false;
     }
-    let widgetNameArr = manageList.map((item, index) => {
-      return item.widgetName
+    let widgetExpectCurrent = manageList.filter((item, indexinner) => {
+        return !indexinner==index
+    });
+    let widgetNameArr = widgetExpectCurrent.map((item, index) => {
+        return item.widgetName
     });
     if (widgetNameArr.includes(name)) {
       Message.create({

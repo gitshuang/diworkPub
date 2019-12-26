@@ -102,12 +102,16 @@ var GroupItem = function (_Component) {
       var _this$state = _this.state,
           name = _this$state.groupName,
           widgetNameMultiLangText = _this$state.widgetNameMultiLangText;
+      //如果名字不变就不更新,不应用在角色首页,因为有多语
 
-      if (name == manageList[index].widgetName) {
+      if (!roleEdit && name == manageList[index].widgetName) {
         _this.renameGroupCancel(index);
         return false;
       }
-      var widgetNameArr = manageList.map(function (item, index) {
+      var widgetExpectCurrent = manageList.filter(function (item, indexinner) {
+        return !indexinner == index;
+      });
+      var widgetNameArr = widgetExpectCurrent.map(function (item, index) {
         return item.widgetName;
       });
       if (widgetNameArr.includes(name)) {
