@@ -436,7 +436,10 @@ var reducer = (0, _reduxActions.handleActions)((_handleActions = {}, _defineProp
   group.widgetName = name;
   group.isNew = false;
   if (roleEdit) {
-    group.widgetNameMultiLangText.textMap = widgetNameMultiLangText;
+    group.widgetNameMultiLangText = {
+      textMap: widgetNameMultiLangText
+      // group.widgetNameMultiLangText.textMap = widgetNameMultiLangText
+    };
   }
   return _extends({}, state, {
     manageList: manageList,

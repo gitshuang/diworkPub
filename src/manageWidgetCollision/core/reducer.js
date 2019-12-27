@@ -394,7 +394,10 @@ const reducer = handleActions({
     group.widgetName = name;
     group.isNew = false;
     if(roleEdit){
-      group.widgetNameMultiLangText.textMap = widgetNameMultiLangText
+      group.widgetNameMultiLangText = {
+        textMap:widgetNameMultiLangText
+      }
+     // group.widgetNameMultiLangText.textMap = widgetNameMultiLangText
     }
     return {
       ...state,

@@ -407,6 +407,7 @@ export default class Content extends Component{
             moveGroupItem={this.moveGroupItem}//移动分组
             acInputLocal={this.props.acInputLocal}
             roleEdit = {this.props.roleEdit}
+            locale = {this.props.locale}
             />
         )
       });

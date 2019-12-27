@@ -167,8 +167,13 @@ export default class ManageGroup extends GroupItem {
       },
       manageList,
       languagesJSON,
-      roleEdit
+      roleEdit,
+      locale
     } = this.props;
+    let groupNameInit = widgetName;
+    if(roleEdit){
+      groupNameInit = widgetNameMultiLangText&&widgetNameMultiLangText.textMap[locale]
+    }
 
     if (isNew) {
       setTimeout(() => {
@@ -179,8 +184,14 @@ export default class ManageGroup extends GroupItem {
         const newGroupName = avoidSameName(nameArr, languagesJSON.group);
         this.setState({
           groupName: newGroupName,
+          
         });
         if(roleEdit){//应用在角色首页时
+          this.setState({
+            widgetNameMultiLangText:{
+                [locale]:newGroupName
+            }
+          })
           document.getElementById('widgetNameMultiLangText').focus()
           document.getElementById('widgetNameMultiLangText').select()
         //   document.getElementById('widgetNameMultiLangText').addEventListener('change',(e)=>{
@@ -199,7 +210,7 @@ export default class ManageGroup extends GroupItem {
       }, 0);
     } else {
       this.setState({
-        groupName: widgetName,
+        groupName: groupNameInit,
         widgetNameMultiLangText:widgetNameMultiLangText&&widgetNameMultiLangText.textMap
       });
     }
@@ -295,7 +306,8 @@ acInputOnchangeGroupName = (localeValue, localeList,e) => {
       defaultLayout,
       roleEdit,
       acInputLocal,
-      renameGroup
+      renameGroup,
+      widgetNameMultiLangText:widgetNameMultiLangTextNotForEdit
     } = this.props;
     const {
       inFoucs,
@@ -351,7 +363,7 @@ acInputOnchangeGroupName = (localeValue, localeList,e) => {
         <div className={`${widgetTitle} ${widgetTitleInit} `} >
           <div className={check_group}>
             {/* <Checkbox checked={checkType} onChange={(e) => { this.selectFn(e, index) }}>{widgetName}</Checkbox> */}
-            <div className="titleText">{widgetName}</div>
+            <div className="titleText">{groupName}</div>
             {
               (languagesJSON.noDataGroup && children.length === 0)
                 ?

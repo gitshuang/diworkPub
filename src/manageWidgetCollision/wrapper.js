@@ -166,7 +166,7 @@ class Wrapper extends Component {
       });
     }
   render() {
-   const {languagesJSON,isEdit,isFooterDisplay,roleEdit,acInputLocal} = this.props;
+   const {languagesJSON,isEdit,isFooterDisplay,roleEdit,acInputLocal,locale} = this.props;
     const {showModal,showCancelModal} = this.state;
     var popDialogProps = {
       save:this.save,
@@ -201,6 +201,7 @@ class Wrapper extends Component {
           groupList = {this.props.groupList} 
           moveGroupDrag={this.moveGroupDrag} 
           roleEdit={roleEdit}
+          locale={locale}
           acInputLocal={acInputLocal}/>
           
           
