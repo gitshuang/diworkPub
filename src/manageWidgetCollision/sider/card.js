@@ -6,7 +6,7 @@ import { hasCardContainInGroups } from '../utils';
 import { mapStateToProps } from '../../utils';
 import { list_item_content, title, isAddColor, title_name } from './style.css'
 import manageActions from '../core/action';
-const { updateManageList,updateShadowCard } = manageActions;
+const { updateManageList,updateShadowCard ,updateCheckedCardList} = manageActions;
 
 const noteSource = {
     beginDrag(props, monitor, component) {
@@ -58,7 +58,7 @@ const noteSource = {
     endDrag(props, monitor, component) {
         const DraggedItem = monitor.getItem();
         const { manageList, updateManageList } = props;
-        if (!monitor.didDrop()) {
+        if (!monitor.didDrop()) {//进去又出来,monitor.didDrop()//false
 
                 manageList.forEach(item => {
                     item.children.forEach((a, b) => {
@@ -67,8 +67,10 @@ const noteSource = {
                         }
                     })
                 })
-            updateManageList(manageList)
-        } else {
+            updateManageList(manageList);
+            //压根没进去的情况
+            props.updateCheckedCardList([])
+        } else {//拖进去了
             console.log("正常拖拽")//
         }
     },
@@ -91,7 +93,8 @@ const noteSource = {
     ),
     {
         updateManageList,
-        updateShadowCard
+        updateShadowCard,
+        updateCheckedCardList
     }
 )
 @DragSource('item', noteSource, (connect, monitor) => {

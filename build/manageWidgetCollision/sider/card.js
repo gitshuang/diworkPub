@@ -57,7 +57,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
 var updateManageList = _action2["default"].updateManageList,
-    updateShadowCard = _action2["default"].updateShadowCard;
+    updateShadowCard = _action2["default"].updateShadowCard,
+    updateCheckedCardList = _action2["default"].updateCheckedCardList;
 
 
 var noteSource = {
@@ -115,6 +116,7 @@ var noteSource = {
             updateManageList = props.updateManageList;
 
         if (!monitor.didDrop()) {
+            //进去又出来,monitor.didDrop()//false
 
             manageList.forEach(function (item) {
                 item.children.forEach(function (a, b) {
@@ -124,7 +126,10 @@ var noteSource = {
                 });
             });
             updateManageList(manageList);
+            //压根没进去的情况
+            props.updateCheckedCardList([]);
         } else {
+            //拖进去了
             console.log("正常拖拽"); //
         }
     },
@@ -143,7 +148,8 @@ var Card = (_dec = (0, _reactRedux.connect)((0, _utils2.mapStateToProps)('manage
     namespace: 'managewidget'
 }), {
     updateManageList: updateManageList,
-    updateShadowCard: updateShadowCard
+    updateShadowCard: updateShadowCard,
+    updateCheckedCardList: updateCheckedCardList
 }), _dec2 = (0, _reactDnd.DragSource)('item', noteSource, function (connect, monitor) {
     return {
         connectDragSource: connect.dragSource(),
