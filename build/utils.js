@@ -156,10 +156,27 @@ var getHost = exports.getHost = function getHost() {
     },
     workbench: {
       development: 'http://workbench.yyuap.com',
-      daily: 'https://workbench-daily.yyuap.com',
+      combine: 'https://diwork-daily.yyuap.com',
+      production: 'https://www.diwork.com'
+    },
+    ys: {
+      development: 'http://u8c-test.yyuap.com',
       combine: 'https://u8c-daily.yyuap.com',
       pre: 'https://yonsuite-pre.diwork.com',
-      production: 'https://www.diwork.com'
+      production: 'https://yonsuite.diwork.com'
+    },
+    // 门户地址
+    yzone: {
+      development: 'http://web.yyuap.com:91/portal/home/index',
+      combine: 'https://ec-u8c-daily.yyuap.com/portal/home/index',
+      production: 'https://ec.diwork.com/portal/home/index'
+    },
+    // 门户地址 - ys
+    yzoneYs: {
+      development: 'http://web.yyuap.com:91/portal_index',
+      combine: 'https://u8c-daily.yyuap.com/portal_index',
+      pre: 'https://yonsuite-pre.diwork.com/portal_index',
+      production: 'https://yonsuite.diwork.com/portal_index'
     },
     portal: {
       development: 'http://web.yyuap.com:91',
@@ -167,14 +184,6 @@ var getHost = exports.getHost = function getHost() {
       combine: 'https://ec-u8c-daily.yyuap.com',
       pre: 'https://ec-yonsuite-pre.diwork.com',
       production: 'https://ec.diwork.com'
-    },
-    // 门户地址
-    yzone: {
-      development: 'http://web.yyuap.com:91/portal/home/index',
-      daily: 'https://ec-daily.yyuap.com/portal/home/index',
-      combine: 'https://u8c-daily.yyuap.com/portal_index',
-      pre: 'https://yonsuite-pre.diwork.com/portal_index',
-      production: 'https://ec.diwork.com/portal/home/index'
     },
     // 门户请求地址
     u8cportal: {
