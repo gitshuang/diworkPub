@@ -46,22 +46,38 @@
 /************************ 下面的type会对header跟body进行样式覆盖 *************************/
 
 :global(.pop_dialog.u-modal .u-modal-header) {
-  padding-top: 40px;
-  padding-bottom: 0;
-  padding-left: 60px;
-  padding-right: 52px;
+  padding: 20px;
 }
 
 :global(.pop_dialog.u-modal .u-modal-body) {
+  margin: 0;
+  padding: 0 25px;
+}
+
+:global(.u-modal.in .u-modal-dialog)>div {
+  box-shadow: 0px 6px 8px 0px rgba(74, 81, 93, 0.25);
+}
+
+/* 四个特定弹窗公共的头部和body */
+
+.pop_type.error :global(.u-modal-body),
+.pop_type.warning :global(.u-modal-body),
+.pop_type.danger :global(.u-modal-body),
+.pop_type.success :global(.u-modal-body){
   margin: 0;
   font-size: 14px;
   padding: 0 18px 6px 18px;
   text-indent: 42px;
   line-height: 26px;
 }
-
-:global(.u-modal.in .u-modal-dialog)>div {
-  box-shadow: 0px 6px 8px 0px rgba(74, 81, 93, 0.25);
+.pop_type.error :global(.u-modal-header),
+.pop_type.warning :global(.u-modal-header),
+.pop_type.danger :global(.u-modal-header),
+.pop_type.success :global(.u-modal-header){
+  padding-top: 40px;
+  padding-bottom: 0;
+  padding-left: 60px;
+  padding-right: 52px;
 }
 
 /************************ error *************************/
