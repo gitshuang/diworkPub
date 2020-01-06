@@ -18,9 +18,11 @@
   text-align: center;
   line-height: 32px;
 }
-.closeBtn__style___2Ow_p .iconfont{
+
+.closeBtn__style___2Ow_p .iconfont {
   color: #888888;
 }
+
 .u-modal.fade {
   transition: none;
 }
@@ -30,27 +32,39 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%)!important;
-  -ms-transform: translate(-50%, -50%)!important;   /* IE 9 */
-  -webkit-transform: translate(-50%, -50%)!important;    /* Safari and Chrome */
-  -o-transform: translate(-50%, -50%)!important;       /* Opera */
-  -moz-transform: translate(-50%, -50%)!important;     /* Firefox */
+  -ms-transform: translate(-50%, -50%)!important;
+  /* IE 9 */
+  -webkit-transform: translate(-50%, -50%)!important;
+  /* Safari and Chrome */
+  -o-transform: translate(-50%, -50%)!important;
+  /* Opera */
+  -moz-transform: translate(-50%, -50%)!important;
+  /* Firefox */
   margin: 0px;
   color: #474D54;
   min-width: 370px;
 }
 
 /************************ 下面的type会对header跟body进行样式覆盖 *************************/
-.pop_dialog.u-modal  .u-modal-header{
-  padding:20px;
-}
-.pop_dialog.u-modal  .u-modal-body{
-  margin: 0;
-  padding:0 25px;
-}
-.u-modal.in .u-modal-dialog >div{
-  box-shadow: 0px 6px 8px 0px rgba(74,81,93,0.25);
+
+.pop_dialog.u-modal .u-modal-header {
+  padding-top: 40px;
+  padding-bottom: 0;
+  padding-left: 60px;
+  padding-right: 52px;
 }
 
+.pop_dialog.u-modal .u-modal-body {
+  margin: 0;
+  font-size: 14px;
+  padding: 0 18px 6px 18px;
+  text-indent: 42px;
+  line-height: 26px;
+}
+
+.u-modal.in .u-modal-dialog>div {
+  box-shadow: 0px 6px 8px 0px rgba(74, 81, 93, 0.25);
+}
 
 /************************ error *************************/
 
@@ -59,39 +73,16 @@
   color: #BD3646;
   font-weight: 900;
   font-size: 32px;
-  position: absolute; 
+  position: absolute;
   left: 22px;
   top: 37px;
 }
 
 .pop_type__style___7FzHT.error__style___3lAfZ .u-modal-dialog .u-modal-title {
   font-size: 19px;
-    line-height: 24px;
-    color: #111111;
+  line-height: 24px;
+  color: #111111;
 }
-
-.pop_type__style___7FzHT.error__style___3lAfZ .u-modal-body {
- font-size: 14px;
- /* padding: 0px;
- padding-left: 60px;
- padding-bottom: 6px; */
- padding:0 18px 6px 18px;
- text-indent: 42px;
- line-height: 26px;
-
-}
-
-.pop_type__style___7FzHT.error__style___3lAfZ .u-modal-header {
-    padding-top: 40px;
-    padding-bottom: 0;
-    padding-left: 60px;
-    padding-right: 52px;
-}
-
-/* .pop_type.error :global(.u-modal-footer .brand){
-  background: #4C4C4C;
-  color:rgba(255,255,255,1);
-} */
 
 /************************ warning *************************/
 
@@ -107,32 +98,12 @@
 
 .pop_type__style___7FzHT.warning__style___rOA-7 .u-modal-dialog .u-modal-title {
   font-size: 19px;
-    line-height: 24px;
+  line-height: 24px;
 }
 
-.pop_type__style___7FzHT.warning__style___rOA-7 .u-modal-body {
-  font-size: 14px;
-  /* padding: 0px;
-  padding-left: 60px;
-  padding-bottom: 6px; */
-  padding:0 18px 6px 18px;
-  text-indent: 42px;
-  line-height: 26px;
-}
-
-.pop_type__style___7FzHT.warning__style___rOA-7 .u-modal-header {
-    padding-top: 40px;
-    padding-bottom: 0;
-    padding-left: 60px;
-    padding-right: 52px;
-}
-.pop_type__style___7FzHT.warning__style___rOA-7 .u-modal.in .u-modal-dialog >div{
+.pop_type__style___7FzHT.warning__style___rOA-7 .u-modal.in .u-modal-dialog>div {
   border: 1px dashed rgba(0, 0, 0, 0.4);
 }
-/* .pop_type.warning :global(.u-modal-footer .brand){
-  background: #FFAB00;
-  color:#474D54;
-} */
 
 /************************ danger *************************/
 
@@ -148,26 +119,13 @@
 
 .pop_type__style___7FzHT.danger__style___2dz2P .u-modal-dialog .u-modal-title {
   font-size: 19px;
-    line-height: 24px;
+  line-height: 24px;
 }
 
-.pop_type__style___7FzHT.danger__style___2dz2P .u-modal-body {
-  font-size: 14px;
-  padding: 0px;
-  padding-left: 60px;
-  padding-bottom: 6px;
-  line-height: 26px;
-}
-
-.pop_type__style___7FzHT.danger__style___2dz2P .u-modal-header {
-    padding-top: 40px;
-    padding-bottom: 0;
-    padding-left: 60px;
-    padding-right: 52px;
-}
-.pop_type__style___7FzHT.danger__style___2dz2P .u-modal.in .u-modal-dialog >div{
+.pop_type__style___7FzHT.danger__style___2dz2P .u-modal.in .u-modal-dialog>div {
   border: 1px dashed rgba(0, 0, 0, 0.4);
 }
+
 /************************ success *************************/
 
 .pop_type__style___7FzHT.success__style___3B6OV .u-modal-title > .iconfont {
@@ -182,28 +140,14 @@
 
 .pop_type__style___7FzHT.success__style___3B6OV .u-modal-dialog .u-modal-title {
   font-size: 19px;
-    line-height: 24px;
+  line-height: 24px;
 }
 
-.pop_type__style___7FzHT.success__style___3B6OV .u-modal-body {
-  font-size: 14px;
-  padding: 0px;
-  padding-left: 60px;
-  padding-bottom: 6px;
-  line-height: 26px;
-}
-
-.pop_type__style___7FzHT.success__style___3B6OV .u-modal-header {
-    padding-top: 40px;
-    padding-bottom: 0;
-    padding-left: 60px;
-    padding-right: 52px;
-}
-.pop_type__style___7FzHT.success__style___3B6OV .u-modal.in .u-modal-dialog >div{
+.pop_type__style___7FzHT.success__style___3B6OV .u-modal.in .u-modal-dialog>div {
   border: 1px dashed rgba(0, 0, 0, 0.4);
 }
 
 .pop_type__style___7FzHT .u-modal-dialog .u-modal-footer {
-  padding-top: 32px ;
-  padding-bottom: 18px ;
+  padding-top: 32px;
+  padding-bottom: 18px;
 }
