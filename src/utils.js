@@ -123,6 +123,13 @@ export const getHost = (key = 'api') => {
       pre: 'https://yonsuite-pre.diwork.com/portal_index',
       production: 'https://yonsuite.diwork.com/portal_index',
     },
+    // 门户首页
+    portalIndex: {
+      development: 'http://web.yyuap.com:91',
+      combine: 'https://nec-u8c-daily.yyuap.com',
+      pre: 'https://nec-yonsuite-pre.diwork.com',
+      production: 'https://nec.diwork.com',
+    },
     portal: {
       development: 'http://web.yyuap.com:91',
       daily: 'https://ec-daily.yyuap.com',
