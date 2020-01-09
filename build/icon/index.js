@@ -315,8 +315,6 @@ var fonts = {
   'icon-shangyi': 'icon-shangyi__iconfont___l6RuZ',
   'icon-xiayi': 'icon-xiayi__iconfont___1M0ic',
   'icon-morendenglu': 'icon-morendenglu__iconfont___2Tv-D',
-  'icon-Computerdiannaoe': 'icon-Computerdiannaoe__iconfont___1WNfn',
-  'icon-Computer-filleddiannaobianma': 'icon-Computer-filleddiannaobianma__iconfont___37UIm',
   'icon-Homeshouyee': 'icon-Homeshouyee__iconfont___1mb4f',
   'icon-shouye1': 'icon-shouye1__iconfont___2pVID',
   'icon-time': 'icon-time__iconfont___1Ll2R',
@@ -333,7 +331,9 @@ var fonts = {
   'icon-xiayi1': 'icon-xiayi1__iconfont___Dz6BE',
   'icon-xuanzhong': 'icon-xuanzhong__iconfont___3qab5',
   'icon-xiangyou': 'icon-xiangyou__iconfont___QuylW',
-  'icon-yincang': 'icon-yincang__iconfont___KFpH_'
+  'icon-yincang': 'icon-yincang__iconfont___KFpH_',
+  'icon-Computer': 'icon-Computer__iconfont___RHPV-',
+  'icon-Computer-filled': 'icon-Computer-filled__iconfont___3QIQN'
 }; // iconfont字体
 
 var propTypes = {
