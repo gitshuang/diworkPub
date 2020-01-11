@@ -238,11 +238,11 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
         widgetNameMultiLangText = _props$data.widgetNameMultiLangText,
         manageList = _props.manageList,
         languagesJSON = _props.languagesJSON,
-        roleEdit = _props.roleEdit,
+        roleEditMultiLang = _props.roleEditMultiLang,
         locale = _props.locale;
 
     var groupNameInit = widgetName;
-    if (roleEdit) {
+    if (roleEditMultiLang) {
       groupNameInit = widgetNameMultiLangText && widgetNameMultiLangText.textMap[locale];
     }
 
@@ -259,7 +259,7 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
           groupName: newGroupName
 
         });
-        if (roleEdit) {
+        if (roleEditMultiLang) {
           //应用在角色首页时
           _this2.setState({
             widgetNameMultiLangText: _defineProperty({}, locale, newGroupName)
@@ -306,7 +306,7 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
         name: this.state.groupName, //this.state.groupName == "" ? this.props.data.widgetName : 
         widgetNameMultiLangText: this.state.widgetNameMultiLangText,
         dontChangeCurrEditonlyId: true,
-        roleEdit: this.props.roleEdit
+        roleEditMultiLang: this.props.roleEditMultiLang
       });
       this.setState({
         inFoucs: false
@@ -362,7 +362,7 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
         id = _props4.id,
         layout = _props4.layout,
         defaultLayout = _props4.defaultLayout,
-        roleEdit = _props4.roleEdit,
+        roleEditMultiLang = _props4.roleEditMultiLang,
         acInputLocal = _props4.acInputLocal,
         renameGroup = _props4.renameGroup,
         widgetNameMultiLangTextNotForEdit = _props4.widgetNameMultiLangText;
@@ -382,7 +382,7 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
         _react2["default"].createElement(
           'div',
           { className: _style.titleInputArea },
-          roleEdit ? acInputLocal({
+          roleEditMultiLang ? acInputLocal({
             //className:`${inFoucs ? newGroupName_focus : newGroupName_blur} ${newGroupName} input`,
             onChange: this.acInputOnchangeGroupName,
             localeList: widgetNameMultiLangText,

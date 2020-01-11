@@ -167,11 +167,11 @@ export default class ManageGroup extends GroupItem {
       },
       manageList,
       languagesJSON,
-      roleEdit,
+      roleEditMultiLang,
       locale
     } = this.props;
     let groupNameInit = widgetName;
-    if(roleEdit){
+    if(roleEditMultiLang){
       groupNameInit = widgetNameMultiLangText&&widgetNameMultiLangText.textMap[locale]
     }
 
@@ -186,7 +186,7 @@ export default class ManageGroup extends GroupItem {
           groupName: newGroupName,
           
         });
-        if(roleEdit){//应用在角色首页时
+        if(roleEditMultiLang){//应用在角色首页时
           this.setState({
             widgetNameMultiLangText:{
                 [locale]:newGroupName
@@ -237,7 +237,7 @@ export default class ManageGroup extends GroupItem {
         name: this.state.groupName,//this.state.groupName == "" ? this.props.data.widgetName : 
         widgetNameMultiLangText:this.state.widgetNameMultiLangText,
         dontChangeCurrEditonlyId: true,
-        roleEdit:this.props.roleEdit
+        roleEditMultiLang:this.props.roleEditMultiLang
       });
       this.setState({
         inFoucs: false
@@ -304,7 +304,7 @@ acInputOnchangeGroupName = (localeValue, localeList,e) => {
 			id,
 			layout,
       defaultLayout,
-      roleEdit,
+      roleEditMultiLang,
       acInputLocal,
       renameGroup,
       widgetNameMultiLangText:widgetNameMultiLangTextNotForEdit
@@ -322,7 +322,7 @@ acInputOnchangeGroupName = (localeValue, localeList,e) => {
       groupTitle = (
         <div className={widgetTitle} >
           <div className={titleInputArea}>
-          {roleEdit?acInputLocal({
+          {roleEditMultiLang?acInputLocal({
             //className:`${inFoucs ? newGroupName_focus : newGroupName_blur} ${newGroupName} input`,
             onChange:this.acInputOnchangeGroupName,
             localeList:widgetNameMultiLangText,

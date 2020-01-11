@@ -415,7 +415,7 @@ var reducer = (0, _reduxActions.handleActions)((_handleActions = {}, _defineProp
       id = _ref20$payload.id,
       dontChangeCurrEditonlyId = _ref20$payload.dontChangeCurrEditonlyId,
       widgetNameMultiLangText = _ref20$payload.widgetNameMultiLangText,
-      roleEdit = _ref20$payload.roleEdit;
+      roleEditMultiLang = _ref20$payload.roleEditMultiLang;
 
   var manageList = state.manageList;
   var group = void 0;
@@ -435,7 +435,7 @@ var reducer = (0, _reduxActions.handleActions)((_handleActions = {}, _defineProp
   }
   group.widgetName = name;
   group.isNew = false;
-  if (roleEdit) {
+  if (roleEditMultiLang) {
     group.widgetNameMultiLangText = {
       textMap: widgetNameMultiLangText
       // group.widgetNameMultiLangText.textMap = widgetNameMultiLangText

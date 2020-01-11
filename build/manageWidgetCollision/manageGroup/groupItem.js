@@ -50,11 +50,11 @@ var GroupItem = function (_Component) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.openRenameGroupFn = function (id) {
       var _this$props = _this.props,
           setEditonlyId = _this$props.setEditonlyId,
-          roleEdit = _this$props.roleEdit;
+          roleEditMultiLang = _this$props.roleEditMultiLang;
 
       setEditonlyId(id);
       setTimeout(function () {
-        if (roleEdit) {
+        if (roleEditMultiLang) {
           //应用在角色首页时
           document.getElementById('widgetNameMultiLangText').focus();
           document.getElementById('widgetNameMultiLangText').select();
@@ -73,7 +73,7 @@ var GroupItem = function (_Component) {
       var _this$props2 = _this.props,
           renameGroup = _this$props2.renameGroup,
           setEditonlyId = _this$props2.setEditonlyId,
-          roleEdit = _this$props2.roleEdit;
+          roleEditMultiLang = _this$props2.roleEditMultiLang;
       var groupName = _this.props.data.widgetName;
 
       var stateGroupName = _this.state.groupName;
@@ -87,7 +87,7 @@ var GroupItem = function (_Component) {
           index: index,
           name: stateGroupName,
           widgetNameMultiLangText: widgetNameMultiLangText,
-          roleEdit: roleEdit
+          roleEditMultiLang: roleEditMultiLang
         });
       }
       _this.setState({
@@ -98,13 +98,13 @@ var GroupItem = function (_Component) {
           renameGroup = _this$props3.renameGroup,
           manageList = _this$props3.manageList,
           languagesJSON = _this$props3.languagesJSON,
-          roleEdit = _this$props3.roleEdit;
+          roleEditMultiLang = _this$props3.roleEditMultiLang;
       var _this$state = _this.state,
           name = _this$state.groupName,
           widgetNameMultiLangText = _this$state.widgetNameMultiLangText;
       //如果名字不变就不更新,不应用在角色首页,因为有多语
 
-      if (!roleEdit && name == manageList[index].widgetName) {
+      if (!roleEditMultiLang && name == manageList[index].widgetName) {
         _this.renameGroupCancel(index);
         return false;
       }
@@ -128,7 +128,7 @@ var GroupItem = function (_Component) {
         index: index,
         name: name,
         widgetNameMultiLangText: widgetNameMultiLangText,
-        roleEdit: roleEdit
+        roleEditMultiLang: roleEditMultiLang
       });
       _this.renameGroupCancel(index);
     }, _this.clearInput = function () {

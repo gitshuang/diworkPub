@@ -9,10 +9,10 @@ import Dropdown from 'bee/dropdown';
 export default class GroupItem extends Component {
     // 打开编辑分组形态
   openRenameGroupFn = (id) => {
-    const { setEditonlyId,roleEdit } = this.props;
+    const { setEditonlyId,roleEditMultiLang } = this.props;
     setEditonlyId(id);
     setTimeout(() => {
-      if(roleEdit){//应用在角色首页时
+      if(roleEditMultiLang){//应用在角色首页时
           document.getElementById('widgetNameMultiLangText').focus()
           document.getElementById('widgetNameMultiLangText').select()
         //   document.getElementById('widgetNameMultiLangText').addEventListener('keydown',(e)=>{
@@ -30,7 +30,7 @@ export default class GroupItem extends Component {
   // 点击取消编辑分组按钮
   renameGroupCancel = (index) => {
 
-    const { renameGroup, setEditonlyId,roleEdit } = this.props;
+    const { renameGroup, setEditonlyId,roleEditMultiLang } = this.props;
     const {
       data: {
         widgetName: groupName,
@@ -47,7 +47,7 @@ export default class GroupItem extends Component {
         index,
         name: stateGroupName,
         widgetNameMultiLangText,
-        roleEdit
+        roleEditMultiLang
       });
     }
     this.setState({
@@ -56,10 +56,10 @@ export default class GroupItem extends Component {
   }
   // 点击按钮执行 action   重新构造
   renameGroupFn = (index) => {
-    const { renameGroup, manageList, languagesJSON,roleEdit } = this.props;
+    const { renameGroup, manageList, languagesJSON,roleEditMultiLang } = this.props;
     const {groupName:name,widgetNameMultiLangText} = this.state;
     //如果名字不变就不更新,不应用在角色首页,因为有多语
-    if (!roleEdit&&name == manageList[index].widgetName) {
+    if (!roleEditMultiLang&&name == manageList[index].widgetName) {
       this.renameGroupCancel(index);
       return false;
     }
@@ -83,7 +83,7 @@ export default class GroupItem extends Component {
       index,
       name,
       widgetNameMultiLangText,
-      roleEdit
+      roleEditMultiLang
     });
     this.renameGroupCancel(index);
   }

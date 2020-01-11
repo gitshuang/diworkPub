@@ -250,7 +250,8 @@ var Wrapper = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('mana
         isFooterDisplay = _props.isFooterDisplay,
         roleEdit = _props.roleEdit,
         acInputLocal = _props.acInputLocal,
-        locale = _props.locale;
+        locale = _props.locale,
+        roleEditMultiLang = _props.roleEditMultiLang;
     var _state = this.state,
         showModal = _state.showModal,
         showCancelModal = _state.showCancelModal;
@@ -288,6 +289,7 @@ var Wrapper = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('mana
           groupList: this.props.groupList,
           moveGroupDrag: this.moveGroupDrag,
           roleEdit: roleEdit,
+          roleEditMultiLang: roleEditMultiLang,
           locale: locale,
           acInputLocal: acInputLocal }),
         _react2["default"].createElement(_popDialogComp2["default"], _extends({}, popDialogProps, { languagesJSON: languagesJSON })),

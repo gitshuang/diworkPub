@@ -490,7 +490,7 @@ var Content = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)("man
           onCardListDropInGroupItem: _this2.onCardListDropInGroupItem,
           moveGroupItem: _this2.moveGroupItem //移动分组
           , acInputLocal: _this2.props.acInputLocal,
-          roleEdit: _this2.props.roleEdit,
+          roleEditMultiLang: _this2.props.roleEditMultiLang,
           locale: _this2.props.locale
         })));
       });
