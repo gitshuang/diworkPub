@@ -408,6 +408,7 @@ export default class Content extends Component{
             acInputLocal={this.props.acInputLocal}
             roleEditMultiLang = {this.props.roleEditMultiLang}
             locale = {this.props.locale}
+            on = {this.props.on}
             />
         )
       });

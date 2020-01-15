@@ -69,7 +69,7 @@ var returnDefaultState = _action2["default"].returnDefaultState,
     emptySelectGroup = _action2["default"].emptySelectGroup,
     setEditState = _action2["default"].setEditState,
     moveGroup = _action2["default"].moveGroup;
-var Wrapper = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('manageList', 'isEdit', {
+var Wrapper = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('manageList', 'isEdit', 'currEditonlyId', {
   namespace: 'managewidget'
 }), {
   returnDefaultState: returnDefaultState,
@@ -119,11 +119,19 @@ var Wrapper = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('mana
     _this.save = function () {
       var _this$props = _this.props,
           manageList = _this$props.manageList,
-          save = _this$props.save;
+          save = _this$props.save,
+          currEditonlyId = _this$props.currEditonlyId,
+          trigger = _this$props.trigger;
 
-      if (_this.checkBtn) {
-        _this.checkBtn.click();
+      if (currEditonlyId) {
+        //this.checkBtn
+        //this.checkBtn.click();
+        //document.getElementById(`${currEditonlyId}_btn`).click();
+        trigger({
+          type: currEditonlyId + '_btn'
+        });
       }
+
       save(manageList).then(function (_ref) {
         var error = _ref.error,
             payload = _ref.payload;
@@ -251,7 +259,8 @@ var Wrapper = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('mana
         roleEdit = _props.roleEdit,
         acInputLocal = _props.acInputLocal,
         locale = _props.locale,
-        roleEditMultiLang = _props.roleEditMultiLang;
+        roleEditMultiLang = _props.roleEditMultiLang,
+        on = _props.on;
     var _state = this.state,
         showModal = _state.showModal,
         showCancelModal = _state.showCancelModal;
@@ -291,7 +300,9 @@ var Wrapper = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('mana
           roleEdit: roleEdit,
           roleEditMultiLang: roleEditMultiLang,
           locale: locale,
-          acInputLocal: acInputLocal }),
+          acInputLocal: acInputLocal,
+          on: on
+        }),
         _react2["default"].createElement(_popDialogComp2["default"], _extends({}, popDialogProps, { languagesJSON: languagesJSON })),
         _react2["default"].createElement(_customDragLayer2["default"], null)
       ),

@@ -54,7 +54,7 @@ var returnDefaultState = _action2["default"].returnDefaultState,
 
 //import rootActions from 'store/root/actions';
 //const { requestStart, requestSuccess, requestError } = rootActions;
-var Footer = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('manageList', 'isEdit', {
+var Footer = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('manageList', 'isEdit', 'currEditonlyId', {
   namespace: 'managewidget'
 }), {
   returnDefaultState: returnDefaultState,
@@ -71,13 +71,16 @@ var Footer = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('manag
   }
 
   Footer.prototype.render = function render() {
+    var _this2 = this;
+
     var _props = this.props,
         selectList = _props.selectList,
         openGroupTo = _props.openGroupTo,
         isEdit = _props.isEdit,
         save = _props.save,
         popOpenCancel = _props.popOpenCancel,
-        languagesJSON = _props.languagesJSON;
+        languagesJSON = _props.languagesJSON,
+        currEditonlyId = _props.currEditonlyId;
 
 
     return _react2["default"].createElement(
@@ -91,7 +94,10 @@ var Footer = (_dec = (0, _reactRedux.connect)((0, _utils.mapStateToProps)('manag
           { className: _style.saveArea + '  horizontalParent' },
           _react2["default"].createElement(
             _button.ButtonBrand,
-            { disabled: !isEdit, onClick: this.props.save },
+            { disabled: !isEdit, onClick: function onClick() {
+                console.log('执行了保存!!!!!');
+                _this2.props.save();
+              } },
             languagesJSON.save
           ),
           _react2["default"].createElement(

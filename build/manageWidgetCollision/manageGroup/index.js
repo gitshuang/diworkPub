@@ -288,6 +288,8 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
   };
 
   ManageGroup.prototype.componentDidMount = function componentDidMount() {
+    var _this3 = this;
+
     var clientWidth = void 0;
     var containerDom = document.querySelector('#widget-container');
     if (containerDom) {
@@ -297,6 +299,14 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
       this.props.handleLoad();
       // console.log('handle');
     }
+    var _props3 = this.props,
+        on = _props3.on,
+        index = _props3.index,
+        widgetId = _props3.data.widgetId;
+
+    on(widgetId + '_btn', function () {
+      _this3.renameGroupFn(index);
+    });
   };
 
   ManageGroup.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
@@ -341,31 +351,31 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
   };
 
   ManageGroup.prototype.render = function render() {
-    var _this3 = this;
+    var _this4 = this;
 
-    var _props3 = this.props,
-        manageList = _props3.manageList,
-        dragState = _props3.dragState,
-        selectGroup = _props3.selectGroup,
-        currEditonlyId = _props3.currEditonlyId,
-        languagesJSON = _props3.languagesJSON;
     var _props4 = this.props,
-        _props4$data = _props4.data,
-        widgetId = _props4$data.widgetId,
-        widgetName = _props4$data.widgetName,
-        children = _props4$data.children,
-        index = _props4.index,
-        connectDragSource = _props4.connectDragSource,
-        connectDropTarget = _props4.connectDropTarget,
-        isDragging = _props4.isDragging,
-        cards = _props4.cards,
-        id = _props4.id,
-        layout = _props4.layout,
-        defaultLayout = _props4.defaultLayout,
-        roleEditMultiLang = _props4.roleEditMultiLang,
-        acInputLocal = _props4.acInputLocal,
-        renameGroup = _props4.renameGroup,
-        widgetNameMultiLangTextNotForEdit = _props4.widgetNameMultiLangText;
+        manageList = _props4.manageList,
+        dragState = _props4.dragState,
+        selectGroup = _props4.selectGroup,
+        currEditonlyId = _props4.currEditonlyId,
+        languagesJSON = _props4.languagesJSON;
+    var _props5 = this.props,
+        _props5$data = _props5.data,
+        widgetId = _props5$data.widgetId,
+        widgetName = _props5$data.widgetName,
+        children = _props5$data.children,
+        index = _props5.index,
+        connectDragSource = _props5.connectDragSource,
+        connectDropTarget = _props5.connectDropTarget,
+        isDragging = _props5.isDragging,
+        cards = _props5.cards,
+        id = _props5.id,
+        layout = _props5.layout,
+        defaultLayout = _props5.defaultLayout,
+        roleEditMultiLang = _props5.roleEditMultiLang,
+        acInputLocal = _props5.acInputLocal,
+        renameGroup = _props5.renameGroup,
+        widgetNameMultiLangTextNotForEdit = _props5.widgetNameMultiLangText;
     var _state = this.state,
         inFoucs = _state.inFoucs,
         groupName = _state.groupName,
@@ -391,19 +401,19 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
             onFocus: this.handleFocus,
             maxLength: 4,
             onBlur: function onBlur() {
-              _this3.setState({
+              _this4.setState({
                 inFoucs: false
               });
-              _this3.renameGroupFn(index);
-              var _props5 = _this3.props,
-                  setDragInputState = _props5.setDragInputState,
-                  dragState = _props5.dragState;
+              _this4.renameGroupFn(index);
+              var _props6 = _this4.props,
+                  setDragInputState = _props6.setDragInputState,
+                  dragState = _props6.dragState;
 
               if (dragState) return;
               setDragInputState(true);
             },
             ref: function ref(_ref2) {
-              return _this3.groupName = _ref2;
+              return _this4.groupName = _ref2;
             }
           }) : _react2["default"].createElement('input', {
             className: (inFoucs ? _style.newGroupName_focus : _style.newGroupName_blur) + ' ' + _style.newGroupName + ' input',
@@ -415,20 +425,20 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
             onBlur: this.handleBlur,
             placeholder: languagesJSON.groupName_max_words_four,
             ref: function ref(_ref3) {
-              return _this3.groupName = _ref3;
+              return _this4.groupName = _ref3;
             } })
         ),
         _react2["default"].createElement(
           _button.ButtonCheckSelected,
           { id: widgetId + '_btn', className: _style.btn + ' right', onClick: function onClick() {
-              _this3.renameGroupFn(index);
+              _this4.renameGroupFn(index);
             } },
           _react2["default"].createElement(_icon2["default"], { type: 'Determine' })
         ),
         _react2["default"].createElement(
           _button.ButtonCheckClose,
           { className: _style.btn + ' error', onClick: function onClick() {
-              _this3.renameGroupCancel(index);
+              _this4.renameGroupCancel(index);
             } },
           _react2["default"].createElement(_icon2["default"], { type: 'error3' })
         )
@@ -461,18 +471,18 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
             'div',
             { className: _style.iconBox },
             _react2["default"].createElement(_icon2["default"], { title: languagesJSON.rename_group, type: 'record', onClick: function onClick() {
-                _this3.openRenameGroupFn(widgetId);
+                _this4.openRenameGroupFn(widgetId);
               } }),
             _react2["default"].createElement(_icon2["default"], { title: languagesJSON["delete"], type: 'dustbin', onClick: function onClick() {
-                _this3.delectGroupFn(index);
+                _this4.delectGroupFn(index);
               } }),
             index ? _react2["default"].createElement(_icon2["default"], { title: languagesJSON.move_up, font: 'shangyi', onClick: function onClick() {
-                _this3.moveTopFn(index);
+                _this4.moveTopFn(index);
               } }) : _react2["default"].createElement(_icon2["default"], { title: languagesJSON.move_up, font: 'shangyi', className: 'disabled', onClick: function onClick() {
                 return false;
               } }),
             index !== manageList.length - 1 ? _react2["default"].createElement(_icon2["default"], { title: languagesJSON.move_down, font: 'xiayi', onClick: function onClick() {
-                _this3.moveBottomFn(index);
+                _this4.moveBottomFn(index);
               } }) : _react2["default"].createElement(_icon2["default"], { title: languagesJSON.move_down, font: 'xiayi', className: 'disabled', onClick: function onClick() {
                 return false;
               } })
@@ -491,9 +501,9 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
       className: ""
     }];
 
-    var _props6 = this.props,
-        isOver = _props6.isOver,
-        getItemType = _props6.getItemType;
+    var _props7 = this.props,
+        isOver = _props7.isOver,
+        getItemType = _props7.getItemType;
 
     var overStyle = {};
     if (isOver && getItemType.type === 1) {

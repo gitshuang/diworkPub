@@ -224,7 +224,11 @@ export default class ManageGroup extends GroupItem {
 		if (this.props.layout.containerWidth !== clientWidth) {
 			this.props.handleLoad();
 			// console.log('handle');
-		}
+    }
+    const {on,index, data: {widgetId}} = this.props;
+    on(`${widgetId}_btn`,()=>{
+      this.renameGroupFn(index)
+    })
 	}
 
   componentWillReceiveProps(nextProps) {

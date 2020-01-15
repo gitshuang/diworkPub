@@ -14,6 +14,7 @@ import { mapStateToProps } from 'utils';
   mapStateToProps(  
     'manageList',
     'isEdit',
+    'currEditonlyId',
       {
           namespace: 'managewidget',
       },
@@ -38,7 +39,8 @@ export default class Footer extends Component{
       isEdit,
       save,
       popOpenCancel,
-      languagesJSON
+      languagesJSON,
+      currEditonlyId
     } = this.props;
 
     return (
@@ -49,7 +51,10 @@ export default class Footer extends Component{
               <ButtonDefaultLine onClick={this.props.openGroupTo} disabled={selectList.length ? false:true} >{languagesJSON.moveTo}</ButtonDefaultLine>
             </div> */}
             <div className={`${saveArea}  horizontalParent`}>
-              <ButtonBrand disabled={!isEdit} onClick={this.props.save}>{languagesJSON.save}</ButtonBrand>
+              <ButtonBrand disabled={!isEdit} onClick={()=>{
+                console.log('执行了保存!!!!!');
+                this.props.save()
+                }}>{languagesJSON.save}</ButtonBrand>
               <ButtonDefaultLine onClick={this.props.popOpenCancel} >{languagesJSON.cancel}</ButtonDefaultLine>
               {/*<ButtonDefaultLine onClick={this.goBack}>取消</ButtonDefaultLine>*/}
             </div>

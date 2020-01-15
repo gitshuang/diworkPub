@@ -19,6 +19,7 @@ import { mapStateToProps } from 'utils';
   mapStateToProps(
     'manageList',
     'isEdit',
+    'currEditonlyId',
       {
           namespace: 'managewidget',
       },
@@ -108,20 +109,28 @@ class Wrapper extends Component {
    save = () => {
     const {
       manageList,
-      save
+      save,
+      currEditonlyId,
+      trigger
     } = this.props;
-    if (this.checkBtn) {
-      this.checkBtn.click();
+    if (currEditonlyId) {//this.checkBtn
+      //this.checkBtn.click();
+      //document.getElementById(`${currEditonlyId}_btn`).click();
+      trigger({
+        type:`${currEditonlyId}_btn`
+      });
     }
-    save(manageList).then(({ error, payload }) => {
-      if (error) {
-        //requestError(payload);
-
-      } else {
-        this.goBack();
-      }
-      this.popCloseCancel();
-    });
+    
+      save(manageList).then(({ error, payload }) => {
+        if (error) {
+          //requestError(payload);
+  
+        } else {
+          this.goBack();
+        }
+        this.popCloseCancel();
+      });
+    
   }
   // 取消
   cancel = () => {
@@ -166,7 +175,7 @@ class Wrapper extends Component {
       });
     }
   render() {
-   const {languagesJSON,isEdit,isFooterDisplay,roleEdit,acInputLocal,locale,roleEditMultiLang} = this.props;
+   const {languagesJSON,isEdit,isFooterDisplay,roleEdit,acInputLocal,locale,roleEditMultiLang,on} = this.props;
     const {showModal,showCancelModal} = this.state;
     var popDialogProps = {
       save:this.save,
@@ -203,7 +212,9 @@ class Wrapper extends Component {
           roleEdit={roleEdit}
           roleEditMultiLang={roleEditMultiLang}
           locale={locale}
-          acInputLocal={acInputLocal}/>
+          acInputLocal={acInputLocal}
+          on = {on}
+          />
           
           
           <PopDialogComp {...popDialogProps} languagesJSON={languagesJSON}/>
