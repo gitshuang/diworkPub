@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.IS_IE = exports.hasCardContainInGroups = exports.removeCardByGroupIndexAndCardID = exports.calColWidth = exports.calColCount = exports.isContained = exports.checkCardContainInGroup = exports.checkInContainer = exports.setPropertyValueForCards = exports.calWHtoPx = exports.calGridItemPosition = exports.calGridXY = exports.getCardByGroupIDAndCardID = exports.layoutBottom = exports.getContainerMaxHeight = undefined;
+exports.on = exports.trigger = exports.IS_IE = exports.hasCardContainInGroups = exports.removeCardByGroupIndexAndCardID = exports.calColWidth = exports.calColCount = exports.isContained = exports.checkCardContainInGroup = exports.checkInContainer = exports.setPropertyValueForCards = exports.calWHtoPx = exports.calGridItemPosition = exports.calGridXY = exports.getCardByGroupIDAndCardID = exports.layoutBottom = exports.getContainerMaxHeight = undefined;
 exports.findItemById = findItemById;
 exports.DeferFn = DeferFn;
 
@@ -285,3 +285,32 @@ var hasCardContainInGroups = exports.hasCardContainInGroups = function hasCardCo
 };
 //ie11的window.ActiveXObject返回undefined，
 var IS_IE = exports.IS_IE = !!window.ActiveXObject || "ActiveXObject" in window;
+
+var callbackQueue = {};
+//发布,订阅
+var trigger = exports.trigger = function trigger(event) {
+    var name = void 0,
+        data = void 0,
+        queue = void 0;
+    try {
+        name = event.type;
+        data = event.data;
+        queue = callbackQueue[name];
+    } catch (e) {
+        console.log(e);
+        return;
+    }
+    if (queue && queue.length) {
+        for (var i = 0, l = queue.length; i < l; i++) {
+            queue[i](data);
+        }
+    }
+};
+var on = exports.on = function on(name, callback) {
+    var queue = callbackQueue[name];
+    if (queue) {
+        queue.push(callback);
+    } else {
+        callbackQueue[name] = [callback];
+    }
+};

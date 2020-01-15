@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Wrapper from './wrapper'
 import store from './core/index'
 import { Provider } from 'react-redux';
-
+import {trigger,on} from './utils'
 
 
  class CreateManageModule extends Component {
@@ -15,7 +15,7 @@ import { Provider } from 'react-redux';
             <div>
             <Provider store={store}>
                 <div>
-                    <Wrapper {...this.props} />
+                    <Wrapper {...this.props} trigger={trigger} on={on}/>
                 </div>
             </Provider>
             </div>

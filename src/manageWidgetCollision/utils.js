@@ -299,3 +299,32 @@ export const hasCardContainInGroups = (groups, cardID) => {
   };
 //ie11的window.ActiveXObject返回undefined，
 export const IS_IE = !!window.ActiveXObject || "ActiveXObject" in window;
+
+const callbackQueue = {};
+//发布,订阅
+ export const trigger = (event) => {
+    let name,data,queue
+  try {
+    name = event.type;
+    data = event.data;
+    queue = callbackQueue[name];
+  } catch (e) {
+    console.log(e);
+    return;
+  }
+  if (queue && queue.length) {
+    for (let i = 0, l = queue.length; i < l; i++) {
+      queue[i](data);
+    }
+  }
+};
+export const  on =  (name, callback) => {
+  let queue = callbackQueue[name];
+  if (queue) {
+    queue.push(callback);
+  } else {
+    callbackQueue[name] = [callback];
+  }
+};
+
+
