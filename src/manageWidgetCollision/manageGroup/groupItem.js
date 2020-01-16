@@ -111,10 +111,11 @@ export default class GroupItem extends Component {
     setDragInputState(false);
   }
   //输入框失焦
-  handleBlur = () => {
+  handleBlur = (index) => {
     this.setState({
       inFoucs: false,
     });
+    this.renameGroupFn(index);
     const { setDragInputState, dragState } = this.props;
     if (dragState) return;
     setDragInputState(true);

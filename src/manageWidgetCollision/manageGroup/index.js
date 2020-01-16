@@ -352,7 +352,7 @@ acInputOnchangeGroupName = (localeValue, localeList,e) => {
           autoFocus="autofocus"
           onChange={this.editGroupName}
           onFocus={this.handleFocus}
-          onBlur={this.handleBlur}
+          onBlur={()=>{this.handleBlur(index)}}
           placeholder={languagesJSON.groupName_max_words_four}
           ref={ref=>this.groupName=ref} />}
             

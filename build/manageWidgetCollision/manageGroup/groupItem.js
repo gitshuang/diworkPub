@@ -151,10 +151,11 @@ var GroupItem = function (_Component) {
 
       if (!dragState) return;
       setDragInputState(false);
-    }, _this.handleBlur = function () {
+    }, _this.handleBlur = function (index) {
       _this.setState({
         inFoucs: false
       });
+      _this.renameGroupFn(index);
       var _this$props5 = _this.props,
           setDragInputState = _this$props5.setDragInputState,
           dragState = _this$props5.dragState;

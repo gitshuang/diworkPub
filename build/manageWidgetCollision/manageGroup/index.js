@@ -422,7 +422,9 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
             autoFocus: 'autofocus',
             onChange: this.editGroupName,
             onFocus: this.handleFocus,
-            onBlur: this.handleBlur,
+            onBlur: function onBlur() {
+              _this4.handleBlur(index);
+            },
             placeholder: languagesJSON.groupName_max_words_four,
             ref: function ref(_ref3) {
               return _this4.groupName = _ref3;
