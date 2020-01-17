@@ -432,15 +432,23 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
         ),
         _react2["default"].createElement(
           _button.ButtonCheckSelected,
-          { id: widgetId + '_btn', className: _style.btn + ' right', onClick: function onClick() {
+          { id: widgetId + '_btn', className: _style.btn + ' right',
+            onClick: function onClick() {
               _this4.renameGroupFn(index);
+            },
+            onMouseDown: function onMouseDown(e) {
+              e.preventDefault();
             } },
           _react2["default"].createElement(_icon2["default"], { type: 'Determine' })
         ),
         _react2["default"].createElement(
           _button.ButtonCheckClose,
-          { className: _style.btn + ' error', onClick: function onClick() {
+          { className: _style.btn + ' error',
+            onClick: function onClick() {
               _this4.renameGroupCancel(index);
+            },
+            onMouseDown: function onMouseDown(e) {
+              e.preventDefault();
             } },
           _react2["default"].createElement(_icon2["default"], { type: 'error3' })
         )

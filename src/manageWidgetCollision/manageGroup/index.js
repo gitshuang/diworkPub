@@ -359,10 +359,10 @@ acInputOnchangeGroupName = (localeValue, localeList,e) => {
           </div>
           <ButtonCheckSelected id={`${widgetId}_btn`} className={`${btn} right`} 
           onClick={() => { this.renameGroupFn(index) }}
-          onMouseDown={()=>{e.preventDefault()}}><Icon type="Determine"></Icon></ButtonCheckSelected>
+          onMouseDown={(e)=>{e.preventDefault()}}><Icon type="Determine"></Icon></ButtonCheckSelected>
           <ButtonCheckClose className={`${btn} error`} 
           onClick={() => { this.renameGroupCancel(index) }}
-          onMouseDown={()=>{e.preventDefault()}}><Icon type="error3"></Icon></ButtonCheckClose>
+          onMouseDown={(e)=>{e.preventDefault()}}><Icon type="error3"></Icon></ButtonCheckClose>
         </div>
       );
     } else {
