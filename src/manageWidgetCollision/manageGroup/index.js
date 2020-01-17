@@ -357,8 +357,12 @@ acInputOnchangeGroupName = (localeValue, localeList,e) => {
           ref={ref=>this.groupName=ref} />}
             
           </div>
-          <ButtonCheckSelected id={`${widgetId}_btn`} className={`${btn} right`} onClick={() => { this.renameGroupFn(index) }}><Icon type="Determine"></Icon></ButtonCheckSelected>
-          <ButtonCheckClose className={`${btn} error`} onClick={() => { this.renameGroupCancel(index) }}><Icon type="error3"></Icon></ButtonCheckClose>
+          <ButtonCheckSelected id={`${widgetId}_btn`} className={`${btn} right`} 
+          onClick={() => { this.renameGroupFn(index) }}
+          onMouseDown={()=>{e.preventDefault()}}><Icon type="Determine"></Icon></ButtonCheckSelected>
+          <ButtonCheckClose className={`${btn} error`} 
+          onClick={() => { this.renameGroupCancel(index) }}
+          onMouseDown={()=>{e.preventDefault()}}><Icon type="error3"></Icon></ButtonCheckClose>
         </div>
       );
     } else {
