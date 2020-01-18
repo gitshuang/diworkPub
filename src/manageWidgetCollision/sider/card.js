@@ -7,6 +7,7 @@ import { mapStateToProps } from '../../utils';
 import { list_item_content, title, isAddColor, title_name } from './style.css'
 import manageActions from '../core/action';
 const { updateManageList,updateShadowCard ,updateCheckedCardList} = manageActions;
+import {addWidthAndHeight} from '../../utils'
 
 const noteSource = {
     beginDrag(props, monitor, component) {
@@ -22,28 +23,33 @@ const noteSource = {
             element.type = 3;
             element.widgetId = element.service.serviceId;
             element.widgetName = element.service.serviceName;
+            Object.keys(element.service).forEach((item,index)=>{
+                if(item.indexOf('serviceNameExt')>-1){
+                    element[`widgetName${item.slice(11)}`]=element.service[item]
+                }
+            })
             element.serviceCode = element.service.serviceCode;
             element.icon = element.service.serviceIcon;
             element.size = element.widgetTemplate ? element.widgetTemplate.size : 1;
             element.serviceType = element.widgetTemplate ? element.widgetTemplate.serviceType : 1;
-           
-            switch(element.size){
-                case 1:
-                element.height = 1;
-                element.width = 1;
-                break;
-                case 2:
-                element.height = 1;
-                element.width = 2;
-                break
-                case 3:
-                element.height = 2;
-                element.width = 2;
-                break
-                default:
-                element.height = 1;
-                element.width = 1;
-              }
+            addWidthAndHeight(element)
+            // switch(element.size){
+            //     case 1:
+            //     element.height = 1;
+            //     element.width = 1;
+            //     break;
+            //     case 2:
+            //     element.height = 1;
+            //     element.width = 2;
+            //     break
+            //     case 3:
+            //     element.height = 2;
+            //     element.width = 2;
+            //     break
+            //     default:
+            //     element.height = 1;
+            //     element.width = 1;
+            //   }
         });
         const dragCard = {
             isShadow:true,
