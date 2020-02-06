@@ -4,7 +4,14 @@
     will-change: auto;
 }
 
-
 .u-button-danger {
     color: #ffffff;
+}
+
+.u-button-ellipsis {
+    min-width: 48px !important;
+    max-width: 150px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
