@@ -375,7 +375,8 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
         roleEditMultiLang = _props5.roleEditMultiLang,
         acInputLocal = _props5.acInputLocal,
         renameGroup = _props5.renameGroup,
-        widgetNameMultiLangTextNotForEdit = _props5.widgetNameMultiLangText;
+        widgetNameMultiLangTextNotForEdit = _props5.widgetNameMultiLangText,
+        locale = _props5.locale;
     var _state = this.state,
         inFoucs = _state.inFoucs,
         groupName = _state.groupName,
@@ -384,6 +385,7 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
 
     var checkType = selectGroup.indexOf(index) > -1 ? true : false;
     var opacity = isDragging ? 0 : 1;
+    var maxlength = locale === "en_US" ? 20 : 4;
     var groupTitle = void 0;
     if (currEditonlyId == widgetId) {
       groupTitle = _react2["default"].createElement(
@@ -418,7 +420,7 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
           }) : _react2["default"].createElement('input', {
             className: (inFoucs ? _style.newGroupName_focus : _style.newGroupName_blur) + ' ' + _style.newGroupName + ' input',
             value: groupName,
-            maxLength: '4',
+            maxLength: maxlength,
             autoFocus: 'autofocus',
             onChange: this.editGroupName,
             onFocus: this.handleFocus,
