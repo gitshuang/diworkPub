@@ -361,10 +361,10 @@ export default class ManageGroup extends GroupItem {
           </div>
           <ButtonCheckSelected id={`${widgetId}_btn`} className={`${btn} right`}
             onClick={() => { this.renameGroupFn(index) }}
-            onMouseDown={(e) => { e.preventDefault() }}><Icon type="Determine"></Icon></ButtonCheckSelected>
+            ><Icon type="Determine"></Icon></ButtonCheckSelected>
           <ButtonCheckClose className={`${btn} error`}
             onClick={() => { this.renameGroupCancel(index) }}
-            onMouseDown={(e) => { e.preventDefault() }}><Icon type="error3"></Icon></ButtonCheckClose>
+            ><Icon type="error3"></Icon></ButtonCheckClose>
         </div>
       );
     } else {
