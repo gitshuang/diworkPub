@@ -406,7 +406,7 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
               _this4.setState({
                 inFoucs: false
               });
-              _this4.renameGroupFn(index);
+              //this.renameGroupFn(index);
               var _props6 = _this4.props,
                   setDragInputState = _props6.setDragInputState,
                   dragState = _props6.dragState;
@@ -437,10 +437,8 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
           { id: widgetId + '_btn', className: _style.btn + ' right',
             onClick: function onClick() {
               _this4.renameGroupFn(index);
-            },
-            onMouseDown: function onMouseDown(e) {
-              e.preventDefault();
-            } },
+            }
+          },
           _react2["default"].createElement(_icon2["default"], { type: 'Determine' })
         ),
         _react2["default"].createElement(
@@ -448,10 +446,8 @@ var ManageGroup = (_dec = (0, _reactRedux.connect)((0, _utils3.mapStateToProps)(
           { className: _style.btn + ' error',
             onClick: function onClick() {
               _this4.renameGroupCancel(index);
-            },
-            onMouseDown: function onMouseDown(e) {
-              e.preventDefault();
-            } },
+            }
+          },
           _react2["default"].createElement(_icon2["default"], { type: 'error3' })
         )
       );

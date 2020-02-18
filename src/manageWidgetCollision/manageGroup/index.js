@@ -340,7 +340,7 @@ export default class ManageGroup extends GroupItem {
                 this.setState({
                   inFoucs: false,
                 });
-                this.renameGroupFn(index);
+                //this.renameGroupFn(index);
                 const { setDragInputState, dragState } = this.props;
                 if (dragState) return;
                 setDragInputState(true);

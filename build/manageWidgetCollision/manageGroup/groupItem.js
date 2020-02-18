@@ -155,7 +155,7 @@ var GroupItem = function (_Component) {
       _this.setState({
         inFoucs: false
       });
-      _this.renameGroupFn(index);
+      //this.renameGroupFn(index);
       var _this$props5 = _this.props,
           setDragInputState = _this$props5.setDragInputState,
           dragState = _this$props5.dragState;
