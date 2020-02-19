@@ -359,7 +359,8 @@ function Icon(props) {
   var sizeClassName = sizes[size] || '';
   var typeClassName = font ? fonts['icon-' + font] : types['icon-' + type] || '';
   return _react2["default"].createElement('i', _extends({
-    className: 'iconfont ' + (font ? 'u8ciconfont' : 'diworkiconfont') + ' ' + typeClassName + ' ' + sizeClassName + ' ' + className
+    style: { fontFamily: font ? 'font_family_u8c!important' : 'icomoon!important' },
+    className: 'iconfont ' + (font ? 'u8ciconfont' : 'diworkiconfont') + ' \n      ' + typeClassName + ' ' + sizeClassName + ' ' + className
   }, ret));
 }
 

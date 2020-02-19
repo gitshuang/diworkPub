@@ -23,7 +23,9 @@ function Icon(props) {
   const typeClassName = font ? fonts[`icon-${font}`] : types[`icon-${type}`] || '';
   return (
     <i
-      className={`iconfont ${font ? 'u8ciconfont' : 'diworkiconfont'} ${typeClassName} ${sizeClassName} ${className}`}
+      style={{fontFamily:font ? 'font_family_u8c!important' : 'icomoon!important'}}
+      className={`iconfont ${font ? 'u8ciconfont' : 'diworkiconfont'} 
+      ${typeClassName} ${sizeClassName} ${className}`}
       {...ret}
     />
   )
