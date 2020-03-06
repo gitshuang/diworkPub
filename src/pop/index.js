@@ -4,9 +4,10 @@ import PropTypes from "prop-types";
 import Modal from 'bee/modal';
 import { IS_IE } from '../utils';
 import Icon from '../icon';
-import { ButtonBrand, ButtonWarning, ButtonDefaultAlpha, ButtonDanger,
-  ButtonU8c,ButtonU8cPrimary,ButtonU8cDefault
- } from '../button';
+import {
+  ButtonBrand, ButtonWarning, ButtonDefaultAlpha, ButtonDanger,
+  ButtonU8c, ButtonU8cPrimary, ButtonU8cDefault
+} from '../button';
 import { btn, closeBtn, pop_type, error, warning, danger, success } from './style.css';
 
 class PopDialog extends Component {
@@ -17,7 +18,8 @@ class PopDialog extends Component {
     close: PropTypes.any,
     data: PropTypes.any,
     type: PropTypes.string,
-    backdrop: PropTypes.bool
+    backdrop: PropTypes.bool,
+    id: PropTypes.string,
   }
 
   static defaultProps = {
@@ -73,42 +75,42 @@ class PopDialog extends Component {
       case 'error':
         return <ButtonDanger key={"danger_pop_btn" + key} onClick={(e) => { this.btnClick(e, da) }} className={`${_className} ${btn} danger`} disabled={da.disable ? true : false} >{da.label}</ButtonDanger>;
       case 'warning':
-        return <ButtonWarning key={"warning_pop_btn" + key} 
-        onClick={(e) => { this.btnClick(e, da) }} 
-        className={`${_className} ${btn} warning`} 
-        disabled={da.disable ? true : false} >{da.label}</ButtonWarning>;
+        return <ButtonWarning key={"warning_pop_btn" + key}
+          onClick={(e) => { this.btnClick(e, da) }}
+          className={`${_className} ${btn} warning`}
+          disabled={da.disable ? true : false} >{da.label}</ButtonWarning>;
       case 'danger':
-        return <ButtonBrand key={"brand_pop_btn" + key} 
-        onClick={(e) => { this.btnClick(e, da) }} 
-        className={`${_className} ${btn} brand`} 
-        disabled={da.disable ? true : false} >{da.label}
+        return <ButtonBrand key={"brand_pop_btn" + key}
+          onClick={(e) => { this.btnClick(e, da) }}
+          className={`${_className} ${btn} brand`}
+          disabled={da.disable ? true : false} >{da.label}
         </ButtonBrand>;
       case 'defaultAlpha':
-        return <ButtonDefaultAlpha key={"brand_pop_btn" + key} 
-        onClick={(e) => { this.btnClick(e, da) }} 
-        className={`${_className} ${btn} defaultalpha`} 
-        disabled={da.disable ? true : false} >{da.label}
+        return <ButtonDefaultAlpha key={"brand_pop_btn" + key}
+          onClick={(e) => { this.btnClick(e, da) }}
+          className={`${_className} ${btn} defaultalpha`}
+          disabled={da.disable ? true : false} >{da.label}
         </ButtonDefaultAlpha>;
-      case 'u8c' :
-        return <ButtonU8c key={"u8c_pop_btn" + key} 
-        onClick={(e) => { this.btnClick(e, da) }} 
-        className={`${_className} ${btn} `} 
-        disabled={da.disable ? true : false} >{da.label}
+      case 'u8c':
+        return <ButtonU8c key={"u8c_pop_btn" + key}
+          onClick={(e) => { this.btnClick(e, da) }}
+          className={`${_className} ${btn} `}
+          disabled={da.disable ? true : false} >{da.label}
         </ButtonU8c>;
       case 'u8cPrimary':
-        return <ButtonU8cPrimary key={"u8cPrimary_pop_btn" + key} 
-        onClick={(e) => { this.btnClick(e, da) }} 
-        className={`${_className} ${btn} `} 
-        disabled={da.disable ? true : false} >{da.label}
+        return <ButtonU8cPrimary key={"u8cPrimary_pop_btn" + key}
+          onClick={(e) => { this.btnClick(e, da) }}
+          className={`${_className} ${btn} `}
+          disabled={da.disable ? true : false} >{da.label}
         </ButtonU8cPrimary>;
       case 'u8cDefault':
-        return <ButtonU8cDefault key={"u8cDefault_pop_btn" + key} 
-        onClick={(e) => { this.btnClick(e, da) }} 
-        className={`${_className} ${btn} `} 
-        disabled={da.disable ? true : false} >{da.label}
+        return <ButtonU8cDefault key={"u8cDefault_pop_btn" + key}
+          onClick={(e) => { this.btnClick(e, da) }}
+          className={`${_className} ${btn} `}
+          disabled={da.disable ? true : false} >{da.label}
         </ButtonU8cDefault>;
 
-      }
+    }
     return "";
   }
 
@@ -129,7 +131,7 @@ class PopDialog extends Component {
   }
 
   render() {
-    const { type, backdrop } = this.props;
+    const { type, backdrop, id } = this.props;
     let _btns = this.getButtonList();
 
     // if(this.props.btns){
@@ -154,16 +156,18 @@ class PopDialog extends Component {
           <Modal.Title>
             {type ? <Icon type={this.getTypeIcon(type)} /> : ""}
             {this.props.title}
-            <div className={`${closeBtn} close`} onClick={this.props.close} ><Icon type="error3" /></div>
+            <div className={`${closeBtn} close`}>
+              <Icon type="error3" id={`${id}_close`} onClick={this.props.close} />
+            </div>
           </Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
           <div>
-            {this.props.children?this.props.children:(this.props.msg?this.props.msg:'')}
+            {this.props.children ? this.props.children : (this.props.msg ? this.props.msg : '')}
           </div>
 
-          
+
         </Modal.Body>
 
         <Modal.Footer>

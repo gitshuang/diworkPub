@@ -210,7 +210,8 @@ var PopDialog = (_temp2 = _class = function (_Component) {
   PopDialog.prototype.render = function render() {
     var _props = this.props,
         type = _props.type,
-        backdrop = _props.backdrop;
+        backdrop = _props.backdrop,
+        id = _props.id;
 
     var _btns = this.getButtonList();
 
@@ -243,8 +244,8 @@ var PopDialog = (_temp2 = _class = function (_Component) {
           this.props.title,
           _react2["default"].createElement(
             'div',
-            { className: _style.closeBtn + ' close', onClick: this.props.close },
-            _react2["default"].createElement(_icon2["default"], { type: 'error3' })
+            { className: _style.closeBtn + ' close' },
+            _react2["default"].createElement(_icon2["default"], { type: 'error3', id: id + '_close', onClick: this.props.close })
           )
         )
       ),
@@ -273,7 +274,8 @@ var PopDialog = (_temp2 = _class = function (_Component) {
   close: _propTypes2["default"].any,
   data: _propTypes2["default"].any,
   type: _propTypes2["default"].string,
-  backdrop: _propTypes2["default"].bool
+  backdrop: _propTypes2["default"].bool,
+  id: _propTypes2["default"].string
 }, _class.defaultProps = {
   backdrop: false
 }, _temp2);
