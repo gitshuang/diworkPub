@@ -503,7 +503,9 @@ var EnterContent = (_temp = _class = function (_Component) {
           placeholder: texts.placeholder1
         })
       ),
-      _from === "create" || charged ? null : _react2["default"].createElement(
+      _from === "create"
+      // || charged 
+      ? null : _react2["default"].createElement(
         _form.FormItem,
         null,
         _react2["default"].createElement(
@@ -582,7 +584,9 @@ var EnterContent = (_temp = _class = function (_Component) {
           )
         )
       ),
-      _from === "create" || charged ? null : _react2["default"].createElement(
+      _from === "create"
+      // || charged 
+      ? null : _react2["default"].createElement(
         _form.FormItem,
         null,
         _react2["default"].createElement(

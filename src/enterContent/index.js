@@ -354,23 +354,26 @@ class EnterContent extends Component {
           />
         </FormItem>
 
-        {_from === "create" || charged ? null :
-          <FormItem>
-            <label><span>{texts.invitePermissionLabel}<font color="red">&nbsp;*&nbsp;</font></span></label>
-            <Select
-              style={{ width: 338, marginRight: 6 }}
-              {
-              ...getFieldProps('invitePermission', {
-                initialValue: invitePermission || '1',
-                rules: [{ required: true }]
-              })
-              }
-            >
-              <Option value="1">{texts.invitePermissionO1}</Option>
-              <Option value="2">{texts.invitePermissionO2}</Option>
-              <Option value="0">{texts.invitePermissionO3}</Option>
-            </Select>
-          </FormItem>
+        {
+          _from === "create"
+            // || charged 
+            ? null :
+            <FormItem>
+              <label><span>{texts.invitePermissionLabel}<font color="red">&nbsp;*&nbsp;</font></span></label>
+              <Select
+                style={{ width: 338, marginRight: 6 }}
+                {
+                ...getFieldProps('invitePermission', {
+                  initialValue: invitePermission || '1',
+                  rules: [{ required: true }]
+                })
+                }
+              >
+                <Option value="1">{texts.invitePermissionO1}</Option>
+                <Option value="2">{texts.invitePermissionO2}</Option>
+                <Option value="0">{texts.invitePermissionO3}</Option>
+              </Select>
+            </FormItem>
         }
         {_from === "create" ? null :
           <FormItem>
@@ -389,26 +392,29 @@ class EnterContent extends Component {
             </Select>
           </FormItem>
         }
-        {_from === "create" || charged ? null :
-          <FormItem>
-            <label><span>{texts.allowExitLabel}<font color="red">&nbsp;*&nbsp;</font></span></label>
-            <Radio.RadioGroup
-              name="allowExit"
-              selectedValue={allowExit || '0'}
-              {
-              ...getFieldProps('allowExit', {
-                initialValue: allowExit || '0',
-                onChange(value) {
-                  _this.setState({ allowExit: value });
-                },
-                rules: [{ required: true }]
-              })
-              }
-            >
-              <Radio value="0" >{texts.radio1}</Radio>
-              <Radio value="1" >{texts.radio2}</Radio>
-            </Radio.RadioGroup>
-          </FormItem>
+        {
+          _from === "create"
+            // || charged 
+            ? null :
+            <FormItem>
+              <label><span>{texts.allowExitLabel}<font color="red">&nbsp;*&nbsp;</font></span></label>
+              <Radio.RadioGroup
+                name="allowExit"
+                selectedValue={allowExit || '0'}
+                {
+                ...getFieldProps('allowExit', {
+                  initialValue: allowExit || '0',
+                  onChange(value) {
+                    _this.setState({ allowExit: value });
+                  },
+                  rules: [{ required: true }]
+                })
+                }
+              >
+                <Radio value="0" >{texts.radio1}</Radio>
+                <Radio value="1" >{texts.radio2}</Radio>
+              </Radio.RadioGroup>
+            </FormItem>
         }
         {_from === "create" ? null :
           <FormItem>
