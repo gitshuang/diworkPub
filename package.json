@@ -4,7 +4,6 @@
   "description": "diwork fe public components",
   "author": "zhengxingcheng <xingcheng.zheng@gmail.com>",
   "private": false,
-  "bundleDependencies": false,
   "scripts": {
     "build": "gulp build"
   },
@@ -67,6 +66,35 @@
     "react-dom": ">=15.4.2",
     "react-redux": ">=5.0.2"
   },
+  "bundleDependencies": [
+    "bee-autocomplete",
+    "bee-breadcrumb",
+    "bee-button",
+    "bee-button-group",
+    "bee-checkbox",
+    "bee-city-select",
+    "bee-collapse",
+    "bee-dropdown",
+    "bee-form",
+    "bee-form-control",
+    "bee-icon",
+    "bee-input-group",
+    "bee-loading",
+    "bee-menus",
+    "bee-message",
+    "bee-modal",
+    "bee-notification",
+    "bee-pagination",
+    "bee-progress-bar",
+    "bee-radio",
+    "bee-rate",
+    "bee-select",
+    "bee-switch",
+    "bee-table",
+    "bee-tabs",
+    "bee-tooltip",
+    "bee-tree"
+  ],
   "main": "./gulpfile",
   "repository": {
     "type": "git",
