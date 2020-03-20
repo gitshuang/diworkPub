@@ -4,10 +4,10 @@
   "description": "diwork fe public components",
   "author": "zhengxingcheng <xingcheng.zheng@gmail.com>",
   "private": false,
+  "bundleDependencies": false,
   "scripts": {
     "build": "gulp build"
   },
-  "bundleDependencies": false,
   "dependencies": {
     "bee-autocomplete": "1.0.1",
     "bee-breadcrumb": "1.0.0",
@@ -65,7 +65,7 @@
   "peerDependencies": {
     "react": ">=15.6.2",
     "react-dom": ">=15.4.2",
-    "react-redux": ">=5.0.2",
+    "react-redux": ">=5.0.2"
   },
   "main": "./gulpfile",
   "repository": {
